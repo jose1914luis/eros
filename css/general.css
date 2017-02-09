@@ -1,0 +1,65 @@
+.navbar-brand>img {
+   max-height: 100%;
+   height: 100%;
+   width: auto;
+   margin: 0 auto;
+
+
+   /* probably not needed anymore, but doesn't hurt */
+   -o-object-fit: contain;
+   object-fit: contain; 
+}
+
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 85px;
+    height: 85px;
+    padding-top: 10px;
+}
+
+
+.navbar-nav > li > a {
+    padding-top: 28px !important;
+    padding-bottom: 5px !important;
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+}
+
+.navbar-left {
+    padding-top: 12px !important;
+}
+
+#izq_panel {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding-left: 4px;
+}
+
+#contenido_1 {
+   
+    left: 165px;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+
+#anuncio{
+    width: 1200px;
+    overflow: hidden;
+}
+
+#der_panel{
+    float: right;
+    margin: 0 1.5%;
+}
+
+#pie{
+    clear: both;
+    margin-bottom: 0;
+    float: bottom;
+}
+
+#body_index{
+    overflow-x: hidden;
+}
