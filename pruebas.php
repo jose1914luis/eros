@@ -8,4 +8,4 @@ error_reporting(E_ALL);
 include './bd/Anuncio.php';
 
 $anuncio = new Anuncio();
-echo $anuncio->deleteDir('/var/www/eros/upload/31');
+print_r( $anuncio->getAnuncios());

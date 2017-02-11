@@ -25,11 +25,8 @@ and open the template in the editor.
         <div id="anuncio">  
 
 
-            <div class="alert alert-success" role="alert">
-                Tu anuncio fue creado satisfactoriamente, se te envio un correo con un numero de registro y la informacion
-                adicional para que puedas promover tu anuncio y obtener mejores resultados. 
-                <button class="btn btn-default">ver anuncio</button>
-                <button class="btn btn-warning" onclick="location.href = 'anuncio.php'" >publicar otro anuncio</button>                
+            <div id="div_alerta"role="alert">
+                      
             </div>
 
 

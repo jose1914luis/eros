@@ -6,12 +6,12 @@ class Anuncio {
 
     //put your code here
 
-    public function insertAnuncio($tipo_anuncio, $titulo, $texto, $usuario, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio) {
+    public function insertAnuncio($tipo_anuncio, $titulo, $texto, $usuario, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa) {
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $pdo->prepare("INSERT INTO anuncio (tipo_anuncio, titulo, texto, usuario, email, tel, web, mun_idmun, mun_iddep, barrio) VALUES (:tipo_anuncio, :titulo, :texto, :usuario, :email, :tel, :web, :mun_idmun, :mun_iddep, :barrio)");
+        $stmt = $pdo->prepare("INSERT INTO anuncio (tipo_anuncio, titulo, texto, usuario, email, tel, web, mun_idmun, mun_iddep, barrio, edad, altura, tarifa) VALUES (:tipo_anuncio, :titulo, :texto, :usuario, :email, :tel, :web, :mun_idmun, :mun_iddep, :barrio, :edad, :altura, :tarifa)");
         $stmt->bindParam(':tipo_anuncio', $tipo_anuncio);
         $stmt->bindParam(':titulo', $titulo);
         $stmt->bindParam(':texto', $texto);
@@ -22,6 +22,9 @@ class Anuncio {
         $stmt->bindParam(':mun_idmun', $mun_idmun);
         $stmt->bindParam(':mun_iddep', $mun_iddep);
         $stmt->bindParam(':barrio', $barrio);
+        $stmt->bindParam(':edad', $edad);
+        $stmt->bindParam(':altura', $altura);
+        $stmt->bindParam(':tarifa', $tarifa);
 
         $result = $stmt->execute();
 
@@ -85,4 +88,25 @@ class Anuncio {
         rmdir($dirPath);
     }
 
+    public function getAnuncios(){
+        
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $query = $pdo->prepare("SELECT * FROM anuncio");
+        
+        $query->execute();
+        $data = $query->fetchAll();
+
+
+        if (!empty($data)) {    
+            
+            Database::disconnect();        
+            return $data;
+        } else{
+            
+            return false;
+        }
+        
+    }
 }

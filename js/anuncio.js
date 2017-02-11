@@ -7,13 +7,11 @@
 
 $(function () {
 
+    $('#div_alerta').hide();
 
     $("#publicar").on('submit', (function (e) {
         e.preventDefault();
-        console.log(new FormData(this));
-//        $("#message").empty();
-//        $('#loading').show();
-        console.log('entro');
+
         $.ajax({
             url: "./bd/publicar.php", // Url to which the request is send
             type: "POST", // Type of request to be send, called as method
@@ -23,12 +21,33 @@ $(function () {
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
-//                $('#loading').hide();
-//                $("#message").html(data);
-                  console.log(data);
+//                console.log(data);
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 900);
+
+                $("#publicar").find("input, textarea").val("");
+                $('#div_alerta').show();
+                $('#anuncio').scrollTop();
+                cerrarTodas();
+                if (data == 1) {
+
+                    $('#div_alerta').attr('class', 'alert alert-success');
+                    $('#div_alerta').text('');
+                    $('#div_alerta').html('<b>Genial!! Tu anuncio fue creado satisfactoriamente</b>, ' +
+                            'se te envio un correo con un numero de registro y la informacion ' +
+                            'adicional para que puedas promover tu anuncio y obtener mejores resultados. ' +
+                            '<a>ver anuncio</a> ');
+                } else {
+                    
+                    $('#div_alerta').attr('class', 'alert alert-danger');
+                    $('#div_alerta').text('');
+                    $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');                    
+                }
             },
-            fail: function (e){
-                console.log(e);
+            fail: function (e) {
+                
+                alerta('Error: ' + e + '. Vuelve a intentar.');
             }
         });
     }));
@@ -57,7 +76,13 @@ $(function () {
         });
     }
 
-
+    var cerrarTodas = function(){
+        
+        for (var j = 1; j <= 5 ; j++) {
+            
+            cerrar_imagen(j);
+        }
+    };
 
     var cerrar_imagen = function (i) {
 

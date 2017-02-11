@@ -95,7 +95,7 @@ for ($i = 1; $i <= 5; $i++) {
     if($proceso == 0){
         //si falla en alguna insercion se borra el anuncio y la carpeta
         $anuncio->borrarAnuncio($idanuncio);
-        rmdir($structure);
+        $anuncio->deleteDir('/var/www/eros/upload/' . $idanuncio);
         echo 0;    
         return;
     }
