@@ -28,24 +28,24 @@ and open the template in the editor.
 
         <nav id="izq_panel" >
 
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h2 class="panel-title">Categorias</h2>
-                </div>
-                <div>
 
-                    <ul class="nav nav-pills nav-stacked">
+            <ul>
+                <li><b>Categorias</b></li>
+                <?php
+                foreach ($tipo as $pos => $value) {
+                    echo '<li><a href="#">' . $value[1] . '</a> </li>';
+                }
+                ?>
+            </ul>
 
-                        <?php
-                        foreach ($tipo as $pos => $value) {
-                            echo '<li><a href="#">' . $value[1] . '</a></li>';
-                        }
-                        ?>
-                    </ul>
-                </div>
-
-            </div>
-
+            <ul>
+                <li><b>Departamentos</b></li>
+                <?php
+                foreach ($dep as $pos => $value) {
+                    echo '<li><a href="#">'  . $value[1] . '</a> </li>';
+                }
+                ?>
+            </ul>
 
         </nav>  
 
@@ -54,7 +54,7 @@ and open the template in the editor.
             <div class="row">
 
                 <div class="col-lg-5 ">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             Escort - Antioquia - Medellin
                         </div>
@@ -87,7 +87,7 @@ and open the template in the editor.
                 </div>
 
                 <div class="col-lg-5 ">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             Escort - Antioquia - Medellin
                         </div>
@@ -111,7 +111,7 @@ and open the template in the editor.
             <div class="row">
 
                 <div class="col-lg-5 ">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             Escort - Antioquia - Medellin
                         </div>
@@ -132,7 +132,7 @@ and open the template in the editor.
                 </div>
 
                 <div class="col-lg-5 ">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             Escort - Antioquia - Medellin
                         </div>
@@ -159,7 +159,7 @@ and open the template in the editor.
             <div class="row">
 
                 <div class="col-lg-5 ">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             Escort - Antioquia - Medellin
                         </div>
@@ -182,7 +182,7 @@ and open the template in the editor.
                 </div>
 
                 <div class="col-lg-5 ">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-danger">
                         <div class="panel-heading">
                             Escort - Antioquia - Medellin
                         </div>
@@ -207,77 +207,6 @@ and open the template in the editor.
             </div>
         </div>
 
-
-        <!--        <div class="col-lg-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h2 class="panel-title">Categorias</h2>
-                        </div>
-                        <div>
-                            <img src="image/fff.png" alt="...">
-                        </div>
-                        <div class="caption">
-                            <h3>Thumbnail label</h3>
-                            <p>...</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                        </div>
-        
-                    </div>
-                </div>-->
-        <!--
-                <section id="contenido_1">
-        
-                    <div class="" >
-                        <div class="col-lg-3">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    <h2 class="panel-title">Categorias</h2>
-                                </div>
-                                <div>
-                                    <img src="image/fff.png" alt="...">
-                                </div>
-                                <div class="caption">
-                                    <h3>Thumbnail label</h3>
-                                    <p>...</p>
-                                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                                </div>
-        
-                            </div>
-                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="panel panel-primary">
-                                                <div class="panel-heading">
-                                                    <h2 class="panel-title">Categorias</h2>
-                                                </div>
-                                                <div>
-                                                    <img src="image/fff.png" alt="...">
-                                                </div>
-                                                <div class="caption">
-                                                    <h3>Thumbnail label</h3>
-                                                    <p>...</p>
-                                                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                                                </div>
-                        
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <div class="panel panel-primary">
-                                                <div class="panel-heading">
-                                                    <h2 class="panel-title">Categorias</h2>
-                                                </div>
-                                                <div>
-                                                    <img src="image/fff.png" alt="...">
-                                                </div>
-                                                <div class="caption">
-                                                    <h3>Thumbnail label</h3>
-                                                    <p>...</p>
-                                                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-                                                </div>
-                        
-                                            </div>
-                                        </div>
-                    </div>
-                </section>-->
     </body>
 
 

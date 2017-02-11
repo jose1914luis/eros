@@ -10,169 +10,192 @@ and open the template in the editor.
         <title>Eros</title>
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
-        <link href="css/general.css" rel="stylesheet" type="text/css"/>
+        <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
         <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>        
         <script src="bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript"></script>
         <script src="CLEditor1_4_5/jquery.cleditor.min.js" type="text/javascript"></script>
         <script src="CLEditor1_4_5/jquery.cleditor.js" type="text/javascript"></script>
-        <script src="js/anuncio.js" type="text/javascript"></script>
+        <script src="js/anuncio.js?v=<?= time(); ?>" type="text/javascript"></script>
     </head>
     <body>
-        
+
         <?php
         include 'header.php';
         ?>
         <div id="anuncio">  
 
 
-            <?php
-            include_once './bd/Anuncio.php';
+            <div class="alert alert-success" role="alert">
+                Tu anuncio fue creado satisfactoriamente, se te envio un correo con un numero de registro y la informacion
+                adicional para que puedas promover tu anuncio y obtener mejores resultados. 
+                <button class="btn btn-default">ver anuncio</button>
+                <button class="btn btn-warning" onclick="location.href = 'anuncio.php'" >publicar otro anuncio</button>                
+            </div>
 
-            if (!empty($_POST)) {
 
-                $tipo_anuncio = $_POST['tipo_anuncio'];
-                $titulo = $_POST['titulo'];
-                $texto = $_POST['texto'];
-//    $usuario= $_POST['$usuario']; 
-                $email = $_POST['email'];
-                $tel = $_POST['tel'];
-                $web = $_POST['web'];
-                $mun_idmun = $_POST['mun_idmun'];
-                $mun_iddep = $_POST['mun_iddep'];
-                $barrio = $_POST['barrio'];
 
-                $anuncio = new Anuncio();
-                $result = $anuncio->insertAnuncio($tipo_anuncio, $titulo, $texto, null, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio);
+            <form id="publicar" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
-                if ($result > 1) {
-                    ?>
-                    <div class="alert alert-success" role="alert">
-                        Tu anuncio fue creado satisfactoriamente, se te envio un correo con un numero de registro y la informacion
-                        adicional para que puedas promover tu anuncio y obtener mejores resultados. 
-                        <button class="btn btn-default">ver anuncio</button>
-                        <button class="btn btn-warning" onclick="location.href = 'anuncio.php'" >publicar otro anuncio</button>                
+
+                <div class="form-group">
+                    <label for="categoria" class="col-sm-2 control-label">Categoria</label>
+                    <div class="col-sm-2">
+                        <select id="categoria" class="form-control" name="tipo_anuncio" >
+                            <?php
+                            foreach ($tipo as $pos => $value) {
+                                echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                            }
+                            ?>
+
+                        </select>
                     </div>
-                    <?php
-                }
-            } else {
-                ?>
+                </div>
 
+                <div class="form-group">
+                    <label for="dep" class="col-sm-2 control-label">Departamento</label>
+                    <div class="col-sm-2">
+                        <select id="dep" class="form-control"  name="mun_iddep">
+                            <option value = "0">Selecciona</option>
+                            <?php
+                            foreach ($dep as $pos => $value) {
+                                echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                            }
+                            ?>
 
-                <form class="form-horizontal" action="anuncio.php" method="post">
-
-
-                    <div class="form-group">
-                        <label for="categoria" class="col-sm-2 control-label">Categoria</label>
-                        <div class="col-sm-3">
-                            <select id="categoria" class="form-control" name="tipo_anuncio" required>
-                                <?php
-                                foreach ($tipo as $pos => $value) {
-                                    echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
-                                }
-                                ?>
-
-                            </select>
-                        </div>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="dep" class="col-sm-2 control-label">Departamento</label>
-                        <div class="col-sm-3">
-                            <select id="dep" class="form-control" required name="mun_iddep">
-                                <option value = "0">Selecciona</option>
-                                <?php
-                                foreach ($dep as $pos => $value) {
-                                    echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
-                                }
-                                ?>
-
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="mun" class="col-sm-2 control-label" required>Ciudad</label>
-                        <div class="col-sm-3">
+                        <label for="mun" class="col-sm-1 control-label" >Ciudad</label>
+                        <div class="col-sm-2">
                             <select id="mun" class="form-control" name="mun_idmun">   
                             </select>
                         </div>
                     </div>
 
+                </div>                  
 
+                <div class="form-group">
+                    <label for="barrio" class="col-sm-2 control-label">Barrio</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="barrio" placeholder="Barrio" name="barrio">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="titulo" class="col-sm-2 control-label" >Titulo</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="titulo" placeholder="Titulo"  name="titulo">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="titulo" class="col-sm-2 control-label">Descripcion</label>
+                    <div class="col-sm-6">
+                        <textarea id="input" name="texto" style=""  placeholder="Descripcion de tu anuncio"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="barrio" class="col-sm-2 control-label">Datos (Opcionales):</label>
                     <div class="form-group">
-                        <label for="barrio" class="col-sm-2 control-label">Barrio</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="barrio" placeholder="Barrio" name="barrio">
+                        <label for="edad" class="col-sm-1 control-label" id="lbl_edad">Edad</label>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="edad" placeholder="años" name="edad">
+                        </div>
+
+                        <label for="altura" class="col-sm-1 control-label" id="lbl_altura">Altura</label>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="altura" placeholder="cm." name="altura">
+                        </div>
+
+                        <label for="tarifa" class="col-sm-1 control-label" id="lbl_tarifa">Tarifa Minima</label>
+                        <div class="col-sm-1">
+                            <input type="text" class="form-control" id="tarifa" placeholder="pesos" name="tarifa">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="web" class="col-sm-2 control-label">Pagina Web</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="web" class="form-control" id="correo" placeholder="Web" >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo" class="col-sm-2 control-label">Correo</label>
+                    <div class="col-sm-6">
+                        <input type="email" name="email" class="form-control" id="correo" placeholder="Correo" >
+                    </div>
+                </div>     
+
+                <div class="form-group">
+                    <label for="tel" class="col-sm-2 control-label">Tel</label>
+                    <div class="col-sm-3">
+                        <input type="tel" class="form-control" name="tel" id="tel" placeholder="Telefono" >
+                    </div>
+                </div> 
+
+                <div class="form-group">
+                    <label for="fotos" class="col-sm-2 control-label">Fotos</label>
+                    <div id="con_img">
+                        <div class="div_img">
+                            <span id='btn_close_1' class="close" >&#10006</span>
+                            <img id="image_1" class="image" src="" alt="pagina erotica" width="100px" height="100px">
+                            <span id="btn_mas_1" class="btn_mas" >+</span>
+                            <input name = "file_1" id="file_1" class="file" type="file" >
+                        </div>
+                        <div class="div_img">
+                            <span id='btn_close_2' class="close" >&#10006</span>
+                            <img id="image_2" class="image" src="" alt="pagina erotica" width="100px" height="100px">
+                            <span id="btn_mas_2" class="btn_mas" >+</span>
+                            <input name = "file_2" id="file_2" class="file" type="file" >
+                        </div>
+                        <div class="div_img">
+                            <span id='btn_close_3' class="close" >&#10006</span>
+                            <img id="image_3" class="image" src="" alt="pagina erotica" width="100px" height="100px">
+                            <span id="btn_mas_3" class="btn_mas" >+</span>
+                            <input name = "file_3" id="file_3" class="file" type="file" >
+                        </div>
+                        <div class="div_img">
+                            <span id='btn_close_4' class="close" >&#10006</span>
+                            <img id="image_4" class="image" src="" alt="pagina erotica" width="100px" height="100px">
+                            <span id="btn_mas_4" class="btn_mas" >+</span>
+                            <input name = "file_4" id="file_4" class="file" type="file" >
+                        </div>
+                        <div class="div_img">
+                            <span id='btn_close_5' class="close" >&#10006</span>
+                            <img id="image_5" class="image" src="" alt="pagina erotica" width="100px" height="100px">
+                            <span id="btn_mas_5" class="btn_mas" >+</span>
+                            <input name = "file_5" id="file_5" class="file" type="file" >
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="titulo" class="col-sm-2 control-label" required>Titulo</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="titulo" placeholder="Titulo" required name="titulo">
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" > <a>Acepto Terminos y Condiciones</a>
+                            </label>
                         </div>
                     </div>
+                </div>
 
-
-                    <div class="form-group">
-                        <label for="titulo" class="col-sm-2 control-label">Descripcion</label>
-                        <div class="col-sm-6">
-                            <textarea id="input" name="texto" style="" required placeholder="Descripcion de tu anuncio"></textarea>
-                        </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Publicar</button>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="web" class="col-sm-2 control-label">Web</label>
-                        <div class="col-sm-6">
-                            <input type="text" name="web" class="form-control" id="correo" placeholder="Web" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="correo" class="col-sm-2 control-label">Correo</label>
-                        <div class="col-sm-6">
-                            <input type="email" name="email" class="form-control" id="correo" placeholder="Correo" required>
-                        </div>
-                    </div>     
-
-                    <div class="form-group">
-                        <label for="tel" class="col-sm-2 control-label">Tel</label>
-                        <div class="col-sm-4">
-                            <input type="tel" class="form-control" name="tel" id="tel" placeholder="Telefono" required>
-                        </div>
-                    </div> 
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" required> Acepto Terminos y Condiciones
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="fotos" class="col-sm-2 control-label">Fotos</label>
-                        <div class="col-sm-4">
-                            <button id="fotos" type="button" class="btn btn-default">Subir Fotos</button>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Publicar</button>
-                        </div>
-                    </div>
-
-                </form>
+            </form>
 
 
 
-                <?php
-            }
-            ?>
 
         </div>
     </body>

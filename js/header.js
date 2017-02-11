@@ -9,7 +9,7 @@ $(function () {
 
     $("#dep2").change(function () {
 
-        $.get("http://localhost/eros/bd/getMun.php", {iddep: $("#dep2").val()})
+        $.get("getMun.php", {iddep: $("#dep2").val()})
                 .done(function (data) {
                     $('#mun2 option[value!="-1"]').remove();
                     $('#mun2').append($("<option></option>").attr("value", '0').text('Selecciona'));

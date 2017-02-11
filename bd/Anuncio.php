@@ -36,4 +36,53 @@ class Anuncio {
         }
     }
 
+    public function insertarURLImagen($id_anuncio, $url) {
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $pdo->prepare("INSERT INTO imagen (url, idanuncio) VALUES (:url, :idanuncio)");
+        $stmt->bindParam(':idanuncio', $id_anuncio);
+        $stmt->bindParam(':url', $url);
+
+        $result = $stmt->execute();
+
+
+        Database::disconnect();
+
+        return $result;
+    }
+
+    public function borrarAnuncio($id_anuncio) {
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio");
+        $stmt->bindParam(':idanuncio', $id_anuncio);
+        $result = $stmt->execute();
+
+        Database::disconnect();
+
+        return $result;
+    }
+
+    public static function deleteDir($dirPath) {
+        if (!is_dir($dirPath)) {
+            throw new InvalidArgumentException("$dirPath must be a directory");
+        }
+        if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+            $dirPath .= '/';
+        }
+        $files = glob($dirPath . '*', GLOB_MARK);
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                self::deleteDir($file);
+            } else {
+                unlink($file);
+            }
+        }
+        rmdir($dirPath);
+    }
+
 }
