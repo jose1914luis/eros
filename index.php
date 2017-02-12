@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
-
-
     <head>
         <meta charset="UTF-8">
         <title>Eros</title>
@@ -23,6 +15,9 @@ and open the template in the editor.
     <body id="body_index">       
 
         <?php
+        $cat = filter_input(INPUT_GET, 'cat');
+        $depa = filter_input(INPUT_GET, 'depa');
+        $idanuncio = filter_input(INPUT_GET, 'idanuncio');
         include 'header.php';
         ?>
 
@@ -33,7 +28,7 @@ and open the template in the editor.
                 <li><b>Categorias</b></li>
                 <?php
                 foreach ($tipo as $pos => $value) {
-                    echo '<li><a href="#">' . $value[1] . '</a> </li>';
+                    echo '<li><a href="index.php?cat=' . $value[0] . '">' . $value[1] . '</a> </li>';
                 }
                 ?>
             </ul>
@@ -42,7 +37,7 @@ and open the template in the editor.
                 <li><b>Departamentos</b></li>
                 <?php
                 foreach ($dep as $pos => $value) {
-                    echo '<li><a href="#">' . $value[1] . '</a> </li>';
+                    echo '<li><a href="index.php?depa=' . $value[0] . '">' . $value[1] . '</a> </li>';
                 }
                 ?>
             </ul>
@@ -51,7 +46,12 @@ and open the template in the editor.
 
         <div id="contenido_1">            
             <?php
-            include './contenido.php';
+            if(isset($idanuncio)){
+                include './welcome.php';
+            }  else {
+                include './contenido.php';
+            }
+            
             ?>
         </div>
 

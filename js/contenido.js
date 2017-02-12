@@ -5,30 +5,17 @@
  */
 $(function () {
 
-//console.log('entra tambien');
-
+//    truncateText = function (selector, maxLength) {
+//        
+//        var truncated = $('#p_1').text();
 //
-//    var slideIndex = 1;
-//    showDivs(slideIndex);
-//
-//    plusDivs = function (n) {        
-//        showDivs(slideIndex += n);
+//        if (truncated.length > maxLength) {
+//            truncated = truncated.substr(0, maxLength) + '...';
+//        }
+//        return truncated;
 //    };
 //
-//    function showDivs(n) {
-//        var i;
-//        var x = document.getElementsByClassName("mySlides");
-//        
-//        if (n > x.length) {
-//            slideIndex = 1;
-//        }
-//        if (n < 1) {
-//            slideIndex = x.length;
-//        }
-//        for (i = 0; i < x.length; i++) {
-//            x[i].style.display = "none";
-//        }
-//        x[slideIndex - 1].style.display = "block";
-//    }
+//    $('#p_1').text(truncateText('p', 107));
+
 });
 

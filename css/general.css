@@ -1,3 +1,19 @@
+.hand{
+    cursor: pointer;
+}
+.td_texto{
+    word-wrap: break-word; 
+    max-width: 318px; 
+    max-height: 250px;
+}
+.texto{
+    font-size: 12px;
+    max-height: 100px;
+    overflow: hidden;
+}
+.f_15{
+    font-size: 15px;
+}
 #div_alerta{
     margin-left: 204px;
     width: 600px;
@@ -120,14 +136,14 @@
 
 #izq_panel {
     float: left;
-    max-width: 160px;
+    max-width: 170px;
     margin: 0;
     background-color: #f7f7f9;
     border: 1px solid #e1e1e8;
     border-radius: 4px;
     left: 15px;
     position: absolute;
-    width: 135px;
+    width: 160px;
 }
 
 #izq_panel ul li a {
@@ -146,7 +162,7 @@
 
 #contenido_1 {
 
-    left: 165px;
+    left: 190px;
     position: absolute;
     width: 100%;
     overflow: hidden;

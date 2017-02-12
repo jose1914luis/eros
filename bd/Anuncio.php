@@ -6,6 +6,34 @@ class Anuncio {
 
     //put your code here
 
+    public function total($cat, $depa) {
+        
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        $consulta = '';
+        if(isset($cat)){
+            $consulta = "WHERE tipo_anuncio = " . intval($cat);
+        }
+        if(isset($depa)){
+            
+            $consulta = "WHERE mun_iddep = " . intval($depa);
+        }
+        
+        $sql = "SELECT COUNT(*) as total FROM anuncio " . $consulta;
+        $query = $pdo->prepare($sql);
+        $query->execute();
+
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($data)) {
+            return $data['total'];
+        }else{
+            return 0;
+        }
+            
+    }
+
     public function insertAnuncio($tipo_anuncio, $titulo, $texto, $usuario, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa) {
 
         $pdo = Database::connect();
@@ -88,15 +116,46 @@ class Anuncio {
         rmdir($dirPath);
     }
 
-    public function getAnuncios(){
-        
+    public function getAnuncioXPagina($limite, $offset, $cat, $depa) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $pdo->prepare("SELECT * FROM anuncio");
+        $consulta = '';
+        if(isset($cat)){
+            $consulta = "WHERE tipo_anuncio = " . intval($cat);
+        }
+        if(isset($depa)){
+            
+            $consulta = "WHERE mun_iddep = " . intval($depa);
+        }
+        $query = $pdo->prepare("SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
+            FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
+            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) ". $consulta . " ORDER BY idanuncio LIMIT ". intval($limite) ." OFFSET ". intval($offset));
         
         $query->execute();
         $data = $query->fetchAll();
+
+        if (!empty($data)) {
+
+            Database::disconnect();
+            return $data;
+        } else {
+
+            return false;
+        }
+    }
+    
+    public function getAnunciosxID($idanuncio) {
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $query = $pdo->prepare("SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
+            FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
+            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) WHERE idanuncio = ?;");
+
+        $query->execute(array($idanuncio));
+        $data = $query->fetch(PDO::FETCH_ASSOC);
 
 
         if (!empty($data)) {    
@@ -109,4 +168,25 @@ class Anuncio {
         }
         
     }
+
+    public function getUrlImage($idanuncio) {
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT url FROM imagen WHERE idanuncio = ?";
+        $query = $pdo->prepare($sql);
+        $query->execute(array($idanuncio));
+        $data = $query->fetchAll();
+
+
+        if (!empty($data)) {
+
+            Database::disconnect();
+            return $data;
+        } else {
+
+            return false;
+        }
+    }
+
 }
