@@ -8,7 +8,7 @@ $anuncio = new Anuncio();
 
 
 
-$total = $anuncio->total($cat, $depa);
+$total = $anuncio->total($cat, $depa, $mun, $buscar);
 
 // How many items to list per page
 $limit = 2;
@@ -34,7 +34,7 @@ if ($total > 0) {
     $start = $offset + 1;
     $end = min(($offset + $limit), $total);
 
-    $datos = $anuncio->getAnuncioXPagina($limit, $offset, $cat, $depa);
+    $datos = $anuncio->getAnuncioXPagina($limit, $offset, $cat, $depa, $mun, $buscar);
 
     echo '<div class="row">';
     $i = 1;

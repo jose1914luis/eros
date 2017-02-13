@@ -118,9 +118,13 @@ $(function () {
         var file = e.files[0];
         var imagefile = file.type;
         var match = ["image/jpeg", "image/png", "image/jpg"];
+        if(file.size > 5000000){
+            alert('La foto debe ser de un tamaño menor a 5Mb. Intente con otra foto o reduzca su tamaño.');
+            return false;
+        }
         if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2])))
         {
-            alert('seleccione un formato valido "image/jpeg", "image/png", "image/jpg"');
+            alert('Seleccione un formato valido "image/jpeg", "image/png", "image/jpg"');
             return false;
         } else
         {

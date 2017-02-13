@@ -12,7 +12,7 @@ $dep = $ClDep->obtenerDep();
 ?>
 
 <header>
-    <script src="js/header.js" type="text/javascript"></script>
+    <script src="js/header.js?v=<?= time(); ?>" type="text/javascript"></script>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -62,9 +62,9 @@ $dep = $ClDep->obtenerDep();
                 </ul>
                 <form class="navbar-form navbar-left">
                     <div class="input-group input-group-lg">
-                        <input type="text" class="form-control" placeholder="Buscar..." >
+                        <input id="txt_buscar" type="text" class="form-control" placeholder="Buscar..." >
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
+                            <button id="btn_buscar" class="btn btn-default" type="button">
                                 <span class="glyphicon glyphicon-search"/>
                             </button>
                         </span>
