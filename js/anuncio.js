@@ -7,11 +7,11 @@
 
 $(function () {
 
+
     $('#div_alerta').hide();
 
     $("#publicar").on('submit', (function (e) {
         e.preventDefault();
-
         $.ajax({
             url: "./bd/publicar.php", // Url to which the request is send
             type: "POST", // Type of request to be send, called as method
@@ -39,24 +39,45 @@ $(function () {
                             'adicional para que puedas promover tu anuncio y obtener mejores resultados. ' +
                             '<a>ver anuncio</a> ');
                 } else {
-                    
+
                     $('#div_alerta').attr('class', 'alert alert-danger');
                     $('#div_alerta').text('');
-                    $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');                    
+                    $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');
                 }
             },
             fail: function (e) {
-                
+
                 alerta('Error: ' + e + '. Vuelve a intentar.');
             }
         });
     }));
 
-    $("#input").cleditor();
 
+    $("#editor").cleditor({controls: // controls to add to the toolbar
+                "bold italic underline strikethrough subscript superscript | font size " +
+                "style | color highlight removeformat | bullets numbering | outdent " +
+                "indent | alignleft center alignright justify | undo redo | " +
+                "rule link unlink | cut copy paste pastetext"});
+
+    var cledDesc = $("#editor").cleditor()[0];
+    var frameDesc = cledDesc.$frame[0].contentWindow.document;
+
+    $(frameDesc).bind('keydown change', function (event) {
+
+        var text = cledDesc.$area.val();
+
+        if (text.length >= 32700 && event.which != 8) {
+            console.log("Longer than MaxLength");
+            //lose focus / stop writing
+            return false;
+        } else {
+            //Do something
+        }
+    });
 
     for (var j = 1; j <= 5; j++) {
         $('#image_' + j).attr('style', 'visibility: hidden');
+
         $('#btn_close_' + j).hide();
 
         $('#btn_mas_' + j).on('click', function () {
@@ -76,10 +97,10 @@ $(function () {
         });
     }
 
-    var cerrarTodas = function(){
-        
-        for (var j = 1; j <= 5 ; j++) {
-            
+    var cerrarTodas = function () {
+
+        for (var j = 1; j <= 5; j++) {
+
             cerrar_imagen(j);
         }
     };
@@ -97,7 +118,6 @@ $(function () {
         $.get("http://localhost/eros/bd/getMun.php", {iddep: $("#dep").val()})
                 .done(function (data) {
                     $('#mun option[value!="-1"]').remove();
-                    $('#mun').append($("<option></option>").attr("value", '0').text('Selecciona'));
                     $.each(data, function (index, value) {
 
 
@@ -118,7 +138,7 @@ $(function () {
         var file = e.files[0];
         var imagefile = file.type;
         var match = ["image/jpeg", "image/png", "image/jpg"];
-        if(file.size > 5000000){
+        if (file.size > 5000000) {
             alert('La foto debe ser de un tamaño menor a 5Mb. Intente con otra foto o reduzca su tamaño.');
             return false;
         }
@@ -135,10 +155,9 @@ $(function () {
                 $('#image_' + i).attr('style', 'visibility: visible');
                 $('#btn_close_' + i).show();
                 $('#image_' + i).attr('src', e.target.result);
-
+                rederizar($('#image_' + i), 100, 100);
             };
             reader.readAsDataURL(e.files[0]);
         }
     };
-
 });

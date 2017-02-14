@@ -5,9 +5,7 @@
  */
 $(function () {
     $('.render').each(function () {
-//        console.log(this);
-        rederizar(this, 250, 200);
+        rederizar(this, 550, 450);
     });
 
 });
-

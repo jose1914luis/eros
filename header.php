@@ -71,8 +71,8 @@ $dep = $ClDep->obtenerDep();
                     </div><!-- /input-group -->
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" style="padding-top: 23px !important;"><h5 style="font-size: 18px;"> <span class="label label-warning" style="cursor: pointer" onclick="location.href = 'anuncio.php'">Publicar anuncio</span></h5></a></li>                           
-                    <li><a href="#" style="padding-top: 23px !important;"> <h5 style="font-size: 18px;"><span class="label label-primary" style="cursor: pointer" onclick="location.href = 'anuncio.php'">Iniciar sesion</span></h5></a></li>                           
+                    <li><a href="#" style="padding-top: 25px !important; margin-right: 35px"><h5 style="font-size: 20px;"> <span class="label label-danger" style="cursor: pointer" onclick="location.href = 'anuncio.php'">Publicar anuncio</span></h5></a></li>                           
+                    <!--<li><a href="#" style="padding-top: 23px !important;"> <h5 style="font-size: 18px;"><span class="label label-primary" style="cursor: pointer" onclick="location.href = 'anuncio.php'">Iniciar sesion</span></h5></a></li>-->                           
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

@@ -1,12 +1,4 @@
-<?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
-include './bd/Anuncio.php';
-
-$anuncio = new Anuncio();
-
-print_r($anuncio->construirWhere(1, null, null, 1));
+<script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
+<script src="js/prueba.js" type="text/javascript"></script>
+<img id='hola' src="./pag_ima/0ac736bfe1ee195b0421aea0f31f5d4f (1).jpg">
+    
