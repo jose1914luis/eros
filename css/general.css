@@ -5,9 +5,17 @@
     height: 250px;
 }
 .cont_img{
-    float: left;       
+    float: left;
     margin-left: 5px;
+    /* border-style: groove; */
     margin-top: 10px;
+    border-style: solid;
+    border-width: medium;
+    /* border-width: 1px; */
+    border: 1px solid #e1e1e8;
+    padding: 3px;
+    border-radius: 2px;
+    display: inline-block;
 }
 .hand{
     cursor: pointer;

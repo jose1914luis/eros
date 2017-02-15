@@ -1,12 +1,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Eros</title>
+        <title>P.E.Com</title>
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
-        <link href="css/w3.css" rel="stylesheet" type="text/css"/>
+        <link href="css/w3.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
         <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
         <script src="bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript"></script>
+        <link rel="shortcut icon" href="pag_ima/fire.ico">
+
         <!--<script src="js/index.js" type="text/javascript"></script>-->
     </head>
 
@@ -67,7 +69,7 @@
             if (isset($idanuncio)) {
                 include './welcome.php';
             } else {
-                
+
                 include './contenido.php';
             }
             ?>

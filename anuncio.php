@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Eros</title>
+        <title>P.E.Com</title>
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
@@ -18,7 +18,7 @@ and open the template in the editor.
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
         <script src="js/anuncio.js?v=<?= time(); ?>" type="text/javascript"></script>
-        
+        <link rel="shortcut icon" href="pag_ima/fire.ico">
     </head>
     <body>
 

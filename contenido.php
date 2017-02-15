@@ -72,37 +72,41 @@ if ($total > 0) {
 
 
             if (is_array($img) || is_object($img)) {
-                echo '<td> ';
+                echo '<td style = "width: 205px;"> ';
                 echo '<div class="w3-content w3-display-container" style="text-align: center;height: 250px;">';
                 echo '<div class="helper"></div>';
                 foreach ($img as $pos2 => $url) {
                     echo '<img class="render slides_' . $i . '" src="' . substr($url['url'], 1) . '" alt="...">';
                 }
+                if (count($img) > 1) {
 
-                echo '<a style="opacity: 0.6;" class="w3-btn-floating w3-display-left" onclick="plusDivs_' . $i . '(-1)">&#10094;</a>';
-                echo '<a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="plusDivs_' . $i . '(1)">&#10095;</a>';
+                    echo '<a style="opacity: 0.6;" class="w3-btn-floating w3-display-left" onclick="plusDivs_' . $i . '(-1)">&#10094;</a>';
+                    echo '<a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="plusDivs_' . $i . '(1)">&#10095;</a>';
 
-                echo '<script type="text/javascript">';
-                echo '                            var slide_' . $i . ' = 1;';
-                echo '                            showDivs_' . $i . '(slide_' . $i . ');';
-                echo '                            plusDivs_' . $i . ' = function (n) {';
-                echo '                                showDivs_' . $i . '(slide_' . $i . ' += n);';
-                echo '                            };';
-                echo '                      function showDivs_' . $i . '(n) {';
-                echo '                          var i;';
-                echo '                          var x = $(".slides_' . $i . '");';
-                echo '                          if (n > x.length) {';
-                echo '                              slide_' . $i . ' = 1;';
-                echo '                          }';
-                echo '                          if (n < 1) {';
-                echo '                              slide_' . $i . ' = x.length;';
-                echo '                          }';
-                echo '                          for (i = 0; i < x.length; i++) {';
-                echo '                              x[i].style.display = "none";';
-                echo '                          }';
-                echo '                          x[slide_' . $i . ' - 1].style.display = "inline-block";';
-                echo '                      }';
-                echo '                  </script>';
+                    echo '<script type="text/javascript">';
+                    echo '                            var slide_' . $i . ' = 1;';
+                    echo '                            showDivs_' . $i . '(slide_' . $i . ');';
+                    echo '                            plusDivs_' . $i . ' = function (n) {';
+                    echo '                                showDivs_' . $i . '(slide_' . $i . ' += n);';
+                    echo '                            };';
+                    echo '                      function showDivs_' . $i . '(n) {';
+                    echo '                          var i;';
+                    echo '                          var x = $(".slides_' . $i . '");';
+                    echo '                          if (n > x.length) {';
+                    echo '                              slide_' . $i . ' = 1;';
+                    echo '                          }';
+                    echo '                          if (n < 1) {';
+                    echo '                              slide_' . $i . ' = x.length;';
+                    echo '                          }';
+                    echo '                          for (i = 0; i < x.length; i++) {';
+                    echo '                              x[i].style.display = "none";';
+                    echo '                          }';
+                    echo '                          x[slide_' . $i . ' - 1].style.display = "inline-block";';
+                    echo '                      }';
+                    echo '                  </script>';
+                }
+
+
                 echo '</div>';
                 echo '</td>';
             }
@@ -149,10 +153,10 @@ if ($total > 0) {
     echo '<nav aria-label="Page navigation">';
     echo '    <ul class="pagination">';
     echo $prevlink;
-    
+
     for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-        echo '<li '. (($j == $page)?'class="active"':'' ) . '><a href="?page=' . $j . '">' . $j . '</a></li>';
+        echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '">' . $j . '</a></li>';
     }
     echo $nextlink;
 

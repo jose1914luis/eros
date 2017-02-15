@@ -12,6 +12,7 @@ $dep = $ClDep->obtenerDep();
 ?>
 
 <header>
+    
     <script src="js/header.js?v=<?= time(); ?>" type="text/javascript"></script>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
