@@ -7,14 +7,14 @@
  */
 
 require 'GetDep.php';
-header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');  
 if (!empty($_GET)) {
 
     $iddep = $_GET['iddep'];
     $ClDep = new GetDep();
     
     $mun = $ClDep->obtenerMun($iddep);
-    
+    header('Content-Type: application/json');
     echo json_encode($mun);
 }else{
     

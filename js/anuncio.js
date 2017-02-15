@@ -116,7 +116,7 @@ $(function () {
 
     $("#dep").change(function () {
 
-        $.get("http://localhost/eros/bd/getMun.php", {iddep: $("#dep").val()})
+        $.get("./bd/getMun.php", {iddep: $("#dep").val()})
                 .done(function (data) {
                     $('#mun option[value!="-1"]').remove();
                     $.each(data, function (index, value) {
