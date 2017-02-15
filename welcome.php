@@ -17,13 +17,13 @@ echo '<div class="panel panel-warning" style="width: 1000px;">';
 echo '  <div class="panel-heading">';
 echo '    <h3 class="panel-title">' . $titulo . '</h3>';
 if (!empty($edad))
-    echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
+    echo '<b class="f_15">Edad: </b>' . $edad. '<br>';
 if (!empty($altura))
     echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
 if (!empty($tarifa))
-    echo '<b class="f_15">Tarifa minima: </b>' . $value['tarifa'] . '<br>';
+    echo '<b class="f_15">Tarifa minima: </b>' . $tarifa . '<br>';
 if (!empty($tel))
-    echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
+    echo '<b class="f_15">Tel: </b>' .$tel. '<br>';
 
 echo '  </div>';
 echo '  <div class="panel-body">';

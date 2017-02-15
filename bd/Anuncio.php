@@ -17,7 +17,7 @@ class Anuncio {
         if(!empty($mun)){
             
             
-            $consulta .= ($consulta == "")? "mun_idmun = " . intval($depa):" AND mun_idmun = " . intval($depa);
+            $consulta .= ($consulta == "")? "mun_idmun = " . intval($mun):" AND mun_idmun = " . intval($mun);
         }
         if(!empty($buscar)){
             
@@ -137,10 +137,10 @@ class Anuncio {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $consulta = $this->construirWhere($cat, $depa, $mun, $buscar);
-        
-        $query = $pdo->prepare("SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
+        $sql = "SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
             FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
-            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) ". $consulta . " ORDER BY idanuncio LIMIT ". intval($limite) ." OFFSET ". intval($offset));
+            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) ". $consulta . " ORDER BY idanuncio LIMIT ". intval($limite) ." OFFSET ". intval($offset);
+        $query = $pdo->prepare($sql);        
         
         $query->execute();
         $data = $query->fetchAll();

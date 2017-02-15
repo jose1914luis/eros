@@ -101,4 +101,9 @@ for ($i = 1; $i <= 5; $i++) {
     }
 }
 
-echo $proceso;
+if($proceso != 0){
+    echo $idanuncio;
+}  else {
+    echo $proceso;
+}
+

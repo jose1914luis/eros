@@ -21,6 +21,13 @@
         $mun = filter_input(INPUT_GET, 'mun');
         $idanuncio = filter_input(INPUT_GET, 'idanuncio');
         include 'header.php';
+
+        $data_mun;
+        if (!empty($depa)) {
+
+            $data_mun = $ClDep->obtenerMun($depa);
+            //print_r($data_mun);
+        }
         ?>
 
         <nav id="izq_panel" >
@@ -35,25 +42,34 @@
                 ?>
             </ul>
 
+
             <ul>
-                <li><b>Departamentos</b></li>
                 <?php
-                foreach ($dep as $pos => $value) {
-                    echo '<li><a href="index.php?depa=' . $value[0] . '">' . $value[1] . '</a> </li>';
+                if (empty($data_mun)) {
+                    echo '<li><b>Departamentos</b></li>';
+                    foreach ($dep as $pos => $value) {
+                        echo '<li><a href="index.php?depa=' . $value[0] . '">' . $value[1] . '</a> </li>';
+                    }
+                } else {
+                    echo '<li><b>Ciudad</b></li>';
+                    foreach ($data_mun as $pos => $value) {
+                        echo '<li><a href="index.php?mun=' . $value[0] . '">' . $value[2] . '</a> </li>';
+                    }
                 }
                 ?>
+
             </ul>
 
         </nav>  
 
         <div id="contenido_1">            
             <?php
-            if(isset($idanuncio)){
+            if (isset($idanuncio)) {
                 include './welcome.php';
-            }  else {
+            } else {
+                
                 include './contenido.php';
             }
-            
             ?>
         </div>
 

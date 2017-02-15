@@ -7,8 +7,6 @@ $anuncio = new Anuncio();
 
 //filter_input(INPUT_GET, 'page');
 
-
-
 $total = $anuncio->total($cat, $depa, $mun, $buscar);
 
 // How many items to list per page
@@ -75,14 +73,14 @@ if ($total > 0) {
 
             if (is_array($img) || is_object($img)) {
                 echo '<td> ';
-                echo '<div class="w3-content w3-display-container" style="    height: 250px;">';
-
+                echo '<div class="w3-content w3-display-container" style="text-align: center;height: 250px;">';
+                echo '<div class="helper"></div>';
                 foreach ($img as $pos2 => $url) {
-                    echo '<img class="render slides_' . $i . '" src="' . substr($url['url'], 1) . '" alt="..." style="">';
+                    echo '<img class="render slides_' . $i . '" src="' . substr($url['url'], 1) . '" alt="...">';
                 }
 
-                echo '<a class="w3-btn-floating w3-display-left" onclick="plusDivs_' . $i . '(-1)">&#10094;</a>';
-                echo '<a class="w3-btn-floating w3-display-right" onclick="plusDivs_' . $i . '(1)">&#10095;</a>';
+                echo '<a style="opacity: 0.6;" class="w3-btn-floating w3-display-left" onclick="plusDivs_' . $i . '(-1)">&#10094;</a>';
+                echo '<a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="plusDivs_' . $i . '(1)">&#10095;</a>';
 
                 echo '<script type="text/javascript">';
                 echo '                            var slide_' . $i . ' = 1;';
@@ -102,7 +100,7 @@ if ($total > 0) {
                 echo '                          for (i = 0; i < x.length; i++) {';
                 echo '                              x[i].style.display = "none";';
                 echo '                          }';
-                echo '                          x[slide_' . $i . ' - 1].style.display = "block";';
+                echo '                          x[slide_' . $i . ' - 1].style.display = "inline-block";';
                 echo '                      }';
                 echo '                  </script>';
                 echo '</div>';
@@ -116,12 +114,16 @@ if ($total > 0) {
 
             echo '<td class="td_texto">';
             echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b class="f_15">' . $titulo . '</b></a><br>';
-                        
+
             echo '<p class="texto">' . $texto . '</p>';
-            if(!empty($edad))echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
-            if(!empty($altura))echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
-            if(!empty($tarifa))echo '<b class="f_15">Tarifa minima: </b>' . $value['tarifa'] . '<br>';
-            if(!empty($tel))echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
+            if (!empty($edad))
+                echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
+            if (!empty($altura))
+                echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
+            if (!empty($tarifa))
+                echo '<b class="f_15">Tarifa minima: </b>' . $value['tarifa'] . '<br>';
+            if (!empty($tel))
+                echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
             echo '</td>';
             echo '</tr>';
             echo '</table>';
@@ -139,17 +141,18 @@ if ($total > 0) {
     $prevlink = ($page > 1) ? '<li><a href="?page=1" aria-label="Previous">&laquo;</a> </li> <li><a href="?page=' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
 // The "forward" link
-    
-    
+
+
     $nextlink = ($page < $pages) ? '<li><a href="?page=' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="?page=' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
 
     echo '<div class="text-center" style="margin-left: -225px;">';
     echo '<nav aria-label="Page navigation">';
     echo '    <ul class="pagination">';
     echo $prevlink;
-    for ($j = 1; $j <= $pages; $j++) {
+    
+    for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-        echo '<li><a href="?page=' . $j . '">' . $j . '</a></li>';
+        echo '<li '. (($j == $page)?'class="active"':'' ) . '><a href="?page=' . $j . '">' . $j . '</a></li>';
     }
     echo $nextlink;
 

@@ -30,14 +30,15 @@ $(function () {
                 $('#div_alerta').show();
                 $('#anuncio').scrollTop();
                 cerrarTodas();
-                if (data == 1) {
+                console.log(data);
+                if (data != 0) {
 
                     $('#div_alerta').attr('class', 'alert alert-success');
                     $('#div_alerta').text('');
                     $('#div_alerta').html('<b>Genial!! Tu anuncio fue creado satisfactoriamente</b>, ' +
                             'se te envio un correo con un numero de registro y la informacion ' +
                             'adicional para que puedas promover tu anuncio y obtener mejores resultados. ' +
-                            '<a>ver anuncio</a> ');
+                            '<a href="index.php?idanuncio='+ data +'">ver anuncio</a> ');
                 } else {
 
                     $('#div_alerta').attr('class', 'alert alert-danger');
@@ -154,7 +155,7 @@ $(function () {
                 $('#btn_mas_' + i).hide();
                 $('#image_' + i).attr('style', 'visibility: visible');
                 $('#btn_close_' + i).show();
-                $('#image_' + i).attr('src', e.target.result);
+                $('#image_' + i).attr('src', e.target.result);               
                 rederizar($('#image_' + i), 100, 100);
             };
             reader.readAsDataURL(e.files[0]);
