@@ -21,8 +21,8 @@ class Anuncio {
         }
         if(!empty($buscar)){
             
-            $consulta .= ($consulta == "")?"(texto = " . $buscar . " OR tel = " . $buscar . " OR altura = " . $buscar . " OR edad = " . " OR tarifa = " . $buscar . " OR titulo = " . $buscar .")":
-                " AND (texto = " . $buscar . " OR tel = " . $buscar . " OR altura = " . $buscar . " OR edad = " . " OR tarifa = " . $buscar . " OR titulo = " . $buscar .")";
+            $consulta .= ($consulta == "")?"(texto LIKE '%" . $buscar . "%' OR tel LIKE '%" . $buscar . "%' OR altura = '" . $buscar . "' OR edad = '" . $buscar . "' OR tarifa = '" . $buscar . "' OR titulo LIKE '%" . $buscar ."%')":
+                " AND (texto LIKE '%" . $buscar . "%' OR tel LIKE '%" . $buscar . "%' OR altura = '" . $buscar . "' OR edad = '" . $buscar . "' OR tarifa = '" . $buscar . "' OR titulo LIKE '%" . $buscar ."%')";
         }   
 //        echo $consulta;
         $consulta = ($consulta == "")?"":"WHERE ".$consulta;   

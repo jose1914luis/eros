@@ -10,7 +10,7 @@ $anuncio = new Anuncio();
 $total = $anuncio->total($cat, $depa, $mun, $buscar);
 
 // How many items to list per page
-$limit = 4;
+$limit = 26;
 
 
 if ($total > 0) {
@@ -63,7 +63,7 @@ if ($total > 0) {
 
 
             echo '<div class="col-lg-5 ">';
-            echo '<div class="panel panel-danger" style="height: 306;">';
+            echo '<div class="panel panel-danger" style="height: 306;width: 531px;">';
             echo '<div class="panel-heading">';
             echo $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'];
             echo '</div>';
@@ -139,13 +139,7 @@ if ($total > 0) {
 
     echo '</div>';
 
-//    echo $pages;
-// The "back" link
-    //$pages = 20;
     $prevlink = ($page > 1) ? '<li><a href="?page=1" aria-label="Previous">&laquo;</a> </li> <li><a href="?page=' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
-
-// The "forward" link
-
 
     $nextlink = ($page < $pages) ? '<li><a href="?page=' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="?page=' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
 
@@ -156,11 +150,11 @@ if ($total > 0) {
 
     for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-        echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '">' . $j . '</a></li>';
+        echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '&cat=' . $cat . '&depa=' . $depa . '&mun=' . $mun . '&buscar =' . $buscar . '">'. $j .'</a></li>';
     }
     echo $nextlink;
 
-    echo '    </ul>';
+    echo '</ul>';
     echo '</nav>';
     echo '</div>';
 } else {

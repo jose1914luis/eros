@@ -30,6 +30,7 @@ $dep = $ClDep->obtenerDep();
                     <li>
                         <a href="#">
                             <select id="categoria2" class="form-control input-sm">
+                                <option value = "0">Selecciona</option>
                                 <?php
                                 foreach ($tipo as $pos => $value) {
                                     echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
