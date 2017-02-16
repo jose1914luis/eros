@@ -1,3 +1,7 @@
+#contenido_1::after{
+    /*content: " - Remember this";*/
+}
+
 .helper{
     content: ' ';
     display: inline-block;

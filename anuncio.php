@@ -13,9 +13,9 @@ and open the template in the editor.
         <meta name="description" content="En PaginaErotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
               Si eres escorts, gay, travesti, gigolo o masajista sexual puedes postear tu anuncio y 
               posicionarte dentro de las primeras publicaciones para obtener mejores resultados.">
-        <meta name="keywords" content="Anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, 
-              anuncios, publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, 
-              amigos, eroticos, pagina erotica, contactos sexuales, contactos">
+        <meta name="keywords" content="anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, anuncios, 
+              publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, amigos, eroticos, 
+              pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
