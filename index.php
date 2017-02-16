@@ -1,8 +1,17 @@
 <html>
     <head>        
+
+        <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
-        <title>P.E.Com</title>
+
+        <meta name="description" content="En PaginaErotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
+              Si eres escorts, gay, travesti, gigolo o masajista sexual puedes postear tu anuncio y 
+              posicionarte dentro de las primeras publicaciones para obtener mejores resultados.">
+        <meta name="keywords" content="Anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, 
+              anuncios, publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, 
+              amigos, eroticos, pagina erotica, contactos sexuales, contactos">
+
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
         <link href="css/w3.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>

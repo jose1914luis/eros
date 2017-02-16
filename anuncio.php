@@ -6,8 +6,16 @@ and open the template in the editor.
 -->
 <html>
     <head>
+        <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
         <meta charset="UTF-8">
-        <title>P.E.Com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+        <meta name="description" content="En PaginaErotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
+              Si eres escorts, gay, travesti, gigolo o masajista sexual puedes postear tu anuncio y 
+              posicionarte dentro de las primeras publicaciones para obtener mejores resultados.">
+        <meta name="keywords" content="Anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, 
+              anuncios, publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, 
+              amigos, eroticos, pagina erotica, contactos sexuales, contactos">
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
@@ -29,7 +37,7 @@ and open the template in the editor.
 
 
             <div id="div_alerta"role="alert">
-                      
+
             </div>
 
 
@@ -37,7 +45,7 @@ and open the template in the editor.
             <form id="publicar" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
                 <legend style="width: 900px; padding-left: 20px">Publicar anuncio</legend>
-                
+
                 <div class="form-group">
                     <label for="categoria" class="col-sm-2 control-label">Categoria</label>
                     <div class="col-sm-2">
@@ -113,7 +121,7 @@ and open the template in the editor.
 
                         <label for="tarifa" class="col-sm-1 control-label" id="lbl_tarifa">Tarifa Minima</label>
                         <div class="col-sm-1">
-                            <input type="text" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace:0}).val()" id="tarifa" placeholder="pesos" name="tarifa">
+                            <input type="text" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace: 0}).val()" id="tarifa" placeholder="pesos" name="tarifa">
                         </div>
 
                     </div>
