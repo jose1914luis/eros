@@ -10,7 +10,7 @@ $anuncio = new Anuncio();
 $total = $anuncio->total($cat, $depa, $mun, $buscar);
 
 // How many items to list per page
-$limit = 4;
+$limit = 24;
 
 
 if ($total > 0) {
@@ -65,7 +65,7 @@ if ($total > 0) {
             echo '<div class="col-lg-5 ">';
             echo '<div class="panel panel-danger" style="height: 306;width: 531px;">';
             echo '<div class="panel-heading">';
-            echo $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'];
+            echo '<b>' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] .'</b>';
             echo '</div>';
             echo '<table class="table">';
             echo '<tr>';
