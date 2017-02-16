@@ -63,9 +63,9 @@ if ($total > 0) {
 
 
             echo '<div class="col-lg-5 ">';
-            echo '<div class="panel panel-danger" style="height: 306;width: 531px;">';
-            echo '<div class="panel-heading">';
-            echo '<b>' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] .'</b>';
+            echo '<div class="panel panel-danger" style="height: 292px;width: 531px;">';
+            echo '<div style="height: 25px;"class="panel-heading">';
+            echo '<b style="font-size: 10px; position: absolute;top: 5px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] .'</b>';
             echo '</div>';
             echo '<table class="table">';
             echo '<tr>';
@@ -117,7 +117,7 @@ if ($total > 0) {
             $tel = $value['tel'];
 
             echo '<td class="td_texto">';
-            echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b class="f_15">' . $titulo . '</b></a><br>';
+            echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b style="color: #03b;" class="f_15">' . $titulo . '</b></a><br>';
 
             echo '<p class="texto">' . $texto . '</p>';
             if (!empty($edad))

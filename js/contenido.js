@@ -8,9 +8,9 @@ $(function () {
         rederizar(this, 250, 200);
     });
 
-    $('.render').on('load', function () {
-        
-        console.log($(this).width());
-    });
+//    $('.render').on('load', function () {
+//        
+//        console.log($(this).width());
+//    });
 });
 
