@@ -34,6 +34,7 @@
             <a title="free hit
                counter" href="http://statcounter.com/" target="_blank">
                 <img
+                    style="    visibility: hidden;width: 0;height: 0;"
                     class="statcounter"
                     src="//c.statcounter.com/11256930/0/7c34bf57/0/" alt="free
                     hit counter">
