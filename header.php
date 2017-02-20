@@ -61,15 +61,7 @@ $dep = $ClDep->obtenerDep();
                             </select>
                         </a>
                     </li>
-                    
-                    <li>
-                        <a href="#">
-                            <select id="mun2" class="form-control input-sm" style="overflow: hidden; max-width: 120px">   
-                                <option value = "0">Selecciona</option>
-                            </select>
-                        </a>
-                    </li>
-                    
+                                                           
                 </ul>
                 <form class="navbar-form navbar-left" style="margin-top: 15.5px;">
                     <div class="input-group input-group-sm">
