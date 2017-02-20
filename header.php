@@ -61,9 +61,18 @@ $dep = $ClDep->obtenerDep();
                             </select>
                         </a>
                     </li>
+                    
+                    <li>
+                        <a href="#">
+                            <select id="mun2" class="form-control input-sm" style="overflow: hidden; max-width: 120px">   
+                                <option value = "0">Selecciona</option>
+                            </select>
+                        </a>
+                    </li>
+                    
                 </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="input-group input-group-lg">
+                <form class="navbar-form navbar-left" style="margin-top: 15.5px;">
+                    <div class="input-group input-group-sm">
                         <input id="txt_buscar" type="text" class="form-control" placeholder="Buscar..." >
                         <span class="input-group-btn">
                             <button id="btn_buscar" class="btn btn-default" type="button">

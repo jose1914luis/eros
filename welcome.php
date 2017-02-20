@@ -13,22 +13,23 @@ $edad = $datos['edad'];
 $tarifa = $datos['tarifa'];
 $altura = $datos['altura'];
 
-echo '<div class="panel panel-warning" style="width: 1000px;">';
+echo '<div class="panel panel-danger" style="width: 1000px;">';
 echo '<div class="panel-heading">';
 echo '<span style="font-size: 10px;">' . $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] . '</span><br>';
 echo '<b style="font-size: 18px;">' . $titulo . '</b><p></p>';
 if (!empty($edad))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-info">Edad <span class="glyphicon glyphicon-hourglass" aria-hidden="true">: </span>' . $edad . '</span>';
+    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Edad <span class="glyphicon glyphicon-hourglass" aria-hidden="true">: </span>' . $edad . '</span>';
 if (!empty($altura))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-info">Altura <span class="glyphicon glyphicon-resize-vertical" aria-hidden="true">: </span>' . $altura . '</span>';
+    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Altura <span class="glyphicon glyphicon-resize-vertical" aria-hidden="true">: </span>' . $altura . '</span>';
 if (!empty($tarifa))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-info">Tarifa <span class="glyphicon glyphicon-usd" aria-hidden="true">: </span>' . $tarifa . '</span>';
+    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Tarifa <span class="glyphicon glyphicon-usd" aria-hidden="true">: </span>' . $tarifa . '</span>';
 if (!empty($tel))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-info">Tel <span class="glyphicon glyphicon-phone" aria-hidden="true">: </span>' . $tel . '</span>';
+    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Tel <span class="glyphicon glyphicon-phone" aria-hidden="true">: </span>' . $tel . '</span>';
 
 echo '  </div>';
 echo '  <div class="panel-body">';
 echo $texto;
+echo '<br>';
 
 $img = $anuncio->getUrlImage($idanuncio);
 

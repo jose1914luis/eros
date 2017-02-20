@@ -26,6 +26,10 @@ and open the template in the editor.
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
         <script src="js/anuncio.js?v=<?= time(); ?>" type="text/javascript"></script>
+        
+        <link href="css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
+        <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+        
         <link rel="shortcut icon" href="pag_ima/fire.ico">
     </head>
     <body>
@@ -207,5 +211,10 @@ and open the template in the editor.
 
 
         </div>
+
+        <?php
+        include './footer.php';
+        ?>
+
     </body>
 </html>
