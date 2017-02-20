@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
 
-        <meta name="description" content="En PaginaErotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
+        <meta name="description" content="En www.paginaerotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
               Si eres escorts, gay, travesti, gigolo o masajista sexual puedes postear tu anuncio y 
               posicionarte dentro de las primeras publicaciones para obtener mejores resultados.">
         <meta name="keywords" content="anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, anuncios, 

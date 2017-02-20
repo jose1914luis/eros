@@ -1,6 +1,3 @@
-#contenido_1::after{
-    /*content: " - Remember this";*/
-}
 
 .helper{
     content: ' ';
@@ -184,7 +181,8 @@
 #contenido_1 {
 
     left: 190px;
-    position: absolute;
+    /*position: absolute;*/
+    padding-left: 190px;
     width: 100%;
     overflow: hidden;
 }
@@ -206,5 +204,5 @@
 }
 
 #body_index{
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }

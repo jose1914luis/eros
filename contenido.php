@@ -13,6 +13,8 @@ $total = $anuncio->total($cat, $depa, $mun, $buscar);
 $limit = 24;
 
 
+echo '<div class="row">';
+
 if ($total > 0) {
 
 
@@ -35,7 +37,6 @@ if ($total > 0) {
 
     $datos = $anuncio->getAnuncioXPagina($limit, $offset, $cat, $depa, $mun, $buscar);
 
-    echo '<div class="row">';
     $i = 1;
     if (is_array($datos) || is_object($datos)) {
 
@@ -65,7 +66,7 @@ if ($total > 0) {
             echo '<div class="col-lg-5 ">';
             echo '<div class="panel panel-danger" style="height: 292px;width: 531px;">';
             echo '<div style="height: 25px;"class="panel-heading">';
-            echo '<b style="font-size: 10px; position: absolute;top: 5px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] .'</b>';
+            echo '<b style="font-size: 10px; position: absolute;top: 5px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b>';
             echo '</div>';
             echo '<table class="table">';
             echo '<tr>';
@@ -150,7 +151,7 @@ if ($total > 0) {
 
     for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-        echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '&cat=' . $cat . '&depa=' . $depa . '&mun=' . $mun . '&buscar =' . $buscar . '">'. $j .'</a></li>';
+        echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '&cat=' . $cat . '&depa=' . $depa . '&mun=' . $mun . '&buscar =' . $buscar . '">' . $j . '</a></li>';
     }
     echo $nextlink;
 

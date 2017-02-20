@@ -5,6 +5,7 @@
 // */
 $(function () {
 
- $('#hola').css('visibility', 'visible');
+    console.log($('#contenido_1').height());
+    
 });
 //
