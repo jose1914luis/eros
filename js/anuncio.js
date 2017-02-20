@@ -156,6 +156,7 @@ $(function () {
                 $('#image_' + i).attr('style', 'visibility: visible');
                 $('#btn_close_' + i).show();
                 $('#image_' + i).attr('src', e.target.result);               
+                //rederizarCanvas($('#can_' + i), $('#image_' + i), 100, 100);
                 rederizar($('#image_' + i), 100, 100);
             };
             reader.readAsDataURL(e.files[0]);

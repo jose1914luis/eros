@@ -76,8 +76,8 @@ if ($total > 0) {
                 echo '<td style = "width: 205px;"> ';
                 echo '<div class="w3-content w3-display-container" style="text-align: center;height: 250px;">';
                 echo '<div class="helper"></div>';
-                foreach ($img as $pos2 => $url) {
-                    echo '<img class="render slides_' . $i . '" src="' . substr($url['url'], 1) . '" alt="...">';
+                foreach ($img as $pos2 => $url) {                    
+                    echo '<img class="render slides_' . $i . '" src="' . substr($url['url'], 1) . '" alt="imagen" onload="rederizar(this, 250, 200);">';
                 }
                 if (count($img) > 1) {
 

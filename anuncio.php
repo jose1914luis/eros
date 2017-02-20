@@ -26,10 +26,10 @@ and open the template in the editor.
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
         <script src="js/anuncio.js?v=<?= time(); ?>" type="text/javascript"></script>
-        
+
         <link href="css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
         <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-        
+
         <link rel="shortcut icon" href="pag_ima/fire.ico">
     </head>
     <body>
@@ -157,6 +157,8 @@ and open the template in the editor.
                     <div id="con_img">
                         <div class="div_img">
                             <span id='btn_close_1' class="close" >&#10006</span>
+                            <canvas id="can_1">                                                         
+                            </canvas>
                             <img id="image_1" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_1" class="btn_mas glyphicon glyphicon-camera" ></span>
                             <input name = "file_1" id="file_1" class="file" type="file" >
@@ -205,10 +207,7 @@ and open the template in the editor.
                     </div>
                 </div>
 
-            </form>
-
-
-
+            </form>            
 
         </div>
 

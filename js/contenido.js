@@ -4,13 +4,8 @@
  * and open the template in the editor.
  */
 $(function () {
-    $('.render').each(function () {        
-        rederizar(this, 250, 200);
-    });
-
-//    $('.render').on('load', function () {
-//        
-//        console.log($(this).width());
+//    $('.render').each(function () {        
+//        rederizar(this, 250, 200);
 //    });
 });
 
