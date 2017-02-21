@@ -1,9 +1,9 @@
-var rederizarCanvas = function (can, imagen, url, altura, ancho, alturaDisplay, anchoDisplay) {
+var rederizarCanvas = function (imagen, url, altura, ancho, alturaDisplay, anchoDisplay) {
 
-    var img = new Image();    
+    var img = new Image();
     img.src = url;
-    
-    
+
+
     var maxWidth = ancho; // Max width for the image
     var maxHeight = altura;    // Max height for the image
     var ratio = 0;  // Used for aspect ratio
@@ -28,15 +28,24 @@ var rederizarCanvas = function (can, imagen, url, altura, ancho, alturaDisplay, 
 
 
     img.onload = function () {
-        
+
         var c1 = scaleIt(img, 0.50);
 //        console.log(img.width);
         canvas.width = width;
         canvas.height = height;
         ctx.drawImage(c1, 0, 0, width, height);
-        $(imagen).attr('src', canvas.toDataURL("image/png"));
+        var dataURL = canvas.toDataURL("image/png");
+        $(imagen).attr('src', dataURL);
         //renderizo la imagen al para el display pequeño
-        rederizar($(imagen), 100, 100);
+        rederizar($(imagen), alturaDisplay, anchoDisplay);
+        
+        var blobBin = atob(dataURL.split(',')[1]);
+        
+        var array = [];
+        for (var i = 0; i < blobBin.length; i++) {
+            array.push(blobBin.charCodeAt(i));
+        }
+        addImages.push(new Blob([new Uint8Array(array)], {type: 'image/png'}));        
     };
 
     function scaleIt(source, scaleFactor) {
@@ -48,10 +57,10 @@ var rederizarCanvas = function (can, imagen, url, altura, ancho, alturaDisplay, 
         c.height = h;
         ctx.drawImage(source, 0, 0, w, h);
         return(c);
-    };
-        
-};
+    }
+    ;
 
+};
 
 
 var rederizar = function (imagen, altura, ancho) {

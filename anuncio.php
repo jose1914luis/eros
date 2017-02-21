@@ -157,51 +157,51 @@ and open the template in the editor.
                     <div id="con_img">
                         <div class="div_img">
                             <span id='btn_close_1' class="close" >&#10006</span>
-                            <img id="image_1" class="image" src="" alt="pagina erotica">
+                            <img id="image_1" name="image_1" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_1" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_1" id="file_1" class="file" type="file" >
+                            <input id="file_1" class="file" type="file" >
                         </div>
                         <div class="div_img">
                             <span id='btn_close_2' class="close" >&#10006</span>
                             <img id="image_2" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_2" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_2" id="file_2" class="file" type="file">
+                            <input id="file_2" class="file" type="file">
                         </div>
                         <div class="div_img">
                             <span id='btn_close_3' class="close" >&#10006</span>
                             <img id="image_3" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_3" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_3" id="file_3" class="file" type="file" >
+                            <input  id="file_3" class="file" type="file" >
                         </div>
                         <div class="div_img">
                             <span id='btn_close_4' class="close" >&#10006</span>
                             <img id="image_4" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_4" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_4" id="file_4" class="file" type="file">
+                            <input id="file_4" class="file" type="file">
                         </div>
                         <div class="div_img">
                             <span id='btn_close_5' class="close" >&#10006</span>
                             <img id="image_5" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_5" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_5" id="file_5" class="file" type="file" >
+                            <input  id="file_5" class="file" type="file" >
                         </div>
                         <div class="div_img">
                             <span id='btn_close_6' class="close" >&#10006</span>
                             <img id="image_6" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_6" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_6" id="file_6" class="file" type="file" >
+                            <input  id="file_6" class="file" type="file" >
                         </div>
                         <div class="div_img">
                             <span id='btn_close_7' class="close" >&#10006</span>
                             <img id="image_7" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_7" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_7" id="file_7" class="file" type="file" >
+                            <input  id="file_7" class="file" type="file" >
                         </div>
                         <div class="div_img">
                             <span id='btn_close_8' class="close" >&#10006</span>
                             <img id="image_8" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_8" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                            <input name = "file_8" id="file_8" class="file" type="file" >
+                            <input  id="file_8" class="file" type="file" >
                         </div>
                     </div>
                 </div>
@@ -211,7 +211,7 @@ and open the template in the editor.
                     <div class="col-sm-offset-2 col-sm-10">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" required > <a href="termcondi.php" target="_blank">Acepto Terminos y Condiciones</a>
+                                <input type="checkbox" checked="true" required > <a href="termcondi.php" target="_blank">Acepto Terminos y Condiciones</a>
                             </label>
                         </div>
                     </div>

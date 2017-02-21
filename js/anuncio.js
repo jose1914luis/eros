@@ -4,14 +4,16 @@
  * and open the template in the editor.
  */
 
+var addImages = [] ;
 
 $(function () {
 
+    
 
     $('#div_alerta').hide();
     var validar = function () {
-        
-        if ($('#editor').val().length < 100) {
+
+        if ($('#editor').val().length < 50) {
             alert('debes ingresar una descripcion mas larga');
             $('#editor').focus();
             return false;
@@ -21,13 +23,18 @@ $(function () {
 
     $("#publicar").on('submit', (function (e) {
         e.preventDefault();
-                
-        if(!validar())return;        
+
+//        if(!validar())return;        
+//        console.log(addImages);
+        var datos = new FormData(this);
         
+        for (var i = 0; i < addImages.length; i++) {
+            datos.append('file_' + (i + 1), addImages[i]);
+        }        
         $.ajax({
             url: "./bd/publicar.php", // Url to which the request is send
             type: "POST", // Type of request to be send, called as method
-            data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+            data: datos, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false, // The content type used when sending data to the server.
             cache: false, // To unable request pages to be cached
             processData: false, // To send DOMDocument or non processed data file it is set to false
@@ -41,9 +48,9 @@ $(function () {
                 $("#publicar").find("input, textarea").val("");
                 $('#div_alerta').show();
                 $('#anuncio').scrollTop();
-                cerrarTodas();
+                //cerrarTodas();
                 console.log(data);
-                if (data != 0) {
+                if (data > 0) {
 
                     $('#div_alerta').attr('class', 'alert alert-success');
                     $('#div_alerta').text('');
@@ -169,7 +176,7 @@ $(function () {
 
                 $('#image_' + i).attr('style', 'visibility: visible');
                 $('#btn_close_' + i).show();
-                rederizarCanvas($('#can_' + i), $('#image_' + i), e.target.result, 550, 450, 100, 100);
+                rederizarCanvas($('#image_' + i), e.target.result, 550, 450, 100, 100);
                 $('#btn_mas_' + i).hide();
             };
             reader.readAsDataURL(e.files[0]);
