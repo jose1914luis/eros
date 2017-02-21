@@ -40,16 +40,13 @@ and open the template in the editor.
         <div id="anuncio">  
 
 
-            <div id="div_alerta"role="alert">
-
-            </div>
-
-
-
             <form id="publicar" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
 
-                <legend style="width: 900px; padding-left: 20px">Publicar anuncio</legend>
 
+                <legend style="width: 900px; padding-left: 20px">Publicar anuncio</legend>
+                <div id="div_alerta" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>                    
+                </div>
                 <div class="form-group">
                     <label for="categoria" class="col-sm-2 control-label">Categoria</label>
                     <div class="col-sm-2">
@@ -202,6 +199,7 @@ and open the template in the editor.
                             <img id="image_8" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_8" class="btn_mas fa fa-camera-retro fa-3x" ></span>
                             <input  id="file_8" class="file" type="file" >
+                            <input type="hidden" name="numfiles" id="numfiles" value="0">
                         </div>
                     </div>
                 </div>

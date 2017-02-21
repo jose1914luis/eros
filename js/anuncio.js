@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 
-var addImages = [] ;
+var addImages = [];
 
 $(function () {
 
-    
+
 
     $('#div_alerta').hide();
     var validar = function () {
 
         if ($('#editor').val().length < 50) {
-            alert('debes ingresar una descripcion mas larga');
+            alert('Debes ingresar una descripcion mas larga');
             $('#editor').focus();
             return false;
         }
@@ -24,13 +24,15 @@ $(function () {
     $("#publicar").on('submit', (function (e) {
         e.preventDefault();
 
-//        if(!validar())return;        
-//        console.log(addImages);
+        if(!validar())return;     
+
+        $('#numfiles').attr('value', addImages.length);
         var datos = new FormData(this);
-        
+
         for (var i = 0; i < addImages.length; i++) {
+
             datos.append('file_' + (i + 1), addImages[i]);
-        }        
+        }
         $.ajax({
             url: "./bd/publicar.php", // Url to which the request is send
             type: "POST", // Type of request to be send, called as method
@@ -40,7 +42,7 @@ $(function () {
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
-//                console.log(data);
+                
                 $("html, body").animate({
                     scrollTop: 0
                 }, 900);
@@ -48,8 +50,7 @@ $(function () {
                 $("#publicar").find("input, textarea").val("");
                 $('#div_alerta').show();
                 $('#anuncio').scrollTop();
-                //cerrarTodas();
-                console.log(data);
+                cerrarTodas();
                 if (data > 0) {
 
                     $('#div_alerta').attr('class', 'alert alert-success');
@@ -133,6 +134,7 @@ $(function () {
         $('#btn_mas_' + i).attr('class', 'btn_mas fa fa-camera-retro fa-3x');
         $('#btn_mas_' + i).show();
         $('#btn_close_' + i).hide();
+        addImages = [];
     };
 
     $("#dep").change(function () {
