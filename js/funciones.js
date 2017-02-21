@@ -30,7 +30,7 @@ var rederizarCanvas = function (can, imagen, url, altura, ancho, alturaDisplay, 
     img.onload = function () {
         
         var c1 = scaleIt(img, 0.50);
-        console.log(img.width);
+//        console.log(img.width);
         canvas.width = width;
         canvas.height = height;
         ctx.drawImage(c1, 0, 0, width, height);

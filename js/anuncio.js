@@ -9,9 +9,21 @@ $(function () {
 
 
     $('#div_alerta').hide();
+    var validar = function () {
+        
+        if ($('#editor').val().length < 100) {
+            alert('debes ingresar una descripcion mas larga');
+            $('#editor').focus();
+            return false;
+        }
+        return true;
+    };
 
     $("#publicar").on('submit', (function (e) {
         e.preventDefault();
+                
+        if(!validar())return;        
+        
         $.ajax({
             url: "./bd/publicar.php", // Url to which the request is send
             type: "POST", // Type of request to be send, called as method
@@ -38,7 +50,7 @@ $(function () {
                     $('#div_alerta').html('<b>Genial!! Tu anuncio fue creado satisfactoriamente</b>, ' +
                             'se te envio un correo con un numero de registro y la informacion ' +
                             'adicional para que puedas promover tu anuncio y obtener mejores resultados. ' +
-                            '<a href="index.php?idanuncio='+ data +'">ver anuncio</a> ');
+                            '<a href="index.php?idanuncio=' + data + '">ver anuncio</a> ');
                 } else {
 
                     $('#div_alerta').attr('class', 'alert alert-danger');
@@ -76,7 +88,7 @@ $(function () {
         }
     });
 
-    for (var j = 1; j <= 5; j++) {
+    for (var j = 1; j <= 8; j++) {
         $('#image_' + j).attr('style', 'visibility: hidden');
 
         $('#btn_close_' + j).hide();
@@ -84,6 +96,7 @@ $(function () {
         $('#btn_mas_' + j).on('click', function () {
 
             var id = $(this).attr('id');
+            $('#btn_mas_' + id[id.length - 1]).attr('class', 'btn_mas fa fa-spinner fa-pulse fa-3x fa-fw');
             $('#file_' + id[id.length - 1]).click();
         });
 
@@ -100,7 +113,7 @@ $(function () {
 
     var cerrarTodas = function () {
 
-        for (var j = 1; j <= 5; j++) {
+        for (var j = 1; j <= 8; j++) {
 
             cerrar_imagen(j);
         }
@@ -110,6 +123,7 @@ $(function () {
 
         $('#image_' + i).attr('src', null);
         $('#image_' + i).attr('style', 'visibility: hidden');
+        $('#btn_mas_' + i).attr('class', 'btn_mas fa fa-camera-retro fa-3x');
         $('#btn_mas_' + i).show();
         $('#btn_close_' + i).hide();
     };
@@ -152,11 +166,11 @@ $(function () {
             var reader = new FileReader();
             reader.onload = function (e) {
 
-                $('#btn_mas_' + i).hide();
+
                 $('#image_' + i).attr('style', 'visibility: visible');
-                $('#btn_close_' + i).show();                
-                                
-                rederizarCanvas($('#can_' + i), $('#image_' + i), e.target.result, 550, 450, 100, 100);                                
+                $('#btn_close_' + i).show();
+                rederizarCanvas($('#can_' + i), $('#image_' + i), e.target.result, 550, 450, 100, 100);
+                $('#btn_mas_' + i).hide();
             };
             reader.readAsDataURL(e.files[0]);
         }

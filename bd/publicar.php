@@ -56,7 +56,7 @@ if (!mkdir($structure, 0777, true)) {
     return;
 }
 
-for ($i = 1; $i <= 5; $i++) {
+for ($i = 1; $i <= 8; $i++) {
     
     $fallo = 0;
     if ($_FILES['file_' . $i]["size"] != 0) {
