@@ -157,8 +157,6 @@ and open the template in the editor.
                     <div id="con_img">
                         <div class="div_img">
                             <span id='btn_close_1' class="close" >&#10006</span>
-<!--                            <canvas id="can_1">                                                         
-                            </canvas>-->
                             <img id="image_1" class="image" src="" alt="pagina erotica">
                             <span id="btn_mas_1" class="btn_mas glyphicon glyphicon-camera" ></span>
                             <input name = "file_1" id="file_1" class="file" type="file" >

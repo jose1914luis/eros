@@ -139,8 +139,8 @@ $(function () {
         var file = e.files[0];
         var imagefile = file.type;
         var match = ["image/jpeg", "image/png", "image/jpg"];
-        if (file.size > 5000000) {
-            alert('La foto debe ser de un tamaño menor a 5Mb. Intente con otra foto o reduzca su tamaño.');
+        if (file.size > 10000000) {
+            alert('La foto debe ser de un tamaño menor a 10Mb. Intente con otra foto o reduzca su tamaño.');
             return false;
         }
         if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2])))
@@ -154,10 +154,9 @@ $(function () {
 
                 $('#btn_mas_' + i).hide();
                 $('#image_' + i).attr('style', 'visibility: visible');
-                $('#btn_close_' + i).show();
-                $('#image_' + i).attr('src', e.target.result);               
-                //rederizarCanvas($('#can_' + i), $('#image_' + i), 100, 100);
-                rederizar($('#image_' + i), 100, 100);
+                $('#btn_close_' + i).show();                
+                                
+                rederizarCanvas($('#can_' + i), $('#image_' + i), e.target.result, 550, 450, 100, 100);                                
             };
             reader.readAsDataURL(e.files[0]);
         }
