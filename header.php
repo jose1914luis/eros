@@ -20,7 +20,7 @@ $dep = $ClDep->obtenerDep();
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="index.php">
-                    <img src="pag_ima/pagina3.png" alt="pagina erotica" width="254px" height="81px">
+                    <img src="pag_ima/pagina4.png" alt="pagina erotica" width="245px" height="83px">
                 </a>
             </div>
 

@@ -70,9 +70,6 @@
 
     <div>
 
-
-
-
         <nav id="izq_panel" >
 
 
