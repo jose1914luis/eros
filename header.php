@@ -12,7 +12,7 @@ $dep = $ClDep->obtenerDep();
 ?>
 
 <header>
-    
+
     <script src="js/header.js?v=<?= time(); ?>" type="text/javascript"></script>
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
@@ -61,7 +61,7 @@ $dep = $ClDep->obtenerDep();
                             </select>
                         </a>
                     </li>
-                                                           
+
                 </ul>
                 <form class="navbar-form navbar-left" style="margin-top: 15.5px;">
                     <div class="input-group input-group-sm">
@@ -73,9 +73,14 @@ $dep = $ClDep->obtenerDep();
                         </span>
                     </div><!-- /input-group -->
                 </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" style="padding-top: 25px !important; margin-right: 35px"><h5 style="font-size: 20px;"> <span class="label label-danger" style="cursor: pointer" onclick="location.href = 'anuncio.php'">Publicar anuncio Gratis</span></h5></a></li>                           
-                    <!--<li><a href="#" style="padding-top: 23px !important;"> <h5 style="font-size: 18px;"><span class="label label-primary" style="cursor: pointer" onclick="location.href = 'anuncio.php'">Iniciar sesion</span></h5></a></li>-->                           
+                <ul class="nav navbar-nav navbar-left">
+                    
+                    <!--<a class="btn btn-social btn-xs btn-facebook" ><span class="fa fa-facebook"></span>Facebook</a>-->
+                    
+
+                    <li><a href="anuncio" style="padding-top: 12px !important; margin-right: 35px"><h5 style="font-size: 20px;"> <span class="label label-danger" style="cursor: pointer">Publicar anuncio Gratis</span></h5></a></li>                           
+                    <li><h5 style="font-size: 20px; padding-top: 12px !important;"><span class="label" style="cursor: pointer; color: #333;" >Siguenos en :</span></h5></li>
+                    <li><a href="https://www.facebook.com/paginaerotica/" target="_blank" style="padding-top: 12px !important;"> <h5 style="font-size: 20px;"><span class="label" style="cursor: pointer; background-color: #3b5998; color: #fff;" ><span class="fa fa-facebook fa-1x"></span> | Facebook</span></h5></a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

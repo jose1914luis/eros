@@ -63,8 +63,8 @@ if ($total > 0) {
             $img = $anuncio->getUrlImage($value['idanuncio']);
 
 
-            echo '<div class="col-lg-5 " style="margin-right: 60px;">';
-            echo '<div class="panel panel-danger" style="height: 292px;width: 531px;">';
+            echo '<div class="col-lg-6 " style="/*margin-right: 60px;*/">';
+            echo '<div class="panel panel-danger" style="height: 292px;/*width: 531px;*/">';
             echo '<div style="height: 25px;"class="panel-heading">';
             echo '<b style="font-size: 10px; position: absolute;top: 5px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b>';
             echo '</div>';
