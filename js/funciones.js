@@ -35,7 +35,7 @@ var rederizarCanvas = function (imagen, url, altura, ancho, alturaDisplay, ancho
         canvas.height = height;
         ctx.drawImage(c1, 0, 0, width, height);
         var dataURL = canvas.toDataURL("image/png");
-        $(imagen).attr('src', dataURL);
+        $(imagen).attr('src', dataURL);       
         //renderizo la imagen al para el display pequeño
         rederizar($(imagen), alturaDisplay, anchoDisplay);
         

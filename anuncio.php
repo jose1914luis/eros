@@ -37,6 +37,7 @@ and open the template in the editor.
         <?php
         include 'header.php';
         ?>
+        
         <div id="anuncio">  
 
 

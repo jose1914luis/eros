@@ -52,24 +52,26 @@
 
 <body >       
 
+    <?php
+    $cat = filter_input(INPUT_GET, 'cat');
+    $depa = filter_input(INPUT_GET, 'depa');
+    $buscar = filter_input(INPUT_GET, 'buscar');
+    $mun = filter_input(INPUT_GET, 'mun');
+    $idanuncio = filter_input(INPUT_GET, 'idanuncio');
+    include 'header.php';
+
+    $data_mun;
+    if (!empty($depa)) {
+
+        $data_mun = $ClDep->obtenerMun($depa);
+        //print_r($data_mun);
+    }
+    ?>
+
     <div>
 
 
-        <?php
-        $cat = filter_input(INPUT_GET, 'cat');
-        $depa = filter_input(INPUT_GET, 'depa');
-        $buscar = filter_input(INPUT_GET, 'buscar');
-        $mun = filter_input(INPUT_GET, 'mun');
-        $idanuncio = filter_input(INPUT_GET, 'idanuncio');
-        include 'header.php';
 
-        $data_mun;
-        if (!empty($depa)) {
-
-            $data_mun = $ClDep->obtenerMun($depa);
-            //print_r($data_mun);
-        }
-        ?>
 
         <nav id="izq_panel" >
 
@@ -115,8 +117,8 @@
         </div>  
     </div>
 
-    <?php 
-            include './footer.php';
+    <?php
+    include './footer.php';
     ?>
 
 </body>

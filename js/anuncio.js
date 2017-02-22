@@ -104,7 +104,7 @@ $(function () {
         $('#btn_mas_' + j).on('click', function () {
 
             var id = $(this).attr('id');
-            $('#btn_mas_' + id[id.length - 1]).attr('class', 'btn_mas fa fa-spinner fa-pulse fa-3x fa-fw');
+            //$('#btn_mas_' + id[id.length - 1]).attr('class', 'btn_mas fa fa-spinner fa-pulse fa-3x fa-fw');
             $('#file_' + id[id.length - 1]).click();
         });
 
@@ -114,7 +114,7 @@ $(function () {
         });
 
         $("#file_" + j).change(function () {
-            var id = $(this).attr('id');
+            var id = $(this).attr('id');            
             mostrar_imagen(this, id[id.length - 1]);
         });
     }
@@ -158,8 +158,9 @@ $(function () {
 
 
     var mostrar_imagen = function (e, i) {
-
+        
         var file = e.files[0];
+
         var imagefile = file.type;
         var match = ["image/jpeg", "image/png", "image/jpg"];
         if (file.size > 10000000) {
