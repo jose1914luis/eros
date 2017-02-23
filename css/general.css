@@ -1,3 +1,61 @@
+#cabeza{
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    width: 100%;
+}
+
+#izq_panel {
+    float: left;
+    max-width: 170px;
+    margin: 0;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    left: 15px;
+    position: absolute;
+    width: 160px;
+}
+
+#izq_panel ul li a {
+    cursor: pointer;
+    font-size: 12px;
+    color: #03b;
+
+}
+
+
+#izq_panel ul {
+
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+#contenido_1 {    
+
+    left: 190px;
+    /*position: absolute;*/
+    padding-left: 190px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#pagi{
+    margin-left: -225px;
+}
+
+
+@media screen and (min-width: 0px) and (max-width: 720px){
+    #izq_panel{ 
+        display: none; 
+    }
+    #contenido_1 {
+        padding-left: 0px;
+    }
+    #pagi{
+        margin-left: 0px;
+    }       
+}
+
 .site-footer{
     padding-bottom: 0px; bottom: 0px;
     text-align: center;
@@ -158,46 +216,14 @@
     margin-right: 15px;
 }
 
-#izq_panel {
-    float: left;
-    max-width: 170px;
-    margin: 0;
-    background-color: #f7f7f9;
-    border: 1px solid #e1e1e8;
-    border-radius: 4px;
-    left: 15px;
-    position: absolute;
-    width: 160px;
-}
-
-#izq_panel ul li a {
-    cursor: pointer;
-    font-size: 12px;
-    color: #03b;
-
-}
 
 
-#izq_panel ul {
-
-    list-style-type: none;
-    padding-left: 10px;
-}
-
-#contenido_1 {
-
-    left: 190px;
-    /*position: absolute;*/
-    padding-left: 190px;
-    width: 100%;
-    overflow: hidden;
-}
 
 #anuncio{
     width: 100%;
     overflow: hidden;
     background-color: #f2dede;
-    margin-top: -20px;
+    margin-top: -5px;
     position: relative;
 }
 

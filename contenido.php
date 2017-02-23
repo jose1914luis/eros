@@ -144,7 +144,7 @@ if ($total > 0) {
 
     $nextlink = ($page < $pages) ? '<li><a href="?page=' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="?page=' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
 
-    echo '<div class="text-center" style="margin-left: -225px;">';
+    echo '<div id="pagi" class="text-center">';
     echo '<nav aria-label="Page navigation">';
     echo '    <ul class="pagination">';
     echo $prevlink;

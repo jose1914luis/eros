@@ -3,7 +3,7 @@
 
         <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=0.5">
+        <meta name="viewport" content="width=device-width, initial-scale=0.7">
 
         <meta name="description" content="En www.paginaerotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
               Si eres escorts, gay, travesti, gigolo o masajista sexual puedes postear tu anuncio y 
@@ -69,7 +69,7 @@
     ?>
 
     <div>
-
+        
         <nav id="izq_panel" >
 
 
