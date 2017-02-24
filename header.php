@@ -20,7 +20,7 @@ $dep = $ClDep->obtenerDep();
 
             <div class="form-group" >
                 <a class="navbar-brand" href="index.php">
-                    <img src="pag_ima/pagina4.png" alt="pagina erotica" width="245px" height="83px">
+                    <img id="logo_img" src="pag_ima/pagina4.png" alt="pagina erotica" >
                 </a>
                 <select id="categoria2" class="form-control input-sm" style="width: 180px; float: left">
                     <option value = "0">Selecciona</option>

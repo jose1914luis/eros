@@ -55,7 +55,7 @@ class Anuncio {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $pdo->prepare("INSERT INTO anuncio (tipo_anuncio, titulo, texto, usuario, email, tel, web, mun_idmun, mun_iddep, barrio, edad, altura, tarifa) VALUES (:tipo_anuncio, :titulo, :texto, :usuario, :email, :tel, :web, :mun_idmun, :mun_iddep, :barrio, :edad, :altura, :tarifa)");
+        $stmt = $pdo->prepare("INSERT INTO anuncio (tipo_anuncio, titulo, texto, usuario, email, tel, web, mun_idmun, mun_iddep, barrio, edad, altura, tarifa, fecha_inicio) VALUES (:tipo_anuncio, :titulo, :texto, :usuario, :email, :tel, :web, :mun_idmun, :mun_iddep, :barrio, :edad, :altura, :tarifa, (select curdate()))");
         $stmt->bindParam(':tipo_anuncio', $tipo_anuncio);
         $stmt->bindParam(':titulo', $titulo);
         $stmt->bindParam(':texto', $texto);
@@ -139,7 +139,7 @@ class Anuncio {
         $consulta = $this->construirWhere($cat, $depa, $mun, $buscar);
         $sql = "SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
             FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
-            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) ". $consulta . " ORDER BY idanuncio LIMIT ". intval($limite) ." OFFSET ". intval($offset);
+            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) ". $consulta . " ORDER BY fecha_inicio desc, idanuncio desc LIMIT ". intval($limite) ." OFFSET ". intval($offset);
         $query = $pdo->prepare($sql);        
         
         $query->execute();
