@@ -6,6 +6,8 @@
 
 
 $(function () {
+    
+    $('#alt_correo').hide();
 
     $("#btn_buscar").on('click', function (){
         window.location.href = 'index.php?buscar=' + $('#txt_buscar').val() + '&cat='+ $('#categoria2').val()+

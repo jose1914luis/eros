@@ -24,8 +24,8 @@
 
 #logo_img{
 
-    width: 245px;
-    height: 83px;
+    width: 172px;
+    height: 58px;
 }
 
 #izq_panel ul {
@@ -59,9 +59,12 @@
         margin-left: 0px;
     }   
 /*    #logo_img{
-        width: 123px;
-        height: 42px;
+        width: 61px;
+        height: 21px;
     }*/
+    .form-control{
+        display: inline-block;
+    }
 }
 
 .site-footer{

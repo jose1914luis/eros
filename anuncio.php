@@ -16,6 +16,8 @@ and open the template in the editor.
         <meta name="keywords" content="anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, anuncios, 
               publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, amigos, eroticos, 
               pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
+        
+        <link rel="alternate" href="http://www.paginaerotica.com/anuncio" hreflang="es-co" />
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>

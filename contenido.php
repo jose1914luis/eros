@@ -67,6 +67,7 @@ if ($total > 0) {
             echo '<div class="panel panel-danger" style="height: 292px;/*width: 531px;*/">';
             echo '<div style="height: 25px;"class="panel-heading">';
             echo '<b style="font-size: 10px; position: absolute;top: 5px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b>';
+            //echo '<b style="font-size: 10px; position: absolute;top: 5px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '  <a class="btn btn-xs btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i> Delete</a></b>';
             echo '</div>';
             echo '<table class="table">';
             echo '<tr>';

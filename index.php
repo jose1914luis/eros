@@ -12,6 +12,7 @@
               publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, amigos, eroticos, 
               pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
 
+        <link rel="alternate" href="http://www.paginaerotica.com/" hreflang="es-co" />
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
         <link href="css/w3.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
