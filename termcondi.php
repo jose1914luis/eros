@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
+    <head lang="es">
         <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=0.5">
@@ -17,15 +17,9 @@ and open the template in the editor.
               publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, amigos, eroticos, 
               pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
         <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>        
         <script src="bootstrap-3.3.7-dist/js/bootstrap.js" type="text/javascript"></script>
-        <script src="CLEditor1_4_5/jquery.cleditor.min.js" type="text/javascript"></script>
-        <script src="CLEditor1_4_5/jquery.cleditor.js" type="text/javascript"></script>
-        <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
-        <script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
-        <script src="js/anuncio.js?v=<?= time(); ?>" type="text/javascript"></script>
 
         <link href="css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
         <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>

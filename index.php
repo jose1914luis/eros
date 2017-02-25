@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>        
 
         <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
@@ -13,6 +14,8 @@
               pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
 
         <link rel="alternate" href="http://www.paginaerotica.com/" hreflang="es-co" />
+        <link rel="canonical" href="http://www.paginaerotica.com/" />
+        
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
         <link href="css/w3.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
@@ -23,17 +26,6 @@
 
         <script src="js/index.js" type="text/javascript"></script>
         <link rel="shortcut icon" href="pag_ima/fire.ico">
-        <!-- Start of StatCounter Code for Default Guide -->
-<!--        <script type="text/javascript">
-            var sc_project = 11256930;
-            var sc_invisible = 0;
-            var sc_security = "7c34bf57";
-            var scJsHost = (("https:" == document.location.protocol) ?
-                    "https://secure." : "http://www.");
-            document.write("<sc" + "ript type='text/javascript' src='" +
-                    scJsHost +
-                    "statcounter.com/counter/counter.js'></" + "script>");
-        </script>-->
         <noscript>
     <div class="statcounter">
         <a title="free hit

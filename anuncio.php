@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html lang="es">
     <head>
         <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
         <meta charset="UTF-8">
@@ -18,6 +13,7 @@ and open the template in the editor.
               pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
         
         <link rel="alternate" href="http://www.paginaerotica.com/anuncio" hreflang="es-co" />
+        <link rel="canonical" href="http://www.paginaerotica.com/" />
         <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
