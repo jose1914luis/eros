@@ -3,6 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+include './bd/Usuario.php';
 
-$today = getdate();
-echo $today;
+$usuario = new Usuario();
+
+print_r($usuario->validarUsuario('admin', ''));
