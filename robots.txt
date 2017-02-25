@@ -1,3 +1,4 @@
+Sitemap: http://www.paginaerotica.com/sitemap.xml
 User-Agent: *
 Disallow: /bd/
 Disallow: /upload/
