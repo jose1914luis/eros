@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: /bd/
+Disallow: /upload/
+Disallow: /pruebas.php
