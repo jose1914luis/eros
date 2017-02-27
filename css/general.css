@@ -4,8 +4,8 @@
     width: 100%;
 }
 #top_anuncio{
-    background-color: #d9534f;
-    color: #fff;
+    /*background-color: #ebccd1;;*/
+    color: #d9534f;
     margin-left: 15px;
     margin-bottom: 8px;
     border-radius: 4px;
@@ -98,7 +98,7 @@
 }
 .td_texto{
     word-wrap: break-word; 
-    max-width: 318px; 
+    max-width: 200px; 
     max-height: 250px;
 }
 .texto{

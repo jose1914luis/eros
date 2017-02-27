@@ -32,9 +32,9 @@ function resize_image($file, $w, $h) {
 }
 ?>
 <div class="row">
-    <div id="top_anuncio" class="col-lg-12">        
-        <h4><b>Top Anuncios</b></h4>
-    </div>    
+<!--    <div id="top_anuncio" class="col-lg-12">        
+        <h5><b>Top Anuncios</b></h5>
+    </div>    -->
     <?php
 //filter_input(INPUT_GET, 'page');
 
@@ -94,7 +94,7 @@ function resize_image($file, $w, $h) {
                 echo '<div class="col-lg-6 " style="/*margin-right: 60px;*/">';
                 echo '<div class="panel panel-danger" style="height: 292px;/*width: 531px;*/">';
                 echo '<div class="panel-heading">';
-                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b style="color: #03b;" class="f_15"><u>' . $titulo . '</u></b></a><br>';
+                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b style="color: #03b;" class="f_15">' . $titulo . '</b></a><br>';
                 echo '</div>';
                 echo '<table class="table">';
                 echo '<tr>';
