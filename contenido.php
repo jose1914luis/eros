@@ -10,7 +10,7 @@ $anuncio = new Anuncio();
 $total = $anuncio->total($cat, $depa, $mun, $buscar);
 
 // How many items to list per page
-$limit = 24;
+$limit = 40;
 
 
 echo '<div class="row">';

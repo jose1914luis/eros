@@ -1,33 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=0.5">
-
-        <meta name="description" content="En www.paginaerotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
-              Si eres escorts, gay, travesti, gigolo o masajista sexual puedes postear tu anuncio y 
-              posicionarte dentro de las primeras publicaciones para obtener mejores resultados.">
-        <meta name="keywords" content="anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, anuncios, 
-              publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, amigos, eroticos, 
-              pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
         
-        <link rel="alternate" href="http://www.paginaerotica.com/anuncio" hreflang="es-co" />
-        <link rel="canonical" href="http://www.paginaerotica.com/" />
-        <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <?php
+         include './head.php';
+        ?>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
-        <link href="css/general.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
-        <script src="node_modules/jquery/dist/jquery.min.js" type="text/javascript"></script>        
-        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="CLEditor1_4_5/jquery.cleditor.min.js" type="text/javascript"></script>
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
         <script src="js/anuncio.js?v=<?= time(); ?>" type="text/javascript"></script>
-
-        <link href="css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
-        <link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-
-        <link rel="shortcut icon" href="pag_ima/fire.ico">
     </head>
     <body>
 
