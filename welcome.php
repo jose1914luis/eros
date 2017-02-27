@@ -31,7 +31,7 @@ echo '  <div class="panel-body">';
 echo $texto;
 echo '<br>';
 
-$img = $anuncio->getUrlImage($idanuncio);
+$img = $anuncio->getUrlImage($idanuncio , 0);
 
 if (is_array($img) || is_object($img)) {
     foreach ($img as $pos2 => $url) {

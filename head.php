@@ -24,6 +24,6 @@
 <link href="css/w3.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
 
 <link href="css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
-<link href="css/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
 <link rel="shortcut icon" href="pag_ima/fire.ico">  

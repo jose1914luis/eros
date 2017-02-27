@@ -179,11 +179,17 @@ class Anuncio {
         
     }
 
-    public function getUrlImage($idanuncio) {
+    public function getUrlImage($idanuncio, $limit) {
 
+        
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT url FROM imagen WHERE idanuncio = ?";
+        
+        if($limit > 0){
+            $sql = $sql . " LIMIT " . $limit;
+        }
+        
         $query = $pdo->prepare($sql);
         $query->execute(array($idanuncio));
         $data = $query->fetchAll();

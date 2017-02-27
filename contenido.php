@@ -1,5 +1,3 @@
-<script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
-<script src="js/contenido.js?v=<?= time(); ?>" type="text/javascript"></script>
 <?php
 include './bd/Anuncio.php';
 
@@ -48,7 +46,7 @@ function resize_image($file, $w, $h, $ext) {
     $total = $anuncio->total($cat, $depa, $mun, $buscar);
 
 // How many items to list per page
-    $limit = 40;
+    $limit = 30;
 
     if ($total > 0) {
 
@@ -95,7 +93,7 @@ function resize_image($file, $w, $h, $ext) {
                     $texto = substr($texto, 0, $text_ini) . '...';
                 }
 
-                $img = $anuncio->getUrlImage($value['idanuncio']);
+                $img = $anuncio->getUrlImage($value['idanuncio'], 3);
 
 
                 echo '<div class="col-lg-6 " style="/*margin-right: 60px;*/">';
