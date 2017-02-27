@@ -57,8 +57,8 @@ $dep = $ClDep->obtenerDep();
                 </div><!-- /input-group -->
 
                 <div>
-                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="anuncio"><span class="label label-danger" style="cursor: pointer">Publicar anuncio Gratis</span></a>
-                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="#" data-toggle="modal" data-target="#myModal"><span class="label label-primary" style="cursor: pointer">Iniciar Sesión</span></a>
+                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="anuncio"><span class="label label-danger" style="padding: .5em .5em .5em; cursor: pointer">Publicar anuncio Gratis</span></a>
+                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="#" data-toggle="modal" data-target="#myModal"><span class="label label-primary" style="padding: .5em .5em .5em;cursor: pointer">Iniciar Sesión</span></a>
                     <div style="float: right;padding-right: 6px;padding-top: 8px;">
                     <span class="label" style="color:#000;padding-top: 5px">siguenos en:</span><a class="btn btn-social btn-xs btn-facebook" style="top: 5px"href="https://www.facebook.com/paginaerotica/" target="_blank"><span class="fa fa-facebook"></span>Facebook</a>    
                     </div>
