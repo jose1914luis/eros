@@ -31,13 +31,13 @@ echo '  <div class="panel-body">';
 echo $texto;
 echo '<br>';
 
-$img = $anuncio->getUrlImage($idanuncio , 0);
+$img = $anuncio->getUrlImage($idanuncio, 0);
 
 echo '  <div>';
 if (is_array($img) || is_object($img)) {
     foreach ($img as $pos2 => $url) {
 
-        echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 1) . '" alt="..." style=""></div>';
+        echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 1) . '" alt="' . $tel . '" style=""></div>';
     }
 }
 echo '  </div>';

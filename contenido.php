@@ -37,9 +37,9 @@ function resize_image($file, $w, $h, $ext) {
 }
 ?>
 <div class="row">
-    <!--    <div id="top_anuncio" class="col-lg-12">        
-            <h5><b>Top Anuncios</b></h5>
-        </div>    -->
+       <div id="top_anuncio" class="col-lg-12">        
+           <h1 style="font-size: 18px"><b>Top Anuncios</b></h1>
+        </div>
     <?php
 //filter_input(INPUT_GET, 'page');
 
@@ -94,12 +94,15 @@ function resize_image($file, $w, $h, $ext) {
                 }
 
                 $img = $anuncio->getUrlImage($value['idanuncio'], 3);
-
+                $altura = $value['altura'];
+                $edad = $value['edad'];
+                $tarifa = $value['tarifa'];
+                $tel = $value['tel'];
 
                 echo '<div class="col-lg-6 " style="/*margin-right: 60px;*/">';
                 echo '<div class="panel panel-danger" style="height: 292px;/*width: 531px;*/">';
                 echo '<div class="panel-heading">';
-                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b style="color: #03b;" class="f_15">' . $titulo . '</b></a><br>';
+                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><h2  style="color: #03b;display: initial;" class="f_15"><b>' . $titulo . '</b></h2></a><br>';
                 echo '</div>';
                 echo '<table class="table">';
                 echo '<tr>';
@@ -122,11 +125,11 @@ function resize_image($file, $w, $h, $ext) {
                         $output = base64_encode(ob_get_contents());
                         ob_end_clean();
                         if ($ext == 'png') {
-                            echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '"/>';
+                            echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="'. $tel . '"/>';
                         } else if ($ext == 'jpg') {
 
-                            echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '"/>';
-                        }                        
+                            echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="'. $tel . '"/>';
+                        }
                     }
                     if (count($img) > 1) {
 
@@ -161,10 +164,7 @@ function resize_image($file, $w, $h, $ext) {
                     echo '</td>';
                 }
 
-                $altura = $value['altura'];
-                $edad = $value['edad'];
-                $tarifa = $value['tarifa'];
-                $tel = $value['tel'];
+
 
                 echo '<td class="td_texto">';
                 echo '<b style="font-size: 10px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b>';
