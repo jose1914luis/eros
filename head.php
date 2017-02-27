@@ -2,9 +2,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.7">
 
-<meta name="description" content="En www.paginaerotica.com puedes publicar gratuitamente tus anuncios sexuales en Colombia, 
-      Si eres escorts, gay, travesti, gigolo o masajista sexual puedes postear tu anuncio y 
-      posicionarte dentro de las primeras publicaciones para obtener mejores resultados.">
+<meta name="description" content="publica gratuitamente tus anuncios sexuales en Colombia, Si eres prepago, escorts, gay, travesti, gigolo o masajista sexual, anunciate y consigue clientes.">
 <meta name="keywords" content="anuncios gratis, escorts, gay, travesti, gigolo o masajista sexual, anuncios, 
       publicaciones gratis, publicaciones, sexo, colombia, relaciones sexuales, amigas, amigos, eroticos, 
       pagina erotica, contactos sexuales, contactos, prepagos, putas, medellín, bogotá, cali">
@@ -20,8 +18,9 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<link href="css/general.min.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
-<link href="css/w3.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>
+<link href="css/general.min.css" rel="stylesheet" type="text/css"/>
+<link href="css/w3.css" rel="stylesheet" type="text/css"/>
+
 
 <link href="css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
 <link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>

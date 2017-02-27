@@ -167,7 +167,7 @@ function resize_image($file, $w, $h, $ext) {
 
 
                 echo '<td class="td_texto">';
-                echo '<b style="font-size: 10px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b>';
+                echo '<h3 style="display: initial;"><b style="font-size: 10px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b></h3>';
 //                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b style="color: #03b;" class="f_15"><u>' . $titulo . '</u></b></a><br>';
 
                 echo '<p class="texto">' . $texto . '</p>';
