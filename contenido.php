@@ -4,9 +4,9 @@
 include './bd/Anuncio.php';
 
 $anuncio = new Anuncio();
+
 //renderizar imagen si javascritp
-function resize_image($file, $w, $h) {
-//    echo 'entro' . $file;
+function resize_image($file, $w, $h, $ext) {
     list($width, $height) = getimagesize($file);
     $dst = '';
 
@@ -21,8 +21,15 @@ function resize_image($file, $w, $h) {
             $newheight = $w / $r;
             $newwidth = $w;
         }
-        
-        $src = imagecreatefrompng($file);
+
+        $src = '';
+        if ($ext == 'png') {
+            $src = imagecreatefrompng($file);
+        } else if ($ext == 'jpg') {
+
+            $src = imagecreatefromjpeg($file);
+        }
+
         $dst = imagecreatetruecolor($newwidth, $newheight);
         imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
     }
@@ -32,9 +39,9 @@ function resize_image($file, $w, $h) {
 }
 ?>
 <div class="row">
-<!--    <div id="top_anuncio" class="col-lg-12">        
-        <h5><b>Top Anuncios</b></h5>
-    </div>    -->
+    <!--    <div id="top_anuncio" class="col-lg-12">        
+            <h5><b>Top Anuncios</b></h5>
+        </div>    -->
     <?php
 //filter_input(INPUT_GET, 'page');
 
@@ -108,14 +115,20 @@ function resize_image($file, $w, $h) {
                     echo '<div class="helper"></div>';
                     foreach ($img as $pos2 => $url) {
 
-                        $img2 = resize_image(substr($url['url'], 1), 250, 200) or die('Cannot Initialize new GD image stream');
+                        $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
+
+                        $img2 = resize_image(substr($url['url'], 1), 250, 200, $ext) or die('Cannot Initialize new GD image stream');
 
                         ob_start();
                         imagepng($img2);
                         $output = base64_encode(ob_get_contents());
                         ob_end_clean();
+                        if ($ext == 'png') {
+                            echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '"/>';
+                        } else if ($ext == 'jpg') {
 
-                        echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '"/>';
+                            echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '"/>';
+                        }                        
                     }
                     if (count($img) > 1) {
 
