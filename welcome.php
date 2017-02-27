@@ -13,7 +13,7 @@ $edad = $datos['edad'];
 $tarifa = $datos['tarifa'];
 $altura = $datos['altura'];
 
-echo '<div class="panel panel-danger" style="width: 1000px;">';
+echo '<div class="panel panel-danger">';
 echo '<div class="panel-heading">';
 echo '<span style="font-size: 10px;">' . $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] . '</span><br>';
 echo '<b style="font-size: 18px;">' . $titulo . '</b><p></p>';
@@ -33,13 +33,14 @@ echo '<br>';
 
 $img = $anuncio->getUrlImage($idanuncio , 0);
 
+echo '  <div>';
 if (is_array($img) || is_object($img)) {
     foreach ($img as $pos2 => $url) {
 
         echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 1) . '" alt="..." style=""></div>';
     }
 }
-
+echo '  </div>';
 echo '  </div>';
 echo '</div>';
 
