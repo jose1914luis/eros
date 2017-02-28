@@ -1,13 +1,9 @@
-
-<!--<link href="css/general.min.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>-->
-<!--<link href="css/w3.css?v=<?= time(); ?>" rel="stylesheet" type="text/css"/>-->
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// the message
+$msg = "First line of text\nSecond line of text";
 
-include './bd/Usuario.php';
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
 
-$usuario = new Usuario();
-
-echo $usuario->validarUsuario('admin', 'admin');
+// send email
+mail("jose1914luis@gmail.com","My subject",$msg);
