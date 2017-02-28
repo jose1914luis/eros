@@ -1,5 +1,5 @@
 <?php
-include './bd/Anuncio.php';
+include_once './bd/Anuncio.php';
 
 $anuncio = new Anuncio();
 
@@ -37,9 +37,9 @@ function resize_image($file, $w, $h, $ext) {
 }
 ?>
 <div class="row">
-       <div id="top_anuncio" class="col-lg-12">        
-           <h1 style="font-size: 18px"><b>Top Anuncios</b></h1>
-        </div>
+    <div id="top_anuncio" class="col-lg-12">        
+        <h1 style="font-size: 18px"><b>Top Anuncios</b></h1>
+    </div>
     <?php
 //filter_input(INPUT_GET, 'page');
 
@@ -78,15 +78,6 @@ function resize_image($file, $w, $h, $ext) {
                 $text_ini = 220;
 
                 $titulo = $value['titulo'];
-                if (strlen($titulo) >= 100) {
-                    $titulo = substr($titulo, 0, 97) . '...';
-                } else {
-
-                    //si el titulo es pequeño aumento contenido
-                    if (strlen($titulo) <= 35) {
-                        $text_ini = 290;
-                    }
-                }
 
                 $texto = strtoupper(strip_tags($value['texto']));
                 if (strlen($texto) >= $text_ini) {
@@ -101,8 +92,15 @@ function resize_image($file, $w, $h, $ext) {
 
                 echo '<div class="col-lg-6 " style="/*margin-right: 60px;*/">';
                 echo '<div class="panel panel-danger" style="height: 292px;/*width: 531px;*/">';
-                echo '<div class="panel-heading">';
-                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><h2  style="color: #03b;display: initial;" class="f_15"><b>' . $titulo . '</b></h2></a><br>';
+                echo '<div class="panel-heading" style="    overflow: hidden;height: 43px;text-overflow: ellipsis;white-space: nowrap;">';
+                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><h2  style="color: #03b;display: initial;" class="f_15"><b>' . $titulo . '</b></h2></a>';
+                if ($super) {
+                    echo '<div style="float: right">';
+                    echo '<button type="button" onclick="eliminarAnuncio(' . $value['idanuncio'] . ')" class="btn btn-xs btn-default" aria-label="Left Align">';
+                    echo '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>';
+                    echo '</button>';
+                    echo '</div>';
+                }
                 echo '</div>';
                 echo '<table class="table">';
                 echo '<tr>';
@@ -125,10 +123,10 @@ function resize_image($file, $w, $h, $ext) {
                         $output = base64_encode(ob_get_contents());
                         ob_end_clean();
                         if ($ext == 'png') {
-                            echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="'. $tel . '"/>';
+                            echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
                         } else if ($ext == 'jpg') {
 
-                            echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="'. $tel . '"/>';
+                            echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
                         }
                     }
                     if (count($img) > 1) {
@@ -168,7 +166,6 @@ function resize_image($file, $w, $h, $ext) {
 
                 echo '<td class="td_texto">';
                 echo '<h3 style="display: initial;"><b style="font-size: 10px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b></h3>';
-//                echo '<a class="hand" href="index.php?idanuncio=' . $value['idanuncio'] . '"><b style="color: #03b;" class="f_15"><u>' . $titulo . '</u></b></a><br>';
 
                 echo '<p class="texto">' . $texto . '</p>';
 

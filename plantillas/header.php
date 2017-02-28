@@ -1,8 +1,16 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+//************Valido si el usuario ingreso
+$super = 0;
+if(isset($_SESSION['user_session']))
+{
+  $super = 1;
+}
+//***************************************
 
 include './bd/GetDep.php';
 
@@ -13,7 +21,7 @@ $dep = $ClDep->obtenerDep();
 
 <header>
 
-    <script src="js/header.min.js" type="text/javascript"></script>
+    <script src="js/header.js" type="text/javascript"></script>
     <div id="cabeza">
 
         <form class="navbar-form" style="margin-top: 0px;padding-top: 10px;">
@@ -57,20 +65,17 @@ $dep = $ClDep->obtenerDep();
                 </div><!-- /input-group -->
 
                 <div>
-                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="anuncio"><span class="label label-danger" style="padding: .5em .5em .5em; cursor: pointer">Publicar anuncio Gratis</span></a>
-                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="#" data-toggle="modal" data-target="#myModal"><span class="label label-primary" style="padding: .5em .5em .5em;cursor: pointer">Iniciar Sesión</span></a>
+                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="anuncio"><span class="label label-danger" style="padding: .5em .5em .5em; cursor: pointer">Publicar anuncio Gratis <i class="fa fa-font-awesome" aria-hidden="true"></i></span></a>
+                    <a id="btn_session" mostrar="<?= $super?>" class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="#" data-toggle="modal" data-target="#myModal"><span class="label label-primary" style="padding: .5em .5em .5em;cursor: pointer"><?php echo ($super)?'Salir <span class="fa fa-lg fa-sign-out" aria-hidden="true"></span>':'Iniciar Sesión <span class="fa fa-lg fa-sign-in " aria-hidden="true"></span>'; ?></span></a>
                     <div style="float: right;padding-right: 6px;padding-top: 8px;">
                     <span class="label" style="color:#000;padding-top: 5px">siguenos en:</span><a class="btn btn-social btn-xs btn-facebook" style="top: 5px"href="https://www.facebook.com/paginaerotica/" target="_blank"><span class="fa fa-facebook"></span>Facebook</a>    
                     </div>
                     
                 </div>
-
-
-<!--<a href="https://www.facebook.com/paginaerotica/" target="_blank" style="padding-top: 12px !important;"> <h5 style="font-size: 20px;"><span class="label" style="cursor: pointer; color: #333;" >Siguenos en :</span><span class="label" style="cursor: pointer; background-color: #3b5998; color: #fff;" ><span class="fa fa-facebook fa-1x"></span> | Facebook</span></h5></a>-->
-
             </div>
         </form>
-
+        
+        <?php if(!$super){ ?>
         <div class="modal fade"  id="myModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -101,11 +106,13 @@ $dep = $ClDep->obtenerDep();
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" onclick="$('#alt_correo').show()" style="float: left;">Olvide la contraseña</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Iniciar Sesión</button>
+                        <button id="btn_ini" type="button" class="btn btn-primary">Iniciar Sesión</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
+        
+        <?php } ?>
 
     </div>
 

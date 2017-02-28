@@ -3,18 +3,18 @@
     <head>
         
         <?php
-         include './head.php';
+         include './plantillas/head.php';
         ?>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <script src="CLEditor1_4_5/jquery.cleditor.min.js" type="text/javascript"></script>
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
-        <script src="js/funciones.min.js?v=<?= time(); ?>" type="text/javascript"></script>
-        <script src="js/anuncio.min.js?v=<?= time(); ?>" type="text/javascript"></script>
+        <script src="js/funciones.min.js" type="text/javascript"></script>
+        <script src="js/anuncio.min.js" type="text/javascript"></script>
     </head>
     <body>
 
         <?php
-        include 'header.php';
+        include './plantillas/header.php';
         ?>
         
         <div id="anuncio">  
@@ -206,7 +206,7 @@
         </div>
 
         <?php
-        include './footer.php';
+        include './plantillas/footer.php';
         ?>
 
     </body>

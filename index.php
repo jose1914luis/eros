@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>        
-        <?php include './head.php'; ?>
+        <?php include './plantillas/head.php'; ?>
         <script src="js/index.js" type="text/javascript"></script>
     </head>
-
-
 
     <body >       
 
@@ -15,7 +13,7 @@
         $buscar = filter_input(INPUT_GET, 'buscar');
         $mun = filter_input(INPUT_GET, 'mun');
         $idanuncio = filter_input(INPUT_GET, 'idanuncio');
-        include 'header.php';
+        include './plantillas/header.php';
 
         $data_mun;
         if (!empty($depa)) {
@@ -65,14 +63,14 @@
                     include './welcome.php';
                 } else {
 
-                    include './contenido.php';
+                    include './plantillas/contenido.php';
                 }
                 ?>
             </div>  
         </div>
 
         <?php
-        include './footer.php';
+        include './plantillas/footer.php';
         ?>
 
     </body>

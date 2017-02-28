@@ -10,4 +10,4 @@ include './bd/Usuario.php';
 
 $usuario = new Usuario();
 
-print_r($usuario->validarUsuario('admin', ''));
+echo $usuario->validarUsuario('admin', 'admin');
