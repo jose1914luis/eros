@@ -15,7 +15,7 @@ $altura = $datos['altura'];
 
 echo '<div class="panel panel-danger">';
 echo '<div class="panel-heading">';
-echo '<span style="font-size: 10px;">' . $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] . '</span><br>';
+echo '<a style="font-size: 10px;">' . $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] . '</a><br>';
 echo '<b style="font-size: 18px;">' . $titulo . '</b><p></p>';
 if (!empty($edad))
     echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Edad <span class="fa fa-address-card-o" aria-hidden="true"> : </span>' . $edad . '</span>';
@@ -24,11 +24,13 @@ if (!empty($altura))
 if (!empty($tarifa))
     echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Tarifa <span class="fa fa-usd" aria-hidden="true"> : </span>' . $tarifa . '</span>';
 if (!empty($tel))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Tel <span class="fa fa-mobile" aria-hidden="true"> : </span>' . $tel . '</span>';
-
+    echo '<span style="margin-right: 10px;" class="f_15 label label-primary"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> ' . $tel . '</span>';
+echo ' <div class="btn-group pull-right">'
+ . '<a style="margin-right: 10px;" class="f_15 label label-danger">Denunciar</a>'
+ . '</div>';
 echo '  </div>';
 echo '  <div class="panel-body">';
-echo $texto;
+echo '<div>'.$texto . '</div>';
 echo '<br>';
 
 $img = $anuncio->getUrlImage($idanuncio, 0);

@@ -32,4 +32,5 @@
   ga('send', 'pageview');
 
 </script>
+<meta name="google-site-verification" content="GkBCozOdpdPyUm917o40bIirSD8nv32Bb0cVqYMIZ7Q" />
 <link rel="shortcut icon" href="pag_ima/fire.ico">  
