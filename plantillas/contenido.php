@@ -84,7 +84,7 @@ function resize_image($file, $w, $h, $ext) {
                     $texto = substr($texto, 0, $text_ini) . '...';
                 }
 
-                $img = $anuncio->getUrlImage($value['idanuncio'], 3);
+                $img = $anuncio->getUrlImage($value['idanuncio'], 2);
                 $altura = $value['altura'];
                 $edad = $value['edad'];
                 $tarifa = $value['tarifa'];

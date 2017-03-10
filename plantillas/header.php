@@ -67,9 +67,10 @@ $dep = $ClDep->obtenerDep();
                 <div>
                     <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="anuncio"><span class="label label-danger" style="padding: .5em .5em .5em; cursor: pointer">Publicar anuncio Gratis <i class="fa fa-font-awesome" aria-hidden="true"></i></span></a>
                     <a id="btn_session" mostrar="<?= $super?>" class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="#" data-toggle="modal" data-target="#myModal"><span class="label label-primary" style="padding: .5em .5em .5em;cursor: pointer"><?php echo ($super)?'Salir <span class="fa fa-lg fa-sign-out" aria-hidden="true"></span>':'Iniciar Sesión <span class="fa fa-lg fa-sign-in " aria-hidden="true"></span>'; ?></span></a>
-                    <div style="float: right;padding-right: 6px;padding-top: 8px;">
-                    <span class="label" style="color:#000;padding-top: 5px">siguenos en:</span><a class="btn btn-social btn-xs btn-facebook" style="top: 5px"href="https://www.facebook.com/paginaerotica/" target="_blank"><span class="fa fa-facebook"></span>Facebook</a>    
-                    </div>
+                    <a class="btn btn-social btn-xs btn-facebook" style="top: 5px"href="https://www.facebook.com/paginaerotica/" target="_blank"><span class="fa fa-facebook"></span>Facebook</span></a>
+<!--                    <div style="float: right;padding-right: 20px;padding-top: 8px;">
+                    <span class="label" style="color:#000;padding-top: 5px">siguenos:</a>    
+                    </div>-->
                     
                 </div>
             </div>

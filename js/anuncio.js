@@ -11,6 +11,8 @@ $(function () {
 
 
     $('#div_alerta').hide();
+    $('#public_div').hide();
+    $('#public_label').hide();
     var validar = function () {
 
         if ($('#editor').val().length < 50) {
@@ -22,9 +24,11 @@ $(function () {
     };
 
     $("#publicar").on('submit', (function (e) {
+
         e.preventDefault();
 
-        if(!validar())return;     
+        if (!validar())
+            return;
 
         $('#numfiles').attr('value', addImages.length);
         var datos = new FormData(this);
@@ -33,6 +37,9 @@ $(function () {
 
             datos.append('file_' + (i + 1), addImages[i]);
         }
+        $('#public_div').show();
+        $('#public_label').show();
+
         $.ajax({
             url: "./bd/publicar.php", // Url to which the request is send
             type: "POST", // Type of request to be send, called as method
@@ -42,23 +49,28 @@ $(function () {
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
-                
-                $("html, body").animate({
-                    scrollTop: 0
-                }, 900);
 
-                $("#publicar").find("input, textarea").val("");
-                $('#div_alerta').show();
-                $('#anuncio').scrollTop();
-                cerrarTodas();
+//                $("html, body").animate({
+//                    scrollTop: 0
+//                }, 900);
+//
+//                $("#publicar").find("input, textarea").val("");
+//                $('#div_alerta').show();
+//                $('#anuncio').scrollTop();
+//                cerrarTodas();
                 if (data > 0) {
 
-                    $('#div_alerta').attr('class', 'alert alert-success');
-                    $('#div_alerta').text('');
-                    $('#div_alerta').html('<b>Genial!! Tu anuncio fue creado satisfactoriamente</b>, ' +
-                            'se te envio un correo con un numero de registro y la informacion ' +
-                            'adicional para que puedas promover tu anuncio y obtener mejores resultados. ' +
-                            '<a href="index.php?idanuncio=' + data + '">ver anuncio</a> ');
+//                window.location.replace("");
+
+                    window.location.href = "index.php?idanuncio=" + data;
+                    $('#div_alerta').hide();
+                    $('#public_div').hide();
+//                    $('#div_alerta').attr('class', 'alert alert-success');
+//                    $('#div_alerta').text('');
+//                    $('#div_alerta').html('<b>Genial!! Tu anuncio fue creado satisfactoriamente</b>, ' +
+//                            'se te envio un correo con un numero de registro y la informacion ' +
+//                            'adicional para que puedas promover tu anuncio y obtener mejores resultados. ' +
+//                            '<a href="index.php?idanuncio=' + data + '">ver anuncio</a> ');
                 } else {
 
                     $('#div_alerta').attr('class', 'alert alert-danger');
@@ -68,7 +80,11 @@ $(function () {
             },
             fail: function (e) {
 
-                alerta('Error: ' + e + '. Vuelve a intentar.');
+                $('#div_alerta').attr('class', 'alert alert-danger');
+                $('#div_alerta').text('');
+                $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');
+                $('#public_div').hide();
+                $('#public_label').hide();
             }
         });
     }));
@@ -78,7 +94,8 @@ $(function () {
                 "bold italic underline strikethrough subscript superscript | font size " +
                 "style | color highlight removeformat | bullets numbering | outdent " +
                 "indent | alignleft center alignright justify | undo redo | " +
-                "rule link unlink | cut copy paste pastetext"});
+                "rule link unlink | cut copy paste pastetext",
+                width: 'auto'});
 
     var cledDesc = $("#editor").cleditor()[0];
     var frameDesc = cledDesc.$frame[0].contentWindow.document;
@@ -114,7 +131,7 @@ $(function () {
         });
 
         $("#file_" + j).change(function () {
-            var id = $(this).attr('id');            
+            var id = $(this).attr('id');
             mostrar_imagen(this, id[id.length - 1]);
         });
     }
@@ -158,7 +175,7 @@ $(function () {
 
 
     var mostrar_imagen = function (e, i) {
-        
+
         var file = e.files[0];
 
         var imagefile = file.type;

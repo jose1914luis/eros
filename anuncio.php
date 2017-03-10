@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        
+
         <?php
-         include './plantillas/head.php';
+        include './plantillas/head.php';
         ?>
         <link href="CLEditor1_4_5/jquery.cleditor.css" rel="stylesheet" type="text/css"/>
         <script src="CLEditor1_4_5/jquery.cleditor.min.js" type="text/javascript"></script>
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="js/funciones.min.js" type="text/javascript"></script>
-        <script src="js/anuncio.min.js" type="text/javascript"></script>
+        <!--<script src="js/anuncio.min.js" type="text/javascript"></script>-->
+        <script src="js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
     </head>
     <body>
 
         <?php
         include './plantillas/header.php';
         ?>
-        
+
         <div id="anuncio">  
 
 
@@ -97,12 +98,12 @@
 
                         <label for="altura" class="col-sm-1 control-label" id="lbl_altura">Altura</label>
                         <div class="col-sm-1">
-                            <input type="text" class="form-control" id="altura" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="4" placeholder="cm." name="altura">
+                            <input type="text" class="form-control" id="altura" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="4" placeholder="altura cm." name="altura">
                         </div>
 
                         <label for="tarifa" class="col-sm-1 control-label" id="lbl_tarifa">Tarifa Minima</label>
                         <div class="col-sm-1">
-                            <input type="text" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace: 0}).val()" id="tarifa" placeholder="pesos" name="tarifa">
+                            <input type="text" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace: 0}).val()" id="tarifa" placeholder="tarifa COP" name="tarifa">
                         </div>
 
                     </div>
@@ -201,10 +202,14 @@
                     </div>
                 </div>
 
+                <div id="public_label"  class="loader"><b>Publicando...</b><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
             </form>            
 
         </div>
 
+        <div id="public_div" class="loader_div">
+            
+        </div>
         <?php
         include './plantillas/footer.php';
         ?>
