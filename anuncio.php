@@ -9,8 +9,8 @@
         <script src="CLEditor1_4_5/jquery.cleditor.min.js" type="text/javascript"></script>
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="js/funciones.min.js" type="text/javascript"></script>
-        <!--<script src="js/anuncio.min.js" type="text/javascript"></script>-->
-        <script src="js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
+        <script src="js/anuncio.min.js" type="text/javascript"></script>
+        <!--<script src="js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>-->
     </head>
     <body>
 
