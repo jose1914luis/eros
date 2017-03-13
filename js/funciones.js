@@ -1,11 +1,10 @@
-var rederizarCanvas = function (imagen, url, altura, ancho, alturaDisplay, anchoDisplay) {
+var rederizarCanvas = function (imagen, url, maxHeight, maxWidth, alturaDisplay, anchoDisplay) {
 
     var img = new Image();
     img.src = url;
 
-
-    var maxWidth = ancho; // Max width for the image
-    var maxHeight = altura;    // Max height for the image
+    var copiaw;
+    var copiah;
     var ratio = 0;  // Used for aspect ratio
     var width = img.width;    // Current image width
     var height = img.height;  // Current image height
@@ -14,12 +13,16 @@ var rederizarCanvas = function (imagen, url, altura, ancho, alturaDisplay, ancho
     if (width > maxWidth) {
         ratio = maxWidth / width;   // get ratio for scaling image
         height = height * ratio;    // Reset height to match scaled image
-        width = width * ratio;    // Reset width to match scaled image
+        width = maxWidth;    // Reset width to match scaled image
+        
+        copiaw = width * ratio;
+        copiah = height * ratio;
     }
     // Check if current height is larger than max
-    if (height > maxHeight) {
-        ratio = maxHeight / height; // get ratio for scaling image                  
-        width = width * ratio;    // Reset width to match scaled image            
+    if (copiah > maxHeight) {
+        ratio = maxHeight / copiah; // get ratio for scaling image                  
+        width = copiaw * ratio;    // Reset width to match scaled image     
+        height = maxHeight;
     }
 
     //creo canvas dinamico para la conversion de la imagen.
@@ -29,7 +32,11 @@ var rederizarCanvas = function (imagen, url, altura, ancho, alturaDisplay, ancho
 
     img.onload = function () {
 
-        var c1 = scaleIt(img, 0.50);
+        console.log(width);
+        console.log(img.width);
+        console.log(img.height);
+        console.log(height);
+        var c1 = scaleIt(img, 0.5);
 //        console.log(img.width);
         canvas.width = width;
         canvas.height = height;

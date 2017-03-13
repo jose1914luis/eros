@@ -165,7 +165,7 @@ $(function () {
 
                 $('#image_' + i).attr('style', 'visibility: visible');
                 $('#btn_close_' + i).show();
-                rederizarCanvas($('#image_' + i), e.target.result, 550, 450, 100, 100);
+                rederizarCanvas($('#image_' + i), e.target.result, 550, 550, 100, 100);
                 $('#btn_mas_' + i).hide();
             };
             reader.readAsDataURL(e.files[0]);

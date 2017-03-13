@@ -1,8 +1,8 @@
 <?php
 
 require_once './PHPMailer/PHPMailerAutoload.php';
-require_once './Anuncio.php';
-require_once './Usuario.php';
+require_once 'Anuncio.php';
+require_once 'Usuario.php';
 
 class Correo {
 
@@ -13,8 +13,8 @@ class Correo {
         $this->$mail = new PHPMailer;
         $this->$mail->Host = 'paginaerotica.com';
         $this->$mail->Username = 'no_responder@paginaerotica.com';
-        $this->$mail->Port = 25;                                    // TCP port to connect to
-
+        $this->$mail->Port = 25;                                 
+        
         $this->$mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');        
 
         $this->$mail->addBCC('jose1914luis@gmail.com');
@@ -33,8 +33,6 @@ class Correo {
         <p>Muchas graciar por usar <a href="paginaerotica.com">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio.</p><br><br>
         <p>Si tienes algún inconveniente ponte en contacto con nosotros:</p>
         <p>Contacto: <a href="administracion@paginaerotica.com">administracion@paginaerotica.com</a></p>';
-
-//        $this->$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     }
     
     public function validar_bienvenida($email){
@@ -54,12 +52,13 @@ class Correo {
     }
     
     private function enviar(){
-        if (!$this->$mail->send()) {
-            //$mail->ErrorInfo;
-            return false;
-        } else {
-            return true;
-        }
+        echo 'envio el correo';
+//        if (!$this->$mail->send()) {
+//            //$mail->ErrorInfo;
+//            return false;
+//        } else {
+//            return true;
+//        }
     }
 
 }
