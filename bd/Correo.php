@@ -1,30 +1,32 @@
 <?php
 
-require_once './PHPMailer/PHPMailerAutoload.php';
+require './PHPMailer/PHPMailerAutoload.php';
 require_once 'Anuncio.php';
 require_once 'Usuario.php';
 
+$mail = new PHPMailer;
+
 class Correo {
 
-    private $mail;
+//    private $mail;
 
     function __construct() {
 
-        $this->$mail = new PHPMailer;
-        $this->$mail->Host = 'paginaerotica.com';
-        $this->$mail->Username = 'no_responder@paginaerotica.com';
-        $this->$mail->Port = 25;                                 
+        $mail = new PHPMailer;
+        $mail->Host = 'paginaerotica.com';
+        $mail->Username = 'no_responder@paginaerotica.com';
+        $mail->Port = 25;                                 
         
-        $this->$mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');        
+        $mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');        
 
-        $this->$mail->addBCC('jose1914luis@gmail.com');
-        $this->$mail->isHTML(true);
+        $mail->addBCC('jose1914luis@gmail.com');
+        $mail->isHTML(true);
     }
 
     public function bienvenida($email, $contra) {
 
-        $this->$mail->Subject = 'Cuenta de Usuario';
-        $this->$mail->Body = '<h2>Bienvenido,</h2>
+        $mail->Subject = 'Cuenta de Usuario';
+        $mail->Body = '<h2>Bienvenido,</h2>
         <p>Gracias por publicar en <a href="paginaerotica.com">paginaerotica.com</a></p>
         <p>Se ha creado una cuenta temporal en la que puedes administrar tu anuncio, promoverlo, editarlo o borrarlo, pulsa el link a continuación he ingresa con los datos de acceso:</p>
         <p><b>Email:</b> '. $email . '</p>
@@ -45,15 +47,15 @@ class Correo {
         if($total == 1){
             
             $datos = $usuario->getUsuariobyEmail($email);
-            $this->bienvenida($datos['email'], $datos['contra']);
-            $this->$mail->addAddress($datos['email'], 'Usuario');
-            $this->enviar();
+            bienvenida($datos['email'], $datos['contra']);
+            $mail->addAddress($datos['email'], 'Usuario');
+            enviar();
         }
     }
     
     private function enviar(){
         echo 'envio el correo';
-//        if (!$this->$mail->send()) {
+//        if (!$mail->send()) {
 //            //$mail->ErrorInfo;
 //            return false;
 //        } else {
