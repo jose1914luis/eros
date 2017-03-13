@@ -42,29 +42,12 @@ $(function () {
             cache: false, // To unable request pages to be cached
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
-            {
-
-//                $("html, body").animate({
-//                    scrollTop: 0
-//                }, 900);
-//
-//                $("#publicar").find("input, textarea").val("");
-//                $('#div_alerta').show();
-//                $('#anuncio').scrollTop();
-//                cerrarTodas();
+            { 
                 if (data > 0) {
 
-//                window.location.replace("");
-
-                    window.location.href = "index.php?idanuncio=" + data;
+                    window.location.href = "index.php?primera=1&idanuncio=" + data;
                     $('#div_alerta').hide();
                     $('#public_div').hide();
-//                    $('#div_alerta').attr('class', 'alert alert-success');
-//                    $('#div_alerta').text('');
-//                    $('#div_alerta').html('<b>Genial!! Tu anuncio fue creado satisfactoriamente</b>, ' +
-//                            'se te envio un correo con un numero de registro y la informacion ' +
-//                            'adicional para que puedas promover tu anuncio y obtener mejores resultados. ' +
-//                            '<a href="index.php?idanuncio=' + data + '">ver anuncio</a> ');
                 } else {
 
                     $('#div_alerta').attr('class', 'alert alert-danger');
@@ -129,14 +112,6 @@ $(function () {
             mostrar_imagen(this, id[id.length - 1]);
         });
     }
-
-    var cerrarTodas = function () {
-
-        for (var j = 1; j <= 8; j++) {
-
-            cerrar_imagen(j);
-        }
-    };
 
     var cerrar_imagen = function (i) {
 

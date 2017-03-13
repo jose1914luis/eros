@@ -25,8 +25,7 @@
 
 
                 <legend style="width: 900px; padding-left: 20px">Publicar anuncio</legend>
-                <div id="div_alerta" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>                    
+                <div id="div_alerta" role="alert">                    
                 </div>
                 <div class="form-group">
                     <label for="categoria" class="col-sm-2 control-label">Categoria</label>

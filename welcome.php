@@ -4,11 +4,31 @@
 <!--<script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
 <script src="js/wellcome.js?v=<?= time(); ?>" type="text/javascript"></script>-->
 <?php
-include './bd/Anuncio.php';
+include_once './bd/Anuncio.php';
+include_once './bd/Correo.php';
 
 $anuncio = new Anuncio();
 
 $datos = $anuncio->getAnunciosxID($idanuncio);
+
+$email = $datos['email'];
+$primera = filter_input(INPUT_GET, 'primera');
+if ($primera == 1) {
+    
+    $correo = new Correo();
+    $correo->validar_bienvenida($email);
+    ?>
+
+
+    <div id="div_alerta" role="alert" class="alert alert-success">
+        <b>Genial!! Tu anuncio fue creado satisfactoriamente. </b> Revisa tu correo. Si eres nuevo, 
+        debes activar tu cuenta para que administres tus anuncios. También se te envió información
+        adicional para que puedas promover tu anuncio y obtener mejores resultados.   
+    </div>
+
+    <?php
+}
+
 $titulo = $datos['titulo'];
 $texto = $datos['texto'];
 $tel = $datos['tel'];
@@ -33,7 +53,7 @@ echo ' <div class="btn-group pull-right">'
  . '</div>';
 echo '  </div>';
 echo '  <div class="panel-body">';
-echo '<div>'.$texto . '</div>';
+echo '<div>' . $texto . '</div>';
 echo '<br>';
 
 $img = $anuncio->getUrlImage($idanuncio, 0);

@@ -50,6 +50,25 @@ class Anuncio {
             
     }
 
+    public function total_email($email) {
+        
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        
+        $sql = "SELECT COUNT(*) as total FROM anuncio WHERE email = '" . $email . "'";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($data)) {
+            return $data['total'];
+        }else{
+            return 0;
+        }            
+    }
+    
     public function insertAnuncio($tipo_anuncio, $titulo, $texto, $usuario, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa) {
 
         $pdo = Database::connect();
@@ -160,7 +179,7 @@ class Anuncio {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $pdo->prepare("SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
+        $query = $pdo->prepare("SELECT idanuncio, email, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
             FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
             INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) WHERE idanuncio = ?;");
 
