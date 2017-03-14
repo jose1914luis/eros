@@ -34,8 +34,10 @@ $(function () {
             contra:$('#contra').val()
         }).done(function (data) {
             if(data == 1){
-                location.reload();   
-            } 
+                window.location.href = "panel"; 
+            }else{
+                alert('Imposible iniciar sesion');
+            }
         }).fail(function () {
             alert('Error de comunicación');
         });
@@ -50,7 +52,7 @@ $(function () {
         }).done(function (data) {
            
             if(data == 1){
-                location.reload();   
+                window.location.href = "index";
             }            
         }).fail(function () {
             alert('Error de comunicación');

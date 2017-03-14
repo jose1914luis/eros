@@ -16,6 +16,7 @@ $cerrar = filter_input(INPUT_POST, 'cerrar');
 if ($cerrar == 1) {
     
     unset($_SESSION['user_session']);
+    unset($_SESSION['tipo']);
     if(session_destroy()){
         echo 1;
     }else{

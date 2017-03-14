@@ -31,7 +31,7 @@ class Correo {
         <p>Se ha creado una cuenta temporal en la que puedes administrar tu anuncio, promoverlo, editarlo o borrarlo, pulsa el link a continuación he ingresa con los datos de acceso:</p>
         <p><b>Email:</b> '. $email . '</p>
         <p><b>Contraseña:</b> '. $contra . '</p>
-        <p><b>link:</b> <link></p><br>
+        <p><b>link:</b> <a href="paginaerotica.com">paginaerotica.com</a></p><br>
         <p>Muchas graciar por usar <a href="paginaerotica.com">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio.</p><br><br>
         <p>Si tienes algún inconveniente ponte en contacto con nosotros:</p>
         <p>Contacto: <a href="administracion@paginaerotica.com">administracion@paginaerotica.com</a></p>';
@@ -53,14 +53,13 @@ class Correo {
         }
     }
     
-    private function enviar(){
-        echo 'envio el correo';
-//        if (!$mail->send()) {
-//            //$mail->ErrorInfo;
-//            return false;
-//        } else {
-//            return true;
-//        }
+    private function enviar(){        
+        if (!$mail->send()) {
+            //$mail->ErrorInfo;
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }

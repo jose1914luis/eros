@@ -22,6 +22,7 @@ class Usuario {
             Database::disconnect();
             if ($data['contra'] == $contra) {
                 $_SESSION['user_session'] = $data['idusuario'];
+                $_SESSION['tipo'] = $data['tipo'];
                 return 1;
             }
             return 0;

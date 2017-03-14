@@ -1,3 +1,13 @@
+
+.panel_titulo {
+    
+    overflow: hidden;
+    height: 43px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+}
+
 .loader {
     position: fixed;
     text-align: center;
@@ -31,6 +41,14 @@
     margin-bottom: 8px;
     border-radius: 4px;
 }
+
+#top_anuncio2{
+    background-color: #ebccd1;;
+    color: #d9534f;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
 #izq_panel {
     float: left;
     max-width: 170px;
@@ -234,8 +252,8 @@
 
 .navbar-brand>img {
     max-height: 100%;
-    height: 100%;
-    width: auto;
+    /*height: 100%;*/
+    /*width: auto;*/
     margin: 0 auto;
 
 

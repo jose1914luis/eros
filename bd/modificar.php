@@ -9,10 +9,17 @@ if (empty($_POST)) {
 include_once 'Anuncio.php';
 $id_anuncio = filter_input(INPUT_POST, 'id_anuncio');
 $anuncio = new Anuncio();
+session_start();
+if (isset($_SESSION['user_session'])) {
 
-if ($anuncio->borrarAnuncio($id_anuncio) == 1){
-    
-    echo 1;
-}else{
+    $i =  0;
+    if ($_SESSION['tipo'] == 'admin') {
+        $i = $anuncio->borrarAnuncio($id_anuncio, null);
+    }else{
+        
+        $i = $anuncio->borrarAnuncio($id_anuncio, $_SESSION['user_session']);                                
+    }
+    echo $i;
+} else {
     echo 0;
 }

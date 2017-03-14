@@ -50,13 +50,13 @@ class Anuncio {
             
     }
 
-    public function total_email($email) {
+    public function total_usuario($idusuario) {
         
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         
-        $sql = "SELECT COUNT(*) as total FROM anuncio WHERE email = '" . $email . "'";
+        $sql = "SELECT COUNT(*) as total FROM anuncio WHERE usuario = '" . $idusuario . "'";
         $query = $pdo->prepare($sql);
         $query->execute();
 
@@ -119,13 +119,22 @@ class Anuncio {
         return $result;
     }
 
-    public function borrarAnuncio($id_anuncio) {
+    public function borrarAnuncio($id_anuncio, $idusuario) {
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio");
-        $stmt->bindParam(':idanuncio', $id_anuncio);
+        $stmt = null;
+        if(isset($idusuario)){
+            $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio AND usuario =  :idusuario");
+            $stmt->bindParam(':idanuncio', $id_anuncio);
+            $stmt->bindParam(':idusuario', $idusuario);
+        }else{
+            $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio");
+            $stmt->bindParam(':idanuncio', $id_anuncio);
+        }
+        
+        
         $result = $stmt->execute();
 
         Database::disconnect();
@@ -151,6 +160,27 @@ class Anuncio {
         rmdir($dirPath);
     }
 
+    public function getAnuncioXPaginaUsuario($limite, $offset, $idusuario) {
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
+            FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
+            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) WHERE usuario = ? ORDER BY fecha_inicio desc, idanuncio desc LIMIT ". intval($limite) ." OFFSET ". intval($offset);
+        $query = $pdo->prepare($sql);        
+        $query->execute(array($idusuario));
+        $data = $query->fetchAll();
+
+        if (!empty($data)) {
+
+            Database::disconnect();
+            return $data;
+        } else {
+
+            return false;
+        }
+    }
+    
     public function getAnuncioXPagina($limite, $offset, $cat, $depa, $mun, $buscar) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
