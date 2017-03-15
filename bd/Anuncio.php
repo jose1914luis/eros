@@ -50,6 +50,25 @@ class Anuncio {
             
     }
 
+    public function total_email($email) {
+        
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        
+        $sql = "SELECT COUNT(*) as total FROM anuncio WHERE email = '" . $email . "'";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+
+        $data = $query->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($data)) {
+            return $data['total'];
+        }else{
+            return 0;
+        }            
+    }
+    
     public function total_usuario($idusuario) {
         
         $pdo = Database::connect();
