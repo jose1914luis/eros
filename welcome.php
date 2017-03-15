@@ -14,9 +14,8 @@ $datos = $anuncio->getAnunciosxID($idanuncio);
 $email = $datos['email'];
 $primera = filter_input(INPUT_GET, 'primera');
 if ($primera == 1) {
-    
-    $correo = new Correo();
-    $correo->validar_bienvenida($email);
+
+    validar_bienvenida($email);
     ?>
 
 
