@@ -1,7 +1,5 @@
 $(function () {
 
-    $('#alt_correo').hide();
-
     $("#btn_buscar").on('click', function () {
         window.location.href = 'index.php?buscar=' + $('#txt_buscar').val() + '&cat=' + $('#categoria2').val() +
                 '&depa=' + $('#dep2').val() + '&mun=' + $('#mun2').val();
@@ -26,44 +24,24 @@ $(function () {
         });
     });
 
-    var iniciarSession = function () {
+    var cerrarSession = function () {
 
         $.post("./bd/entrar.php",
-        {
-            usuario:$('#usuario').val(), 
-            contra:$('#contra').val()
-        }).done(function (data) {
-            if(data == 1){
-                window.location.href = "panel"; 
-            }else{
-                alert('Imposible iniciar sesion');
+                {
+                    cerrar: 1
+                }).done(function (data) {
+
+            if (data == 1) {
+                window.location.href = "index";
             }
         }).fail(function () {
             alert('Error de comunicación');
         });
 
     };
-    
-    var cerrarSession = function () {
 
-        $.post("./bd/entrar.php",
-        {
-            cerrar:1
-        }).done(function (data) {
-           
-            if(data == 1){
-                window.location.href = "index";
-            }            
-        }).fail(function () {
-            alert('Error de comunicación');
-        });
+    if ($('#btn_session').attr('mostrar') == 1) {
 
-    };
-    
-    $('#btn_ini').on('click', iniciarSession);
-    
-    if($('#btn_session').attr('mostrar') == 1 ){
-        
         $('#btn_session').on('click', cerrarSession);
     }
 
