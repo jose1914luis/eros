@@ -27,8 +27,8 @@ $dep = $ClDep->obtenerDep();
 
 <header>
 
-    <script src="js/header.js?v=<?= time() ?>" type="text/javascript"></script>
-    <!--<script src="js/header.min.js" type="text/javascript"></script>-->
+    <!--<script src="js/header.js?v=<?= time() ?>" type="text/javascript"></script>-->
+    <script src="js/header.min.js" type="text/javascript"></script>
     <div id="cabeza">
 
         <form class="navbar-form" style="margin-top: 0px;padding-top: 10px;">

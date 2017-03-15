@@ -2,7 +2,7 @@
 <html lang="es">
     <head>        
         <?php include './plantillas/head.php'; ?>
-        <script src="js/session.js?v=<?= time() ?>" type="text/javascript"></script>
+        <script src="js/session.js" type="text/javascript"></script>
     </head>
 
     <body >       
