@@ -42,7 +42,7 @@ $(function () {
             cache: false, // To unable request pages to be cached
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
-            { 
+            {
                 if (data > 0) {
 
                     window.location.href = "index.php?primera=1&idanuncio=" + data;
@@ -66,13 +66,17 @@ $(function () {
         });
     }));
 
+    CKEDITOR.replace('editor', {
+        toolbar: [
+            {name: 'basicstyles', items: ['Bold', 'Italic']},
+            {name: 'styles', items:['Styles', 'Format']},
+            {name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote']},
+            {name: 'links', items:['Link', 'Unlik', 'Anchor']},            
+            {name: 'document', items: ['-', 'NewPage', 'Preview', '-', 'Templates']}, // Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] // Defines toolbar group without name.
+        ]
+    });
 
-    $("#editor").cleditor({controls: // controls to add to the toolbar
-                "bold italic underline strikethrough subscript superscript | font size " +
-                "style | color highlight removeformat | bullets numbering | outdent " +
-                "indent | alignleft center alignright justify | " +
-                "link unlink | cut copy paste pastetext",
-                width: 'auto'});
 
     for (var j = 1; j <= 8; j++) {
         $('#image_' + j).attr('style', 'visibility: hidden');
