@@ -48,7 +48,7 @@ if (!empty($tarifa))
 if (!empty($tel))
     echo '<span style="margin-right: 10px;" class="f_15 label label-primary"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> ' . $tel . '</span>';
 echo ' <div class="btn-group pull-right">'
- . '<a style="margin-right: 10px;" class="f_15 label label-danger">Denunciar</a>'
+// . '<a style="margin-right: 10px;" class="f_15 label label-danger">Denunciar</a>'
  . '</div>';
 echo '  </div>';
 echo '  <div class="panel-body">';

@@ -53,17 +53,17 @@
                             ?>
 
                         </select>
-                    </div>
+                    </div>                    
+                </div>     
 
-                    <div class="form-group">
-                        <label for="mun" class="col-sm-1 control-label" >Ciudad</label>
-                        <div class="col-sm-2">
-                            <select id="mun" class="form-control" required name="mun_idmun">   
-                            </select>
-                        </div>
+                <div class="form-group">
+                    <label for="mun" class="col-sm-2 control-label" >Ciudad</label>
+                    <div class="col-sm-2">
+                        <select id="mun" class="form-control" required name="mun_idmun">   
+                        </select>
                     </div>
+                </div>
 
-                </div>                  
 
                 <div class="form-group">
                     <label for="barrio" class="col-sm-2 control-label">Barrio</label>
@@ -207,7 +207,7 @@
         </div>
 
         <div id="public_div" class="loader_div">
-            
+
         </div>
         <?php
         include './plantillas/footer.php';
