@@ -76,7 +76,7 @@ if ($total > 0) {
                 ?>
                 <div class="row">
                     <div id="top_anuncio" class="col-lg-12">        
-                        <h1 style="font-size: 18px"><b>Top Anuncios</b></h1>
+                        <h1 style="font-size: 18px"><b>Anuncios Eroticos Colombia</b></h1>
                     </div>
                     <?php
                     $pri = false;
