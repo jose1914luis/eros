@@ -29,70 +29,66 @@ $dep = $ClDep->obtenerDep();
 
     <!--<script src="js/header.js?v=<?= time() ?>" type="text/javascript"></script>-->
     <script src="js/header.min.js" type="text/javascript"></script>
-    <div id="cabeza">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
 
-        <form class="navbar-form" style="margin-top: 0px;padding-top: 10px;">
-
-            <div class="form-group" >
-                <a class="navbar-brand" href="index.php" style="padding-top: 0px;">
-                    <img id="logo_img" src="pag_ima/pagina4.png" alt="pagina erotica" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">                
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">                    
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Filtrar</button>
+                </button>
+                <a class="navbar-brand" href=".">
+                    <img alt="pagina erotica" src="../pag_ima/pagina4.png">
                 </a>
 
+                <button type="button" class="btn btn-danger navbar-btn" onclick="window.location = 'anuncio'">                    
+                    <i class="fa fa-cloud-upload" aria-hidden="true"></i></span> Publicar Anuncio Gratis</button>
+                </button>
 
-                <div class="input-group input-group-sm" style="width: 304px">
-                    <input id="txt_buscar" type="text" class="form-control" placeholder="Buscar..." >
-                    <span class="input-group-btn">
-                        <button id="btn_buscar" class="btn btn-default" type="button">
-                            <span class="glyphicon glyphicon-search"/>
-                        </button>
-                    </span>
-                </div><!-- /input-group -->
-
-                <select id="categoria2" class="form-control input-sm" style="width: 180px;">
-                    <option value = "0">Categoria</option>
-                    <?php
-                    foreach ($tipo as $pos => $value) {
-                        echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
-                    }
-                    ?>
-
-                </select>
-
-
-                <select id="dep2" class="form-control input-sm" style="width: 180px">
-                    <option value = "0">Departamento</option>
-                    <?php
-                    foreach ($dep as $pos => $value) {
-                        echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
-                    }
-                    ?>
-
-                </select>
-
-                <select id="mun2" class="form-control input-sm" style="overflow: hidden; max-width: 120px">   
-                    <option value = "0">Ciudad</option>
-                </select>
-
-
-
-
-                <div>
-                    <a class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="anuncio"><span class="label label-danger" style="padding: .5em .5em .5em; cursor: pointer">Publicar anuncio Gratis <i class="fa fa-font-awesome" aria-hidden="true"></i></span></a>
-                    <?php if (!isset($session)) { ?>
-                        <a id="btn_session" mostrar="<?= $salir ?>" class="btn btn-xs" style="font-size: 1.2em; padding-top: 10px" href="<?php echo ($salir) ? '#' : "session" ?>" >
-                            <span class="label label-primary" style="padding: .5em .5em .5em;cursor: pointer">
-                                <?php echo ($salir) ? 'Salir <span class="fa fa-lg fa-sign-out" aria-hidden="true"></span>' : 'Iniciar Sesión <span class="fa fa-lg fa-sign-in " aria-hidden="true"></span>'; ?></span></a>                    
-                            <?php } ?>
-                    <a class="btn btn-social btn-xs btn-facebook" style="top: 5px;padding-bottom: 4.2px;padding-top: 4.3px;"href="https://www.facebook.com/paginaerotica/" target="_blank"><span style="padding-top: 3px;" class="fa fa-facebook"></span><b>Facebook</b></span></a>
-                    <!--                    <div style="float: right;padding-right: 20px;padding-top: 8px;">
-                                        <span class="label" style="color:#000;padding-top: 5px">siguenos:</a>    
-                                        </div>-->
-
-                </div>
             </div>
-        </form>                
 
-    </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <form class="navbar-form navbar-left">                    
+
+                    <select id="categoria2" class="form-control" style="overflow: hidden; max-width: 150px">
+                        <option value = "0">Categoría</option>
+                        <?php
+                        foreach ($tipo as $pos => $value) {
+                            echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                        }
+                        ?>
+
+                    </select>
+
+
+                    <select id="dep2" class="form-control" style="overflow: hidden; max-width: 150px">
+                        <option value = "0" >Departamento</option>
+                        <?php
+                        foreach ($dep as $pos => $value) {
+                            echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                        }
+                        ?>
+                    </select>
+
+                    <select id="mun2" class="form-control" style="overflow: hidden; max-width: 120px">   
+                        <option value = "0">Ciudad</option>
+                    </select>
+                    <div class="form-group">
+                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave">
+                        <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+
+                        <?php if (!isset($session)) { ?>
+                        <button id="btn_session" mostrar="<?= $salir ?>" type="button" onclick="window.location = '<?php echo ($salir) ? '#' : "session" ?>'" class="btn btn-primary">
+                        <?php echo ($salir) ? 'Salir <i class="fa fa-lg fa-sign-out" aria-hidden="true"></i>' : '<i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar Sesión'; ?></button>                                                            
+                        <?php } ?>                        
+                    </div>                       
+
+                </form>                
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 
 
 
