@@ -47,11 +47,11 @@ function validar_bienvenida($email) {
         $datos = $usuario->getUsuariobyEmail($email);
         bienvenida($datos['email'], $datos['contra'], $mail);
         $mail->addAddress($datos['email'], 'Usuario');
-        enviar();
+        enviar($mail);
     }
 }
 
-function enviar() {
+function enviar($mail) {
     if (!$mail->send()) {
         //$mail->ErrorInfo;
         return false;

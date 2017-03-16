@@ -46,8 +46,8 @@ $(function () {
                 if (data > 0) {
 
                     window.location.href = "index.php?primera=1&idanuncio=" + data;
-                    $('#div_alerta').hide();
-                    $('#public_div').hide();
+//                    $('#div_alerta').hide();
+//                    $('#public_div').hide();
                 } else {
 
                     $('#div_alerta').attr('class', 'alert alert-danger');
@@ -70,25 +70,9 @@ $(function () {
     $("#editor").cleditor({controls: // controls to add to the toolbar
                 "bold italic underline strikethrough subscript superscript | font size " +
                 "style | color highlight removeformat | bullets numbering | outdent " +
-                "indent | alignleft center alignright justify | undo redo | " +
-                "rule link unlink | cut copy paste pastetext",
+                "indent | alignleft center alignright justify | " +
+                "link unlink | cut copy paste pastetext",
                 width: 'auto'});
-
-    var cledDesc = $("#editor").cleditor()[0];
-    var frameDesc = cledDesc.$frame[0].contentWindow.document;
-
-    $(frameDesc).bind('keydown change', function (event) {
-
-        var text = cledDesc.$area.val();
-
-        if (text.length >= 32700 && event.which != 8) {
-            console.log("Longer than MaxLength");
-            //lose focus / stop writing
-            return false;
-        } else {
-            //Do something
-        }
-    });
 
     for (var j = 1; j <= 8; j++) {
         $('#image_' + j).attr('style', 'visibility: hidden');

@@ -82,7 +82,7 @@
 
 
                 <div class="form-group">
-                    <label for="titulo" class="col-sm-2 control-label">Descripcion</label>
+                    <label for="editor" class="col-sm-2 control-label">Descripcion</label>
                     <div class="col-sm-6">
                         <textarea id="editor" name="texto" style="" placeholder="Descripcion de tu anuncio"></textarea>
                     </div>
