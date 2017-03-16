@@ -29,14 +29,14 @@
                             <div class="form-group">
                                 <label for="usuario" class="col-sm-4 control-label">Correo: </label>
                                 <div class="col-sm-8">
-                                    <input id="usuario" type="text" class="form-control" value="jose1914luis@gmail.com">    
+                                    <input id="usuario" type="text" class="form-control" value="">    
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="contra" class="col-sm-4 control-label">Contraseña: </label>
                                 <div class="col-sm-8">
-                                    <input id="contra" type="password" class="form-control" value="09ebb8">    
+                                    <input id="contra" type="password" class="form-control" value="">    
                                 </div>
                             </div>      
                             <div class="col-sm-12" style="text-align: center">
