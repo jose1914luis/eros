@@ -16,7 +16,7 @@ $(function () {
                     $.each(data, function (index, value) {
 
 
-                        $('#mun2').append($("<option></option>").attr("value", value.idmun).text(value.nombre));
+                        $('#mun2').append($("<option></option>").attr("value", value.m_nombre).text(value.m_nombre));
 
                     });
                     $('#mun2').show();

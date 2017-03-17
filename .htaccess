@@ -3,6 +3,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
+RewriteRule ^index/([0-9]+)/[^/]*/?$ public/index.php?buscar=$1 [NC,L,QSA]
 
 # ----------------------------------------------------------------------
 # Expires headers (for better cache control)

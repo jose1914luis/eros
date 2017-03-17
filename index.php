@@ -48,7 +48,7 @@
                     } else {
                         echo '<li><b>Ciudad</b></li>';
                         foreach ($data_mun as $pos => $value) {
-                            echo '<li><a href="index.php?mun=' . $value[0] . '">' . $value[2] . '</a> </li>';
+                            echo '<li><a href="index.php?mun=' . $value[0] . '">' . $value[0] . '</a> </li>';
                         }
                     }
                     ?>

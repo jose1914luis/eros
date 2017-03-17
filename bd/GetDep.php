@@ -48,7 +48,7 @@ class GetDep {
         
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM mun where iddep =  ? order by nombre";
+        $sql = "SELECT * FROM v_mun where d_nombre =  ? order by m_nombre";
         $query = $pdo->prepare($sql);
         $query->execute(array($iddep));
         $data = $query->fetchAll();
