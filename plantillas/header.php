@@ -27,8 +27,8 @@ $dep = $ClDep->obtenerDep();
 
 <header>
 
-    <!--<script src="js/header.js?v=<?= time() ?>" type="text/javascript"></script>-->
-    <script src="js/header.min.js" type="text/javascript"></script>
+    <script src="js/header.js?v=<?= time() ?>" type="text/javascript"></script>
+    <!--<script src="js/header.min.js" type="text/javascript"></script>-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
 
@@ -52,11 +52,11 @@ $dep = $ClDep->obtenerDep();
 
                 <form class="navbar-form navbar-left">                    
 
-                    <select id="categoria2" class="form-control" style="overflow: hidden; max-width: 150px">
+                    <select id="categoria2" class="form-control" style="overflow: hidden; max-width: 160px">
                         <option value = "0">Categoría</option>
                         <?php
                         foreach ($tipo as $pos => $value) {
-                            echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                            echo '<option '. (($cat==$value[1])?"selected ":"") .  'value = "' . $value[1] . '">' . $value[1] . '</option>';
                         }
                         ?>
 
@@ -67,7 +67,7 @@ $dep = $ClDep->obtenerDep();
                         <option value = "0" >Departamento</option>
                         <?php
                         foreach ($dep as $pos => $value) {
-                            echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                            echo '<option '. (($depa==$value[1])?"selected ":"") .  'value = "' . $value[1] . '">' . $value[1] . '</option>';
                         }
                         ?>
                     </select>

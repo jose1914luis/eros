@@ -4,58 +4,70 @@ require_once 'Database.php';
 
 class Anuncio {
 
-    public function construirWhere($cat, $depa, $mun, $buscar){
+    private $param = array();
+
+    public function construirWhere($cat, $depa, $mun, $buscar) {
+
+        $consulta2 = "";
+        if (!empty($cat)) {
+            
+            $consulta2 .= "tipo = :tipo";
+            $this->param["tipo"] = $cat;
+        }
+        if (!empty($depa)) {
+
+            $consulta2 .= ($consulta2 == "") ? "d_nombre = :d_nombre" : " AND d_nombre = :d_nombre";
+            $this->param["d_nombre"] = $depa;
+        }
+        if (!empty($mun)) {
+
+            $consulta2 .= ($consulta2 == "") ? "m_nombre = :m_nombre" : " AND m_nombre = :m_nombre";
+            $this->param["m_nombre"] = $mun;
+        }
+        if (!empty($buscar)) {
+          
+            $consulta2 .= ($consulta2 == "") ? "(texto LIKE :texto OR tel LIKE :tel OR altura = :altura OR edad = :edad OR tarifa = :tarifa OR titulo LIKE :titulo)" :
+                    " AND (texto LIKE :texto OR tel LIKE :tel OR altura = :altura OR edad = :edad OR tarifa = :tarifa OR titulo LIKE :titulo)";
+
+            $this->param["texto"] = '%' . $buscar . '%';
+            $this->param["tel"] = $buscar;
+            $this->param["altura"] = $buscar;
+            $this->param["edad"] = $buscar;
+            $this->param["tarifa"] = $buscar;
+            $this->param["titulo"] = '%' . $buscar . '%';
+        }
         
-        $consulta = "";       
-        if(!empty($cat)){
-            $consulta .= "tipo_anuncio = " . intval($cat);
-        }
-        if(!empty($depa)){
-            
-            $consulta .= ($consulta == "")? "mun_iddep = " . intval($depa):" AND mun_iddep = " . intval($depa);
-        }
-        if(!empty($mun)){
-            
-            
-            $consulta .= ($consulta == "")? "mun_idmun = " . intval($mun):" AND mun_idmun = " . intval($mun);
-        }
-        if(!empty($buscar)){
-            
-            $consulta .= ($consulta == "")?"(texto LIKE '%" . $buscar . "%' OR tel LIKE '%" . $buscar . "%' OR altura = '" . $buscar . "' OR edad = '" . $buscar . "' OR tarifa = '" . $buscar . "' OR titulo LIKE '%" . $buscar ."%')":
-                " AND (texto LIKE '%" . $buscar . "%' OR tel LIKE '%" . $buscar . "%' OR altura = '" . $buscar . "' OR edad = '" . $buscar . "' OR tarifa = '" . $buscar . "' OR titulo LIKE '%" . $buscar ."%')";
-        }   
-//        echo $consulta;
-        $consulta = ($consulta == "")?"":"WHERE ".$consulta;   
-        return $consulta;
+        $consulta2 = ($consulta2 == "") ? "" : "WHERE " . $consulta2;
+        return $consulta2;
     }
 
     public function total($cat, $depa, $mun, $buscar) {
-        
+
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
+
         $consulta = $this->construirWhere($cat, $depa, $mun, $buscar);
+
+        $sql = "SELECT COUNT(*) as total FROM v_anuncio " . $consulta;  
         
-        $sql = "SELECT COUNT(*) as total FROM anuncio " . $consulta;
         $query = $pdo->prepare($sql);
-        $query->execute();
+        $query->execute($this->param);
 
         $data = $query->fetch(PDO::FETCH_ASSOC);
 
         if (!empty($data)) {
             return $data['total'];
-        }else{
+        } else {
             return 0;
         }
-            
     }
 
     public function total_email($email) {
-        
+
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        
+
+
         $sql = "SELECT COUNT(*) as total FROM anuncio WHERE email = '" . $email . "'";
         $query = $pdo->prepare($sql);
         $query->execute();
@@ -64,17 +76,17 @@ class Anuncio {
 
         if (!empty($data)) {
             return $data['total'];
-        }else{
+        } else {
             return 0;
-        }            
+        }
     }
-    
+
     public function total_usuario($idusuario) {
-        
+
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        
+
+
         $sql = "SELECT COUNT(*) as total FROM anuncio WHERE usuario = '" . $idusuario . "'";
         $query = $pdo->prepare($sql);
         $query->execute();
@@ -83,11 +95,11 @@ class Anuncio {
 
         if (!empty($data)) {
             return $data['total'];
-        }else{
+        } else {
             return 0;
-        }            
+        }
     }
-    
+
     public function insertAnuncio($tipo_anuncio, $titulo, $texto, $usuario, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa) {
 
         $pdo = Database::connect();
@@ -144,16 +156,16 @@ class Anuncio {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = null;
-        if(isset($idusuario)){
+        if (isset($idusuario)) {
             $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio AND usuario =  :idusuario");
             $stmt->bindParam(':idanuncio', $id_anuncio);
             $stmt->bindParam(':idusuario', $idusuario);
-        }else{
+        } else {
             $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio");
             $stmt->bindParam(':idanuncio', $id_anuncio);
         }
-        
-        
+
+
         $result = $stmt->execute();
 
         Database::disconnect();
@@ -183,10 +195,8 @@ class Anuncio {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
-            FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
-            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) WHERE usuario = ? ORDER BY fecha_inicio desc, idanuncio desc LIMIT ". intval($limite) ." OFFSET ". intval($offset);
-        $query = $pdo->prepare($sql);        
+        $sql = "SELECT * FROM v_anuncio WHERE usuario = ? ORDER BY fecha_inicio desc, idanuncio desc LIMIT " . intval($limite) . " OFFSET " . intval($offset);
+        $query = $pdo->prepare($sql);
         $query->execute(array($idusuario));
         $data = $query->fetchAll();
 
@@ -199,18 +209,16 @@ class Anuncio {
             return false;
         }
     }
-    
+
     public function getAnuncioXPagina($limite, $offset, $cat, $depa, $mun, $buscar) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $consulta = $this->construirWhere($cat, $depa, $mun, $buscar);
-        $sql = "SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
-            FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
-            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) ". $consulta . " ORDER BY fecha_inicio desc, idanuncio desc LIMIT ". intval($limite) ." OFFSET ". intval($offset);
-        $query = $pdo->prepare($sql);        
-        
-        $query->execute();
+        $sql = "SELECT * FROM v_anuncio " . $consulta . " ORDER BY fecha_inicio desc, idanuncio desc LIMIT " . intval($limite) . " OFFSET " . intval($offset);
+        $query = $pdo->prepare($sql);
+
+        $query->execute($this->param);
         $data = $query->fetchAll();
 
         if (!empty($data)) {
@@ -222,42 +230,39 @@ class Anuncio {
             return false;
         }
     }
-    
+
     public function getAnunciosxID($idanuncio) {
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $query = $pdo->prepare("SELECT idanuncio, email, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
-            FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
-            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) WHERE idanuncio = ?;");
+        $query = $pdo->prepare("SELECT * FROM v_anuncio WHERE idanuncio = ?;");
 
         $query->execute(array($idanuncio));
         $data = $query->fetch(PDO::FETCH_ASSOC);
 
 
-        if (!empty($data)) {    
-            
-            Database::disconnect();        
+        if (!empty($data)) {
+
+            Database::disconnect();
             return $data;
-        } else{
-            
+        } else {
+
             return false;
         }
-        
     }
 
     public function getUrlImage($idanuncio, $limit) {
 
-        
+
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT url FROM imagen WHERE idanuncio = ?";
-        
-        if($limit > 0){
+
+        if ($limit > 0) {
             $sql = $sql . " LIMIT " . $limit;
         }
-        
+
         $query = $pdo->prepare($sql);
         $query->execute(array($idanuncio));
         $data = $query->fetchAll();

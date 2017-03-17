@@ -2,7 +2,7 @@ $(function () {
 
     $('#mun2').hide();
     $("#btn_buscar").on('click', function () {
-        window.location.href = 'index.php?buscar=' + $('#txt_buscar').val() + '&cat=' + $('#categoria2').val() +
+        window.location.href = 'index?buscar=' + $('#txt_buscar').val() + '&cat=' + $('#categoria2').val() +
                 '&depa=' + $('#dep2').val() + '&mun=' + $('#mun2').val();
     });
 
