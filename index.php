@@ -8,19 +8,25 @@
     <body >       
 
         <?php
+        include './bd/GetDep.php';
         $cat = filter_input(INPUT_GET, 'cat');
         $depa = filter_input(INPUT_GET, 'depa');
         $buscar = filter_input(INPUT_GET, 'buscar');
         $mun = filter_input(INPUT_GET, 'mun');
         $idanuncio = filter_input(INPUT_GET, 'idanuncio');
-        include './plantillas/header.php';
-
+        
+        $ClDep = new GetDep();
+        
         $data_mun;
         if (!empty($depa)) {
 
             $data_mun = $ClDep->obtenerMun($depa);
             //print_r($data_mun);
         }
+        
+        include './plantillas/header.php';
+
+        
         ?>
 
         <div>

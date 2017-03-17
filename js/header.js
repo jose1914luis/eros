@@ -1,6 +1,10 @@
 $(function () {
 
-    $('#mun2').hide();
+    if ($('#dep2').val() == '0') {
+
+        $('#mun2').hide();
+    }
+
     $("#btn_buscar").on('click', function () {
         window.location.href = 'index?buscar=' + $('#txt_buscar').val() + '&cat=' + $('#categoria2').val() +
                 '&depa=' + $('#dep2').val() + '&mun=' + $('#mun2').val();

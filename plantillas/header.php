@@ -18,9 +18,7 @@ if (isset($_SESSION['user_session'])) {
 }
 //***************************************
 
-include './bd/GetDep.php';
 
-$ClDep = new GetDep();
 $tipo = $ClDep->obtenerTipoAnuncio();
 $dep = $ClDep->obtenerDep();
 ?>
@@ -74,9 +72,14 @@ $dep = $ClDep->obtenerDep();
 
                     <select id="mun2" class="form-control" style="overflow: hidden; max-width: 120px">   
                         <option value = "0">Ciudad</option>
+                        <?php
+                        foreach ($data_mun as $pos => $value) {
+                            echo '<option '. (($mun==$value[0])?"selected ":"") .  'value = "' . $value[0] . '">' . $value[0] . '</option>';
+                        }
+                        ?>
                     </select>
                     <div class="form-group">
-                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave">
+                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?= $buscar ?>">
                         <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
 
                         <?php if (!isset($session)) { ?>
