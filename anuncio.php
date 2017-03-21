@@ -3,6 +3,8 @@
     <head>
 
         <?php
+        include './bd/GetDep.php';
+        $ClDep = new GetDep();
         include './plantillas/head.php';
         ?>
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
@@ -10,7 +12,7 @@
         <script src="ckeditor/ckeditor.js" type="text/javascript"></script>
         <!--<script src="js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->
         <!--<script src="js/anuncio.min.js" type="text/javascript"></script>-->
-        <script src="js/anuncio.js" type="text/javascript"></script>
+        <script src="js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
     </head>
     <body>
 

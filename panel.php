@@ -11,6 +11,8 @@
     <body>
 
         <?php
+        include './bd/GetDep.php';
+        $ClDep = new GetDep();
         include './plantillas/header.php';
         ?>
 
@@ -240,7 +242,7 @@
                             echo '</div>';
                         } else {
 
-                            echo '<div><div class="col-sm-5 alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div></div>';
+                            echo '<div><div class="col-sm-5 alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Publica un anuncio.</div></div>';
                         }
                         ?>
 

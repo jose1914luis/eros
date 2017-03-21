@@ -16,14 +16,14 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<link href="css/general.css" rel="stylesheet" type="text/css"/>
-<!--<link href="css/general.css?v=<?= time() ?>" rel="stylesheet" type="text/css"/>-->
+<!--<link href="/css/general.css" rel="stylesheet" type="text/css"/>-->
+<link href="/css/general.css?v=<?= time() ?>" rel="stylesheet" type="text/css"/>
 <!--<link href="css/general.min.css" rel="stylesheet" type="text/css"/>-->
-<link href="css/w3.css" rel="stylesheet" type="text/css"/>
+<link href="/css/w3.css" rel="stylesheet" type="text/css"/>
 
 
-<link href="css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
-<link href="css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="/css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
+<link href="/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

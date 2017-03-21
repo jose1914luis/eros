@@ -25,8 +25,9 @@ $dep = $ClDep->obtenerDep();
 
 <header>
 
-    <script src="js/header.js?v=<?= time() ?>" type="text/javascript"></script>
-    <!--<script src="js/header.min.js" type="text/javascript"></script>-->
+    <!--<script src="/js/header.js" type="text/javascript"></script>-->
+    <script src="/js/header.js?v=<?= time() ?>" type="text/javascript"></script>
+    <!--<script src="js/header.min.js?v=<?= time() ?>" type="text/javascript"></script>-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
 
@@ -35,11 +36,11 @@ $dep = $ClDep->obtenerDep();
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">                    
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Filtrar</button>
                 </button>
-                <a class="navbar-brand" href=".">
-                    <img alt="pagina erotica" src="../pag_ima/pagina4.png">
+                <a class="navbar-brand" href="/">
+                    <img alt="pagina erotica" src="/../pag_ima/pagina4.png">
                 </a>
 
-                <button type="button" class="btn btn-danger navbar-btn" onclick="window.location = 'anuncio'">                    
+                <button type="button" class="btn btn-danger navbar-btn" onclick="window.location = '/anuncio'">                    
                     <i class="fa fa-cloud-upload" aria-hidden="true"></i></span> Publicar Anuncio Gratis</button>
                 </button>
 
@@ -79,7 +80,7 @@ $dep = $ClDep->obtenerDep();
                         ?>
                     </select>
                     <div class="form-group">
-                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?= $buscar ?>">
+                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?php echo ((isset($buscar))?$buscar:''); ?>">
                         <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
 
                         <?php if (!isset($session)) { ?>

@@ -2,20 +2,21 @@
 <html lang="es">
     <head>        
         <?php include './plantillas/head.php'; ?>
-        <script src="js/index.js" type="text/javascript"></script>
+        <script src="/js/index.js" type="text/javascript"></script>
     </head>
 
     <body >       
 
         <?php
         include './bd/GetDep.php';
+        $ClDep = new GetDep();
         $cat = filter_input(INPUT_GET, 'cat');
         $depa = filter_input(INPUT_GET, 'depa');
         $buscar = filter_input(INPUT_GET, 'buscar');
         $mun = filter_input(INPUT_GET, 'mun');
         $idanuncio = filter_input(INPUT_GET, 'idanuncio');
         
-        $ClDep = new GetDep();
+        
         
         $data_mun;
         if (!empty($depa)) {
@@ -38,7 +39,7 @@
                     <li><b>Categorias</b></li>
                     <?php
                     foreach ($tipo as $pos => $value) {
-                        echo '<li><a href="index.php?cat=' . $value[0] . '">' . $value[1] . '</a> </li>';
+                        echo '<li><a href="/' . $value[1] . '">' . $value[1] . '</a> </li>';
                     }
                     ?>
                 </ul>
@@ -49,12 +50,12 @@
                     if (empty($data_mun)) {
                         echo '<li><b>Departamentos</b></li>';
                         foreach ($dep as $pos => $value) {
-                            echo '<li><a href="index.php?depa=' . $value[0] . '">' . $value[1] . '</a> </li>';
+                            echo '<li><a href="/0/' . $value[1] . '">' . $value[1] . '</a> </li>';
                         }
                     } else {
                         echo '<li><b>Ciudad</b></li>';
                         foreach ($data_mun as $pos => $value) {
-                            echo '<li><a href="index.php?mun=' . $value[0] . '">' . $value[0] . '</a> </li>';
+                            echo '<li><a href="/0/0/' . $value[0] . '">' . $value[0] . '</a> </li>';
                         }
                     }
                     ?>

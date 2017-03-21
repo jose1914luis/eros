@@ -113,13 +113,13 @@ $(function () {
 
     $("#dep").change(function () {
 
-        $.get("./bd/getMun.php", {iddep: $("#dep").val()})
+        $.get("./bd/getMun.php", {iddep: $("#dep").val(), id:1})
                 .done(function (data) {
                     $('#mun option[value!="-1"]').remove();
                     $.each(data, function (index, value) {
 
 
-                        $('#mun').append($("<option></option>").attr("value", value.idmun).text(value.nombre));
+                        $('#mun').append($("<option></option>").attr("value", value.idmun).text(value.m_nombre));
 
                     });
                 }).fail(function () {

@@ -6,8 +6,10 @@ $(function () {
     }
 
     $("#btn_buscar").on('click', function () {
-        window.location.href = 'index?buscar=' + $('#txt_buscar').val() + '&cat=' + $('#categoria2').val() +
-                '&depa=' + $('#dep2').val() + '&mun=' + $('#mun2').val();
+        var buscar = ($('#txt_buscar').val() != '')?'/'+$('#txt_buscar').val():'';
+        
+        window.location.href = '/' + $('#categoria2').val() +
+                '/' + $('#dep2').val() + '/' + $('#mun2').val() + buscar;
     });
 
 

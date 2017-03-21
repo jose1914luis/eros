@@ -74,9 +74,28 @@ if ($total > 0) {
         foreach ($datos as $pos => $value) {
             if ($pri) {
                 ?>
-                <div class="row">
-                    <div id="top_anuncio" class="col-lg-12">        
-                        <h1 style="font-size: 18px"><b>Anuncios Eroticos Colombia</b></h1>
+                <div class="row">                    
+                    
+                    <div id="top_anuncio">        
+                        <h1 style="font-size: 18px"><b>
+                                <?php 
+                                
+                                $titulo = "Anuncios ";
+                                if(isset($cat) && $cat != '0'){
+                                    $titulo .= $cat . " ";
+                                }else{
+                                    $titulo .= "Eroticos ";
+                                }
+                                
+                                if(isset($depa) && $depa != '0'){
+                                    $titulo .= $depa;
+                                }else{
+                                    $titulo .= "Colombia";
+                                }
+                                
+                                echo $titulo;
+                                ?>
+                            </b></h1>
                     </div>
                     <?php
                     $pri = false;
@@ -99,7 +118,7 @@ if ($total > 0) {
                 <div class="col-lg-6 ">
                     <div class="panel panel-danger" style="height: 292px;">
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="index.php?idanuncio=<?= $value['idanuncio'] ?>"><h2  style="color: #03b;display: initial;" class="f_15"><b><?= $titulo ?></b></h2></a>
+                            <a class="hand" href="/idanuncio/<?= $value['idanuncio'] ?>"><h2  style="color: #03b;display: initial;" class="f_15"><b><?= $titulo ?></b></h2></a>
                             <?php if ($super) { ?>
 
                                 <div style="float: right">

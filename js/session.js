@@ -6,22 +6,23 @@ $(function () {
 
 var iniciarSession = function () {
 
-    if (validarDatos()) {
+//    if (validarDatos()) {
 
         $.post("./bd/entrar.php",
                 {
                     usuario: $('#usuario').val(),
                     contra: $('#contra').val()
                 }).done(function (data) {
+                    console.log(data);
             if (data == 1) {
                 window.location.href = "panel";
             } else {
-                alert('Imposible iniciar sesion');
+                alert('Datos incorrectos. Imposible iniciar sesion');
             }
         }).fail(function () {
             alert('Error de comunicación');
         });
-    }
+//    }
 };
 
 var validarDatos = function () {

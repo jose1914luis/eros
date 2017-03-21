@@ -7,17 +7,23 @@
  */
 
 require 'GetDep.php';
-header('Access-Control-Allow-Origin: *');  
+header('Access-Control-Allow-Origin: *');
 if (!empty($_GET)) {
 
+    $mun;
     $iddep = $_GET['iddep'];
     $ClDep = new GetDep();
     
-    $mun = $ClDep->obtenerMun($iddep);
+    if (isset($_GET['id']) && $_GET['id'] == 1) {
+        $mun = $ClDep->obtenerMunID($iddep);
+    } else {
+        $mun = $ClDep->obtenerMun($iddep);
+    }
+
     header('Content-Type: application/json');
     echo json_encode($mun);
-}else{
-    
+} else {
+
     echo false;
 }
 

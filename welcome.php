@@ -1,5 +1,5 @@
-<script src="js/funciones.min.js" type="text/javascript"></script>
-<script src="js/wellcome.js" type="text/javascript"></script>
+<script src="/js/funciones.min.js" type="text/javascript"></script>
+<script src="/js/wellcome.js" type="text/javascript"></script>
 
 <!--<script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
 <script src="js/wellcome.js?v=<?= time(); ?>" type="text/javascript"></script>-->
@@ -61,7 +61,7 @@ echo '  <div>';
 if (is_array($img) || is_object($img)) {
     foreach ($img as $pos2 => $url) {
 
-        echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 1) . '" alt="' . $tel . '" style=""></div>';
+        echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 0) . '" alt="' . $tel . '" style=""></div>';
     }
 }
 echo '  </div>';

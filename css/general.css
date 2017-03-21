@@ -1,11 +1,11 @@
 
 .panel_titulo {
-    
+
     overflow: hidden;
     height: 43px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    
+
 }
 
 .loader {
@@ -36,10 +36,11 @@
 }
 #top_anuncio{
     background-color: #ebccd1;;
-    color: #d9534f;
+    color: #000;
     margin-left: 15px;
     margin-bottom: 8px;
     border-radius: 4px;
+    padding: 1px;
 }
 
 #top_anuncio2{
@@ -123,6 +124,8 @@
 
     #top_anuncio{
         margin-bottom: 5px;
+        margin-right: 14px;
+        padding: 1px;
     }
 
     #lbl_edad{    
@@ -149,6 +152,10 @@
 
     #edad{
         width: 140px;
+    }
+
+    .navbar {        
+        margin-bottom: 5px;         
     }
 }
 
