@@ -26,8 +26,7 @@ $dep = $ClDep->obtenerDep();
 <header>
 
     <!--<script src="/js/header.js" type="text/javascript"></script>-->
-    <script src="/js/header.js?v=<?= time() ?>" type="text/javascript"></script>
-    <!--<script src="js/header.min.js?v=<?= time() ?>" type="text/javascript"></script>-->
+    <script src="js/header.min.js" type="text/javascript"></script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
 

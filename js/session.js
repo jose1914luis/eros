@@ -4,9 +4,17 @@ $(function () {
 
 });
 
+var mostrar = function(){
+    if($('#contra').attr('type') == 'password'){
+        $('#contra').attr('type', 'text');
+    }else{
+        $('#contra').attr('type', 'password');
+    }
+};
+
 var iniciarSession = function () {
 
-//    if (validarDatos()) {
+    if (validarDatos()) {
 
         $.post("./bd/entrar.php",
                 {
@@ -22,7 +30,7 @@ var iniciarSession = function () {
         }).fail(function () {
             alert('Error de comunicación');
         });
-//    }
+    }
 };
 
 var validarDatos = function () {

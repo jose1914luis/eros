@@ -2,18 +2,17 @@
 <html lang="es">
     <head>        
         <?php include './plantillas/head.php'; ?>
-        
-        <script src="/js/session.js?v=<?= time() ?>" type="text/javascript"></script>
+
+        <script src="/js/session.min.js" type="text/javascript"></script>
     </head>
 
     <body >       
-        
+
         <?php
         $session = true;
         include './bd/GetDep.php';
         $ClDep = new GetDep();
         include './plantillas/header.php';
-        
         ?>
         <br>
         <br>
@@ -32,20 +31,25 @@
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <label for="usuario" class="col-sm-4 control-label">Correo: </label>
-                                <div class="col-sm-8">
+                                <div class="col-lg-8">
                                     <input id="usuario" type="text" class="form-control">    
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="contra" class="col-sm-4 control-label">Contraseña: </label>
-                                <div class="col-sm-8">
-                                    <input id="contra" type="password" class="form-control">    
-                                </div>
+                                <div class="col-lg-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <input  type="checkbox" aria-label="Mostrar" onchange="mostrar()">Mostrar
+                                        </span>
+                                        <input id="contra" type="password" class="form-control" aria-label="...">
+                                    </div><!-- /input-group -->
+                                </div>                               
                             </div>      
-                            <div class="col-sm-12" style="text-align: center">
+                            <div class="col-lg-12" style="text-align: center">
                                 <button id="btn_ini" type="button" class="btn btn-primary" onclick="iniciarSession()">Iniciar Sesión</button>
                             </div>    
-                            
+
                         </form>
                     </div>
                 </div>

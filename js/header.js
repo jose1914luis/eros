@@ -40,7 +40,7 @@ $(function () {
                 }).done(function (data) {
 
             if (data == 1) {
-                window.location.href = "index";
+                window.location.href = ".";
             }
         }).fail(function () {
             alert('Error de comunicación');

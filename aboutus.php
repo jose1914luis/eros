@@ -7,12 +7,15 @@ and open the template in the editor.
 <html>
     <head lang="es">
         <?php
+        
         include './plantillas/head.php';
         ?>        
     </head>
     <body>
 
         <?php
+        include './bd/GetDep.php';
+        $ClDep = new GetDep();
         include './plantillas/header.php';
         ?>
         <div>
@@ -52,42 +55,7 @@ and open the template in the editor.
                             </div>
                         </div>
                     </div>
-<!--                    <div class="col-lg-2">                    
-                        <div class="thumbnail">
-                            <img src="pag_ima/escorts.png" alt="Escorts">
-                            <div class="caption">
-                                <p>Acompañantes sexuales y prepagos</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Publicar</a> <a href="#" class="btn btn-default" role="button">Visitar</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">                    
-                        <div class="thumbnail">
-                            <img src="pag_ima/escorts.png" alt="Escorts">
-                            <div class="caption">
-                                <p>Acompañantes sexuales y prepagos</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Publicar</a> <a href="#" class="btn btn-default" role="button">Visitar</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">                    
-                        <div class="thumbnail">
-                            <img src="pag_ima/escorts.png" alt="Escorts">
-                            <div class="caption">
-                                <p>Acompañantes sexuales y prepagos</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Publicar</a> <a href="#" class="btn btn-default" role="button">Visitar</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">                    
-                        <div class="thumbnail">
-                            <img src="pag_ima/escorts.png" alt="Escorts">
-                            <div class="caption">
-                                <p>Acompañantes sexuales y prepagos</p>
-                                <p><a href="#" class="btn btn-primary" role="button">Publicar</a> <a href="#" class="btn btn-default" role="button">Visitar</a></p>
-                            </div>
-                        </div>
-                    </div>-->
+
                 </div>
 
 

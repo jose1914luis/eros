@@ -4,7 +4,7 @@
         <?php
         include './plantillas/head.php';
         ?>
-        <!--<script src="js/panel.js?v=<?= time() ?>" type="text/javascript"></script>-->
+        
         <script src="js/panel.js" type="text/javascript"></script>
     </head>
 
@@ -56,8 +56,8 @@
         ?>
         <div class="container-fluid">
             <div class="row">
-                <div id="top_anuncio2" class="col-lg-12">        
-                    <h1 style="font-size: 18px"><b>Tus Anuncios</b></h1>
+                <div id="top_anuncio" class="col-lg-12">        
+                    <h1 style="font-size: 18px; padding-left: 10px;"><b>Tus Anuncios</b></h1>
                 </div>
             </div>
 

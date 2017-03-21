@@ -77,7 +77,7 @@ if ($total > 0) {
                 <div class="row">                    
                     
                     <div id="top_anuncio">        
-                        <h1 style="font-size: 18px"><b>
+                        <h1 style="font-size: 18px;padding-left: 10px;"><b>
                                 <?php 
                                 
                                 $titulo = "Anuncios ";
