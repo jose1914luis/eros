@@ -108,8 +108,8 @@ RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?cat=$1&depa=$2&mun=$3&bu
   ExpiresByType image/svg+xml             "access plus 1 month"
 
 # CSS and JavaScript
-  ExpiresByType application/javascript    "access plus 1 year"
-  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 week"
+  ExpiresByType text/css                  "access plus 1 week"
 
 </IfModule>
 
