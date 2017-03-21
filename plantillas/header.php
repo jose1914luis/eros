@@ -26,7 +26,7 @@ $dep = $ClDep->obtenerDep();
 <header>
 
     <!--<script src="/js/header.js" type="text/javascript"></script>-->
-    <script src="js/header.min.js" type="text/javascript"></script>
+    <script src="/js/header.min.js" type="text/javascript"></script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
 
@@ -83,7 +83,7 @@ $dep = $ClDep->obtenerDep();
                         <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
 
                         <?php if (!isset($session)) { ?>
-                        <button id="btn_session" mostrar="<?= $salir ?>" type="button" onclick="window.location = '<?php echo ($salir) ? '#' : "session" ?>'" class="btn btn-primary">
+                        <button id="btn_session" mostrar="<?= $salir ?>" type="button" onclick="window.location = '<?php echo ($salir) ? '#' : "/session" ?>'" class="btn btn-primary">
                         <?php echo ($salir) ? 'Salir <i class="fa fa-lg fa-sign-out" aria-hidden="true"></i>' : '<i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar Sesión'; ?></button>                                                            
                         <?php } ?>                        
                     </div>                       
