@@ -3,8 +3,7 @@
     overflow: hidden;
     height: 43px;
     text-overflow: ellipsis;
-    white-space: nowrap;
-
+    white-space: nowrap;    
 }
 
 .loader {
@@ -191,6 +190,7 @@
     word-wrap: break-word; 
     max-width: 200px; 
     max-height: 250px;
+    text-transform: uppercase;
 }
 .texto{
     font-size: 12px;

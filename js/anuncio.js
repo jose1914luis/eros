@@ -9,7 +9,7 @@ $(function () {
     $('#public_label').hide();
     var validar = function () {
 
-        if ($('#editor').val().length < 50) {
+        if (CKEDITOR.instances.editor.getData().length < 30) {
             alert('Debes ingresar una descripcion mas larga');
             $('#editor').focus();
             return false;
@@ -23,14 +23,17 @@ $(function () {
 
         if (!validar())
             return;
-
+        
         $('#numfiles').attr('value', addImages.length);
         var datos = new FormData(this);
-
+        
         for (var i = 0; i < addImages.length; i++) {
 
             datos.append('file_' + (i + 1), addImages[i]);
         }
+        
+        datos.append('texto', CKEDITOR.instances.editor.getData());
+                
         $('#public_div').show();
         $('#public_label').show();
 
@@ -43,11 +46,12 @@ $(function () {
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
+                
                 if (data > 0) {
 
                     window.location.href = "index.php?primera=1&idanuncio=" + data;
-//                    $('#div_alerta').hide();
-//                    $('#public_div').hide();
+                    $('#div_alerta').hide();
+                    $('#public_div').hide();
                 } else {
 
                     $('#div_alerta').attr('class', 'alert alert-danger');

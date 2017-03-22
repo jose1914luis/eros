@@ -104,7 +104,7 @@ if ($total > 0) {
 
                 $titulo = $value['titulo'];
 
-                $texto = mb_convert_case(strip_tags($value['texto']), MB_CASE_UPPER, 'UTF-8');
+                $texto = strip_tags($value['texto']);
                 if (strlen($texto) >= $text_ini) {
                     $texto = substr($texto, 0, $text_ini) . '...';
                 }

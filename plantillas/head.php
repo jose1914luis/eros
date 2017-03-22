@@ -1,5 +1,5 @@
 <title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
 <meta name="description" content="publica gratuitamente tus anuncios sexuales en Colombia, Si eres prepago, escorts, gay, travesti, gigolo o masajista sexual, anunciate y consigue clientes.">

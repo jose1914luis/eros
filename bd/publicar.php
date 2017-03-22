@@ -25,6 +25,7 @@ $altura = filter_input(INPUT_POST, 'altura');
 $tarifa = filter_input(INPUT_POST, 'tarifa');
 $numfiles = filter_input(INPUT_POST, 'numfiles');
 
+
 $anuncio = new Anuncio();
 /**
  * Se inserta el anuncio
