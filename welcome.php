@@ -34,37 +34,43 @@ $tel = $datos['tel'];
 $edad = $datos['edad'];
 $tarifa = $datos['tarifa'];
 $altura = $datos['altura'];
+?>
 
-echo '<div class="panel panel-danger">';
-echo '<div class="panel-heading">';
-echo '<a style="font-size: 10px;">' . $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] . '</a><br>';
-echo '<b style="font-size: 18px;">' . $titulo . '</b><p></p>';
-if (!empty($edad))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Edad <span class="fa fa-address-card-o" aria-hidden="true"> : </span>' . $edad . '</span>';
-if (!empty($altura))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Altura <span class="fa fa-long-arrow-up" aria-hidden="true"> : </span>' . $altura . '</span>';
-if (!empty($tarifa))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-primary">Tarifa <span class="fa fa-usd" aria-hidden="true"> : </span>' . $tarifa . '</span>';
-if (!empty($tel))
-    echo '<span style="margin-right: 10px;" class="f_15 label label-primary"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> ' . $tel . '</span>';
-echo ' <div class="btn-group pull-right">'
-// . '<a style="margin-right: 10px;" class="f_15 label label-danger">Denunciar</a>'
- . '</div>';
-echo '  </div>';
-echo '  <div class="panel-body">';
-echo '<div>' . $texto . '</div>';
-echo '<br>';
+<div class="panel panel-danger">
+    <div class="panel-heading">        
+        <a><h2 style="font-size: 18px; color: #03b;display: initial;"><b><?= $titulo ?></b></h2></a>
 
-$img = $anuncio->getUrlImage($idanuncio, 0);
+        <ul class="list-inline">
+            <?php
+            if (!empty($edad))
+                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary">Edad: ' . $edad . '</span></li>';
+            if (!empty($altura))
+                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary">Altura: ' . $altura . '</span></li>';
+            if (!empty($tarifa))
+                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary">Tarifa: ' . $tarifa . '</span></li>';
+            if (!empty($tel))
+                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> ' . $tel . '</span></li>';
+            ?>
 
-echo '  <div>';
-if (is_array($img) || is_object($img)) {
-    foreach ($img as $pos2 => $url) {
+        </ul>
+    </div>
+    <div class="panel-body">
+        <a style="font-size: 10px;"><?= $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] ?></a><br>
+        <div><?= $texto ?></div>
+        <br>
 
-        echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 0) . '" alt="' . $tel . '" style=""></div>';
-    }
-}
-echo '  </div>';
-echo '  </div>';
-echo '</div>';
+        <?php
+        $img = $anuncio->getUrlImage($idanuncio, 0);
+
+        echo '  <div>';
+        if (is_array($img) || is_object($img)) {
+            foreach ($img as $pos2 => $url) {
+
+                echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 0) . '" alt="' . $tel . '" style=""></div>';
+            }
+        }
+        ?>
+    </div>
+</div>
+</div>
 

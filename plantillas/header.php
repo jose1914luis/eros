@@ -33,15 +33,20 @@ $dep = $ClDep->obtenerDep();
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">                
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">                    
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Filtrar</button>
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
                 </button>
                 <a class="navbar-brand" href="/">
                     <img alt="pagina erotica" src="/../pag_ima/pagina4.png">
-                </a>
-
+                </a>                
+                
                 <button type="button" class="btn btn-danger navbar-btn" onclick="window.location = '/anuncio'">                    
-                    <i class="fa fa-cloud-upload" aria-hidden="true"></i></span> Publicar Anuncio Gratis</button>
+                    <i class="fa fa-cloud-upload" aria-hidden="true"></i></span> Publicar Anuncio</button>
                 </button>
+
+                <?php if (!isset($session)) { ?>
+                    <button id="btn_session" mostrar="<?= $salir ?>" type="button" onclick="window.location = '<?php echo ($salir) ? '#' : "/session" ?>'" class="btn btn-primary">
+                        <?php echo ($salir) ? 'Salir <i class="fa fa-lg fa-sign-out" aria-hidden="true"></i>' : '<i class="fa fa-user" aria-hidden="true"></i> Entrar'; ?></button>                                                            
+                <?php } ?>                     
 
             </div>
 
@@ -54,7 +59,7 @@ $dep = $ClDep->obtenerDep();
                         <option value = "0">Categoría</option>
                         <?php
                         foreach ($tipo as $pos => $value) {
-                            echo '<option '. (($cat==$value[1])?"selected ":"") .  'value = "' . $value[1] . '">' . $value[1] . '</option>';
+                            echo '<option ' . (($cat == $value[1]) ? "selected " : "") . 'value = "' . $value[1] . '">' . $value[1] . '</option>';
                         }
                         ?>
 
@@ -65,7 +70,7 @@ $dep = $ClDep->obtenerDep();
                         <option value = "0" >Departamento</option>
                         <?php
                         foreach ($dep as $pos => $value) {
-                            echo '<option '. (($depa==$value[1])?"selected ":"") .  'value = "' . $value[1] . '">' . $value[1] . '</option>';
+                            echo '<option ' . (($depa == $value[1]) ? "selected " : "") . 'value = "' . $value[1] . '">' . $value[1] . '</option>';
                         }
                         ?>
                     </select>
@@ -74,18 +79,13 @@ $dep = $ClDep->obtenerDep();
                         <option value = "0">Ciudad</option>
                         <?php
                         foreach ($data_mun as $pos => $value) {
-                            echo '<option '. (($mun==$value[0])?"selected ":"") .  'value = "' . $value[0] . '">' . $value[0] . '</option>';
+                            echo '<option ' . (($mun == $value[0]) ? "selected " : "") . 'value = "' . $value[0] . '">' . $value[0] . '</option>';
                         }
                         ?>
                     </select>
                     <div class="form-group">
-                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?php echo ((isset($buscar))?$buscar:''); ?>">
-                        <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
-
-                        <?php if (!isset($session)) { ?>
-                        <button id="btn_session" mostrar="<?= $salir ?>" type="button" onclick="window.location = '<?php echo ($salir) ? '#' : "/session" ?>'" class="btn btn-primary">
-                        <?php echo ($salir) ? 'Salir <i class="fa fa-lg fa-sign-out" aria-hidden="true"></i>' : '<i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar Sesión'; ?></button>                                                            
-                        <?php } ?>                        
+                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?php echo ((isset($buscar)) ? $buscar : ''); ?>">
+                        <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>                                           
                     </div>                       
 
                 </form>                
