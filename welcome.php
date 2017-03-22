@@ -66,7 +66,7 @@ $altura = $datos['altura'];
         if (is_array($img) || is_object($img)) {
             foreach ($img as $pos2 => $url) {
 
-                echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 0) . '" alt="' . $tel . '" style=""></div>';
+                echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 0) . '" alt="' . $tel . '" style=" height: auto;width: 100%;"></div>';
             }
         }
         ?>
