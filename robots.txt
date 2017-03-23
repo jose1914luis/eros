@@ -6,8 +6,6 @@ Disallow: /pruebas.php
 Disallow: /termcondi.php
 Disallow: /welcome.php
 Disallow: /plantillas/
-Disallow: /css/
-Disallow: /js/
 Disallow: /image/
 Disallow: /PHPMailer/
 Disallow: /CLEditor1_4_5/
