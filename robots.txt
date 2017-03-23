@@ -1,10 +1,7 @@
 Sitemap: http://www.paginaerotica.com/sitemap.xml
 User-Agent: *
 Disallow: /bd/
-Disallow: /upload/
 Disallow: /pruebas.php
-Disallow: /termcondi.php
-Disallow: /welcome.php
 Disallow: /plantillas/
 Disallow: /image/
 Disallow: /PHPMailer/

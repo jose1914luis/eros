@@ -78,24 +78,23 @@ if ($total > 0) {
                     
                     <div id="top_anuncio">        
                         <h1 style="font-size: 18px;padding-left: 10px;"><b>
-                                <?php 
-                                
+                                <?php
                                 $titulo = "Anuncios ";
-                                if(isset($cat) && $cat != '0'){
+                                if (isset($cat) && $cat != '0') {
                                     $titulo .= $cat . " ";
-                                }else{
+                                } else {
                                     $titulo .= "Eroticos ";
                                 }
-                                
-                                if(isset($depa) && $depa != '0'){
+
+                                if (isset($depa) && $depa != '0') {
                                     $titulo .= $depa;
-                                }else{
+                                } else {
                                     $titulo .= "Colombia";
                                 }
-                                
+
                                 echo $titulo;
                                 ?>
-                            </b></h1>
+                            </b></h1>                        
                     </div>
                     <?php
                     $pri = false;
@@ -116,9 +115,9 @@ if ($total > 0) {
                 $tel = $value['tel'];
                 ?>
                 <div class="col-lg-6 ">
-                    <div class="panel panel-danger" style="height: 292px;">
+                    <div class="panel panel-danger" style="height: 292px;" itemscope itemtype="http://schema.org/Service>
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="/idanuncio/<?= $value['idanuncio'] ?>"><h2  style="color: #03b;display: initial;" class="f_15"><b><?= $titulo ?></b></h2></a>
+                            <a class="hand" href="/idanuncio/<?= $value['idanuncio'] ?>"><h2  style="color: #03b;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
                             <?php if ($super) { ?>
 
                                 <div style="float: right">
@@ -150,10 +149,10 @@ if ($total > 0) {
                                                 $output = base64_encode(ob_get_contents());
                                                 ob_end_clean();
                                                 if ($ext == 'png') {
-                                                    echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                    echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
                                                 } else if ($ext == 'jpg') {
 
-                                                    echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                    echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
                                                 }
                                             }
                                             if (count($img) > 1) {
@@ -163,27 +162,27 @@ if ($total > 0) {
                                                 <a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="<?= 'plusDivs_' . $i . '(1)' ?>">&#10095;</a>
 
                                                 <script type="text/javascript">
-                                            var i_ = <?= $i ?>;
-                                            var slide_<?= $i ?> = 1;
-                                            showDivs_<?= $i ?>(slide_<?= $i ?>);
-                                            function plusDivs_<?= $i ?>(n) {
-                                                showDivs_<?= $i ?>(slide_<?= $i ?> += n);
+                                        var i_ = <?= $i ?>;
+                                        var slide_<?= $i ?> = 1;
+                                        showDivs_<?= $i ?>(slide_<?= $i ?>);
+                                        function plusDivs_<?= $i ?>(n) {
+                                            showDivs_<?= $i ?>(slide_<?= $i ?> += n);
+                                        }
+                                        ;
+                                        function showDivs_<?= $i ?>(n) {
+                                            var i;
+                                            var x = $(".slides_<?= $i ?>");
+                                            if (n > x.length) {
+                                                slide_<?= $i ?> = 1;
                                             }
-                                            ;
-                                            function showDivs_<?= $i ?>(n) {
-                                                var i;
-                                                var x = $(".slides_<?= $i ?>");
-                                                if (n > x.length) {
-                                                    slide_<?= $i ?> = 1;
-                                                }
-                                                if (n < 1) {
-                                                    slide_<?= $i ?> = x.length;
-                                                }
-                                                for (i = 0; i < x.length; i++) {
-                                                    x[i].style.display = "none";
-                                                }
-                                                x[slide_<?= $i ?> - 1].style.display = "inline-block";
+                                            if (n < 1) {
+                                                slide_<?= $i ?> = x.length;
                                             }
+                                            for (i = 0; i < x.length; i++) {
+                                                x[i].style.display = "none";
+                                            }
+                                            x[slide_<?= $i ?> - 1].style.display = "inline-block";
+                                        }
                                                 </script>
                                                 <?php
                                             }
@@ -196,16 +195,16 @@ if ($total > 0) {
 
 
                                         echo '<td class="td_texto">';
-                                        echo '<h3 style="display: initial;"><b style="font-size: 10px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b></h3>';
+                                        echo '<h3 style="display: initial;"><b style="font-size: 10px;" itemprop="serviceType">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b></h3>';
 
-                                        echo '<p class="texto">' . $texto . '</p>';
+                                        echo '<p class="texto" itemprop="description">' . $texto . '</p>';
 
                                         if (!empty($edad))
                                             echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
                                         if (!empty($altura))
                                             echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
                                         if (!empty($tarifa))
-                                            echo '<b class="f_15">Tarifa minima: </b>' . $value['tarifa'] . '<br>';
+                                            echo '<b class="f_15">Tarifa minima: </b itemprop="price">' . $value['tarifa'] . '<br>';
                                         if (!empty($tel))
                                             echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
                                         echo '</td>';
@@ -230,7 +229,7 @@ if ($total > 0) {
 
                                 for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-                                    echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . (isset($cat)?'/'. $cat:'/0') . (isset($depa)?'/'. $depa:'/0') . (isset($mun)?'/'. $mun:'/0') . (isset($buscar)?'/'. $buscar:'/0') . '/' . $j .  '">' . $j . '</a></li>';
+                                    echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . (isset($cat) ? '/' . $cat : '/0') . (isset($depa) ? '/' . $depa : '/0') . (isset($mun) ? '/' . $mun : '/0') . (isset($buscar) ? '/' . $buscar : '/0') . '/' . $j . '">' . $j . '</a></li>';
                                 }
                                 echo $nextlink;
 
