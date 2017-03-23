@@ -219,9 +219,9 @@ if ($total > 0) {
                                     echo '</div>';
                                 }
 
-                                $prevlink = ($page > 1) ? '<li><a href="?page=1" aria-label="Previous">&laquo;</a> </li> <li><a href="?page=' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
+                                $prevlink = ($page > 1) ? '<li><a href="/0/0/0/0/1" aria-label="Previous">&laquo;</a> </li> <li><a href="/0/0/0/0/' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
-                                $nextlink = ($page < $pages) ? '<li><a href="?page=' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="?page=' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
+                                $nextlink = ($page < $pages) ? '<li><a href="/0/0/0/0/' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="/0/0/0/0/' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
 
                                 echo '<div id="pagi" class="text-center">';
                                 echo '<nav aria-label="Page navigation">';
@@ -230,7 +230,7 @@ if ($total > 0) {
 
                                 for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-                                    echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '&cat=' . $cat . '&depa=' . $depa . '&mun=' . $mun . '&buscar =' . $buscar . '">' . $j . '</a></li>';
+                                    echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . (isset($cat)?'/'. $cat:'/0') . (isset($depa)?'/'. $depa:'/0') . (isset($mun)?'/'. $mun:'/0') . (isset($buscar)?'/'. $buscar:'/0') . '/' . $j .  '">' . $j . '</a></li>';
                                 }
                                 echo $nextlink;
 

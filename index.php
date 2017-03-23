@@ -5,7 +5,7 @@
         <script src="/js/index.js" type="text/javascript"></script>
     </head>
 
-    <body >       
+    <body itemscope itemtype="http://schema.org/WebPage">       
 
         <?php
         include './bd/GetDep.php';
@@ -32,14 +32,13 @@
 
         <div>
 
-            <nav id="izq_panel" >
-
-
+            <nav id="izq_panel">
+                                
                 <ul>
                     <li><b>Categorias</b></li>
                     <?php
                     foreach ($tipo as $pos => $value) {
-                        echo '<li><a href="/' . $value[1] . '">' . $value[1] . '</a> </li>';
+                        echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a href="/' . $value[1] . '" itemprop="url"><span itemprop="name">' . $value[1] . '</span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
                     }
                     ?>
                 </ul>
@@ -50,12 +49,12 @@
                     if (empty($data_mun)) {
                         echo '<li><b>Departamentos</b></li>';
                         foreach ($dep as $pos => $value) {
-                            echo '<li><a href="/0/' . $value[1] . '">' . $value[1] . '</a> </li>';
+                            echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a href="/0/' . $value[1] . '" itemprop="url"><span itemprop="name">' . $value[1] . '</span></a> </li>';
                         }
                     } else {
                         echo '<li><b>Ciudad</b></li>';
                         foreach ($data_mun as $pos => $value) {
-                            echo '<li><a href="/0/0/' . $value[0] . '">' . $value[0] . '</a> </li>';
+                            echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a href="/0/0/' . $value[0] . '" itemprop="url"><span itemprop="name">' . $value[0] . '</span></a> </li>';
                         }
                     }
                     ?>
@@ -64,7 +63,7 @@
 
             </nav>  
 
-            <div id="contenido_1">            
+            <div id="contenido_1" itemprop="mainContentOfPage">            
                 <?php
                 if (isset($idanuncio)) {
                     include './welcome.php';

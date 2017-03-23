@@ -35,8 +35,8 @@ $dep = $ClDep->obtenerDep();
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">                    
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
                 </button>
-                <a class="navbar-brand" href="/">
-                    <img alt="pagina erotica" src="/../pag_ima/pagina4.png">
+                <a class="navbar-brand" href="/" itemprop="url">
+                    <img itemprop="primaryImageOfPage" alt="pagina erotica" src="/../pag_ima/pagina4.png">
                 </a>                
                 
                 <button type="button" class="btn btn-danger navbar-btn" onclick="window.location = '/anuncio'">                    
@@ -84,7 +84,7 @@ $dep = $ClDep->obtenerDep();
                         ?>
                     </select>
                     <div class="form-group">
-                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?php echo ((isset($buscar)) ? $buscar : ''); ?>">
+                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?php echo ( (isset($buscar) ? (($buscar != '0')?$buscar: ''):'') ); ?>">
                         <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>                                           
                     </div>                       
 

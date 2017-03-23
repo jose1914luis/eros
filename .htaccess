@@ -50,6 +50,8 @@ RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ index.php?cat=$1&depa=$2&mun=$3 [L]
 
 RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?cat=$1&depa=$2&mun=$3&buscar=$4 [L]
 
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?&cat=$1&depa=$2&mun=$3&buscar=$4&page=$5 [L]
+
 
 
 # ----------------------------------------------------------------------
