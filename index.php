@@ -2,7 +2,8 @@
 <html lang="es">
     <head>        
         <?php include './plantillas/head.php'; ?>
-        <script src="/js/index.js?v=<?= time()?>" type="text/javascript"></script>
+        <!--<script src="/js/index.js?v=<?= time()?>" type="text/javascript"></script>-->
+        <script src="/js/index.min.js" type="text/javascript"></script>
     </head>
 
     <body itemscope itemtype="http://schema.org/WebPage">       
