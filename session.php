@@ -17,7 +17,7 @@
         <br>
         <br>        
         <div class="container-fluid">
-            <div class="col-lg-3" style="float: none;margin: 0 auto">
+            <div class="col-lg-4" style="float: none;margin: 0 auto">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title"><b>Iniciar Sesión</b></h3>                       
@@ -29,13 +29,13 @@
                         </div>
                         <form class="form-horizontal">
                             <div class="form-group">
-                                <label for="usuario" class="col-sm-4 control-label">Correo: </label>
+                                <label for="usuario" class="col-lg-4 control-label">Correo: </label>
                                 <div class="col-lg-8">
                                     <input id="usuario" type="text" class="form-control">    
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="contra" class="col-sm-4 control-label">Contraseña: </label>
+                                <label for="contra" class="col-lg-4 control-label">Contraseña: </label>
                                 <div class="col-lg-8">
                                     <div class="input-group">
                                         <span class="input-group-addon">
