@@ -38,24 +38,40 @@ $altura = $datos['altura'];
 
 <div class="panel panel-danger">
     <div class="panel-heading">        
-        <a><h2 style="font-size: 18px; color: #03b;display: initial;"><b><?= $titulo ?></b></h2></a>
-
-        <ul class="list-inline">
-            <?php
-            if (!empty($edad))
-                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary">Edad: ' . $edad . '</span></li>';
-            if (!empty($altura))
-                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary">Altura: ' . $altura . '</span></li>';
-            if (!empty($tarifa))
-                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary">Tarifa: ' . $tarifa . '</span></li>';
-            if (!empty($tel))
-                echo '<li style="padding-top: 8px;"><span style="margin-right: 10px;" class="f_15 label label-primary"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> ' . $tel . '</span></li>';
-            ?>
-
-        </ul>
+        <a><h5 style="display: initial;"><b><?= $titulo ?></b></h5></a><br>   
+        <a style="color: #337ab7;font-size: 12px;"><?= $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] ?></a>
     </div>
-    <div class="panel-body">
-        <a style="font-size: 10px;"><?= $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] ?></a><br>
+    <div style="padding: 5px 15px;" class="panel-body">
+        <div style="text-align: center">                   
+            <ul class="list-inline">
+                <?php
+                $poner_ = false;
+                if (!empty($edad)){
+                    echo '<li style="padding-top: 8px;"><a><b>Edad: ' . $edad . ' años</b></a></li>';
+                    $poner_ = true;
+                }
+                if (!empty($altura)){
+                    echo ($poner_)?' | ':'';
+                    echo '<li style="padding-top: 8px;"><a><b>Altura: ' . $altura . ' cm</b></a></li>';
+                    $poner_ = true;
+                }
+                    
+                if (!empty($tarifa)){
+                    echo ($poner_)?' | ':'';
+                    echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '"><b>Tarifa: $' . $tarifa . '</b></a></li>';
+                }
+                    
+                ?>
+            </ul>
+
+            <h5>
+                <span style="padding: 5px 5px;" class="label label-danger">
+                    <a href="/0/0/0/<?= $tel ?>"><i class="fa fa-phone" aria-hidden="true"></i> <?= $tel ?></a>    
+                </span>
+            </h5>
+
+        </div>
+
         <div><?= $texto ?></div>
         <br>
 

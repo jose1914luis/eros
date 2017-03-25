@@ -11,8 +11,6 @@
     <body>
 
         <?php
-        include './bd/GetDep.php';
-        $ClDep = new GetDep();
         include './plantillas/header.php';
         ?>
 

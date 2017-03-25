@@ -1,3 +1,11 @@
+.conteo{
+    color: #666;
+    font-size: 11px;
+    font-style: initial;
+}
+
+.btn_opcional{    
+}
 .panel_titulo {
 
     overflow: hidden;
@@ -33,12 +41,14 @@
     width: 100%;
 }
 #top_anuncio{
-    background-color: #ebccd1;;
-    color: #000;
-    margin-left: 15px;
-    margin-bottom: 8px;
-    border-radius: 4px;
-    padding: 1px;
+    background-color: #ebccd1;
+    margin-bottom: 6px;
+    font-size: 18px;
+    /*color: #000;*/
+    /*margin-left: 15px;*/
+    /*margin-bottom: 8px;*/
+/*    border-radius: 4px;
+    padding: 1px;*/
 }
 
 #top_anuncio2{
@@ -103,6 +113,11 @@
 }
 
 @media screen and (min-width: 0px) and (max-width: 720px){
+
+    .btn_opcional{
+        margin-left: 15px;
+    }
+
     #izq_panel{ 
         display: none; 
     }
@@ -120,11 +135,11 @@
         display: inline-block;
     }
 
-    #top_anuncio{
+/*    #top_anuncio{
         margin-bottom: 5px;
         margin-right: 14px;
         padding: 1px;
-    }
+    }*/
 
     #lbl_edad{    
         margin-left: 15px;
@@ -163,6 +178,7 @@
     background-color: #f8f8f8;
     border-color: #e7e7e7;
     height: 100px;    
+    /*position: absolute;*/
 }
 .helper{
     content: ' ';

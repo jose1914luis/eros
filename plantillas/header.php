@@ -18,6 +18,15 @@ if (isset($_SESSION['user_session'])) {
 }
 //***************************************
 
+include './bd/GetDep.php';
+$ClDep = new GetDep();
+
+$data_mun;
+if (!empty($depa)) {
+
+    $data_mun = $ClDep->obtenerMun($depa);
+    //print_r($data_mun);
+}
 
 $tipo = $ClDep->obtenerTipoAnuncio();
 $dep = $ClDep->obtenerDep();
@@ -38,7 +47,7 @@ $dep = $ClDep->obtenerDep();
                 <a class="navbar-brand" href="/" itemprop="url">
                     <img itemprop="primaryImageOfPage" alt="pagina erotica" src="/../pag_ima/pagina4.png">
                 </a>                
-                
+
                 <button type="button" class="btn btn-danger navbar-btn" onclick="window.location = '/anuncio'">                    
                     <i class="fa fa-cloud-upload" aria-hidden="true"></i></span> Publicar Anuncio</button>
                 </button>
@@ -84,7 +93,7 @@ $dep = $ClDep->obtenerDep();
                         ?>
                     </select>
                     <div class="form-group">
-                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?php echo ( (isset($buscar) ? (($buscar != '0')?$buscar: ''):'') ); ?>">
+                        <input type="text" id="txt_buscar" class="form-control" placeholder="Palabra clave" value="<?php echo ( (isset($buscar) ? (($buscar != '0') ? $buscar : '') : '') ); ?>">
                         <button id="btn_buscar" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>                                           
                     </div>                       
 

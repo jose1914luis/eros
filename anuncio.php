@@ -3,8 +3,7 @@
     <head>
 
         <?php
-        include './bd/GetDep.php';
-        $ClDep = new GetDep();
+                
         include './plantillas/head.php';
         ?>
         <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
@@ -12,10 +11,7 @@
         <script src="ckeditor/ckeditor.js" type="text/javascript"></script>
         <!--<script src="js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->
         <script src="js/anuncio.min.js" type="text/javascript"></script>
-        
-    <div style="display:inline;">
-        <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/960279501/?label=pwquCJiJ028QzefyyQM&amp;guid=ON&amp;script=0"/>
-    </div>
+      
     </noscript>
 
 </head>
@@ -23,6 +19,7 @@
 
     <?php
     include './plantillas/header.php';
+    
     ?>
 
     <div id="anuncio">  
@@ -99,17 +96,17 @@
                 <div class="form-group">
                     <label for="edad" class="col-sm-1 control-label" id="lbl_edad">Edad</label>
                     <div class="col-sm-1">
-                        <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="form-control" id="edad" maxlength="3" placeholder="años" name="edad">
+                        <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="btn_opcional form-control" id="edad" maxlength="3" placeholder="años" name="edad">
                     </div>
 
                     <label for="altura" class="col-sm-1 control-label" id="lbl_altura">Altura</label>
                     <div class="col-sm-1">
-                        <input type="text" class="form-control" id="altura" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="4" placeholder="altura cm." name="altura">
+                        <input type="text" class="btn_opcional form-control" id="altura" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="4" placeholder="altura cm." name="altura">
                     </div>
 
                     <label for="tarifa" class="col-sm-1 control-label" id="lbl_tarifa">Tarifa Minima</label>
                     <div class="col-sm-1">
-                        <input type="text" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace: 0}).val()" id="tarifa" placeholder="tarifa COP" name="tarifa">
+                        <input type="text" class="btn_opcional form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace: 0}).val()" id="tarifa" placeholder="tarifa COP" name="tarifa">
                     </div>
 
                 </div>
@@ -204,7 +201,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Publicar</button>
+                    <button type="submit" class="btn btn-primary">Publicar</button>
                 </div>
             </div>
 

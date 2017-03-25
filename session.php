@@ -10,8 +10,6 @@
 
         <?php
         $session = true;
-        include './bd/GetDep.php';
-        $ClDep = new GetDep();
         include './plantillas/header.php';
         ?>
         <br>
@@ -22,7 +20,8 @@
             <div class="col-lg-3" style="float: none;margin: 0 auto">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><b>Iniciar Sesión</b></h3>
+                        <h3 class="panel-title"><b>Iniciar Sesión</b></h3>                       
+
                     </div>
                     <div class="panel-body">
                         <div id="alt_correo" class="alert alert-info" role="alert">
@@ -47,7 +46,12 @@
                                 </div>                               
                             </div>      
                             <div class="col-lg-12" style="text-align: center">
-                                <button id="btn_ini" type="button" class="btn btn-primary" onclick="iniciarSession()">Iniciar Sesión</button>
+                                <div class="btn-group" role="group" aria-label="...">                                                                        
+                                    <button type="button" class="btn btn-danger">Registrarse</button>                          
+                                    <button id="btn_ini" type="button" class="btn btn-primary" onclick="iniciarSession()">Iniciar Sesión</button>
+                                </div><br>
+                                <br>
+                                <a>olvide mi contraseña</a>
                             </div>    
 
                         </form>

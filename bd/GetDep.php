@@ -9,7 +9,7 @@ class GetDep {
     public function obtenerTipoAnuncio() {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM tipo_anuncio";
+        $sql = "SELECT * FROM v_cat";
         $query = $pdo->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();
@@ -28,7 +28,7 @@ class GetDep {
     public function obtenerDep() {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM dep order by nombre";
+        $sql = "SELECT * FROM v_dep";
         $query = $pdo->prepare($sql);
         $query->execute();
         $data = $query->fetchAll();
@@ -42,13 +42,13 @@ class GetDep {
             
             return false;
         }
-    }
+    }    
     
     public function obtenerMun($nombre){
         
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM v_mun where d_nombre =  ? order by m_nombre";
+        $sql = "SELECT * FROM v_mun_num where d_nombre =  ?";
         $query = $pdo->prepare($sql);
         $query->execute(array($nombre));
         $data = $query->fetchAll();
@@ -63,6 +63,7 @@ class GetDep {
             return false;
         }
     } 
+    
     
     public function obtenerMunID($iddep){
         

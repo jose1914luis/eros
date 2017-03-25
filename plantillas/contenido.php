@@ -74,28 +74,35 @@ if ($total > 0) {
         foreach ($datos as $pos => $value) {
             if ($pri) {
                 ?>
+
+                <div>                          
+                    <script src="/js/contenido.js" type="text/javascript"></script>
+
+                    <b>
+                            <ol id="top_anuncio" class="breadcrumb">
+                            <?php                      
+                                                       
+                            echo '<li><a href=".">Top Anuncios</a></li>';
+                                                                                    
+                            if (isset($cat) && $cat != '0') {                                
+                                echo '<li><a href="/'. $cat .'">'. $cat .'</a></li>';
+                            }
+                            
+                            if (isset($depa) && $depa != '0') {                                
+                                echo '<li><a href="/0/'. $depa .'">'. $depa .'</a></li>';
+                            }
+                            ?>
+                                
+                            </ol>
+                        </b>
+
+
+                </div>
+
                 <div class="row">                    
-                    
-                    <div id="top_anuncio">        
-                        <h1 style="font-size: 18px;padding-left: 10px;"><b>
-                                <?php
-                                $titulo = "Anuncios ";
-                                if (isset($cat) && $cat != '0') {
-                                    $titulo .= $cat . " ";
-                                } else {
-                                    $titulo .= "Eroticos ";
-                                }
 
-                                if (isset($depa) && $depa != '0') {
-                                    $titulo .= $depa;
-                                } else {
-                                    $titulo .= "Colombia";
-                                }
 
-                                echo $titulo;
-                                ?>
-                            </b></h1>                        
-                    </div>
+
                     <?php
                     $pri = false;
                 }
@@ -191,56 +198,62 @@ if ($total > 0) {
                                             echo '</div>';
                                             echo '</td>';
                                         }
+                                        ?>
+
+                                        <td class="td_texto">
+                                            <div>
+                                                <b style="font-size: 10px;" itemprop="serviceType"><?= $value['d_nombre'] . ' - ' . $value['m_nombre'] ?></b>
+                                            </div>
+
+                                            <p class="texto" itemprop="description"><?= $texto ?></p>
+
+                                            <?php
+                                            if (!empty($edad))
+                                                echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
+                                            if (!empty($altura))
+                                                echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
+                                            if (!empty($tarifa))
+                                                echo '<b class="f_15">Tarifa minima: </b itemprop="price">' . $value['tarifa'] . '<br>';
+                                            if (!empty($tel))
+                                                echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
+                                            ?>
+                                        </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <?php
+                $i = $i + 1;
+            }
+
+            echo '</div>';
+        }
+
+        $prevlink = ($page > 1) ? '<li><a href="/0/0/0/0/1" aria-label="Previous">&laquo;</a> </li> <li><a href="/0/0/0/0/' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
+
+        $nextlink = ($page < $pages) ? '<li><a href="/0/0/0/0/' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="/0/0/0/0/' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
+        ?>
+        <div id="pagi" class="text-center">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">'
 
 
+                    <?php
+                    echo $prevlink;
+                    for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-                                        echo '<td class="td_texto">';
-                                        echo '<h3 style="display: initial;"><b style="font-size: 10px;" itemprop="serviceType">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b></h3>';
+                        echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . (isset($cat) ? '/' . $cat : '/0') . (isset($depa) ? '/' . $depa : '/0') . (isset($mun) ? '/' . $mun : '/0') . (isset($buscar) ? '/' . $buscar : '/0') . '/' . $j . '">' . $j . '</a></li>';
+                    }
+                    echo $nextlink;
 
-                                        echo '<p class="texto" itemprop="description">' . $texto . '</p>';
-
-                                        if (!empty($edad))
-                                            echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
-                                        if (!empty($altura))
-                                            echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
-                                        if (!empty($tarifa))
-                                            echo '<b class="f_15">Tarifa minima: </b itemprop="price">' . $value['tarifa'] . '<br>';
-                                        if (!empty($tel))
-                                            echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
-                                        echo '</td>';
-                                        echo '</tr>';
-                                        echo '</table>';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        $i = $i + 1;
-                                    }
-
-                                    echo '</div>';
-                                }
-
-                                $prevlink = ($page > 1) ? '<li><a href="/0/0/0/0/1" aria-label="Previous">&laquo;</a> </li> <li><a href="/0/0/0/0/' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
-
-                                $nextlink = ($page < $pages) ? '<li><a href="/0/0/0/0/' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="/0/0/0/0/' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
-
-                                echo '<div id="pagi" class="text-center">';
-                                echo '<nav aria-label="Page navigation">';
-                                echo '    <ul class="pagination">';
-                                echo $prevlink;
-
-                                for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
-
-                                    echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . (isset($cat) ? '/' . $cat : '/0') . (isset($depa) ? '/' . $depa : '/0') . (isset($mun) ? '/' . $mun : '/0') . (isset($buscar) ? '/' . $buscar : '/0') . '/' . $j . '">' . $j . '</a></li>';
-                                }
-                                echo $nextlink;
-
-                                echo '</ul>';
-                                echo '</nav>';
-                                echo '</div>';
-                            } else {
-
-                                echo '<div><div class="col-sm-5 alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div></div>';
-                            }
-                            ?>
+                    echo '</ul>';
+                    echo '</nav>';
+                    echo '</div>';
+                } else {
+                    $style = "style='position: fixed;width: 100%;'";
+                    echo '<div><div class="col-sm-5 alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div></div>';
+                }
+                ?>
 
 
 
