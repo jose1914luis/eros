@@ -87,9 +87,10 @@ $altura = $datos['altura'];
         ?>
 
         <div class="col-lg-12" style="text-align: center">
+            <br>
             <div class="btn-group" role="group" aria-label="...">                                                                        
-                <button type="button" class="btn btn-primary">Compartir anuncio</button>                          
-                <button id="btn_ini" type="button" class="btn btn-danger">Denunciar</button>
+                <!--<button type="button" class="btn btn-xs btn-primary">Compartir anuncio</button>-->                          
+                <button id="btn_ini" type="button" class="btn btn-xs btn-danger" onclick="window.location='/denunciar/<?= $idanuncio ?>'" >Denunciar</button>
             </div>
         </div>  
 

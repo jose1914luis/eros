@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>        
-        <?php include './plantillas/head.php'; ?>
+
+        <?php
+        include './plantillas/init.php';
+        if ($idusuario != null) {
+
+            header("Location:/panel");
+        }
+        include './plantillas/head.php';
+        ?>
 
         <script src="/js/session.min.js" type="text/javascript"></script>
     </head>
@@ -43,7 +51,7 @@
                             </div>      
                             <div class="col-lg-12" style="text-align: center">
                                 <div class="btn-group" role="group" aria-label="...">                                                                        
-                                    <button type="button" class="btn btn-danger" onclick="window.location='/register'">Crear Cuenta</button>                          
+                                    <button type="button" class="btn btn-danger" onclick="window.location = '/register'">Crear Cuenta</button>                          
                                     <button id="btn_ini" type="button" class="btn btn-primary" onclick="iniciarSession()">Iniciar Sesión</button>
                                 </div><br>
                                 <br>

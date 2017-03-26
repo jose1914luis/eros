@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <?php
-        include './plantillas/head.php';
+        <?php        
+        include './plantillas/init.php';
+        if($idusuario == null){
+            
+            header("Location:/session");
+        }        
+        include './plantillas/head.php';        
         ?>
 
         <script src="js/panel.js" type="text/javascript"></script>
@@ -10,13 +15,13 @@
 
     <body>
 
-        <?php
-        include './plantillas/header.php';
+        <?php                
+        include './plantillas/header.php';       
         ?>
 
         <?php
         include_once './bd/Anuncio.php';
-
+        
         $anuncio = new Anuncio();
 
 //renderizar imagen si javascritp
@@ -92,10 +97,10 @@
                 $i = 1;
                 if (is_array($datos) || is_object($datos)) {
 
-
+                    echo '<div class="row">';
                     foreach ($datos as $pos => $value) {
 
-                        echo '<div class="row">';
+                        
                         $text_ini = 220;
 
                         $titulo = $value['titulo'];

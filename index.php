@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>        
-        <?php include './plantillas/head.php'; ?>
+        <?php 
+        include './plantillas/init.php';
+        include './plantillas/head.php'; 
+        ?>
         <!--<script src="/js/index.js?v=<?= time()?>" type="text/javascript"></script>-->
         <script src="/js/index.min.js" type="text/javascript"></script>
     </head>
