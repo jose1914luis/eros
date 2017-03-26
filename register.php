@@ -31,19 +31,7 @@
                 </div>
 
                 <form id="publicar" class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-
-                    <div class="form-group">
-                        <label for="fotos" class="col-xs-3 col-lg-3 control-label">Foto</label>
-                        <div class="col-xs-6 col-lg-3">
-                            <div class="div_img" style="margin: 1px 1px;">
-                                <span id='btn_close_1' class="close" >&#10006</span>
-                                <img id="image_1" name="image_1" class="image" src="" alt="pagina erotica">
-                                <span id="btn_mas_1" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                                <input id="file_1" class="file" type="file" >
-                            </div>                    
-                        </div>
-                    </div>
-
+                  
                     <div class="form-group">
                         <label for="nombre" class="col-xs-3 col-lg-3 control-label">Nombres</label>
                         <div class="col-xs-6 col-lg-6">

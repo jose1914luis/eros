@@ -1,5 +1,3 @@
-var addImages = [];
-
 $(function () {
 
     $('#public_div').hide();
@@ -94,69 +92,5 @@ $(function () {
         }
         return true;
     };
-
-
-    for (var j = 1; j <= 8; j++) {
-        $('#image_' + j).attr('style', 'visibility: hidden');
-
-        $('#btn_close_' + j).hide();
-
-        $('#btn_mas_' + j).on('click', function () {
-
-            var id = $(this).attr('id');
-            //$('#btn_mas_' + id[id.length - 1]).attr('class', 'btn_mas fa fa-spinner fa-pulse fa-3x fa-fw');
-            $('#file_' + id[id.length - 1]).click();
-        });
-
-        $('#btn_close_' + j).on('click', function () {
-            var id = $(this).attr('id');
-            cerrar_imagen(id[id.length - 1]);
-        });
-
-        $("#file_" + j).change(function () {
-            var id = $(this).attr('id');
-            mostrar_imagen(this, id[id.length - 1]);
-        });
-    }
-
-    var cerrar_imagen = function (i) {
-
-        $('#image_' + i).attr('src', null);
-        $('#image_' + i).attr('style', 'visibility: hidden');
-        $('#btn_mas_' + i).attr('class', 'btn_mas fa fa-camera-retro fa-3x');
-        $('#btn_mas_' + i).show();
-        $('#btn_close_' + i).hide();
-        addImages = [];
-    };
-
-
-
-    var mostrar_imagen = function (e, i) {
-
-        var file = e.files[0];
-
-        var imagefile = file.type;
-        var match = ["image/jpeg", "image/png", "image/jpg"];
-        if (file.size > 10000000) {
-            alert('La foto debe ser de un tamaño menor a 10Mb. Intente con otra foto o reduzca su tamaño.');
-            return false;
-        }
-        if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2])))
-        {
-            alert('Seleccione un formato valido "image/jpeg", "image/png", "image/jpg"');
-            return false;
-        } else
-        {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-
-
-                $('#image_' + i).attr('style', 'visibility: visible');
-                $('#btn_close_' + i).show();
-                rederizarCanvas($('#image_' + i), e.target.result, 550, 550, 100, 100);
-                $('#btn_mas_' + i).hide();
-            };
-            reader.readAsDataURL(e.files[0]);
-        }
-    };
+    
 });

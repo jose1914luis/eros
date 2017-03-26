@@ -34,6 +34,7 @@ $tel = $datos['tel'];
 $edad = $datos['edad'];
 $tarifa = $datos['tarifa'];
 $altura = $datos['altura'];
+$fecha_inicio = $datos['fecha_inicio'];
 ?>
 
 <div class="panel panel-danger">
@@ -47,18 +48,23 @@ $altura = $datos['altura'];
                 <?php
                 $poner_ = false;
                 if (!empty($edad)) {
-                    echo '<li style="padding-top: 8px;"><a><b>Edad: ' . $edad . ' años</b></a></li>';
+                    echo '<li style="padding-top: 8px;"><a>Edad: ' . $edad . ' años</li>';
                     $poner_ = true;
                 }
                 if (!empty($altura)) {
                     echo ($poner_) ? ' | ' : '';
-                    echo '<li style="padding-top: 8px;"><a><b>Altura: ' . $altura . ' cm</b></a></li>';
+                    echo '<li style="padding-top: 8px;"><a>Altura: ' . $altura . ' cm</li>';
                     $poner_ = true;
                 }
 
                 if (!empty($tarifa)) {
                     echo ($poner_) ? ' | ' : '';
-                    echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '"><b>Tarifa: $' . $tarifa . '</b></a></li>';
+                    echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '">Tarifa: $' . $tarifa . '</a></li>';
+                }
+                
+                if (!empty($fecha_inicio)) {
+                    echo ($poner_) ? ' | ' : '';
+                    echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $fecha_inicio . '"><i class="fa fa-calendar" aria-hidden="true"></i> ' . $fecha_inicio . '</a></li>';
                 }
                 ?>
             </ul>

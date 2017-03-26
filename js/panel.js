@@ -17,3 +17,11 @@ function eliminarAnuncio(id) {
     }
 }
 
+function republicar(id){
+    alert('Funcion no disponible');
+}
+
+function promocionar(id){
+    alert('Funcion no disponible');
+}
+

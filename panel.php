@@ -24,7 +24,7 @@
         
         $anuncio = new Anuncio();
 
-//renderizar imagen si javascritp
+//renderizar imagen sin javascrit
         function resize_image($file, $w, $h, $ext) {
             list($width, $height) = getimagesize($file);
             $dst = '';
@@ -127,6 +127,14 @@
                                                                                     <span class="glyphicon glyphicon-king" aria-hidden="true"></span> Promocionar
                                                                                 </button>                            -->
 
+                                        <button type="button" onclick="promocionar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-warning" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Promocionar
+                                        </button>
+                                        
+                                        <button type="button" onclick="republicar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-primary" aria-label="Left Align">
+                                            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Republicar
+                                        </button>
+                                        
                                         <button type="button" onclick="eliminarAnuncio(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar
                                         </button>
@@ -247,6 +255,7 @@
                             echo '</nav>';
                             echo '</div>';
                         } else {
+                            $style = "style='position: fixed;width: 100%;'";
                             ?>
                             <div class="col-lg-12" style="float: none;margin: 0 auto">
 
@@ -265,10 +274,8 @@
                         </div>
 
 
-
-
                         <?php
-                        $style = "style='position: fixed;width: 100%;'";
+                        
                         include './plantillas/footer.php';
                         ?>
                         </body>

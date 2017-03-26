@@ -123,7 +123,7 @@ if ($total > 0) {
                 <div class="col-lg-6 ">
                     <div class="panel panel-danger" style="height: 292px;" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="/idanuncio/<?= $value['idanuncio'] ?>"><h2  style="color: #03b;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
+                            <a class="hand" href="/idanuncio/<?= $value['idanuncio'] ?>"><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
                             <?php if ($super) { ?>
 
                                 <div style="float: right">
