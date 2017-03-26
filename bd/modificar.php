@@ -13,7 +13,8 @@ session_start();
 if (isset($_SESSION['user_session'])) {
 
     $i =  0;
-    if ($_SESSION['tipo'] == 'admin') {
+    if ($_SESSION['tipo'] == 'admin') {        
+        
         $i = $anuncio->borrarAnuncio($id_anuncio, null);
     }else{
         
