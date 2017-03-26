@@ -4,7 +4,7 @@
         <?php
         include './plantillas/head.php';
         ?>
-        
+
         <script src="js/panel.js" type="text/javascript"></script>
     </head>
 
@@ -55,7 +55,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div id="top_anuncio" class="col-lg-12">        
-                    <h1 style="font-size: 18px; padding-left: 10px;"><b>Tus Anuncios</b></h1>
+                    <h1 style="font-size: 18px; padding-left: 10px;text-align: center;"><b>Tus Anuncios</b></h1>
                 </div>
             </div>
 
@@ -162,27 +162,27 @@
                                             <a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="<?= 'plusDivs_' . $i . '(1)' ?>">&#10095;</a>
 
                                             <script type="text/javascript">
-                                        var i_ = <?= $i ?>;
-                                        var slide_<?= $i ?> = 1;
-                                        showDivs_<?= $i ?>(slide_<?= $i ?>);
-                                        function plusDivs_<?= $i ?>(n) {
-                                            showDivs_<?= $i ?>(slide_<?= $i ?> += n);
-                                        }
-                                        ;
-                                        function showDivs_<?= $i ?>(n) {
-                                            var i;
-                                            var x = $(".slides_<?= $i ?>");
-                                            if (n > x.length) {
-                                                slide_<?= $i ?> = 1;
-                                            }
-                                            if (n < 1) {
-                                                slide_<?= $i ?> = x.length;
-                                            }
-                                            for (i = 0; i < x.length; i++) {
-                                                x[i].style.display = "none";
-                                            }
-                                            x[slide_<?= $i ?> - 1].style.display = "inline-block";
-                                        }
+                                                    var i_ = <?= $i ?>;
+                                                    var slide_<?= $i ?> = 1;
+                                                    showDivs_<?= $i ?>(slide_<?= $i ?>);
+                                                    function plusDivs_<?= $i ?>(n) {
+                                                        showDivs_<?= $i ?>(slide_<?= $i ?> += n);
+                                                    }
+                                                    ;
+                                                    function showDivs_<?= $i ?>(n) {
+                                                        var i;
+                                                        var x = $(".slides_<?= $i ?>");
+                                                        if (n > x.length) {
+                                                            slide_<?= $i ?> = 1;
+                                                        }
+                                                        if (n < 1) {
+                                                            slide_<?= $i ?> = x.length;
+                                                        }
+                                                        for (i = 0; i < x.length; i++) {
+                                                            x[i].style.display = "none";
+                                                        }
+                                                        x[slide_<?= $i ?> - 1].style.display = "inline-block";
+                                                    }
                                             </script>
                                             <?php
                                         }
@@ -191,42 +191,45 @@
                                         echo '</div>';
                                         echo '</td>';
                                     }
+                                    ?>
 
+                                    <td class="td_texto">
+                                        <div>
+                                            <b style="font-size: 10px;" itemprop="serviceType"><?= $value['d_nombre'] . ' - ' . $value['m_nombre'] ?></b>
+                                        </div>
 
+                                        <p class="texto" itemprop="description"><?= $texto ?></p>
 
-                                    echo '<td class="td_texto">';
-                                    echo '<h3 style="display: initial;"><b style="font-size: 10px;">' . $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] . '</b></h3>';
+                                        <?php
+                                        if (!empty($edad))
+                                            echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
+                                        if (!empty($altura))
+                                            echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
+                                        if (!empty($tarifa))
+                                            echo '<b class="f_15">Tarifa minima: </b>' . $value['tarifa'] . '<br>';
+                                        if (!empty($tel))
+                                            echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
+                                        ?>
+                                    </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <?php
+                        $i = $i + 1;
+                    }
 
-                                    echo '<p class="texto">' . $texto . '</p>';
+                    echo '</div>';
+                }
 
-                                    if (!empty($edad))
-                                        echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
-                                    if (!empty($altura))
-                                        echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
-                                    if (!empty($tarifa))
-                                        echo '<b class="f_15">Tarifa minima: </b>' . $value['tarifa'] . '<br>';
-                                    if (!empty($tel))
-                                        echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
-                                    echo '</td>';
-                                    echo '</tr>';
-                                    echo '</table>';
-                                    echo '</div>';
-                                    echo '</div>';
-                                    $i = $i + 1;
+                $prevlink = ($page > 1) ? '<li><a href="?page=1" aria-label="Previous">&laquo;</a> </li> <li><a href="?page=' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
-                                    echo '</div>';
-                                }
-                            }
-
-//                echo '</div>';
-
-                            $prevlink = ($page > 1) ? '<li><a href="?page=1" aria-label="Previous">&laquo;</a> </li> <li><a href="?page=' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
-
-                            $nextlink = ($page < $pages) ? '<li><a href="?page=' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="?page=' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
-
-                            echo '<div id="pagi" class="text-center">';
-                            echo '<nav aria-label="Page navigation">';
-                            echo '    <ul class="pagination">';
+                $nextlink = ($page < $pages) ? '<li><a href="?page=' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="?page=' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
+                ?>
+                <div id="pagi" class="text-center">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <?php
                             echo $prevlink;
 
                             for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
@@ -239,19 +242,30 @@
                             echo '</nav>';
                             echo '</div>';
                         } else {
+                            ?>
+                            <div class="col-lg-12" style="float: none;margin: 0 auto">
 
-                            echo '<div><div class="col-sm-5 alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Publica un anuncio.</div></div>';
+
+                                <div style="text-align: center">                                    
+                                    <div class="alert alert-dismissable" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div>
+                                </div>
+                                
+                                
+                            </div>
+
+                            <?php
                         }
                         ?>
 
-                </div>
+                        </div>
 
 
 
 
-                <?php
-                include './plantillas/footer.php';
-                ?>
-                </body>
+                        <?php
+                        $style = "style='position: fixed;width: 100%;'";
+                        include './plantillas/footer.php';
+                        ?>
+                        </body>
 
-                </html>
+                        </html>

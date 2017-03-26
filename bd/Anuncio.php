@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Database.php';
+require_once 'SQL_EROS.php';
 
 class Anuncio {
 
@@ -10,7 +11,7 @@ class Anuncio {
 
         $consulta2 = "";
         if (!empty($cat)) {
-            
+
             $consulta2 .= "tipo = :tipo";
             $this->param["tipo"] = $cat;
         }
@@ -25,7 +26,7 @@ class Anuncio {
             $this->param["m_nombre"] = $mun;
         }
         if (!empty($buscar)) {
-          
+
             $consulta2 .= ($consulta2 == "") ? "(texto LIKE :texto OR tel LIKE :tel OR altura = :altura OR edad = :edad OR tarifa = :tarifa OR titulo LIKE :titulo)" :
                     " AND (texto LIKE :texto OR tel LIKE :tel OR altura = :altura OR edad = :edad OR tarifa = :tarifa OR titulo LIKE :titulo)";
 
@@ -36,7 +37,7 @@ class Anuncio {
             $this->param["tarifa"] = $buscar;
             $this->param["titulo"] = '%' . $buscar . '%';
         }
-        
+
         $consulta2 = ($consulta2 == "") ? "" : "WHERE " . $consulta2;
         return $consulta2;
     }
@@ -48,8 +49,8 @@ class Anuncio {
 
         $consulta = $this->construirWhere($cat, $depa, $mun, $buscar);
 
-        $sql = "SELECT COUNT(*) as total FROM v_anuncio " . $consulta;  
-        
+        $sql = "SELECT COUNT(*) as total FROM v_anuncio " . $consulta;
+
         $query = $pdo->prepare($sql);
         $query->execute($this->param);
 
@@ -102,29 +103,25 @@ class Anuncio {
 
     public function insertAnuncio($tipo_anuncio, $titulo, $texto, $usuario, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmt = $pdo->prepare("INSERT INTO anuncio (tipo_anuncio, titulo, texto, usuario, email, tel, web, mun_idmun, mun_iddep, barrio, edad, altura, tarifa, fecha_inicio) VALUES (:tipo_anuncio, :titulo, :texto, :usuario, :email, :tel, :web, :mun_idmun, :mun_iddep, :barrio, :edad, :altura, :tarifa, (select curdate()))");
-        $stmt->bindParam(':tipo_anuncio', $tipo_anuncio);
-        $stmt->bindParam(':titulo', $titulo);
-        $stmt->bindParam(':texto', $texto);
-        $stmt->bindParam(':usuario', $usuario);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':tel', $tel);
-        $stmt->bindParam(':web', $web);
-        $stmt->bindParam(':mun_idmun', $mun_idmun);
-        $stmt->bindParam(':mun_iddep', $mun_iddep);
-        $stmt->bindParam(':barrio', $barrio);
-        $stmt->bindParam(':edad', $edad);
-        $stmt->bindParam(':altura', $altura);
-        $stmt->bindParam(':tarifa', $tarifa);
+        $sql_eros = new SQL_EROS();
+        $values = ['tipo_anuncio' => intval($tipo_anuncio),
+            'titulo' => $titulo,
+            'texto' => $texto,
+            'usuario' => intval($usuario),
+            'email' => $email,
+            'tel' => $tel,
+            'web' => $web,
+            'mun_idmun' => intval($mun_idmun),
+            'mun_iddep' => intval($mun_iddep),
+            'barrio' => $barrio,
+            'edad' => $edad,
+            'altura' => $altura,
+            'tarifa' => $tarifa];
 
-        $result = $stmt->execute();
+        $result = $sql_eros->insertar('anuncio', $values);
 
-        $id = $pdo->lastInsertId();
-
-        Database::disconnect();
+        $id = $sql_eros->lastId();
 
         if ($result == 1) {
             return $id;
@@ -135,17 +132,12 @@ class Anuncio {
 
     public function insertarURLImagen($id_anuncio, $url) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = $pdo->prepare("INSERT INTO imagen (url, idanuncio) VALUES (:url, :idanuncio)");
-        $stmt->bindParam(':idanuncio', $id_anuncio);
-        $stmt->bindParam(':url', $url);
-
-        $result = $stmt->execute();
+        $sql_eros = new SQL_EROS();
+        $values = ['url' => $url,
+            'idanuncio' => $id_anuncio];
 
 
-        Database::disconnect();
+        $result = $sql_eros->insertar('imagen', $values);
 
         return $result;
     }

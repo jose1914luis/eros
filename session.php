@@ -6,7 +6,7 @@
         <script src="/js/session.min.js" type="text/javascript"></script>
     </head>
 
-    <body >       
+    <body style="background-color: #f2dede;">       
 
         <?php
         $session = true;
@@ -37,17 +37,13 @@
                             <div class="form-group">
                                 <label for="contra" class="col-lg-4 control-label">Contraseña: </label>
                                 <div class="col-lg-8">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <input  type="checkbox" aria-label="Mostrar" onchange="mostrar()">Mostrar
-                                        </span>
-                                        <input id="contra" type="password" class="form-control" aria-label="...">
-                                    </div><!-- /input-group -->
+                                    <input id="contra" type="password" class="form-control" aria-label="...">                                    
+                                    <input  type="checkbox" style="margin-top: 10px;" aria-label="Mostrar" onchange="mostrar()"><span> Mostrar</span>
                                 </div>                               
                             </div>      
                             <div class="col-lg-12" style="text-align: center">
                                 <div class="btn-group" role="group" aria-label="...">                                                                        
-                                    <button type="button" class="btn btn-danger">Registrarse</button>                          
+                                    <button type="button" class="btn btn-danger" onclick="window.location='/register'">Crear Cuenta</button>                          
                                     <button id="btn_ini" type="button" class="btn btn-primary" onclick="iniciarSession()">Iniciar Sesión</button>
                                 </div><br>
                                 <br>
@@ -65,7 +61,7 @@
 
 
         <?php
-        $style = "style = 'position: absolute;width: 100%;'";
+        $style = "style='position: fixed;width: 100%;'";
         include './plantillas/footer.php';
         ?>
 

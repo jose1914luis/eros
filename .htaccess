@@ -23,6 +23,12 @@ RewriteRule (.*) anuncio.php [L]
 
 RewriteBase "/"
 
+
+RewriteCond %{REQUEST_URI} ^/pruebas$
+RewriteRule (.*) pruebas.php [L]
+
+RewriteBase "/"
+
 RewriteCond %{REQUEST_URI} ^/session$
 RewriteRule (.*) session.php [L]
 
@@ -30,6 +36,11 @@ RewriteBase "/"
 
 RewriteCond %{REQUEST_URI} ^/panel
 RewriteRule (.*) panel.php [L]
+
+RewriteBase "/"
+
+RewriteCond %{REQUEST_URI} ^/register
+RewriteRule (.*) register.php [L]
 
 RewriteBase "/"
 

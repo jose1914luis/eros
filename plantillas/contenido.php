@@ -79,22 +79,21 @@ if ($total > 0) {
                     <script src="/js/contenido.js" type="text/javascript"></script>
 
                     <b>
-                            <ol id="top_anuncio" class="breadcrumb">
-                            <?php                      
-                                                       
+                        <ol id="top_anuncio" class="breadcrumb">
+                            <?php
                             echo '<li><a href=".">Top Anuncios</a></li>';
-                                                                                    
-                            if (isset($cat) && $cat != '0') {                                
-                                echo '<li><a href="/'. $cat .'">'. $cat .'</a></li>';
+
+                            if (isset($cat) && $cat != '0') {
+                                echo '<li><a href="/' . $cat . '">' . $cat . '</a></li>';
                             }
-                            
-                            if (isset($depa) && $depa != '0') {                                
-                                echo '<li><a href="/0/'. $depa .'">'. $depa .'</a></li>';
+
+                            if (isset($depa) && $depa != '0') {
+                                echo '<li><a href="/0/' . $depa . '">' . $depa . '</a></li>';
                             }
                             ?>
-                                
-                            </ol>
-                        </b>
+
+                        </ol>
+                    </b>
 
 
                 </div>
@@ -169,27 +168,27 @@ if ($total > 0) {
                                                 <a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="<?= 'plusDivs_' . $i . '(1)' ?>">&#10095;</a>
 
                                                 <script type="text/javascript">
-                                        var i_ = <?= $i ?>;
-                                        var slide_<?= $i ?> = 1;
-                                        showDivs_<?= $i ?>(slide_<?= $i ?>);
-                                        function plusDivs_<?= $i ?>(n) {
-                                            showDivs_<?= $i ?>(slide_<?= $i ?> += n);
-                                        }
-                                        ;
-                                        function showDivs_<?= $i ?>(n) {
-                                            var i;
-                                            var x = $(".slides_<?= $i ?>");
-                                            if (n > x.length) {
-                                                slide_<?= $i ?> = 1;
+                                            var i_ = <?= $i ?>;
+                                            var slide_<?= $i ?> = 1;
+                                            showDivs_<?= $i ?>(slide_<?= $i ?>);
+                                            function plusDivs_<?= $i ?>(n) {
+                                                showDivs_<?= $i ?>(slide_<?= $i ?> += n);
                                             }
-                                            if (n < 1) {
-                                                slide_<?= $i ?> = x.length;
+                                            ;
+                                            function showDivs_<?= $i ?>(n) {
+                                                var i;
+                                                var x = $(".slides_<?= $i ?>");
+                                                if (n > x.length) {
+                                                    slide_<?= $i ?> = 1;
+                                                }
+                                                if (n < 1) {
+                                                    slide_<?= $i ?> = x.length;
+                                                }
+                                                for (i = 0; i < x.length; i++) {
+                                                    x[i].style.display = "none";
+                                                }
+                                                x[slide_<?= $i ?> - 1].style.display = "inline-block";
                                             }
-                                            for (i = 0; i < x.length; i++) {
-                                                x[i].style.display = "none";
-                                            }
-                                            x[slide_<?= $i ?> - 1].style.display = "inline-block";
-                                        }
                                                 </script>
                                                 <?php
                                             }
@@ -235,7 +234,7 @@ if ($total > 0) {
         ?>
         <div id="pagi" class="text-center">
             <nav aria-label="Page navigation">
-                <ul class="pagination">'
+                <ul class="pagination">
 
 
                     <?php
@@ -251,7 +250,14 @@ if ($total > 0) {
                     echo '</div>';
                 } else {
                     $style = "style='position: fixed;width: 100%;'";
-                    echo '<div><div class="col-sm-5 alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div></div>';
+                    ?>
+                    <div class="col-lg-12" style="float: none;margin: 0 auto">
+                        <div style="text-align: center">                                    
+                            <div class="alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div>
+                        </div>
+                    </div>
+
+                    <?php
                 }
                 ?>
 

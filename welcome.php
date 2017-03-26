@@ -46,26 +46,25 @@ $altura = $datos['altura'];
             <ul class="list-inline">
                 <?php
                 $poner_ = false;
-                if (!empty($edad)){
+                if (!empty($edad)) {
                     echo '<li style="padding-top: 8px;"><a><b>Edad: ' . $edad . ' años</b></a></li>';
                     $poner_ = true;
                 }
-                if (!empty($altura)){
-                    echo ($poner_)?' | ':'';
+                if (!empty($altura)) {
+                    echo ($poner_) ? ' | ' : '';
                     echo '<li style="padding-top: 8px;"><a><b>Altura: ' . $altura . ' cm</b></a></li>';
                     $poner_ = true;
                 }
-                    
-                if (!empty($tarifa)){
-                    echo ($poner_)?' | ':'';
+
+                if (!empty($tarifa)) {
+                    echo ($poner_) ? ' | ' : '';
                     echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '"><b>Tarifa: $' . $tarifa . '</b></a></li>';
                 }
-                    
                 ?>
             </ul>
 
             <h5>
-                <span style="padding: 5px 5px;" class="label label-danger">
+                <span style="padding: 5px 5px;" class="label label-primary">
                     <a href="/0/0/0/<?= $tel ?>"><i class="fa fa-phone" aria-hidden="true"></i> <?= $tel ?></a>    
                 </span>
             </h5>
@@ -86,6 +85,15 @@ $altura = $datos['altura'];
             }
         }
         ?>
+
+        <div class="col-lg-12" style="text-align: center">
+            <div class="btn-group" role="group" aria-label="...">                                                                        
+                <button type="button" class="btn btn-primary">Compartir anuncio</button>                          
+                <button id="btn_ini" type="button" class="btn btn-danger">Denunciar</button>
+            </div>
+        </div>  
+
+
     </div>
 </div>
 </div>

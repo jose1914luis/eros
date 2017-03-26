@@ -2,6 +2,8 @@
 
 require_once 'Database.php';
 
+require_once 'SQL_EROS.php';
+
 class Usuario {
 
     //put your code here
@@ -50,6 +52,21 @@ class Usuario {
 
             return 0;
         }
+    }
+    
+    
+    public function insertarUsuario($nombre, $apellidos, $cel, $email, $usuario, $contra, $tipo) {
+
+        $sql_eros = new SQL_EROS();
+        $values = ['nombre'=>$nombre, 
+            'apellidos'=>$apellidos, 
+            'cel'=>$cel, 
+            'email'=>$email, 
+            'usuario'=>$usuario, 
+            'contra'=>$contra, 
+            'tipo'=>$tipo];
+        
+        return $sql_eros->insertar('usuario', $values);        
     }
 
 }

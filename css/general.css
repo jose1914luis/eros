@@ -1,3 +1,7 @@
+.navbar {        
+    margin-bottom: 5px;         
+}
+
 .conteo{
     color: #666;
     font-size: 11px;
@@ -47,8 +51,8 @@
     /*color: #000;*/
     /*margin-left: 15px;*/
     /*margin-bottom: 8px;*/
-/*    border-radius: 4px;
-    padding: 1px;*/
+    /*    border-radius: 4px;
+        padding: 1px;*/
 }
 
 #top_anuncio2{
@@ -65,7 +69,7 @@
     background-color: #f7f7f9;
     border: 1px solid #e1e1e8;
     border-radius: 4px;
-    left: 15px;
+    left: 5px;
     position: absolute;
     width: 160px;
 }
@@ -89,6 +93,7 @@
     padding-left: 190px;
     width: 100%;
     /*overflow: hidden;*/
+    margin-left: -5px;
 }
 
 #pagi{
@@ -123,23 +128,15 @@
     }
     #contenido_1 {
         padding-left: 0px;
+        margin-left: 0px;
     }
     #pagi{
         margin-left: 0px;
     }   
-    /*    #logo_img{
-            width: 61px;
-            height: 21px;
-        }*/
+
     .form-control{
         display: inline-block;
     }
-
-/*    #top_anuncio{
-        margin-bottom: 5px;
-        margin-right: 14px;
-        padding: 1px;
-    }*/
 
     #lbl_edad{    
         margin-left: 15px;
@@ -156,7 +153,7 @@
 
     #con_img{
 
-        margin-left: 15px;
+        margin-left: 12px;
     }
 
     #altura{
@@ -167,17 +164,15 @@
         width: 140px;
     }
 
-    .navbar {        
-        margin-bottom: 5px;         
-    }
 }
 
 .site-footer{
-    padding-bottom: 0px; bottom: 0px;
+    padding-bottom: 5px; 
+    bottom: 0px;
     text-align: center;
     background-color: #f8f8f8;
     border-color: #e7e7e7;
-    height: 100px;    
+    height: auto;    
     /*position: absolute;*/
 }
 .helper{
@@ -284,45 +279,6 @@
     object-fit: contain; 
 }
 
-/*.navbar-brand,
-.navbar-nav li a {
-    line-height: 85px;
-    height: 85px;
-    padding-top: 10px;
-}
-
-
-.navbar-nav > li > a {
-    padding-top: 28px !important;
-    padding-bottom: 5px !important;
-    padding-right: 2px !important;
-    padding-left: 2px !important;    
-}
-
-.navbar-left {
-    padding-top: 12px !important;
-}*/
-/*
-.navbar-collapse.collapse {
-  display: block!important;
-}
-
-.navbar-nav>li, .navbar-nav {
-  float: left !important;
-}
-
-.navbar-nav.navbar-right:last-child {
-  margin-right: -15px !important;
-}
-
-.navbar-right {
-  float: right!important;
-}
-
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: transparent;
-}*/
-
 .navbar-toggle {
     padding: 6px 10px;
 }
@@ -341,17 +297,6 @@
 
 #lbl_imagen{
     margin-right: 15px;
-}
-
-
-
-
-#anuncio{
-    width: 100%;
-    overflow: hidden;
-    background-color: #f2dede;
-    margin-top: -5px;
-    position: relative;
 }
 
 #der_panel{
