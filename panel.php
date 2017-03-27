@@ -10,7 +10,7 @@
         include './plantillas/head.php';
         ?>
 
-        <script src="js/panel.js?v=<?= time() ?>" type="text/javascript"></script>
+        <script src="js/panel.js" type="text/javascript"></script>
         <title>Panel</title>
     </head>
 
