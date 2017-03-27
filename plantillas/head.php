@@ -5,8 +5,8 @@
 <meta name="description" content="publica gratuitamente tus anuncios sexuales en Colombia, Si eres prepago, escorts, gay, travesti, gigolo o masajista sexual, anunciate y consigue clientes.">
 <meta name="keywords" content="publicaciones gratis, Publicar anuncios escorts, Publicar anuncios gay, Publicar anuncios travesti, Publicar anuncios gigolo, Publicar anuncios masajista sexual, Publicar anuncios relaciones ocasionales, Encontrar contactos sexuales, paginas de anuncios gratis,publicar anuncios gratis, publicaciones gratis, anuncios gratis colombia,anuncios gratis, quiero poner un anuncio gratis, conocer chicas, contacto con chicas, prepagos medellin, prepagos bogota , prepagos cali, mujeres hermosas, masajistas paisas, prepagos cartagena, quiero ser prepago, prepagos colombia">
 
-<link rel="alternate" href="http://www.paginaerotica.com/" hreflang="x-default" />
-<link rel="canonical" href="http://www.paginaerotica.com/" />
+<!--<link rel="alternate" href="http://www.paginaerotica.com/" hreflang="x-default" />
+<link rel="canonical" href="http://www.paginaerotica.com/" />-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
