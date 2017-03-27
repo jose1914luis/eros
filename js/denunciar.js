@@ -17,8 +17,8 @@ $(function () {
             datos.append('file_' + (i + 1), addImages[i]);
         }
 
-        $('#public_div').show();
-        $('#public_label').show();
+//        $('#public_div').show();
+//        $('#public_label').show();
 
 //        $.ajax({
 //            url: "./bd/crearUsuario.php", // Url to which the request is send
