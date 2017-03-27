@@ -3,7 +3,4 @@ User-Agent: *
 Disallow: /bd/
 Disallow: /pruebas.php
 Disallow: /plantillas/
-Disallow: /image/
 Disallow: /PHPMailer/
-Disallow: /CLEditor1_4_5/
-Disallow: /pag_ima/
