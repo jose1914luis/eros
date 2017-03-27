@@ -59,7 +59,7 @@ $dep = $ClDep->obtenerDep();
 
 
                     <div class="row" style="margin: 0px 0px;">
-                        <select id="categoria2" class="input-sm form-control" style="overflow: hidden; max-width: 33%">
+                        <select id="categoria2" class="form-control" style="overflow: hidden; max-width: 33%">
                             <option value = "0">Categoría</option>
                             <?php
                             foreach ($tipo as $pos => $value) {
@@ -70,7 +70,7 @@ $dep = $ClDep->obtenerDep();
                         </select>
 
 
-                        <select id="dep2" class="input-sm form-control" style="overflow: hidden; max-width: 33%">
+                        <select id="dep2" class="form-control" style="overflow: hidden; max-width: 33%">
                             <option value = "0" >Departamento</option>
                             <?php
                             foreach ($dep as $pos => $value) {
@@ -79,7 +79,7 @@ $dep = $ClDep->obtenerDep();
                             ?>
                         </select>
 
-                        <select id="mun2" class="input-sm form-control" style="overflow: hidden;">   
+                        <select id="mun2" class="form-control" style="overflow: hidden;">   
                             <option value = "0">Ciudad</option>
                             <?php
                             foreach ($data_mun as $pos => $value) {

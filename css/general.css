@@ -123,6 +123,13 @@
 
 @media screen and (min-width: 0px) and (max-width: 720px){
 
+    .navbar-default .navbar-form {
+        border-color: transparent;
+    }
+
+    .navbar-form{
+        padding: 1px 3px;
+    }
     .btn_opcional{
         margin-left: 15px;
     }
@@ -168,7 +175,7 @@
         width: 140px;
     }
     #txt_buscar{
-        width: 76%;
+        width: 77%;
     }
     #mun2{
         max-width: 30%;
