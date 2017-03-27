@@ -13,6 +13,10 @@ and open the template in the editor.
         <title>
             Acerca de Nosotros - Paginaerotica.com
         </title>
+        <meta name="description" content="es una compañia Colombiana dedicada a la publicación de anuncios en internet. Nace como una alternativa para aquellas personas que desean ofrecer sus servicios a través de internet, utilizando las herramientas tecnológicas para llegar a más clientes.
+                Nuestra plataforma permite a los usuarios tener el control sobre sus publicaciones.">
+        <meta name="keywords" content="acerca, paginaerotica, paginaerotica.com, about, us">
+
     </head>
     <body>
 
