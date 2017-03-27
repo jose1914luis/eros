@@ -65,15 +65,10 @@ class Anuncio {
 
     public function total_email($email) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-        $sql = "SELECT COUNT(*) as total FROM anuncio WHERE email = '" . $email . "'";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-
-        $data = $query->fetch(PDO::FETCH_ASSOC);
+        $eros = new SQL_EROS();
+        $values = ['COUNT(*) as total'];
+        $where = ['email' => ['=', $email]];
+        $data = $eros->select('anuncio', $values, $where, 0, 0, null, 'one');
 
         if (!empty($data)) {
             return $data['total'];
@@ -84,15 +79,10 @@ class Anuncio {
 
     public function total_usuario($idusuario) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-        $sql = "SELECT COUNT(*) as total FROM anuncio WHERE usuario = '" . $idusuario . "'";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-
-        $data = $query->fetch(PDO::FETCH_ASSOC);
+        $eros = new SQL_EROS();
+        $values = ['COUNT(*) as total'];
+        $where = ['usuario' => ['=', $idusuario]];
+        $data = $eros->select('anuncio', $values, $where, 0, 0, null, 'one');
 
         if (!empty($data)) {
             return $data['total'];
@@ -135,7 +125,6 @@ class Anuncio {
         $sql_eros = new SQL_EROS();
         $values = ['url' => $url,
             'idanuncio' => $id_anuncio];
-
 
         $result = $sql_eros->insertar('imagen', $values);
 
@@ -184,22 +173,12 @@ class Anuncio {
     }
 
     public function getAnuncioXPaginaUsuario($limite, $offset, $idusuario) {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "SELECT * FROM v_anuncio WHERE usuario = ? ORDER BY fecha_inicio desc, idanuncio desc LIMIT " . intval($limite) . " OFFSET " . intval($offset);
-        $query = $pdo->prepare($sql);
-        $query->execute(array($idusuario));
-        $data = $query->fetchAll();
-
-        if (!empty($data)) {
-
-            Database::disconnect();
-            return $data;
-        } else {
-
-            return false;
-        }
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $where = ['usuario' => ['=', $idusuario]];
+        $order = ['fecha_inicio' => 'desc', 'idanuncio' => 'desc'];
+        return $eros->select('v_anuncio', $values, $where, intval($limite), intval($offset), $order, 'all');
     }
 
     public function getAnuncioXPagina($limite, $offset, $cat, $depa, $mun, $buscar) {
@@ -225,49 +204,27 @@ class Anuncio {
 
     public function getAnunciosxID($idanuncio) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $query = $pdo->prepare("SELECT * FROM v_anuncio WHERE idanuncio = ?;");
-
-        $query->execute(array($idanuncio));
-        $data = $query->fetch(PDO::FETCH_ASSOC);
-
-
-        if (!empty($data)) {
-
-            Database::disconnect();
-            return $data;
-        } else {
-
-            return false;
-        }
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $where = ['idanuncio' => ['=', $idanuncio]];
+        return $eros->select('v_anuncio', $values, $where, 0, 0, null, 'one');
     }
 
     public function getUrlImage($idanuncio, $limit) {
 
+        $eros = new SQL_EROS();
+        $values = ['url'];
+        $where = ['idanuncio' => ['=', $idanuncio]];
+        return $eros->select('imagen', $values, $where, 0, 0, null, 'all');
+    }
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT url FROM imagen WHERE idanuncio = ?";
-
-        if ($limit > 0) {
-            $sql = $sql . " LIMIT " . $limit;
-        }
-
-        $query = $pdo->prepare($sql);
-        $query->execute(array($idanuncio));
-        $data = $query->fetchAll();
-
-
-        if (!empty($data)) {
-
-            Database::disconnect();
-            return $data;
-        } else {
-
-            return false;
-        }
+    public function republicarAnuncio($idanuncio) {
+        
+        $eros = new SQL_EROS();
+        $lastupdated = date('Y-m-d');
+        $values = ['fecha_inicio' => $lastupdated];
+        $where = ['idanuncio' => ['=', $idanuncio]];
+        return $eros->update('anuncio', $values, $where, 0);
     }
 
 }

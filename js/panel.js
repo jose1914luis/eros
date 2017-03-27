@@ -4,7 +4,7 @@ function eliminarAnuncio(id) {
 
         $.post("./bd/modificar.php",
                 {
-                    id_anuncio: id
+                    id_anuncio: id, 'operacion': 'delete'
                 }).done(function (data) {
             if (data == 1) {
                 location.reload();
@@ -17,11 +17,22 @@ function eliminarAnuncio(id) {
     }
 }
 
-function republicar(id){
-    alert('Funcion no disponible');
+function republicar(id) {
+    $.post("./bd/modificar.php",
+            {
+                id_anuncio: id, 'operacion': 'republicar'
+            }).done(function (data) {
+        if (data == 1) {
+            alert('El anuncio fue republicado');
+        } else {
+            alert('El anuncio no fue republicado');
+        }
+    }).fail(function () {
+        alert('Error de comunicación');
+    });
 }
 
-function promocionar(id){
+function promocionar(id) {
     alert('Funcion no disponible');
 }
 

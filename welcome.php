@@ -95,7 +95,7 @@
 
                                         if (!empty($tarifa)) {
                                             echo ($poner_) ? ' | ' : '';
-                                            echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '">Tarifa: $' . $tarifa . '</a></li>';
+                                            echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '">Tarifa: ' . $tarifa . '</a></li>';
                                         }
 
                                         if (!empty($fecha_inicio)) {

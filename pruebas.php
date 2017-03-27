@@ -1,11 +1,9 @@
 <?php
 
-include 'bd/Anuncio.php';
-$anuncio = new Anuncio();
-$img = $anuncio->getUrlImage(99, 0);
-foreach ($img as $pos2 => $url) {
+include 'bd/SQL_EROS.php';
 
-    echo $url['url'];
-    rmdir(substr($url['url'], 0));
-    rmdir('var/www/eros/upload/99');
-}
+$eros = new SQL_EROS();
+$lastupdated = date('Y-m-d');
+$values = ['fecha_inicio'=> $lastupdated];
+$where = ['idanuncio'=> ['=', 47]];
+print_r($eros->update('anuncio', $values, $where, 0));

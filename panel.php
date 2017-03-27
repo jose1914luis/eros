@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <?php        
+        <?php
         include './plantillas/init.php';
-        if($idusuario == null){
-            
+        if ($idusuario == null) {
+
             header("Location:/session");
-        }        
-        include './plantillas/head.php';        
+        }
+        include './plantillas/head.php';
         ?>
 
-        <script src="js/panel.js" type="text/javascript"></script>
+        <script src="js/panel.js?v=<?= time() ?>" type="text/javascript"></script>
         <title>Panel</title>
     </head>
 
     <body>
 
-        <?php                
-        include './plantillas/header.php';       
+        <?php
+        include './plantillas/header.php';
         ?>
 
         <?php
         include_once './bd/Anuncio.php';
-        
+
         $anuncio = new Anuncio();
 
 //renderizar imagen sin javascrit
@@ -101,7 +101,7 @@
                     echo '<div class="row">';
                     foreach ($datos as $pos => $value) {
 
-                        
+
                         $text_ini = 220;
 
                         $titulo = $value['titulo'];
@@ -131,11 +131,11 @@
                                         <button type="button" onclick="promocionar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-warning" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Promocionar
                                         </button>
-                                        
+
                                         <button type="button" onclick="republicar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-primary" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Republicar
                                         </button>
-                                        
+
                                         <button type="button" onclick="eliminarAnuncio(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-danger" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar
                                         </button>
@@ -239,22 +239,25 @@
                 $prevlink = ($page > 1) ? '<li><a href="?page=1" aria-label="Previous">&laquo;</a> </li> <li><a href="?page=' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
                 $nextlink = ($page < $pages) ? '<li><a href="?page=' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="?page=' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
-                ?>
-                <div id="pagi" class="text-center">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            <?php
-                            echo $prevlink;
 
-                            for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
+                if ($total > $limit) {
+                    ?>
+                    <div id="pagi" class="text-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <?php
+                                echo $prevlink;
 
-                                echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '">' . $j . '</a></li>';
+                                for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
+
+                                    echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="?page=' . $j . '">' . $j . '</a></li>';
+                                }
+                                echo $nextlink;
+
+                                echo '</ul>';
+                                echo '</nav>';
+                                echo '</div>';
                             }
-                            echo $nextlink;
-
-                            echo '</ul>';
-                            echo '</nav>';
-                            echo '</div>';
                         } else {
                             $style = "style='position: fixed;width: 100%;'";
                             ?>
@@ -264,8 +267,8 @@
                                 <div style="text-align: center">                                    
                                     <div class="alert alert-dismissable" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div>
                                 </div>
-                                
-                                
+
+
                             </div>
 
                             <?php
@@ -276,7 +279,6 @@
 
 
                         <?php
-                        
                         include './plantillas/footer.php';
                         ?>
                         </body>
