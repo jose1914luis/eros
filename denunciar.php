@@ -11,7 +11,7 @@
         ?>                
         <script src="/js/denunciar.js?v=<?= time() ?>" type="text/javascript"></script>
 
-        </noscript>
+        <title>Denunciar - Paginaerotica.com</title>
 
     </head>
     <body style="background-color: #f2dede;">

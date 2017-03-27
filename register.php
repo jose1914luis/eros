@@ -13,7 +13,9 @@
         <script src="js/funciones.min.js" type="text/javascript"></script>        
         <script src="js/register.js?v=<?= time() ?>" type="text/javascript"></script>
 
-        </noscript>
+        <title>
+            Crear cuenta  - Paginaerotica.com
+        </title>
 
     </head>
     <body style="background-color: #f2dede;">

@@ -1,107 +1,154 @@
-<script src="/js/funciones.min.js" type="text/javascript"></script>
-<script src="/js/wellcome.js" type="text/javascript"></script>
+<!DOCTYPE html>
+<html lang="es">
+    <head>        
+        <?php
+        include_once './bd/Anuncio.php';
+        if (isset($_GET)) {
+            $idanuncio = filter_input(INPUT_GET, 'idanuncio');
+            $anuncio = new Anuncio();
+            $datos = $anuncio->getAnunciosxID($idanuncio);
+            if ($datos == false) {
+                header("Location:/");
+            }
+        } else {
+            header("Location:/");
+        }
 
-<!--<script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
+        include './plantillas/init.php';
+        include './plantillas/head.php';
+        ?>
+        <script src="/js/funciones.min.js" type="text/javascript"></script>
+        <script src="/js/wellcome.js" type="text/javascript"></script>        
+        <!--<script src="js/funciones.js?v=<?= time(); ?>" type="text/javascript"></script>
 <script src="js/wellcome.js?v=<?= time(); ?>" type="text/javascript"></script>-->
-<?php
-include_once './bd/Anuncio.php';
-include_once './bd/Correo.php';
 
-$anuncio = new Anuncio();
+        <meta name="description" content="<?= trim(preg_replace('/\s\s+/', ' ', strip_tags(substr($datos['texto'], 0, 180)))) ?>">
+        <meta name="keywords" content="<?= $datos['tipo'] . ',' . $datos['d_nombre'] . ',' . $datos['m_nombre'] . ',anuncio,gratis,clasificados,' . $datos['tel'] ?> ">
+        <link rel="canonical" href="http://www.paginaerotica.com/idanuncio/<?= $idanuncio ?>">
+        <title><?= $datos['tel'] . ' - ' . $datos['titulo'] . ' - ' . $idanuncio ?></title>
 
-$datos = $anuncio->getAnunciosxID($idanuncio);
-
-$email = $datos['email'];
-$primera = filter_input(INPUT_GET, 'primera');
-if ($primera == 1) {
-
-    validar_bienvenida($email);
-    ?>
-
-
-    <div id="div_alerta" role="alert" class="alert alert-success">
-        <b>Genial!! Tu anuncio fue creado satisfactoriamente. </b> Revisa tu correo. Si eres nuevo, 
-        debes activar tu cuenta para que administres tus anuncios. También se te envió información
-        adicional para que puedas promover tu anuncio y obtener mejores resultados.   
-    </div>
-
-    <?php
-}
-
-$titulo = $datos['titulo'];
-$texto = $datos['texto'];
-$tel = $datos['tel'];
-$edad = $datos['edad'];
-$tarifa = $datos['tarifa'];
-$altura = $datos['altura'];
-$fecha_inicio = $datos['fecha_inicio'];
-?>
-
-<div class="panel panel-danger">
-    <div class="panel-heading">        
-        <a><h5 style="display: initial;"><b><?= $titulo ?></b></h5></a><br>   
-        <a style="color: #337ab7;font-size: 12px;"><?= $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] ?></a>
-    </div>
-    <div style="padding: 5px 15px;" class="panel-body">
-        <div style="text-align: center">                   
-            <ul class="list-inline">
-                <?php
-                $poner_ = false;
-                if (!empty($edad)) {
-                    echo '<li style="padding-top: 8px;"><a>Edad: ' . $edad . ' años</li>';
-                    $poner_ = true;
-                }
-                if (!empty($altura)) {
-                    echo ($poner_) ? ' | ' : '';
-                    echo '<li style="padding-top: 8px;"><a>Altura: ' . $altura . ' cm</li>';
-                    $poner_ = true;
-                }
-
-                if (!empty($tarifa)) {
-                    echo ($poner_) ? ' | ' : '';
-                    echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '">Tarifa: $' . $tarifa . '</a></li>';
-                }
-                
-                if (!empty($fecha_inicio)) {
-                    echo ($poner_) ? ' | ' : '';
-                    echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $fecha_inicio . '"><i class="fa fa-calendar" aria-hidden="true"></i> ' . $fecha_inicio . '</a></li>';
-                }
-                ?>
-            </ul>
-
-            <h5>
-                <span style="padding: 5px 5px;" class="label label-primary">
-                    <a href="/0/0/0/<?= $tel ?>"><i class="fa fa-phone" aria-hidden="true"></i> <?= $tel ?></a>    
-                </span>
-            </h5>
-
-        </div>
-
-        <div><?= $texto ?></div>
-        <br>
+    </head>
+    <body itemscope itemtype="http://schema.org/WebPage">
 
         <?php
-        $img = $anuncio->getUrlImage($idanuncio, 0);
+        $cat = filter_input(INPUT_GET, 'cat');
+        $depa = filter_input(INPUT_GET, 'depa');
+        $buscar = filter_input(INPUT_GET, 'buscar');
+        $mun = filter_input(INPUT_GET, 'mun');
 
-        echo '  <div>';
-        if (is_array($img) || is_object($img)) {
-            foreach ($img as $pos2 => $url) {
 
-                echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 0) . '" alt="' . $tel . '" style=" height: auto;width: 100%;"></div>';
-            }
-        }
+        include_once './bd/Correo.php';
+        include './plantillas/header.php';
         ?>
 
-        <div class="col-lg-12" style="text-align: center">
-            <br>
-            <div class="btn-group" role="group" aria-label="...">                                                                        
-                <!--<button type="button" class="btn btn-xs btn-primary">Compartir anuncio</button>-->                          
-                <button id="btn_ini" type="button" class="btn btn-xs btn-danger" onclick="window.location='/denunciar/<?= $idanuncio ?>'" >Denunciar</button>
-            </div>
-        </div>  
+        <div class="container-fluid">           
+            <div class="row">
+                <div id="well_pane" class="col-xs-12 col-lg-12" style="float: none;margin: 0 auto">
+
+                    <div itemprop="mainContentOfPage">            
+                        <?php
+                        $email = $datos['email'];
+                        $primera = filter_input(INPUT_GET, 'primera');
+                        if ($primera == 1) {
+
+                            validar_bienvenida($email);
+                            ?>
 
 
-    </div>
-</div>
-</div>
+                            <div id="div_alerta" role="alert" class="alert alert-success">
+                                <b>Genial!! Tu anuncio fue creado satisfactoriamente. </b> Revisa tu correo. Si eres nuevo, 
+                                debes activar tu cuenta para que administres tus anuncios. También se te envió información
+                                adicional para que puedas promover tu anuncio y obtener mejores resultados.   
+                            </div>
 
+                            <?php
+                        }
+
+                        $titulo = $datos['titulo'];
+                        $texto = $datos['texto'];
+                        $tel = $datos['tel'];
+                        $edad = $datos['edad'];
+                        $tarifa = $datos['tarifa'];
+                        $altura = $datos['altura'];
+                        $fecha_inicio = $datos['fecha_inicio'];
+                        ?>
+
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">        
+                                <a><h5 style="display: initial;"><b><?= $titulo ?></b></h5></a><br>   
+                                <a style="color: #337ab7;font-size: 12px;"><?= $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] ?></a>
+                            </div>
+                            <div style="padding: 5px 15px;" class="panel-body">
+                                <div style="text-align: center">                   
+                                    <ul class="list-inline">
+                                        <?php
+                                        $poner_ = false;
+                                        if (!empty($edad)) {
+                                            echo '<li style="padding-top: 8px;"><a>Edad: ' . $edad . ' años</li>';
+                                            $poner_ = true;
+                                        }
+                                        if (!empty($altura)) {
+                                            echo ($poner_) ? ' | ' : '';
+                                            echo '<li style="padding-top: 8px;"><a>Altura: ' . $altura . ' cm</li>';
+                                            $poner_ = true;
+                                        }
+
+                                        if (!empty($tarifa)) {
+                                            echo ($poner_) ? ' | ' : '';
+                                            echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '">Tarifa: $' . $tarifa . '</a></li>';
+                                        }
+
+                                        if (!empty($fecha_inicio)) {
+                                            echo ($poner_) ? ' | ' : '';
+                                            echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $fecha_inicio . '"><i class="fa fa-calendar" aria-hidden="true"></i> ' . $fecha_inicio . '</a></li>';
+                                        }
+                                        ?>
+                                    </ul>
+
+                                    <h5>
+                                        <span style="padding: 5px 5px;" class="label label-primary">
+                                            <a href="/0/0/0/<?= $tel ?>"><i class="fa fa-phone" aria-hidden="true"></i> <?= $tel ?></a>    
+                                        </span>
+                                    </h5>
+
+                                </div>
+
+                                <div><?= $texto ?></div>
+                                <br>
+
+                                <?php
+                                $img = $anuncio->getUrlImage($idanuncio, 0);
+
+                                echo '  <div>';
+                                if (is_array($img) || is_object($img)) {
+                                    foreach ($img as $pos2 => $url) {
+
+                                        echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 0) . '" alt="' . $tel . '" style=" height: auto;width: 100%;"></div>';
+                                    }
+                                }
+                                ?>
+
+                                <div class="col-lg-12" style="text-align: center">
+                                    <br>
+                                    <div class="btn-group" role="group" aria-label="...">                                                                        
+                                        <!--<button type="button" class="btn btn-xs btn-primary">Compartir anuncio</button>-->                          
+                                        <button id="btn_ini" type="button" class="btn btn-xs btn-danger" onclick="window.location = '/denunciar/<?= $idanuncio ?>'" >Denunciar</button>
+                                    </div>
+                                </div>  
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>                        
+        </div>
+
+
+        <?php
+        include './plantillas/footer.php';
+        ?>                      
+
+    </body>
+</html>

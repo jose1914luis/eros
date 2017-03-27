@@ -11,6 +11,7 @@
         ?>
 
         <script src="js/panel.js" type="text/javascript"></script>
+        <title>Panel</title>
     </head>
 
     <body>

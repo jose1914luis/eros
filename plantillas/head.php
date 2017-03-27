@@ -1,12 +1,5 @@
-<title>Página Erotica - Anuncios eroticos gratis en Colombia</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=0.8">
-
-<meta name="description" content="publica gratuitamente tus anuncios sexuales en Colombia, Si eres prepago, escorts, gay, travesti, gigolo o masajista sexual, anunciate y consigue clientes.">
-<meta name="keywords" content="publicaciones gratis, Publicar anuncios escorts, Publicar anuncios gay, Publicar anuncios travesti, Publicar anuncios gigolo, Publicar anuncios masajista sexual, Publicar anuncios relaciones ocasionales, Encontrar contactos sexuales, paginas de anuncios gratis,publicar anuncios gratis, publicaciones gratis, anuncios gratis colombia,anuncios gratis, quiero poner un anuncio gratis, conocer chicas, contacto con chicas, prepagos medellin, prepagos bogota , prepagos cali, mujeres hermosas, masajistas paisas, prepagos cartagena, quiero ser prepago, prepagos colombia">
-
-<!--<link rel="alternate" href="http://www.paginaerotica.com/" hreflang="x-default" />
-<link rel="canonical" href="http://www.paginaerotica.com/" />-->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -16,8 +9,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-<!--<link href="/css/general.css?v=<?= time() ?>" rel="stylesheet" type="text/css"/>-->
-<link href="/css/general.min.css" rel="stylesheet" type="text/css"/>
+<link href="/css/general.css?v=<?= time() ?>" rel="stylesheet" type="text/css"/>
+<!--<link href="/css/general.min.css" rel="stylesheet" type="text/css"/>-->
 <link href="/css/w3.css" rel="stylesheet" type="text/css"/>
 
 
@@ -34,4 +27,4 @@
 
 </script>
 <meta name="google-site-verification" content="GkBCozOdpdPyUm917o40bIirSD8nv32Bb0cVqYMIZ7Q" />
-<link rel="shortcut icon" href="pag_ima/fire.ico">  
+<link rel="shortcut icon" href="/pag_ima/fire.ico">  

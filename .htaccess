@@ -54,7 +54,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^denunciar/([0-9]+)$ denunciar.php?idanuncio=$1 [L]
 
-RewriteRule ^idanuncio/([0-9]+)$ index.php?idanuncio=$1 [L]
+RewriteRule ^idanuncio/([0-9]+)$ welcome.php?idanuncio=$1 [L]
 
 RewriteRule ^([^/]+)$ index.php?cat=$1 [L]
 

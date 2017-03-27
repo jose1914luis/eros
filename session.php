@@ -12,6 +12,7 @@
         ?>
 
         <script src="/js/session.min.js" type="text/javascript"></script>
+        <title>Iniciar Sesión - Paginaerotica.com</title>
     </head>
 
     <body style="background-color: #f2dede;">       

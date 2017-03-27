@@ -180,7 +180,10 @@
     #mun2{
         max-width: 30%;
     }
-
+    #well_pane{
+        padding-left: 2px;
+        padding-right: 2px;
+    }
 }
 
 .site-footer{

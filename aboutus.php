@@ -10,6 +10,9 @@ and open the template in the editor.
         
         include './plantillas/head.php';
         ?>        
+        <title>
+            Acerca de Nosotros - Paginaerotica.com
+        </title>
     </head>
     <body>
 

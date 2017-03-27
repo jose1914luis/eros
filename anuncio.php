@@ -11,7 +11,10 @@
         <!--<script src="js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->
         <script src="js/anuncio.min.js" type="text/javascript"></script>
 
-        </noscript>
+        <title>Publica tu anuncio gratis - Paginaerotica.com</title>
+        <meta name="description" content="publica gratis tu anuncio erotico en todo colombia">
+        <meta name="keywords" content="publicaciones,gratis,anuncios,escorts,publicar,gay,travesti,gigolo,masajista sexual,relaciones,ocasionales,encontrar,contactos,sexuales,paginas,publicaciones,quiero,prepago, prepagos,colombia">
+
 
     </head>
     <body style="background-color: #f2dede;">
