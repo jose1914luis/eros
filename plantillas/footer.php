@@ -10,10 +10,7 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="site-footer">
-    <div class="foot_div">      
-<!--        <small>
-        Esta es una página de contenido adulto y tienes que tener más de 18 años para acceder a ella. Todas las personas que aparecen en esta web son mayores de edad y tenían más de 18 años en el momento en que se tomaron las fotos, asi lo han firmado.
-        </small><br>-->
+    <div class="foot_div">
         <em>Copyright© 2017 <a href=".">www.paginaerotica.com</a></em>. Todos los derechos reservados | 
         <a  href="/termcondi.php" target="_blank">Terminos y Condiciones.</a>
         <a  href="/aboutus.php" target="_blank">Acerca de nosotros.</a>        

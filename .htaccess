@@ -58,9 +58,9 @@ RewriteRule ^idanuncio/([0-9]+)$ welcome.php?idanuncio=$1 [L]
 
 RewriteRule ^([^/]+)$ index.php?cat=$1 [L]
 
-RewriteRule ^([^/]+)/([^/]+)$ index.php?cat=$1&depa=$2 [L]
+RewriteRule ^([^/]+)/([^/]+)$ index.php?cat=$1&mun=$2 [L]
 
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ index.php?cat=$1&depa=$2&mun=$3 [L]
+#RewriteRule ^([^/]+)/([^/]+)/([^/]+)$ index.php?cat=$1&depa=$2&mun=$3 [L]
 
 RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?cat=$1&depa=$2&mun=$3&buscar=$4 [L]
 

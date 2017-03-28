@@ -1,66 +1,32 @@
 <?php
 
-require_once 'Database.php';
 require_once 'SQL_EROS.php';
 
 class Anuncio {
 
-    private $param = array();
+    public function total($tipo, $d_nombre, $m_nombre, $buscar) {
 
-    public function construirWhere($cat, $depa, $mun, $buscar) {
-
-        $consulta2 = "";
-        if (!empty($cat)) {
-
-            $consulta2 .= "tipo = :tipo";
-            $this->param["tipo"] = $cat;
-        }
-        if (!empty($depa)) {
-
-            $consulta2 .= ($consulta2 == "") ? "d_nombre = :d_nombre" : " AND d_nombre = :d_nombre";
-            $this->param["d_nombre"] = $depa;
-        }
-        if (!empty($mun)) {
-
-            $consulta2 .= ($consulta2 == "") ? "m_nombre = :m_nombre" : " AND m_nombre = :m_nombre";
-            $this->param["m_nombre"] = $mun;
-        }
-        if (!empty($buscar)) {
-
-            $consulta2 .= ($consulta2 == "") ? "(texto LIKE :texto OR tel LIKE :tel OR altura = :altura OR edad = :edad OR tarifa = :tarifa OR titulo LIKE :titulo)" :
-                    " AND (texto LIKE :texto OR tel LIKE :tel OR altura = :altura OR edad = :edad OR tarifa = :tarifa OR titulo LIKE :titulo)";
-
-            $this->param["texto"] = '%' . $buscar . '%';
-            $this->param["tel"] = $buscar;
-            $this->param["altura"] = $buscar;
-            $this->param["edad"] = $buscar;
-            $this->param["tarifa"] = $buscar;
-            $this->param["titulo"] = '%' . $buscar . '%';
-        }
-
-        $consulta2 = ($consulta2 == "") ? "" : "WHERE " . $consulta2;
-        return $consulta2;
-    }
-
-    public function total($cat, $depa, $mun, $buscar) {
-
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $consulta = $this->construirWhere($cat, $depa, $mun, $buscar);
-
-        $sql = "SELECT COUNT(*) as total FROM v_anuncio " . $consulta;
-
-        $query = $pdo->prepare($sql);
-        $query->execute($this->param);
-
-        $data = $query->fetch(PDO::FETCH_ASSOC);
+        $eros = new SQL_EROS();
+        $values = ['COUNT(*) as total'];
+        $where = ['m_nombre' => ['=', $m_nombre],
+            '(*)' => ['OR', 'tipo' => ['=', $tipo],
+            'd_nombre' => ['=', $d_nombre]],            
+            '(*)' => ['OR', ['texto' => ['LIKE', '%' . $buscar . '%'],
+                    'tel' => ['LIKE', '%' . $buscar . '%'],
+                    'altura' => ['LIKE', '%' . $buscar . '%'],
+                    'edad' => ['LIKE', '%' . $buscar . '%'],
+                    'tarifa' => ['LIKE', '%' . $buscar . '%'],
+                    'titulo' => ['LIKE', '%' . $buscar . '%']]]
+        ];
+        $data = $eros->select('v_total', $values, $where, 0, 0, null, 'one');
 
         if (!empty($data)) {
             return $data['total'];
         } else {
             return 0;
         }
+
+        return 0;
     }
 
     public function total_email($email) {
@@ -68,7 +34,7 @@ class Anuncio {
         $eros = new SQL_EROS();
         $values = ['COUNT(*) as total'];
         $where = ['email' => ['=', $email]];
-        $data = $eros->select('anuncio', $values, $where, 0, 0, null, 'one');
+        $data = $eros->select('v_total', $values, $where, 0, 0, null, 'one');
 
         if (!empty($data)) {
             return $data['total'];
@@ -82,7 +48,7 @@ class Anuncio {
         $eros = new SQL_EROS();
         $values = ['COUNT(*) as total'];
         $where = ['usuario' => ['=', $idusuario]];
-        $data = $eros->select('anuncio', $values, $where, 0, 0, null, 'one');
+        $data = $eros->select('v_total', $values, $where, 0, 0, null, 'one');
 
         if (!empty($data)) {
             return $data['total'];
@@ -133,25 +99,17 @@ class Anuncio {
 
     public function borrarAnuncio($id_anuncio, $idusuario) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $stmt = null;
+        $eros = new SQL_EROS();
         if (isset($idusuario)) {
-            $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio AND usuario =  :idusuario");
-            $stmt->bindParam(':idanuncio', $id_anuncio);
-            $stmt->bindParam(':idusuario', $idusuario);
+
+            $where = ['usuario' => ['=', $idusuario],
+                'idanuncio' => ['=', $id_anuncio]];
+            return $eros->delete('anuncio', $where);
         } else {
-            $stmt = $pdo->prepare("DELETE FROM anuncio WHERE idanuncio = :idanuncio");
-            $stmt->bindParam(':idanuncio', $id_anuncio);
+
+            $where = ['usuario' => ['=', $idusuario]];
+            return $eros->delete('anuncio', $where);
         }
-
-
-        $result = $stmt->execute();
-
-        Database::disconnect();
-
-        return $result;
     }
 
     public static function deleteDir($dirPath) {
@@ -181,23 +139,27 @@ class Anuncio {
         return $eros->select('v_anuncio', $values, $where, intval($limite), intval($offset), $order, 'all');
     }
 
-    public function getAnuncioXPagina($limite, $offset, $cat, $depa, $mun, $buscar) {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    public function getAnuncioXPagina($limite, $offset, $tipo, $d_nombre, $m_nombre, $buscar) {
 
-        $consulta = $this->construirWhere($cat, $depa, $mun, $buscar);
-        $sql = "SELECT * FROM v_anuncio " . $consulta . " ORDER BY fecha_inicio desc, idanuncio desc LIMIT " . intval($limite) . " OFFSET " . intval($offset);
-        $query = $pdo->prepare($sql);
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $where = ['m_nombre' => ['=', $m_nombre],
+            '(*)' => ['OR', 'tipo' => ['=', $tipo],
+            'd_nombre' => ['=', $d_nombre]],
+            '(*)' => ['OR', ['texto' => ['LIKE', '%' . $buscar . '%'],
+                    'tel' => ['LIKE', '%' . $buscar . '%'],
+                    'altura' => ['LIKE', '%' . $buscar . '%'],
+                    'edad' => ['LIKE', '%' . $buscar . '%'],
+                    'tarifa' => ['LIKE', '%' . $buscar . '%'],
+                    'titulo' => ['LIKE', '%' . $buscar . '%']]]
+        ];
 
-        $query->execute($this->param);
-        $data = $query->fetchAll();
+        $order = ['fecha_inicio' => 'desc', 'idanuncio' => 'desc'];
+        $data = $eros->select('v_anuncio', $values, $where, intval($limite), intval($offset), $order, 'all');
 
         if (!empty($data)) {
-
-            Database::disconnect();
             return $data;
         } else {
-
             return false;
         }
     }
@@ -219,7 +181,7 @@ class Anuncio {
     }
 
     public function republicarAnuncio($idanuncio) {
-        
+
         $eros = new SQL_EROS();
         $lastupdated = date('Y-m-d');
         $values = ['fecha_inicio' => $lastupdated];

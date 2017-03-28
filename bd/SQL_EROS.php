@@ -15,17 +15,88 @@ class SQL_EROS {
         return $this->lastId;
     }
 
-    /*@parametros:
+    /* @parametros:
+     * @$table: tabla para realizar el delete
+     * @$where: valores para constrir el where $where = ['col1'=>['operator', 'value'] ejemplo
+     * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id', '(*)' =>[ 'OR' ['id_col'=>['=', 'id']]]        
+     */
+    
+    public function delete($table, $where) {
+
+        $delete = "DELETE FROM $table";
+
+        $pdo = Database::connect();
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $question = "";
+        $ban = true;
+        $data = array();
+        if (isset($where)) {
+            foreach ($where as $key => $value) {
+
+                if (isset($value[1])) {
+
+                    if ($key === '(*)') {
+
+                        $node = $value[1];
+                        $ban2 = true;
+                        foreach ($node as $key2 => $value2) {
+                            if ($ban) {
+                                $question .= ($ban2) ? (" WHERE (" . $key2 . " " . $value2[0] . " " . "?") : ( " " . $value[0] . " " . $key2 . " " . $value2[0] . " " . "?");
+                            } else {
+                                $question .= ($ban2) ? " AND (" . ($key2 . " " . $value2[0] . " " . "?") : " " . $value[0] . " " . ($key2 . " " . $value2[0] . " " . "?" );
+                            }
+                            array_push($data, $value2[1]);
+
+                            $ban2 = false;
+                        }
+
+                        $question .= ")";
+                    } else {
+                        $question .= ($ban) ? (" WHERE " . $key . " " . $value[0] . " " . "?") : " AND " . ($key . " " . $value[0] . " " . "?" );
+
+                        array_push($data, $value[1]);
+                    }
+
+                    $ban = false;
+                }
+            }
+        }
+
+        $delete .= $question;
+
+        $query = $pdo->prepare($delete);
+
+        try {
+
+            $result = $query->execute($data);
+        } catch (PDOException $exc) {
+
+            echo $exc->getTraceAsString();
+        }
+
+        if (!empty($result)) {
+
+            Database::disconnect();
+            return $result;
+        } else {
+
+            return false;
+        }
+    }
+
+    /* @parametros:
      * @$table: tabla para realizar el select
      * @$values: valores a seleccionar $values = ['col1', 'col2', 'col3'];
      * @$where: valores para constrir el where $where = ['col1'=>['operator', 'value'] ejemplo
-     * $where = ['id_col'=>['=', 'id']
+     * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id', '(*)' =>[ 'OR' ['id_col'=>['=', 'id']]]
      * @$limit: limite numerico de seleccion, $limit > 0 para seleccionar varios, $limit = 0 para 
      * seleccionar todos
      * @$offset: limite superior de seleccion, $offset > 0 para seleccionar intervalo, $offset = 0 sin intervalos
      * @$order: si lleva un ordenamiento $order = ['col1' => 'desc'], $order = ['col1' => 'asc']
      * @$mode: $mode = 'all' retorna un array de columnas, $mode = 'one' devuelve una sola fila     
      */
+
     public function select($table, $values, $where, $limit, $offset, $order, $mode) {
 
         $pdo = Database::connect();
@@ -45,18 +116,40 @@ class SQL_EROS {
         if (isset($where)) {
             foreach ($where as $key => $value) {
 
-                $question .= ($ban) ? (" WHERE " . $key . $value[0] . "?") : " AND " . ($key . $value[0] . ":" . $key);
+                if (isset($value[1])) {
 
-                array_push($data, $value[1]);
-                $ban = false;
+                    if ($key === '(*)') {
+
+                        $node = $value[1];
+                        $ban2 = true;
+                        foreach ($node as $key2 => $value2) {
+                            if ($ban) {
+                                $question .= ($ban2) ? (" WHERE (" . $key2 . " " . $value2[0] . " " . "?") : ( " " . $value[0] . " " . $key2 . " " . $value2[0] . " " . "?");
+                            } else {
+                                $question .= ($ban2) ? " AND (" . ($key2 . " " . $value2[0] . " " . "?") : " " . $value[0] . " " . ($key2 . " " . $value2[0] . " " . "?" );
+                            }
+                            array_push($data, $value2[1]);
+
+                            $ban2 = false;
+                        }
+
+                        $question .= ")";
+                    } else {
+                        $question .= ($ban) ? (" WHERE " . $key . " " . $value[0] . " " . "?") : " AND " . ($key . " " . $value[0] . " " . "?" );
+
+                        array_push($data, $value[1]);
+                    }
+
+                    $ban = false;
+                }
             }
         }
-        
+
         $select .= $question;
-        
+
         $sort = "";
         $ban = true;
-        if(isset($order)){
+        if (isset($order)) {
             foreach ($order as $key => $value) {
 
                 $sort .= ($ban) ? (" ORDER BY " . $key . " " . $value) : ", " . $key . " " . $value;
@@ -64,12 +157,13 @@ class SQL_EROS {
             }
         }
 
+//        echo $select;
         $select .= $sort;
 
         if ($limit > 0) {
             $select = $select . " LIMIT " . $limit;
         }
-        
+
         if ($offset > 0) {
             $select = $select . " OFFSET " . $offset;
         }
@@ -87,7 +181,7 @@ class SQL_EROS {
                 $result = $query->fetch(PDO::FETCH_ASSOC);
             }
         } catch (PDOException $exc) {
-            
+
             echo $exc->getTraceAsString();
         }
 
@@ -103,10 +197,11 @@ class SQL_EROS {
         }
     }
 
-    /*@parametros:
+    /* @parametros:
      * @$table: tabla para realizar el insert
      * @$values: valores a seleccionar $values = ['col1' => 'value'];     
      */
+
     public function insertar($table, $values) {
 
         $result = 0;
@@ -129,7 +224,7 @@ class SQL_EROS {
         $stmt = $pdo->prepare($insert);
 
         try {
-            
+
             $result = $stmt->execute($values);
         } catch (PDOException $ex) {
 
@@ -142,28 +237,28 @@ class SQL_EROS {
 
         return $result;
     }
-    
-    public function update($table, $values, $where){
-        
+
+    public function update($table, $values, $where) {
+
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $update = "UPDATE ". $table;        
-         //set fecha_inicio =  (select curdate()) where idanuncio = 57
-        
+        $update = "UPDATE " . $table;
+        //set fecha_inicio =  (select curdate()) where idanuncio = 57
+
         $set = "";
         $ban = true;
         $data = array();
         foreach ($values as $key => $value) {
-            $set .= ($ban) ? " SET " . $key . " = ?": ", " . $key . " = ?";
+            $set .= ($ban) ? " SET " . $key . " = ?" : ", " . $key . " = ?";
             $ban = false;
             array_push($data, $value);
         }
-        
-        $update .= $set;                
+
+        $update .= $set;
         $question = "";
         $ban = true;
-        
+
         if (isset($where)) {
             foreach ($where as $key => $value) {
 
@@ -172,13 +267,13 @@ class SQL_EROS {
                 array_push($data, $value[1]);
                 $ban = false;
             }
-        }        
+        }
         $update .= $question;
-        
+
         $stmt = $pdo->prepare($update);
-        
+
         try {
-            
+
             $result = $stmt->execute($data);
         } catch (PDOException $ex) {
 
@@ -188,7 +283,6 @@ class SQL_EROS {
         Database::disconnect();
 
         return $result;
-        
     }
 
 }

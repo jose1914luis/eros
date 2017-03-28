@@ -24,7 +24,7 @@
         <div class="wrapper">
             <?php
             $cat = filter_input(INPUT_GET, 'cat');
-            $depa = filter_input(INPUT_GET, 'depa');
+//            $depa = filter_input(INPUT_GET, 'depa');
             $buscar = filter_input(INPUT_GET, 'buscar');
             $mun = filter_input(INPUT_GET, 'mun');
             $idanuncio = filter_input(INPUT_GET, 'idanuncio');

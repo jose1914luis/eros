@@ -1,7 +1,5 @@
 <?php
 
-require_once 'Database.php';
-
 require_once 'SQL_EROS.php';
 
 class Usuario {
@@ -10,18 +8,14 @@ class Usuario {
 
     public function validarUsuario($usuario, $contra) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $sql = "SELECT * FROM usuario WHERE usuario = ?";
-        $query = $pdo->prepare($sql);
-        $query->execute(array($usuario));
-        $data = $query->fetch(PDO::FETCH_ASSOC);
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $where = ['usuario' => ['=', $usuario]];
+        $data =  $eros->select('usuario', $values, $where, 0, 0, null, 'one');
 
 
         if (!empty($data)) {
-
-            Database::disconnect();
+            
             if ($data['contra'] == $contra) {
                 $_SESSION['user_session'] = $data['idusuario'];
                 $_SESSION['tipo'] = $data['tipo'];
@@ -36,22 +30,10 @@ class Usuario {
 
     public function getUsuariobyEmail($email) {
 
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $sql = "SELECT * FROM usuario WHERE email = ?";
-        $query = $pdo->prepare($sql);
-        $query->execute(array($email));
-        $data = $query->fetch(PDO::FETCH_ASSOC);
-
-
-        if (!empty($data)) {
-
-            return $data;
-        } else {
-
-            return 0;
-        }
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $where = ['email' => ['=', $email]];
+        return $eros->select('usuario', $values, $where, 0, 0, null, 'one');             
     }
     
     

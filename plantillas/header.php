@@ -3,6 +3,7 @@ include './bd/GetDep.php';
 $ClDep = new GetDep();
 
 $data_mun;
+$depa = $cat;
 if (!empty($depa)) {
 
     $data_mun = $ClDep->obtenerMun($depa);

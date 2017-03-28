@@ -41,6 +41,12 @@ function resize_image($file, $w, $h, $ext) {
 //filter_input(INPUT_GET, 'page');
 
 $total = $anuncio->total($cat, $depa, $mun, $buscar);
+$ban_cat = true;
+if ($total == 0) {
+    $ban_cat = false;
+    $total = $anuncio->total(null, $cat, $mun, $buscar);
+//    echo $total;
+}
 
 // How many items to list per page
 $limit = 30;
@@ -65,7 +71,11 @@ if ($total > 0) {
     $start = $offset + 1;
     $end = min(($offset + $limit), $total);
 
-    $datos = $anuncio->getAnuncioXPagina($limit, $offset, $cat, $depa, $mun, $buscar);
+    if ($ban_cat) {
+        $datos = $anuncio->getAnuncioXPagina($limit, $offset, $cat, $depa, $mun, $buscar);
+    } else {
+        $datos = $anuncio->getAnuncioXPagina($limit, $offset, null, $cat, $mun, $buscar);
+    }
 
     $i = 1;
     if (is_array($datos) || is_object($datos)) {
