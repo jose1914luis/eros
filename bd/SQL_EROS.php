@@ -18,10 +18,10 @@ class SQL_EROS {
     /* @parametros:
      * @$table: tabla para realizar el delete
      * @$where: valores para constrir el where $where = ['col1'=>['operator', 'value'] ejemplo
-     * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id', '(*)' =>[ 'OR' ['id_col'=>['=', 'id']]]        
+     * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id', 'grupo_1' =>[ (*), 'OR' ['id_col'=>['=', 'id']]]        
      */
 
-    public function delete($table, $where) {
+    public function delete($table, $where, $show = false) {
 
         $delete = "DELETE FROM $table";
 
@@ -32,26 +32,36 @@ class SQL_EROS {
         $ban = true;
         $data = array();
         if (isset($where)) {
+            if ($show == true) {
+                print_r($where);
+            }
             foreach ($where as $key => $value) {
+
 
                 if (isset($value[1])) {
 
-                    if ($key === '(*)') {
+                    if ($value[0] == '(*)') {
 
-                        $node = $value[1];
+                        $node = $value[2];
                         $ban2 = true;
                         foreach ($node as $key2 => $value2) {
-                            if ($ban) {
-                                $question .= ($ban2) ? (" WHERE (" . $key2 . " " . $value2[0] . " " . "?") : ( " " . $value[0] . " " . $key2 . " " . $value2[0] . " " . "?");
-                            } else {
-                                $question .= ($ban2) ? " AND (" . ($key2 . " " . $value2[0] . " " . "?") : " " . $value[0] . " " . ($key2 . " " . $value2[0] . " " . "?" );
+
+                            if (isset($value2[1])) {
+                                if ($ban) {
+                                    $question .= ($ban2) ? (" WHERE (" . $key2 . " " . $value2[0] . " " . "?") : ( " " . $value[1] . " " . $key2 . " " . $value2[0] . " " . "?");
+                                } else {
+                                    $question .= ($ban2) ? " AND (" . ($key2 . " " . $value2[0] . " " . "?") : " " . $value[1] . " " . ($key2 . " " . $value2[0] . " " . "?" );
+                                }
+                                if ($show == true) {
+                                    print_r($value2[1]);
+                                }
+
+                                array_push($data, $value2[1]);
+                                $ban2 = false;
                             }
-                            array_push($data, $value2[1]);
-
-                            $ban2 = false;
                         }
-
-                        $question .= ")";
+                        if (!$ban2)
+                            $question .= ")";
                     } else {
                         $question .= ($ban) ? (" WHERE " . $key . " " . $value[0] . " " . "?") : " AND " . ($key . " " . $value[0] . " " . "?" );
 
