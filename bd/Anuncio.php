@@ -9,14 +9,14 @@ class Anuncio {
         $eros = new SQL_EROS();
         $values = ['COUNT(*) as total'];
         $where = ['m_nombre' => ['=', $m_nombre],
-            '(*)' => ['OR', 'tipo' => ['=', $tipo],
-            'd_nombre' => ['=', $d_nombre]],            
-            '(*)' => ['OR', ['texto' => ['LIKE', '%' . $buscar . '%'],
-                    'tel' => ['LIKE', '%' . $buscar . '%'],
-                    'altura' => ['LIKE', '%' . $buscar . '%'],
-                    'edad' => ['LIKE', '%' . $buscar . '%'],
-                    'tarifa' => ['LIKE', '%' . $buscar . '%'],
-                    'titulo' => ['LIKE', '%' . $buscar . '%']]]
+            'grupo1' => ['(*)', 'OR', ['tipo' => ['=', $tipo],
+                    'd_nombre' => ['=', $d_nombre]]],
+            'grupo2' => ['(*)', 'OR', ['texto' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'tel' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'altura' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'edad' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'tarifa' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'titulo' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)]]]
         ];
         $data = $eros->select('v_total', $values, $where, 0, 0, null, 'one');
 
@@ -144,14 +144,14 @@ class Anuncio {
         $eros = new SQL_EROS();
         $values = ['*'];
         $where = ['m_nombre' => ['=', $m_nombre],
-            '(*)' => ['OR', 'tipo' => ['=', $tipo],
-            'd_nombre' => ['=', $d_nombre]],
-            '(*)' => ['OR', ['texto' => ['LIKE', '%' . $buscar . '%'],
-                    'tel' => ['LIKE', '%' . $buscar . '%'],
-                    'altura' => ['LIKE', '%' . $buscar . '%'],
-                    'edad' => ['LIKE', '%' . $buscar . '%'],
-                    'tarifa' => ['LIKE', '%' . $buscar . '%'],
-                    'titulo' => ['LIKE', '%' . $buscar . '%']]]
+            'grupo1' => ['(*)', 'OR', ['tipo' => ['=', $tipo],
+                    'd_nombre' => ['=', $d_nombre]]],
+            'grupo2' => ['(*)', 'OR', ['texto' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'tel' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'altura' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'edad' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'tarifa' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
+                    'titulo' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)]]]
         ];
 
         $order = ['fecha_inicio' => 'desc', 'idanuncio' => 'desc'];

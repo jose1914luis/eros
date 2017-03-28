@@ -20,7 +20,7 @@ class SQL_EROS {
      * @$where: valores para constrir el where $where = ['col1'=>['operator', 'value'] ejemplo
      * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id', '(*)' =>[ 'OR' ['id_col'=>['=', 'id']]]        
      */
-    
+
     public function delete($table, $where) {
 
         $delete = "DELETE FROM $table";
@@ -97,7 +97,7 @@ class SQL_EROS {
      * @$mode: $mode = 'all' retorna un array de columnas, $mode = 'one' devuelve una sola fila     
      */
 
-    public function select($table, $values, $where, $limit, $offset, $order, $mode) {
+    public function select($table, $values, $where, $limit, $offset, $order, $mode, $show = false) {
 
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -114,26 +114,36 @@ class SQL_EROS {
         $ban = true;
         $data = array();
         if (isset($where)) {
+            if ($show == true) {
+                print_r($where);
+            }
             foreach ($where as $key => $value) {
+
 
                 if (isset($value[1])) {
 
-                    if ($key === '(*)') {
+                    if ($value[0] == '(*)') {
 
-                        $node = $value[1];
+                        $node = $value[2];
                         $ban2 = true;
                         foreach ($node as $key2 => $value2) {
-                            if ($ban) {
-                                $question .= ($ban2) ? (" WHERE (" . $key2 . " " . $value2[0] . " " . "?") : ( " " . $value[0] . " " . $key2 . " " . $value2[0] . " " . "?");
-                            } else {
-                                $question .= ($ban2) ? " AND (" . ($key2 . " " . $value2[0] . " " . "?") : " " . $value[0] . " " . ($key2 . " " . $value2[0] . " " . "?" );
+
+                            if (isset($value2[1])) {
+                                if ($ban) {
+                                    $question .= ($ban2) ? (" WHERE (" . $key2 . " " . $value2[0] . " " . "?") : ( " " . $value[1] . " " . $key2 . " " . $value2[0] . " " . "?");
+                                } else {
+                                    $question .= ($ban2) ? " AND (" . ($key2 . " " . $value2[0] . " " . "?") : " " . $value[1] . " " . ($key2 . " " . $value2[0] . " " . "?" );
+                                }
+                                if ($show == true) {
+                                    print_r($value2[1]);
+                                }
+
+                                array_push($data, $value2[1]);
+                                $ban2 = false;
                             }
-                            array_push($data, $value2[1]);
-
-                            $ban2 = false;
                         }
-
-                        $question .= ")";
+                        if (!$ban2)
+                            $question .= ")";
                     } else {
                         $question .= ($ban) ? (" WHERE " . $key . " " . $value[0] . " " . "?") : " AND " . ($key . " " . $value[0] . " " . "?" );
 
@@ -157,6 +167,9 @@ class SQL_EROS {
             }
         }
 
+        if ($show == true) {
+            print_r($select);
+        }
 //        echo $select;
         $select .= $sort;
 

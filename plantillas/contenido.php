@@ -40,11 +40,13 @@ function resize_image($file, $w, $h, $ext) {
 <?php
 //filter_input(INPUT_GET, 'page');
 
-$total = $anuncio->total($cat, $depa, $mun, $buscar);
+$total = $anuncio->total(null, $cat, $mun, $buscar);
+//echo $total;
 $ban_cat = true;
 if ($total == 0) {
     $ban_cat = false;
-    $total = $anuncio->total(null, $cat, $mun, $buscar);
+    
+    $total = $anuncio->total($cat, $depa, $mun, $buscar);
 //    echo $total;
 }
 
@@ -133,7 +135,7 @@ if ($total > 0) {
                 <div class="col-lg-6 ">
                     <div class="panel panel-danger" style="height: 292px;" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="/idanuncio/<?= $value['idanuncio'] ?>"><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
+                            <a class="hand" href="<?= "/" . $value['tipo'] . "/" . $value['m_nombre'] . "/" . $value['idanuncio'] ?>"><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
                             <?php if ($super) { ?>
 
                                 <div style="float: right">
