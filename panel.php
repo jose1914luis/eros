@@ -132,9 +132,9 @@
                                                                                         <span class="glyphicon glyphicon-king" aria-hidden="true"></span> Promocionar
                                                                                     </button>                            -->
 
-                                            <button type="button" onclick="promocionar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-warning" aria-label="Left Align">
+<!--                                            <button type="button" onclick="promocionar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-warning" aria-label="Left Align">
                                                 <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Promocionar
-                                            </button>
+                                            </button>-->
 
                                             <button type="button" onclick="republicar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-primary" aria-label="Left Align">
                                                 <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Republicar
@@ -282,7 +282,7 @@
                             </div>
 
 
-                            <div style=" height: 100px;"></div> <!-- wrapper-->
+                            <div class="wrapper_div"></div> <!-- wrapper-->
                             </div>
                             <?php
                             include './plantillas/footer.php';

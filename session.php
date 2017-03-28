@@ -70,7 +70,7 @@
 
 
 
-            <div style=" height: 100px;"></div> <!-- wrapper-->
+            <div class="wrapper_div"></div> <!-- wrapper-->
         </div>
         <?php
         include './plantillas/footer.php';

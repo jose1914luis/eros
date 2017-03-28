@@ -2,7 +2,29 @@
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -75px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.wrapper .wrapper_div{
+
+    height: 75px;
+}
+
+.site-footer{
+    padding-bottom: 5px; 
+    bottom: 0px;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    height: 75px;    
+    border-radius: 4px;
+    border: 1px solid transparent;
+    border-color: #e7e7e7;
+}
+.site-footer .foot_div{
+
+    margin-top: 5px;  
+    margin-bottom: 5px;
 }
 
 html, 
@@ -135,6 +157,21 @@ body {
 
 @media screen and (min-width: 0px) and (max-width: 720px){
 
+
+    .wrapper {        
+        margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+    }
+
+    .wrapper .wrapper_div{
+
+        height: 100px;
+    }
+
+    .site-footer{
+
+        height: 100px;  
+    }
+
     .navbar-default .navbar-form {
         border-color: transparent;
     }
@@ -198,15 +235,6 @@ body {
     }
 }
 
-.site-footer{
-    padding-bottom: 5px; 
-    bottom: 0px;
-    text-align: center;
-    background-color: #f8f8f8;
-    border-color: #e7e7e7;
-    height: 100px;    
-    /*position: absolute;*/
-}
 .helper{
     content: ' ';
     display: inline-block;

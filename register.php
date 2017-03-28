@@ -95,11 +95,11 @@
 
                 </div>
             </div>
-            <div style=" height: 100px;"></div> <!-- wrapper-->
+            <div class="wrapper_div"></div> <!-- wrapper-->
         </div>
 
         <?php
-//        $style = "style='position: fixed;width: 100%;'";
+
         include './plantillas/footer.php';
         ?>
 

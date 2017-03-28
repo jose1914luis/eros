@@ -3,7 +3,7 @@ include_once './bd/Anuncio.php';
 
 $anuncio = new Anuncio();
 
-//renderizar imagen si javascritp
+//renderizar imagen sin javascrit
 function resize_image($file, $w, $h, $ext) {
     list($width, $height) = getimagesize($file);
     $dst = '';
@@ -81,7 +81,7 @@ if ($total > 0) {
                     <b>
                         <ol id="top_anuncio" class="breadcrumb">
                             <?php
-                            echo '<li><a href=".">Top Anuncios</a></li>';
+                            echo '<li><a href="http://www.paginaerotica.com/">Top Anuncios</a></li>';
 
                             if (isset($cat) && $cat != '0') {
                                 echo '<li><a href="/' . $cat . '">' . $cat . '</a></li>';
