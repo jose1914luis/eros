@@ -25,20 +25,21 @@
         include './plantillas/header.php';
         ?>
 
-        <div>
-            <?php
-            include './plantillas/panel_izquierdo.php';
-            ?>
+        <div class="wrapper">
+             <?php
+             include './plantillas/panel_izquierdo.php';
+             ?>
             <div id="contenido_1" itemprop="mainContentOfPage">            
                 <?php
                 include './plantillas/contenido.php';
                 ?>
             </div>  
+            <div style=" height: 100px;"></div> <!-- wrapper-->
         </div>
 
-<?php
-include './plantillas/footer.php';
-?>
+        <?php
+        include './plantillas/footer.php';
+        ?>
 
     </body>
 
