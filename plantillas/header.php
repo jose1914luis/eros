@@ -9,14 +9,17 @@ $tipo = $ClDep->obtenerTipoAnuncio();
 $dep = $ClDep->obtenerDep();
 
 $mostrar_dep = true;
-if (!empty($parm1)) {
+if (!empty($parm1) || !empty($parm2)) {
 
-    
+
     foreach ($dep as $pos => $value) {
 
-        if ($value[1] == $parm1) {
+        if ($value[1] == $parm1 || $value[1] == $parm2) {
             $mostrar_dep = false;
             $data_mun = $ClDep->obtenerMun($parm1);
+            if ($data_mun == false) {
+                $data_mun = $ClDep->obtenerMun($parm2);
+            }
         }
     }
 }
@@ -44,7 +47,7 @@ if (!empty($parm1)) {
                 <?php if (!isset($session)) { ?>
                     <button id="btn_session" mostrar="<?= $salir ?>" type="button" onclick="window.location = '<?php echo ($salir) ? '#' : "/session" ?>'" class="btn btn-primary">
                         <?php echo ($salir) ? 'Salir <i class="fa fa-lg fa-sign-out" aria-hidden="true"></i>' : '<i class="fa fa-user" aria-hidden="true"></i> Entrar'; ?></button>                                                            
-                        <?php
+                    <?php
                 }
 
                 if ($idusuario != null) {
@@ -94,7 +97,8 @@ if (!empty($parm1)) {
                             <option value = "0">Ciudad</option>
                             <?php
                             foreach ($data_mun as $pos => $value) {
-                                echo '<option ' . (($mun == $value[0]) ? "selected " : "") . 'value = "' . $value[0] . '">' . $value[0] . '</option>';
+                                
+                                echo '<option ' . (($parm2 == $value[0] || $parm3 == $value[0]) ? "selected " : "") . 'value = "' . $value[0] . '">' . $value[0] . '</option>';
                             }
                             ?>
                         </select>

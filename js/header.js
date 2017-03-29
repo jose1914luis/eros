@@ -3,23 +3,7 @@ $(function () {
     if ($('#dep2').val() == '0') {
 
         $('#mun2').hide();
-    } else {
-        $.get("/bd/getMun.php", {iddep: $("#dep2").val()})
-                .done(function (data) {
-                    $('#mun2 option[value!="-1"]').remove();
-                    $('#mun2').append($("<option></option>").attr("value", '0').text('Ciudad'));
-                    $.each(data, function (index, value) {
-
-//                        console.log(value.m_nombre);
-                        $('#mun2').append($("<option></option>").attr("value", value.m_nombre).text(value.m_nombre));
-
-                    });
-                    $('#mun2').show();
-                }).fail(function () {
-
-            alert('Error de comunicación');
-        });
-    }
+    }    
 
     $("#form_buscar").on('submit', (function (e) {
 
@@ -57,7 +41,6 @@ $(function () {
                     $('#mun2').append($("<option></option>").attr("value", '0').text('Ciudad'));
                     $.each(data, function (index, value) {
 
-//                        console.log(value.m_nombre);
                         $('#mun2').append($("<option></option>").attr("value", value.m_nombre).text(value.m_nombre));
 
                     });
