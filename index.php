@@ -35,22 +35,16 @@
             ?>
             <div id="contenido_1" itemprop="mainContentOfPage">            
                 <?php
-                
-                if (isset($idanuncio)) {
-                    include './welcome.php';
-                } else {
-
-                    include './plantillas/contenido.php';
-                }
+                include './plantillas/contenido.php';
                 ?>
 
             </div>  
             <div class="wrapper_div"></div> <!-- wrapper-->
         </div>
 
-        <?php
-        include './plantillas/footer.php';
-        ?>
+<?php
+include './plantillas/footer.php';
+?>
 
     </body>
 

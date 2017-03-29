@@ -54,7 +54,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^denunciar/([0-9]+)$ denunciar.php?idanuncio=$1 [L]
 
-RewriteRule ^idanuncio/([0-9]+)$ welcome.php?idanuncio=$1 [L]
+RewriteRule ^idanuncio/([0-9]+)/([^/]+)/([^/]+)/$ welcome.php?idanuncio=$1&parm1=$2&parm2=$3 [L]
+
+RewriteRule ^primera/([0-9]+)/([^/]+)/([^/]+)/$ welcome.php?idanuncio=$1&primera=1&parm1=$2&parm2=$3 [L]
 
 #si tiene 4 parametros acepta 5 para la paginación
 RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4&parm5=$5 [L]

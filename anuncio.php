@@ -9,7 +9,8 @@
         <script src="js/funciones.min.js" type="text/javascript"></script>
         <script src="ckeditor/ckeditor.js" type="text/javascript"></script>
         <!--<script src="js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->
-        <script src="js/anuncio.min.js" type="text/javascript"></script>
+        <!--<script src="js/anuncio.min.js" type="text/javascript"></script>-->
+        <script src="js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
 
         <title>Publica tu anuncio gratis - Paginaerotica.com</title>
         <meta name="description" content="publica gratis tu anuncio erotico en todo colombia">

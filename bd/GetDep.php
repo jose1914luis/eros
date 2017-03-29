@@ -37,7 +37,7 @@ class GetDep {
         $eros = new SQL_EROS();
         $values = ['*'];
         $where = ['iddep' => ['=', $iddep]];
-        $order = ['m_nombre', 'desc'];
+        $order = ['m_nombre' => 'desc'];
         $data = $eros->select('v_mun', $values, $where, 0, 0, $order, 'all');
 
         return $data;

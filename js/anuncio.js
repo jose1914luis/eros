@@ -38,7 +38,7 @@ $(function () {
         $('#public_label').show();
 
         $.ajax({
-            url: "./bd/publicar.php", // Url to which the request is send
+            url: "/bd/publicar.php", // Url to which the request is send
             type: "POST", // Type of request to be send, called as method
             data: datos, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
             contentType: false, // The content type used when sending data to the server.
@@ -49,7 +49,7 @@ $(function () {
                 
                 if (data > 0) {
 
-                    window.location.href = "index.php?primera=1&idanuncio=" + data;
+                    window.location.href = "/primera/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
                     $('#div_alerta').hide();
                     $('#public_div').hide();
                 } else {
@@ -117,7 +117,7 @@ $(function () {
 
     $("#dep").change(function () {
 
-        $.get("./bd/getMun.php", {iddep: $("#dep").val(), id:1})
+        $.get("/bd/getMun.php", {iddep: $("#dep").val(), id:1})
                 .done(function (data) {
                     $('#mun option[value!="-1"]').remove();
                     $.each(data, function (index, value) {

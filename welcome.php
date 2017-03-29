@@ -32,11 +32,9 @@
 
         <div class="wrapper">
         <?php
-        $cat = filter_input(INPUT_GET, 'cat');
-        $depa = filter_input(INPUT_GET, 'depa');
-        $buscar = filter_input(INPUT_GET, 'buscar');
-        $mun = filter_input(INPUT_GET, 'mun');
-
+        $parm1 = filter_input(INPUT_GET, 'parm1');
+        $parm2 = filter_input(INPUT_GET, 'parm2');
+        $parm3 = filter_input(INPUT_GET, 'parm3');
 
         include_once './bd/Correo.php';
         include './plantillas/header.php';
@@ -53,12 +51,12 @@
                             <?php
                             echo '<li><a href="http://www.paginaerotica.com/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Top Anuncios</a></li>';
 
-                            if (isset($cat) && $cat != '0') {
-                                echo '<li><a href="/' . $cat . '">' . $cat . '</a></li>';
+                            if (isset($parm1)) {
+                                echo '<li><a href="/' . $parm1 . '/">' . $parm1 . '</a></li>';
                             }
 
-                            if (isset($depa) && $depa != '0') {
-                                echo '<li><a href="/0/' . $depa . '">' . $depa . '</a></li>';
+                            if (isset($parm2)) {
+                                echo '<li><a href="/' . $parm2 . '/">' . $parm2 . '</a></li>';
                             }
                             ?>
 
