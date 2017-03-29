@@ -61,11 +61,11 @@ if ($total > 0) {
                             echo '<li><a href="http://www.paginaerotica.com/">Top Anuncios</a></li>';
 
                             if (isset($parm1)) {
-                                echo '<li><a href="/' . $parm1 . '/">' . $parm1 . '</a></li>';
+                                echo '<li><a href="/' . $parm1 . '/">' . $parm1 . '/</a></li>';
                             }
 
                             if (isset($parm2)) {
-                                echo '<li><a href="/' . $parm2 . '">' . $parm2 . '</a></li>';
+                                echo '<li><a href="/' . $parm1 . '/'. $parm2 . '/">' . $parm2 . '</a></li>';
                             }
                             ?>
 
