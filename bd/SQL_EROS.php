@@ -19,9 +19,11 @@ class SQL_EROS {
      * @$table: tabla para realizar el delete
      * @$where: valores para constrir el where $where = ['col1'=>['operator', 'value'] ejemplo
      * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id', 'grupo_1' =>[ (*), 'OR' ['id_col'=>['=', 'id']]]        
+     * @$limit: limite numerico de seleccion, $limit > 0 para seleccionar varios, $limit = 0 para 
+     * eliminar todos
      */
 
-    public function delete($table, $where, $show = false) {
+    public function delete($table, $where, $limit, $show = false) {
 
         $delete = "DELETE FROM $table";
 
@@ -31,6 +33,7 @@ class SQL_EROS {
         $question = "";
         $ban = true;
         $data = array();
+//        print_r($where);
         if (isset($where)) {
             if ($show == true) {
                 print_r($where);
@@ -74,6 +77,10 @@ class SQL_EROS {
         }
 
         $delete .= $question;
+        
+        if ($limit > 0) {
+            $delete = $delete . " LIMIT " . $limit;
+        }
 
         $query = $pdo->prepare($delete);
 

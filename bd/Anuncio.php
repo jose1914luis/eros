@@ -104,11 +104,11 @@ class Anuncio {
 
             $where = ['usuario' => ['=', $idusuario],
                 'idanuncio' => ['=', $id_anuncio]];
-            return $eros->delete('anuncio', $where);
+            return $eros->delete('anuncio', $where, 1);
         } else {
 
-            $where = ['usuario' => ['=', $idusuario]];
-            return $eros->delete('anuncio', $where);
+            $where = ['idanuncio' => ['=', $id_anuncio]];
+            return $eros->delete('anuncio', $where, 1);
         }
     }
 
