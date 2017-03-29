@@ -23,22 +23,8 @@
 
         <div class="wrapper">
             <?php
-            
-              include './plantillas/iniciar_parametros.php';
-//            $parm1 = filter_input(INPUT_GET, 'parm_u');
-            
-
-//            $cat = filter_input(INPUT_GET, 'cat');
-//            $depa_aux = filter_input(INPUT_GET, 'depa_aux');
-//            $buscar = filter_input(INPUT_GET, 'buscar');
-//            $mun = filter_input(INPUT_GET, 'mun');
-//            $idanuncio = filter_input(INPUT_GET, 'idanuncio');
-//
-//            $buscar = $cat;
-//            if (isset($cat)) {
-//                $cat = str_replace('-', ' ', $cat);
-//            }
-
+            include './plantillas/iniciar_parametros.php';
+            $idanuncio = filter_input(INPUT_GET, 'idanuncio');
 
             include './plantillas/header.php';
             ?>
@@ -49,8 +35,15 @@
             ?>
             <div id="contenido_1" itemprop="mainContentOfPage">            
                 <?php
-                include './plantillas/contenido.php';
+                
+                if (isset($idanuncio)) {
+                    include './welcome.php';
+                } else {
+
+                    include './plantillas/contenido.php';
+                }
                 ?>
+
             </div>  
             <div class="wrapper_div"></div> <!-- wrapper-->
         </div>

@@ -1,88 +1,46 @@
 <?php
 
-require_once 'Database.php';
+require_once 'SQL_EROS.php';
 
 class GetDep {
 
-    
-    
     public function obtenerTipoAnuncio() {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM v_cat";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-        $data = $query->fetchAll();
 
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $data = $eros->select('v_cat', $values, null, 0, 0, null, 'all');
 
-        if (!empty($data)) {    
-            
-            Database::disconnect();        
-            return $data;
-        } else{
-            
-            return false;
-        }
+        return $data;
     }
-    
+
     public function obtenerDep() {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM v_dep";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-        $data = $query->fetchAll();
 
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $data = $eros->select('v_dep', $values, null, 0, 0, null, 'all');
 
-        if (!empty($data)) {    
-            
-            Database::disconnect();        
-            return $data;
-        } else{
-            
-            return false;
-        }
-    }    
-    
-    public function obtenerMun($nombre){
-        
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM v_mun_num where d_nombre =  ?";
-        $query = $pdo->prepare($sql);
-        $query->execute(array($nombre));
-        $data = $query->fetchAll();
+        return $data;
+    }
 
+    public function obtenerMun($nombre) {
 
-        if (!empty($data)) {    
-            
-            Database::disconnect();        
-            return $data;
-        } else{
-            
-            return false;
-        }
-    } 
-    
-    
-    public function obtenerMunID($iddep){
-        
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT * FROM v_mun where iddep =  ? order by m_nombre";
-        $query = $pdo->prepare($sql);
-        $query->execute(array($iddep));
-        $data = $query->fetchAll();
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $where = ['d_nombre' => ['=', $nombre]];
+        $data = $eros->select('v_mun_num', $values, $where, 0, 0, null, 'all');
 
+        return $data;
+    }
 
-        if (!empty($data)) {    
-            
-            Database::disconnect();        
-            return $data;
-        } else{
-            
-            return false;
-        }
-    } 
+    public function obtenerMunID($iddep) {
+
+        $eros = new SQL_EROS();
+        $values = ['*'];
+        $where = ['iddep' => ['=', $iddep]];
+        $order = ['m_nombre', 'desc'];
+        $data = $eros->select('v_mun', $values, $where, 0, 0, $order, 'all');
+
+        return $data;
+    }
 
 }
