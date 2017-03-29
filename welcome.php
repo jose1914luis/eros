@@ -153,7 +153,7 @@
                                     }
                                     ?>
 
-                                    <div class="col-lg-12" style="text-align: center">
+                                    <div class="col-xs-12 col-lg-12" style="text-align: center">
                                         <br>
                                         <div class="btn-group" role="group" aria-label="...">                                                                        
                                             <!--<button type="button" class="btn btn-xs btn-primary">Compartir anuncio</button>-->                          
