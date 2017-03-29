@@ -9,8 +9,8 @@ class Anuncio {
         $eros = new SQL_EROS();
         $values = ['COUNT(*) as total'];
         $where = ['m_nombre' => ['=', $m_nombre],
-            'grupo1' => ['(*)', 'OR', ['tipo' => ['=', $tipo],
-                    'd_nombre' => ['=', $d_nombre]]],
+            'tipo' => ['=', $tipo],
+            'd_nombre' => ['=', $d_nombre],
             'grupo2' => ['(*)', 'OR', ['texto' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
                     'tel' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
                     'altura' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
@@ -144,8 +144,8 @@ class Anuncio {
         $eros = new SQL_EROS();
         $values = ['*'];
         $where = ['m_nombre' => ['=', $m_nombre],
-            'grupo1' => ['(*)', 'OR', ['tipo' => ['=', $tipo],
-                    'd_nombre' => ['=', $d_nombre]]],
+            'tipo' => ['=', $tipo],
+            'd_nombre' => ['=', $d_nombre],
             'grupo2' => ['(*)', 'OR', ['texto' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
                     'tel' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],
                     'altura' => ['LIKE', (isset($buscar) ? '%' . $buscar . '%' : null)],

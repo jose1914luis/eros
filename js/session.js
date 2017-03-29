@@ -16,7 +16,7 @@ var iniciarSession = function () {
 
     if (validarDatos()) {
 
-        $.post("./bd/entrar.php",
+        $.post("/bd/entrar.php",
                 {
                     usuario: $('#usuario').val(),
                     contra: $('#contra').val()

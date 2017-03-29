@@ -40,46 +40,11 @@ function resize_image($file, $w, $h, $ext) {
 <?php
 //filter_input(INPUT_GET, 'page');
 
-$total = $anuncio->total(null, $cat, $mun, $buscar);
-//echo $total;
-$ban_cat = true;
-if ($total == 0) {
-    $ban_cat = false;
-    
-    $total = $anuncio->total($cat, $depa, $mun, $buscar);
-//    echo $total;
-}
-
-// How many items to list per page
-$limit = 30;
 
 if ($total > 0) {
 
-
-// How many pages will there be
-    $pages = ceil($total / $limit);
-
-// What page are we currently on?
-    $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
-        'options' => array(
-            'default' => 1,
-            'min_range' => 1,
-        ),)));
-
-// Calculate the offset for the query
-    $offset = ($page - 1) * $limit;
-
-// Some information to display to the user
-    $start = $offset + 1;
-    $end = min(($offset + $limit), $total);
-
-    if ($ban_cat) {
-        $datos = $anuncio->getAnuncioXPagina($limit, $offset, $cat, $depa, $mun, $buscar);
-    } else {
-        $datos = $anuncio->getAnuncioXPagina($limit, $offset, null, $cat, $mun, $buscar);
-    }
-
     $i = 1;
+    $datos = $paginador->datos;
     if (is_array($datos) || is_object($datos)) {
 
         $pri = true;
@@ -135,7 +100,7 @@ if ($total > 0) {
                 <div class="col-lg-6 ">
                     <div class="panel panel-danger" style="height: 292px;" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="<?= "/" . $value['tipo'] . "/" . $value['m_nombre'] . "/" . $value['idanuncio'] ?>"><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
+                            <a class="hand" href="<?= "/idanuncio/" . $value['idanuncio'] ?>"><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
                             <?php if ($super) { ?>
 
                                 <div style="float: right">
@@ -240,9 +205,17 @@ if ($total > 0) {
             echo '</div>';
         }
 
-        $prevlink = ($page > 1) ? '<li><a href="/0/0/0/0/1" aria-label="Previous">&laquo;</a> </li> <li><a href="/0/0/0/0/' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
+        $prevlink = ($page > 1) ? '<li><a href="' . 
+                                    (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_')?'':'/' . $parm1): '') . 
+                                    (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_')?'':'/' . $parm2): '') . 
+                                    (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_')?'':'/' . $parm3): '') . 
+                                    (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_')?'':'/' . $parm4) : '') . '/pag_1/" aria-label="Previous">&laquo;</a> </li> <li><a href="pag_' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
-        $nextlink = ($page < $pages) ? '<li><a href="/0/0/0/0/' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="/0/0/0/0/' . $pages . '" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
+        $nextlink = ($page < $pages) ? '<li><a href="' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' . 
+                                    (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_')?'':'/' . $parm1): '') . 
+                                    (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_')?'':'/' . $parm2): '') . 
+                                    (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_')?'':'/' . $parm3): '') . 
+                                    (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_')?'':'/' . $parm4) : '') . '/pag_' . $pages . '/" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
         if ($total > $limit) {
             ?>
             <div id="pagi" class="text-center">
@@ -254,7 +227,11 @@ if ($total > 0) {
                         echo $prevlink;
                         for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-                            echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . (isset($cat) ? '/' . $cat : '/0') . (isset($depa) ? '/' . $depa : '/0') . (isset($mun) ? '/' . $mun : '/0') . (isset($buscar) ? '/' . $buscar : '/0') . '/' . $j . '">' . $j . '</a></li>';
+                            echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . 
+                                    (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_')?'':'/' . $parm1): '') . 
+                                    (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_')?'':'/' . $parm2): '') . 
+                                    (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_')?'':'/' . $parm3): '') . 
+                                    (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_')?'':'/' . $parm4) : '') . '/pag_' . $j . '/">' . $j . '</a></li>';
                         }
                         echo $nextlink;
 

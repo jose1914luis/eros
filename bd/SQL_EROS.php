@@ -99,7 +99,7 @@ class SQL_EROS {
      * @$table: tabla para realizar el select
      * @$values: valores a seleccionar $values = ['col1', 'col2', 'col3'];
      * @$where: valores para constrir el where $where = ['col1'=>['operator', 'value'] ejemplo
-     * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id', '(*)' =>[ 'OR' ['id_col'=>['=', 'id']]]
+     * $where = ['id_col'=>['=', 'id'] y si es anidado $where = ['id_col'=>['=', 'id' , 'grupo_1' =>[ (*), 'OR' ['id_col'=>['=', 'id']]]        
      * @$limit: limite numerico de seleccion, $limit > 0 para seleccionar varios, $limit = 0 para 
      * seleccionar todos
      * @$offset: limite superior de seleccion, $offset > 0 para seleccionar intervalo, $offset = 0 sin intervalos
@@ -124,9 +124,9 @@ class SQL_EROS {
         $ban = true;
         $data = array();
         if (isset($where)) {
-            if ($show == true) {
-                print_r($where);
-            }
+//            if ($show == true) {
+//                print_r($where);
+//            }
             foreach ($where as $key => $value) {
 
 
@@ -178,7 +178,8 @@ class SQL_EROS {
         }
 
         if ($show == true) {
-            print_r($select);
+            print_r($data); print_r($select);
+            echo '<br>';
         }
 //        echo $select;
         $select .= $sort;

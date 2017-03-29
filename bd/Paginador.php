@@ -1,48 +1,40 @@
 <?php
 
-require_once 'Database.php';
+require_once 'Anuncio.php';
 
 class Paginador {
 
-    private $total;
+    public $total = 0;
+    public $limit = 0;
+    public $pages = 0;
+    public $start = 0;
+    public $end = 0;
+    public $offset = 0;
+    public $datos;
 
-    public function __construct() {
-
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "SELECT COUNT(*) as total FROM anuncio";
-        $query = $pdo->prepare($sql);
-        $query->execute();
-
-        $data = $query->fetch(PDO::FETCH_ASSOC);
-
-        if (!empty($data)) {
-            $this->total = $data['total'];
-        }
+    function __construct($limit) {
+        $this->limit = $limit;
     }
 
-    public function total() {
-        return $this->total;
-    }
+    public function traerDatos($total, $page, $cat, $dep, $mun, $buscar) {
 
-    public function getAnuncioXPagina($limite, $offset) {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        if ($total > 0) {
 
-        $query = $pdo->prepare("SELECT idanuncio, tipo_anuncio, titulo, texto, edad, altura, tarifa, tel, barrio, m.nombre as m_nombre,  d.nombre as d_nombre, t.tipo
-            FROM anuncio as a INNER JOIN mun as m ON (a.mun_idmun = m.idmun) INNER JOIN dep as d ON (d.iddep = m.iddep) 
-            INNER JOIN tipo_anuncio as t ON (t.idtipo_anuncio = a.tipo_anuncio) ORDER BY idanuncio LIMIT ". intval($limite) ." OFFSET ". intval($offset));
-                
-        $query->execute();
-        $data = $query->fetchAll();
+            $this->page = $page;
 
-        if (!empty($data)) {
+            $this->total = $total;
+// How many pages will there be
+            $this->pages = ceil($this->total / $this->limit);
 
-            Database::disconnect();
-            return $data;
-        } else {
+// Calculate the offset for the query
+            $this->offset = ($this->page - 1) * $this->limit;
 
-            return false;
+// Some information to display to the user
+            $this->start = $this->offset + 1;
+            $this->end = min(($this->offset + $this->limit), $this->total);
+
+            $anuncio = new Anuncio();
+            $this->datos = $anuncio->getAnuncioXPagina($this->limit, $this->offset, $cat, $dep, $mun, $buscar);
         }
     }
 

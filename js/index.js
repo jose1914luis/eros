@@ -2,7 +2,7 @@ function eliminarAnuncio(id) {
 
     if (confirm('Estas seguro que deseas eliminar este anuncio?')) {
 
-        $.post("./bd/modificar.php",
+        $.post("/bd/modificar.php",
                 {
                     id_anuncio: id
                 }).done(function (data) {
