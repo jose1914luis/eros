@@ -60,12 +60,12 @@ if ($total > 0) {
                             <?php
                             echo '<li><a href="http://www.paginaerotica.com/">Top Anuncios</a></li>';
 
-                            if (isset($cat) && $cat != '0') {
-                                echo '<li><a href="/' . $cat . '">' . $cat . '</a></li>';
+                            if (isset($parm1)) {
+                                echo '<li><a href="/' . $parm1 . '/">' . $parm1 . '</a></li>';
                             }
 
-                            if (isset($depa) && $depa != '0') {
-                                echo '<li><a href="/0/' . $depa . '">' . $depa . '</a></li>';
+                            if (isset($parm2)) {
+                                echo '<li><a href="/' . $parm2 . '">' . $parm2 . '</a></li>';
                             }
                             ?>
 
