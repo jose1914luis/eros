@@ -56,7 +56,7 @@
                             }
 
                             if (isset($parm2)) {
-                                echo '<li><a href="/' . $parm2 . '/">' . $parm2 . '</a></li>';
+                                echo '<li><a href="/' . $parm1 . '/'. $parm2 . '/">' . $parm2 . '</a></li>';
                             }
                             ?>
 
