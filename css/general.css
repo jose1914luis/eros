@@ -2,12 +2,15 @@
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -75px; /* the bottom margin is the negative value of the footer's height */
+    margin: 0 auto -60px; /* the bottom margin is the negative value of the footer's height */
 }
 
+.panel_interno{
+    height: 292px;
+}
 .wrapper .wrapper_div{
 
-    height: 75px;
+    height: 60px;
 }
 
 .site-footer{
@@ -16,7 +19,7 @@
     text-align: center;
     background-color: #f8f8f8;
     border-color: #e7e7e7;
-    height: 75px;    
+    height: 60px;    
     border-radius: 4px;
     border: 1px solid transparent;
     border-color: #e7e7e7;
@@ -160,17 +163,17 @@ body {
 
 
     .wrapper {        
-        margin: 0 auto -100px; /* the bottom margin is the negative value of the footer's height */
+        margin: 0 auto -75px; /* the bottom margin is the negative value of the footer's height */
     }
 
     .wrapper .wrapper_div{
 
-        height: 100px;
+        height: 75px;
     }
 
     .site-footer{
 
-        height: 100px;  
+        height: 75px;  
     }
 
     .navbar-default .navbar-form {
@@ -234,10 +237,15 @@ body {
         margin-right: 0px;
         margin-left: 0px;        
     }
-    .panel_movil{
+    .panel_movil{        
         padding-right: 0px; 
         padding-left: 0px; 
     }   
+
+    .panel_interno{
+        height: auto;
+        max-height: 292px;
+    }
 }
 
 .helper{

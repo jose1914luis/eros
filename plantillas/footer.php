@@ -14,7 +14,7 @@
         <em>Copyright© 2017 <a href=".">www.paginaerotica.com</a></em>. Todos los derechos reservados | 
         <a  href="/termcondi.php" target="_blank">Terminos y Condiciones.</a>
         <a  href="/aboutus.php" target="_blank">Acerca de nosotros.</a>        
-    </div>           
+    </div>    
     <div class="fb-follow" data-href="https://www.facebook.com/paginaerotica/" data-width="305" data-layout="standard" data-size="small" data-show-faces="true"></div>             
 
 </div>
