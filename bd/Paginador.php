@@ -11,6 +11,9 @@ class Paginador {
     public $end = 0;
     public $offset = 0;
     public $datos;
+    public $categoria = "";
+    public $departamento = "";
+    public $municipio = "";
 
     function __construct($limit) {
         $this->limit = $limit;
@@ -36,6 +39,16 @@ class Paginador {
             $anuncio = new Anuncio();
             $this->datos = $anuncio->getAnuncioXPagina($this->limit, $this->offset, $cat, $dep, $mun, $buscar);
         }
+    }
+
+    function contarResultados($cat, $dep, $mun, $buscar) {
+
+        $this->departamento = $dep;
+        $this->municipio = $mun;
+        $this->categoria = $cat;
+
+        $anuncio = new Anuncio();
+        return $anuncio->total($cat, $dep, $mun, $buscar);
     }
 
 }
