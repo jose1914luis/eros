@@ -5,7 +5,7 @@ include_once './bd/Paginador.php';
 
 $total = 0;
 // How many items to list per page
-define("LIMIT", 4);
+define("LIMIT", 30);
 $limit = LIMIT;
 $paginador = new Paginador(LIMIT);
 

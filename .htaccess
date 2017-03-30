@@ -1,5 +1,7 @@
 Options +FollowSymLinks -MultiViews -Indexes
 
+ErrorDocument 404 /index.php
+
 DirectoryIndex index.php
 
 RewriteEngine on
@@ -54,9 +56,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^denunciar/([0-9]+)$ denunciar.php?idanuncio=$1 [L]
 
-RewriteRule ^idanuncio/([0-9]+)/([^/]+)/([^/]+)/$ welcome.php?idanuncio=$1&parm1=$2&parm2=$3 [L]
-
-RewriteRule ^primera/([0-9]+)/([^/]+)/([^/]+)/$ welcome.php?idanuncio=$1&primera=1&parm1=$2&parm2=$3 [L]
+RewriteRule ^P_AN/([0-9]+)/([^/]+)/([a-zA-Z0-9-_]+)/?$ welcome.php?idanuncio=$1&parm1=$2&parm2=$3 [L]
 
 # remove spaces from start or after /
 #RewriteRule ^(.*/|)[\s%20]+(.+)$ $1$2 [L]
@@ -75,6 +75,7 @@ RewriteRule ^([^/]+)/([^/]+)/([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1&parm2=$2&pa
 
 RewriteRule ^([^/]+)/([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1&parm2=$2 [L]
 RewriteRule ^([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1 [L]
+
 
 # ----------------------------------------------------------------------
 # Expires headers (for better cache control)

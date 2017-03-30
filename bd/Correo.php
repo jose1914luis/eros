@@ -48,6 +48,10 @@ function validar_bienvenida($email) {
         bienvenida($datos['email'], $datos['contra'], $mail);
         $mail->addAddress($datos['email'], 'Usuario');
         enviar($mail);
+        return true;
+    }else{
+        
+        return false;
     }
 }
 
