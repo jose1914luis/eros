@@ -5,7 +5,7 @@ include_once './bd/Paginador.php';
 
 $total = 0;
 // How many items to list per page
-define("LIMIT", 30);
+define("LIMIT", 4);
 $limit = LIMIT;
 $paginador = new Paginador(LIMIT);
 
@@ -17,7 +17,16 @@ if (isset($_GET)) {
     $parm4 = filter_input(INPUT_GET, 'parm4');
     $parm5 = filter_input(INPUT_GET, 'parm5');        
     
+    $parm1 = (isset($parm1))?str_replace('-', ' ', $parm1):$parm1;
+    $parm2 = (isset($parm2))?str_replace('-', ' ', $parm2):$parm2;
+    $parm3 = (isset($parm3))?str_replace('-', ' ', $parm3):$parm3;
+    $parm4 = (isset($parm4))?str_replace('-', ' ', $parm4):$parm4;
+    $parm5 = (isset($parm5))?str_replace('-', ' ', $parm5):$parm5;
     $page = 0;
+//    echo $parm1;
+//    echo $parm2;
+//    echo $parm3;
+//    echo $parm4;
     if (isset($parm4)) {
 
         //pregunto si el 4 parametro no es de paginacion
@@ -53,8 +62,8 @@ if (isset($_GET)) {
                 $total = $paginador->contarResultados(null, $parm1, $parm2, $parm3);
                 $paginador->traerDatos($total, $page, null, $parm1, $parm2, $parm3);
             }
-
-            echo $total;
+            
+           
         }
     } elseif (isset($parm3)) {
 
@@ -65,8 +74,21 @@ if (isset($_GET)) {
             //Cat/Depa/Mun
             $total = $paginador->contarResultados($parm1, $parm2, $parm3, null);
             $paginador->traerDatos($total, $page, $parm1, $parm2, $parm3, null);
+            if ($total == 0) {
+                
+                //Cat/Depa/Buscar
+                $total = $paginador->contarResultados($parm1, $parm2, null, $parm3);
+                $paginador->traerDatos($total, $page, $parm1, $parm2, null, $parm3);
+            }
+            if ($total == 0) {
+                
+                //Cat/Mun/Buscar
+                $total = $paginador->contarResultados(null, $parm1, $parm2, $parm3);
+                $paginador->traerDatos($total, $page, null, $parm1, $parm2, $parm3);
+            }
         } else {
 
+             
             $page = (intval(substr($parm3, 4)) >= 0) ? intval(substr($parm3, 4)) : 0;
             //si el 3 parametro es de paginacion es busqueda con 2 parametros
             //Cat/Depa
@@ -102,6 +124,16 @@ if (isset($_GET)) {
                 $total = $paginador->contarResultados(null, $parm1, $parm2, null);
                 $paginador->traerDatos($total, $page, null, $parm1, $parm2, null);
             }
+            if ($total == 0) {
+                //Depa/Buscar
+                $total = $paginador->contarResultados(null, $parm1, null, $parm2);
+                $paginador->traerDatos($total, $page, null, $parm1, null, $parm2);
+            }
+            if ($total == 0) {
+                //Cat/Buscar
+                $total = $paginador->contarResultados($parm1, null, null, $parm2);
+                $paginador->traerDatos($total, $page, $parm1, null, null, $parm2);
+            }
         } else {
 
             $page = (intval(substr($parm2, 4)) >= 0) ? intval(substr($parm2, 4)) : 0;
@@ -117,8 +149,9 @@ if (isset($_GET)) {
             if ($total == 0) {
                 //Buscar
                 $total = $paginador->contarResultados(null, null, null, $parm1);
-                $paginador->traerDatos($total, $page, null, $parm2, null, $parm1);
+                $paginador->traerDatos($total, $page, null, null, null, $parm1);
             }
+            
         }
     } elseif (isset($parm1)) {
 
@@ -157,6 +190,3 @@ if (isset($_GET)) {
     }
 }
 $pages = $paginador->pages;
-//echo $total;
-//echo $pages;
-//echo $page;

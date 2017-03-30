@@ -58,14 +58,23 @@ RewriteRule ^idanuncio/([0-9]+)/([^/]+)/([^/]+)/$ welcome.php?idanuncio=$1&parm1
 
 RewriteRule ^primera/([0-9]+)/([^/]+)/([^/]+)/$ welcome.php?idanuncio=$1&primera=1&parm1=$2&parm2=$3 [L]
 
-#si tiene 4 parametros acepta 5 para la paginación
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([^/]+)$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4&parm5=$5 [L]
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4 [L]
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)/$ index.php?&parm1=$1&parm2=$2&parm3=$3 [L]
+# remove spaces from start or after /
+#RewriteRule ^(.*/|)[\s%20]+(.+)$ $1$2 [L]
+#
+## remove spaces from end or before /
+#RewriteRule ^(.+?)[\s%20]+(/.*|)$ $1$2 [L]
+#
+## replace spaces by - in between
+RewriteRule ^([^\s%20]*)(?:\s|%20)+(.*)$ $1-$2 [L,R]
 
-RewriteRule ^([^/]+)/([^/]+)/$ index.php?&parm1=$1&parm2=$2 [L]
-RewriteRule ^([^/]+)/$ index.php?&parm1=$1 [L]
 
+#prametros normales
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4&parm5=$5 [L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4 [L]
+RewriteRule ^([^/]+)/([^/]+)/([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3 [L]
+
+RewriteRule ^([^/]+)/([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1&parm2=$2 [L]
+RewriteRule ^([a-zA-Z0-9-_]+)/?$ index.php?&parm1=$1 [L]
 
 # ----------------------------------------------------------------------
 # Expires headers (for better cache control)

@@ -3,34 +3,54 @@ $(function () {
     if ($('#dep2').val() == '0') {
 
         $('#mun2').hide();
-    }    
+    }
 
     $("#form_buscar").on('submit', (function (e) {
 
         e.preventDefault();
     }));
-    
+
     $("#txt_buscar").keyup(function (event) {
         if (event.keyCode == 13) {
-            var cate = ($('#categoria2').val() != 0) ? ('/' + $('#categoria2').val().replace(/ /g, '-')) + '/' : '';
-            var depar = ($('#dep2').val() != 0) ? (((cate.substr(cate.length - 1) == '/') ? '' : '/') + $('#dep2').val()) + '/' : '';
-            var muni = ($('#mun2').val() != 0) ? (((depar.substr(depar.length - 1) == '/') ? '' : '/') + $('#mun2').val()) + '/' : '';
-            var buscar = ($('#txt_buscar').val() != '' && $('#txt_buscar').val().length > 3) ? ((muni.substr(muni.length - 1) == '/') ? '' : '/') + $('#txt_buscar').val() + '/' : '';
-            var url = cate + depar + muni + buscar;
-            
-            window.location.href = url;
+
+            construirURL();
         }
     });
 
     $("#btn_buscar").on('click', function () {
 
-        var cate = ($('#categoria2').val() != 0) ? ('/' + $('#categoria2').val().replace(/ /g, '-')) + '/' : '';
-        var depar = ($('#dep2').val() != 0) ? (((cate.substr(cate.length - 1) == '/') ? '' : '/') + $('#dep2').val()) + '/' : '';
-        var muni = ($('#mun2').val() != 0) ? (((depar.substr(depar.length - 1) == '/') ? '' : '/') + $('#mun2').val()) + '/' : '';
-        var buscar = ($('#txt_buscar').val() != '' && $('#txt_buscar').val().length > 3) ? ((muni.substr(muni.length - 1) == '/') ? '' : '/') + $('#txt_buscar').val() + '/' : '';
-        var url = cate + depar + muni + buscar;
-        window.location.href = url;
+        construirURL();
     });
+
+    String.prototype.replaceAt = function (index, character) {
+        return this.substr(0, index) + character + this.substr(index, character.length);
+    };
+
+    var construirURL = function () {
+        var cate = ($('#categoria2').val() != 0) ? ('/' + $('#categoria2').val() + '/') : '';
+        var depar = ($('#dep2').val() != 0) ? ('/' + $('#dep2').val()) + '/' : '';
+        var muni = ($('#mun2').val() != 0) ? ('/' + $('#mun2').val()) + '/' : '';
+        var buscar = ($('#txt_buscar').val() != '' && $('#txt_buscar').val().length > 3) ? '/' + $('#txt_buscar').val() + '/' : '';
+        var url = cate + depar + muni + buscar;
+
+
+//        console.log(url);
+        for (var i = 0; i < url.length; i++) {
+
+            if (url[i] == '/' && i + 1 < url.length) {
+                if (url[i + 1] == '/') {
+
+//                    url = url.replaceAt(i + 1, "a");
+                    var index = i + 1;
+                    url = url.substr(0, index) + '' + url.substr(index + 1);
+                }
+
+            }
+//            console.log(url[i]);
+        }
+//        console.log(url);
+        window.location.href = url;
+    };
 
 
     $("#dep2").change(function () {
