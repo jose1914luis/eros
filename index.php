@@ -38,6 +38,8 @@
         
         $description .= ". Anuncios eroticos gratis en Paginaerotica.com";
         
+        $canonical = "http://www.paginaerotica.com/";
+        $canonical .= ((isset($parm1))?"$parm1/":"") . ((isset($parm2))?"$parm2/":"") . ((isset($parm3))?"$parm3/":"");
         ?>
         <!--<script src="/js/index.js?v = <? = time()
             ?>" type="text/javascript"></script>-->
@@ -45,7 +47,9 @@
         <title><?= $title ?></title>
         <meta name="description" content="<?= $description ?>">
         <meta name="keywords" content="publicaciones,gratis,anuncios,escorts,publicar,gay,travesti,gigolo,masajista sexual,relaciones,ocasionales,encontrar,contactos,sexuales,paginas,publicaciones,quiero,prepago,prepagos,colombia">
-        <meta property="og:url"           content="http://www.paginaerotica.com" />
+        <link rel="canonical" href="<?= $canonical ?>">
+        
+        <meta property="og:url"           content="<?= $canonical ?>" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="<?= $title ?>" />
         <meta property="og:description"   content="<?= $description ?>" />
