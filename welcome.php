@@ -16,6 +16,11 @@
 
         include './plantillas/init.php';
         include './plantillas/head.php';
+        
+        $parm1 = filter_input(INPUT_GET, 'parm1');
+        $parm2 = filter_input(INPUT_GET, 'parm2');
+        $parm3 = filter_input(INPUT_GET, 'parm3');
+
         ?>
         <script src="/js/funciones.min.js" type="text/javascript"></script>
         <script src="/js/wellcome.js" type="text/javascript"></script>        
@@ -24,7 +29,7 @@
 
         <meta name="description" content="<?= trim(preg_replace('/\s\s+/', ' ', strip_tags(substr($datos['texto'], 0, 180)))) ?>">
         <meta name="keywords" content="<?= $datos['tipo'] . ',' . $datos['d_nombre'] . ',' . $datos['m_nombre'] . ',anuncio,gratis,clasificados,' . $datos['tel'] ?> ">
-        <link rel="canonical" href="http://www.paginaerotica.com/idanuncio/<?= $idanuncio ?>">
+        <link rel="canonical" href="http://www.paginaerotica.com/idanuncio/<?= $idanuncio .'/'. $parm1 .'/'. $parm2 ?>/">
         <title><?= $datos['tel'] . ' - ' . $datos['titulo'] . ' - ' . $idanuncio ?></title>
 
     </head>
@@ -32,10 +37,7 @@
 
         <div class="wrapper">
         <?php
-        $parm1 = filter_input(INPUT_GET, 'parm1');
-        $parm2 = filter_input(INPUT_GET, 'parm2');
-        $parm3 = filter_input(INPUT_GET, 'parm3');
-
+        
         include_once './bd/Correo.php';
         include './plantillas/header.php';
         ?>
