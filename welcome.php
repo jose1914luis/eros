@@ -75,7 +75,8 @@
                         <?php
                         $email = $datos['email'];
 
-                        if (validar_bienvenida($email)) {
+                        //if (validar_bienvenida($email)) {
+                        if (false) {
                             ?>
 
 

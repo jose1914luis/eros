@@ -49,7 +49,7 @@ $(function () {
                 
                 if (data > 0) {
 
-                    window.location.href = "/primera/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
+                    window.location.href = "/P_AN/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
                     $('#div_alerta').hide();
                     $('#public_div').hide();
                 } else {
