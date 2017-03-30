@@ -47,7 +47,7 @@
                 <script src="/js/contenido.js" type="text/javascript"></script>
 
                 <b>
-                    <ol id="top_anuncio" class="breadcrumb">
+                    <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
                         <?php                        
 
                         if (isset($parm1)) {
