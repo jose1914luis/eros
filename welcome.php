@@ -44,7 +44,7 @@
 
         
 
-            <div class="container-fluid">          
+            <!--<div class="container-fluid">-->          
                 <div>                          
                     <script src="/js/contenido.js" type="text/javascript"></script>
 
@@ -69,8 +69,8 @@
                 </div>
 
 
-                <div class="row">
-                    <div id="well_pane" class="col-xs-12 col-lg-12" style="float: none;margin: 0 auto">
+                <div>
+                    <div class="panel_movil col-xs-12 col-lg-12">
 
                         <div itemprop="mainContentOfPage">            
                             <?php
@@ -170,7 +170,7 @@
 
                     </div>
                 </div>                        
-            </div>
+            <!--</div>-->
 
             <div class="wrapper_div"></div> <!-- wrapper-->
         </div>

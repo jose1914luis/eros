@@ -65,7 +65,7 @@ if ($total > 0) {
                             }
 
                             if (isset($parm2)) {
-                                echo '<li><a href="/' . $parm1 . '/'. $parm2 . '/">' . $parm2 . '</a></li>';
+                                echo '<li><a href="/' . $parm1 . '/' . $parm2 . '/">' . $parm2 . '</a></li>';
                             }
                             ?>
 
@@ -75,7 +75,7 @@ if ($total > 0) {
 
                 </div>
 
-                <div class="row">                    
+                <div id="well_pane" class="row">                    
 
 
 
@@ -97,10 +97,10 @@ if ($total > 0) {
                 $tarifa = $value['tarifa'];
                 $tel = $value['tel'];
                 ?>
-                <div class="col-lg-6 ">
+                <div class="panel_movil col-xs-12 col-lg-6">
                     <div class="panel panel-danger" style="height: 292px;" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="<?= "/idanuncio/" . $value['idanuncio'] . "/" .$value['tipo'] . "/". $value['d_nombre'] ."/"?> "><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
+                            <a class="hand" href="<?= "/idanuncio/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> "><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
                             <?php if ($super) { ?>
 
                                 <div style="float: right">
@@ -205,17 +205,17 @@ if ($total > 0) {
             echo '</div>';
         }
 
-        $prevlink = ($page > 1) ? '<li><a href="' . 
-                                    (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_')?'':'/' . $parm1): '') . 
-                                    (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_')?'':'/' . $parm2): '') . 
-                                    (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_')?'':'/' . $parm3): '') . 
-                                    (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_')?'':'/' . $parm4) : '') . '/pag_1/" aria-label="Previous">&laquo;</a> </li> <li><a href="pag_' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
+        $prevlink = ($page > 1) ? '<li><a href="' .
+                (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
+                (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
+                (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
+                (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') . '/pag_1/" aria-label="Previous">&laquo;</a> </li> <li><a href="pag_' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
-        $nextlink = ($page < $pages) ? '<li><a href="' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' . 
-                                    (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_')?'':'/' . $parm1): '') . 
-                                    (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_')?'':'/' . $parm2): '') . 
-                                    (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_')?'':'/' . $parm3): '') . 
-                                    (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_')?'':'/' . $parm4) : '') . '/pag_' . $pages . '/" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
+        $nextlink = ($page < $pages) ? '<li><a href="' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' .
+                (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
+                (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
+                (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
+                (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') . '/pag_' . $pages . '/" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
         if ($total > $limit) {
             ?>
             <div id="pagi" class="text-center">
@@ -227,11 +227,11 @@ if ($total > 0) {
                         echo $prevlink;
                         for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
-                            echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' . 
-                                    (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_')?'':'/' . $parm1): '') . 
-                                    (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_')?'':'/' . $parm2): '') . 
-                                    (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_')?'':'/' . $parm3): '') . 
-                                    (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_')?'':'/' . $parm4) : '') . '/pag_' . $j . '/">' . $j . '</a></li>';
+                            echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' .
+                            (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
+                            (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
+                            (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
+                            (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') . '/pag_' . $j . '/">' . $j . '</a></li>';
                         }
                         echo $nextlink;
 

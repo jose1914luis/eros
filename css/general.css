@@ -231,9 +231,13 @@ body {
         max-width: 30%;
     }
     #well_pane{
-        padding-left: 2px;
-        padding-right: 2px;
+        margin-right: 0px;
+        margin-left: 0px;        
     }
+    .panel_movil{
+        padding-right: 0px; 
+        padding-left: 0px; 
+    }   
 }
 
 .helper{
