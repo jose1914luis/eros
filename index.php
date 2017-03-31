@@ -4,51 +4,18 @@
         <?php
         include './plantillas/init.php';
         include './plantillas/head.php';
-        include './plantillas/iniciar_parametros.php';        
+        include './plantillas/iniciar_parametros.php';
 
         //$description = "Busca y Publica gratis tu anuncios  de sexuales en Colombia, Si eres prepago, escorts, gay, travesti, gigolo o masajista sexual, anunciate y consigue clientes.";
-        $title = "Anuncios gratis de";   
-        $description = "Busca y Publica gratis tus anuncios de";
-        if ($paginador->categoria != "") {
-            $title .= " $paginador->categoria";
-            $description .= " $paginador->categoria";
-            if ($paginador->departamento != "") {
-                $title .= " en $paginador->departamento";
-                $description .= " en $paginador->departamento";
-                if ($paginador->municipio != "") {
-                    $title .= ", $paginador->municipio";
-                    $description .= ", $paginador->municipio";
-                }
-            }else{
-                $title .=" en Colombia";
-                $description .=" en Colombia";
-            }
-        } elseif ($paginador->departamento != "") {
-            $title .= " en $paginador->departamento";
-            $description = "Busca y Publica gratis tus anuncios eroticos en $paginador->departamento";
-            if ($paginador->municipio != "") {
-                $title .= ", $paginador->municipio";
-                $description .= ", $paginador->municipio";
-            }
-        } else {
-            $title .=" Eroticos gratis en Colombia";
-            $description = "Busca y Publica gratis tus anuncios eroticos en Colombia";
-        }
-        $title .=" - Paginaerotica.com";
-        
-        $description .= ". Anuncios eroticos gratis en Paginaerotica.com";
-        
-        $canonical = "http://www.paginaerotica.com/";
-        $canonical .= ((isset($parm1))?"$parm1/":"") . ((isset($parm2))?"$parm2/":"") . ((isset($parm3))?"$parm3/":"");
         ?>
         <!--<script src="/js/index.js?v = <? = time()
             ?>" type="text/javascript"></script>-->
         <script src="/js/index.min.js" type="text/javascript"></script>
         <title><?= $title ?></title>
         <meta name="description" content="<?= $description ?>">
-        <meta name="keywords" content="publicaciones,gratis,anuncios,escorts,publicar,gay,travesti,gigolo,masajista sexual,relaciones,ocasionales,encontrar,contactos,sexuales,paginas,publicaciones,quiero,prepago,prepagos,colombia">
+        <meta name="keywords" content="<?= $keywords ?>">
         <link rel="canonical" href="<?= $canonical ?>">
-        
+
         <meta property="og:url"           content="<?= $canonical ?>" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="<?= $title ?>" />
@@ -72,7 +39,13 @@
             ?>
             <div id="contenido_1" itemprop="mainContentOfPage">            
                 <?php
-                include './plantillas/contenido.php';
+                if (isset($idanuncio)) {
+
+                    include './plantillas/welcome.php';
+                } else {
+
+                    include './plantillas/contenido.php';
+                }
                 ?>
 
             </div>  

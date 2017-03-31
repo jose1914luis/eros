@@ -74,10 +74,12 @@ class SQL_EROS {
                     $ban = false;
                 }
             }
+        } else {
+            return false;
         }
 
         $delete .= $question;
-        
+
         if ($limit > 0) {
             $delete = $delete . " LIMIT " . $limit;
         }
@@ -185,7 +187,8 @@ class SQL_EROS {
         }
 
         if ($show == true) {
-            print_r($data); print_r($select);
+            print_r($data);
+            print_r($select);
             echo '<br>';
         }
 //        echo $select;
