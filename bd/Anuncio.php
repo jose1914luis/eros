@@ -82,7 +82,7 @@ class Anuncio {
         if ($result == 1) {
             return $id;
         } else {
-            return $result;
+            return -1;
         }
     }
 

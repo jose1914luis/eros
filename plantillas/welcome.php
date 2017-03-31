@@ -33,9 +33,8 @@ include_once './bd/Correo.php';
     <div class="panel_movil col-xs-12 col-lg-12">
 
         <div itemprop="mainContentOfPage">            
-            <?php
-            $email = $datos['email'];
-
+            <?php            
+            
             //if (validar_bienvenida($email)) {
             if (false) {
                 ?>

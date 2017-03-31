@@ -1,28 +1,28 @@
 <?php
 
 require './PHPMailer/PHPMailerAutoload.php';
-require_once 'Anuncio.php';
-require_once 'Usuario.php';
 
-function crear() {
+class Correo {
 
-    $mail = new PHPMailer;
-    $mail->Host = 'paginaerotica.com';
-    $mail->Username = 'no_responder@paginaerotica.com';
-    $mail->Port = 25;
+    public $mail;
 
-    $mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');
+    public function __construct() {
 
-    $mail->addBCC('jose1914luis@gmail.com');
-    $mail->isHTML(true);
-    
-    return $mail;
-}
+        $this->mail = new PHPMailer();
+        $this->mail->Host = 'paginaerotica.com';
+        $this->mail->Username = 'no_responder@paginaerotica.com';
+        $this->mail->Port = 25;
 
-function bienvenida($email, $contra, $mail) {
+        $this->mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');
 
-    $mail->Subject = 'Cuenta de Usuario';
-    $mail->Body = '<h2>Bienvenido,</h2>
+        $this->mail->addBCC('jose1914luis@gmail.com');
+        $this->mail->isHTML(true);
+    }
+
+    public function bienvenida($email, $contra) {
+
+        $this->mail->Subject = 'Cuenta de Usuario';
+        $this->mail->Body = '<h2>Bienvenido,</h2>
         <p>Gracias por publicar en <a href="paginaerotica.com">paginaerotica.com</a></p>
         <p>Se ha creado una cuenta temporal en la que puedes administrar tu anuncio, promoverlo, editarlo o borrarlo, pulsa el link a continuación he ingresa con los datos de acceso:</p>
         <p><b>Email:</b> ' . $email . '</p>
@@ -32,34 +32,37 @@ function bienvenida($email, $contra, $mail) {
         <p>Muchas graciar por usar <a href="paginaerotica.com">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio.</p><br><br>
         <p>Si tienes algún inconveniente ponte en contacto con nosotros:</p>
         <p>Contacto: <a href="administracion@paginaerotica.com">administracion@paginaerotica.com</a></p>';
-}
-
-function validar_bienvenida($email) {    
-    
-    $anuncio = new Anuncio();
-    $usuario = new Usuario();
-
-    $total = $anuncio->total_email($email);
-
-    if ($total == 1) {
-
-        $mail = crear();
-        $datos = $usuario->getUsuariobyEmail($email);
-        bienvenida($datos['email'], $datos['contra'], $mail);
-        $mail->addAddress($datos['email'], 'Usuario');
-        enviar($mail);
-        return true;
-    }else{
-        
-        return false;
+        $this->mail->addAddress($email, 'Usuario');
     }
-}
 
-function enviar($mail) {
-    if (!$mail->send()) {
-        //$mail->ErrorInfo;
-        return false;
-    } else {
-        return true;
+    public function validar_bienvenida($email) {
+
+        $anuncio = new Anuncio();
+        $usuario = new Usuario();
+
+        $total = $anuncio->total_email($email);
+
+        if ($total == 1) {
+
+            $this->mail = crear();
+            $datos = $usuario->getUsuariobyEmail($email);
+            bienvenida($datos['email'], $datos['contra'], $this->mail);
+            
+            enviar($this->mail);
+            return true;
+        } else {
+
+            return false;
+        }
     }
+
+    private function enviar() {
+        if (!$this->mail->send()) {
+            //$this->mail->ErrorInfo;
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
