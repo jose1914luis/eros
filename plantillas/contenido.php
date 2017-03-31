@@ -98,7 +98,7 @@ if ($total > 0) {
             $tarifa = $value['tarifa'];
             $tel = $value['tel'];
             ?>
-                <div class="col-xs-12 col-lg-6">
+                <div class="panel_movil col-xs-12 col-lg-6">
                     <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
                             <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> "><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
