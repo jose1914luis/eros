@@ -27,8 +27,8 @@ RewriteRule (.*) anuncio.php [L]
 RewriteBase "/"
 
 
-RewriteCond %{REQUEST_URI} ^/pruebas$
-RewriteRule (.*) pruebas.php [L]
+#RewriteCond %{REQUEST_URI} ^/pruebas$
+#RewriteRule (.*) pruebas.php [L]
 
 RewriteBase "/"
 
