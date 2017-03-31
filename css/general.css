@@ -233,7 +233,7 @@ body {
     #mun2{
         max-width: 30%;
     }
-    #well_pane{
+    .well_pane{
         margin-right: 0px;
         margin-left: 0px;        
     }

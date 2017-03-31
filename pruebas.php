@@ -1,11 +1,11 @@
 <?php
 
-//include_once 'bd/Anuncio.php';
-//include_once 'bd/Correo.php';
-//include_once 'bd/Usuario.php';
-//
-//
-//$email = 'jose1914luis@gmail.com';
+include_once 'bd/Anuncio.php';
+include_once 'bd/Correo.php';
+include_once 'bd/Usuario.php';
+
+
+//$email = 'importa2colombia@gmail.com';
 //$anuncio = new Anuncio();
 //$total = $anuncio->total_email($email);
 //echo $total;
@@ -17,8 +17,8 @@
 //        $correo = new Correo();
 //////
 //        $datos = $usuario->getUsuariobyEmail($email);
-//        $correo->bienvenida($datos['email'], $datos['contra']);
 //        print_r($datos);
+//        $correo->bienvenida($datos['email'], $datos['contra']);        
 //        $correo->enviar();
 ////    } catch (Exception $ex) {
 ////        echo $ex;

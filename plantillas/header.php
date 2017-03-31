@@ -28,8 +28,8 @@ if (!empty($parm1) || !empty($parm2)) {
 
 <header>
 
-    <script src="/js/header.js?v=<?= time() ?>" type="text/javascript"></script>
-    <!--<script src="/js/header.min.js" type="text/javascript"></script>-->
+    <!--<script src="/js/header.js?v=<?= time() ?>" type="text/javascript"></script>-->
+    <script src="/js/header.min.js" type="text/javascript"></script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
 

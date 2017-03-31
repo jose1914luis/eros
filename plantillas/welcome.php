@@ -1,8 +1,4 @@
-
-<?php
-include_once './bd/Correo.php';
-?>
-       
+      
 <div>                          
     <script src="/js/funciones.min.js" type="text/javascript"></script>
     <script src="/js/wellcome.js" type="text/javascript"></script>

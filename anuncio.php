@@ -24,7 +24,7 @@
         include './plantillas/header.php';
         ?>
 
-        <div class="row">  
+        <div class="well_pane row">  
 
             <div class="col-lg-8" style="float: none;margin: 0 auto">
 

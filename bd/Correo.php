@@ -1,6 +1,6 @@
 <?php
 
-include_once './PHPMailer/PHPMailerAutoload.php';
+include '../PHPMailer/PHPMailerAutoload.php';
 
 class Correo {
 
@@ -8,7 +8,7 @@ class Correo {
 
     public function __construct() {
 
-        $this->mail = new PHPMailer;
+        $this->mail = new PHPMailer();
         $this->mail->Host = 'paginaerotica.com';
         $this->mail->Username = 'no_responder@paginaerotica.com';
         $this->mail->Port = 25;

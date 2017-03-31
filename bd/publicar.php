@@ -34,30 +34,18 @@ $anuncio = new Anuncio();
  */
 $idanuncio = $anuncio->insertAnuncio($tipo_anuncio, $titulo, $texto, null, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa);
 
+//echo 'idanuncio' .$idanuncio;
 if ($idanuncio < 1) {
 
     echo -2;
     return;
 }
 
-/**
- * Se crea la carpeta del anuncio
- */
-// Desired folder structure
+$crearCarpeta = true;
 $structure = '../upload/' . $idanuncio;
 
-// To create the nested structure, the $recursive parameter 
-// to mkdir() must be specified.
-
-if (!mkdir($structure, 0777, true)) {
-
-    //se debe borrar el registro de la BD   
-    $anuncio->borrarAnuncio($idanuncio);
-    echo -3;
-    return;
-}
-
 for ($i = 1; $i <= strval($numfiles); $i++) {
+
 
     if ($_FILES['file_' . $i]["size"] != 0) {
 
@@ -77,6 +65,23 @@ for ($i = 1; $i <= strval($numfiles); $i++) {
 
                     $proceso = -4;
                 } else {
+
+                    if ($crearCarpeta) {
+
+                        /* Se crea la carpeta del anuncio si hay algun archivo 
+                          Desired folder structure
+                          To create the nested structure, the $recursive parameter
+                          to mkdir() must be specified. */
+                        if (!mkdir($structure, 0777, true)) {
+
+                            //se debe borrar el registro de la BD   
+                            $anuncio->borrarAnuncio($idanuncio);
+                            echo -3;
+                            return;
+                        } else {
+                            $crearCarpeta = false;
+                        }
+                    }
                     $ext = pathinfo($_FILES['file_' . $i]["name"], PATHINFO_EXTENSION);
                     $sourcePath = $_FILES['file_' . $i]['tmp_name']; // Storing source path of the file in a variable
                     $targetPath = $structure . "/imagen" . $i . ".png"; // Target path where file is to be stored
@@ -116,6 +121,7 @@ if ($proceso > 0) {
             $correo->bienvenida($datos['email'], $datos['contra']);
             $correo->enviar();
         } catch (Exception $ex) {
+
             echo $ex;
         }
     }

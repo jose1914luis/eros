@@ -255,17 +255,19 @@ class SQL_EROS {
         $insert .= "(" . $colums . ") ";
         $insert .= "VALUES(" . $data . ") ";
 
+        $pdo->beginTransaction();
         $stmt = $pdo->prepare($insert);
 
         try {
 
             $result = $stmt->execute($values);
+            $this->lastId = $pdo->lastInsertId();
+            $pdo->commit();
         } catch (PDOException $ex) {
 
+            $pdo->rollBack();
             $result = $ex->getCode();
         }
-
-        $this->lastId = $pdo->lastInsertId();
 
         Database::disconnect();
 

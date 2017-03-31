@@ -76,7 +76,7 @@ if ($total > 0) {
 
                 </div>
 
-                <div id="well_pane" class="row">                    
+                <div class="well_pane row">                    
 
 
 
