@@ -1,8 +1,8 @@
 <?php
-
-include_once 'bd/Anuncio.php';
-include_once 'bd/Correo.php';
-include_once 'bd/Usuario.php';
+//
+//include_once 'bd/Anuncio.php';
+//include_once 'bd/Correo.php';
+//include_once 'bd/Usuario.php';
 
 
 //$email = 'importa2colombia@gmail.com';
