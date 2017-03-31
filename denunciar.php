@@ -9,7 +9,8 @@
 
         include './plantillas/head.php';
         ?>                
-        <script src="/js/denunciar.js?v=<?= time() ?>" type="text/javascript"></script>
+        <!--<script src="/js/denunciar.js?v=<?= time() ?>" type="text/javascript"></script>-->
+        <script src="/js/denunciar.js" type="text/javascript"></script>
 
         <title>Denunciar - Paginaerotica.com</title>
 
