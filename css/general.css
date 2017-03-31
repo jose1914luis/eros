@@ -236,16 +236,17 @@ body {
     .well_pane{
         margin-right: 0px;
         margin-left: 0px;        
-    }
-    .panel_movil{        
-        padding-right: 0px; 
-        padding-left: 0px; 
-    }   
+    }       
 
     .panel_interno{
         height: auto;
         max-height: 292px;
     }
+}
+
+.panel_movil{        
+    padding-right: 2px; 
+    padding-left: 2px; 
 }
 
 .helper{
