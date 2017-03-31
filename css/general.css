@@ -159,6 +159,11 @@ body {
     max-width: 20%;
 }
 
+.panel_movil{        
+    padding-right: 2px; 
+    padding-left: 2px; 
+}
+
 @media screen and (min-width: 0px) and (max-width: 720px){
 
 
@@ -242,11 +247,6 @@ body {
         height: auto;
         max-height: 292px;
     }
-}
-
-.panel_movil{        
-    padding-right: 2px; 
-    padding-left: 2px; 
 }
 
 .helper{
