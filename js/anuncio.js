@@ -47,17 +47,18 @@ $(function () {
             success: function (data)   // A function to be called if request succeeds
             {
                 
-                if (data > 0) {
-
-                    window.location.href = "/P_AN/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
-                    $('#div_alerta').hide();
-                    $('#public_div').hide();
-                } else {
-
-                    $('#div_alerta').attr('class', 'alert alert-danger');
-                    $('#div_alerta').text('');
-                    $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');
-                }
+                console.log(data);
+//                if (data > 0) {
+//
+//                    window.location.href = "/P_AN/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
+//                    $('#div_alerta').hide();
+//                    $('#public_div').hide();
+//                } else {
+//
+//                    $('#div_alerta').attr('class', 'alert alert-danger');
+//                    $('#div_alerta').text('');
+//                    $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');
+//                }
             },
             fail: function (e) {
 

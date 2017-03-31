@@ -30,7 +30,7 @@ class Anuncio {
     }
 
     public function total_email($email) {
-
+        
         $eros = new SQL_EROS();
         $values = ['COUNT(*) as total'];
         $where = ['email' => ['=', $email]];

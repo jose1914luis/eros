@@ -1,6 +1,6 @@
 <?php
 
-require './PHPMailer/PHPMailerAutoload.php';
+include_once './PHPMailer/PHPMailerAutoload.php';
 
 class Correo {
 
@@ -8,7 +8,7 @@ class Correo {
 
     public function __construct() {
 
-        $this->mail = new PHPMailer();
+        $this->mail = new PHPMailer;
         $this->mail->Host = 'paginaerotica.com';
         $this->mail->Username = 'no_responder@paginaerotica.com';
         $this->mail->Port = 25;
@@ -33,30 +33,9 @@ class Correo {
         <p>Si tienes algún inconveniente ponte en contacto con nosotros:</p>
         <p>Contacto: <a href="administracion@paginaerotica.com">administracion@paginaerotica.com</a></p>';
         $this->mail->addAddress($email, 'Usuario');
-    }
+    }    
 
-    public function validar_bienvenida($email) {
-
-        $anuncio = new Anuncio();
-        $usuario = new Usuario();
-
-        $total = $anuncio->total_email($email);
-
-        if ($total == 1) {
-
-            $this->mail = crear();
-            $datos = $usuario->getUsuariobyEmail($email);
-            bienvenida($datos['email'], $datos['contra'], $this->mail);
-            
-            enviar($this->mail);
-            return true;
-        } else {
-
-            return false;
-        }
-    }
-
-    private function enviar() {
+    public function enviar() {
         if (!$this->mail->send()) {
             //$this->mail->ErrorInfo;
             return false;

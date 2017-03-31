@@ -4,7 +4,7 @@ $proceso = 1;
 
 include_once 'Anuncio.php';
 include_once 'Correo.php';
-require_once 'Usuario.php';
+include_once 'Usuario.php';
 
 if (empty($_POST)) {
 
@@ -108,12 +108,16 @@ if ($proceso > 0) {
     if ($total == 1) {
 
         /* Primera ves que publica un anuncio */
-        $usuario = new Usuario();
-        $correo = new Correo();
+        try {
+            $usuarioEros = new Usuario();
+            $correo = new Correo();
 
-        $datos = $usuario->getUsuariobyEmail($email);
-        $correo->bienvenida($datos['email'], $datos['contra']);
-        $correo->enviar();
+            $datos = $usuarioEros->getUsuariobyEmail($email);
+            $correo->bienvenida($datos['email'], $datos['contra']);
+            $correo->enviar();
+        } catch (Exception $ex) {
+            echo $ex;
+        }
     }
     echo $idanuncio;
 } else {
