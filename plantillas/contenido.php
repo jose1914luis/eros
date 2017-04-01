@@ -60,13 +60,13 @@ if ($total > 0) {
                         <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
                             <?php
                             if (isset($parm1)) {
-                                echo '<li><a href="http://www.paginaerotica.com/">Top Anuncios</a></li>';
+                                echo '<li><a href="http://www.paginaerotica.com/">Anuncios</a></li>';
                                 echo '<li><a href="/' . $parm1 . '/">' . $parm1 . '</a></li>';
                                 if (isset($parm2)) {
                                     echo '<li><a href="/' . $parm1 . '/' . $parm2 . '/">' . $parm2 . '</a></li>';
                                 }
                             } else {
-                                echo '<li><a href="http://www.paginaerotica.com/">Top Anuncios Colombia</a></li>';
+                                echo '<li><a href="http://www.paginaerotica.com/"><h1>Anuncios Eroticos Colombia</h1></a></li>';
                             }
                             ?>
 
@@ -101,7 +101,8 @@ if ($total > 0) {
                 <div class="panel_movil col-lg-6">
                     <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> "><h2  style="color: #337ab7;display: initial;" class="f_15"><b itemprop="name"><?= $titulo ?></b></h2></a>
+                            <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> ">
+                                <h3  style="color: #337ab7;" class="f_15"><?= $titulo ?></h3></a>
                             <?php if ($super) { ?>
 
                                 <div style="float: right">

@@ -4,7 +4,8 @@
         <li><b>Categorias</b></li>
         <?php
         foreach ($tipo as $pos => $value) {
-            echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a style="color: #337ab7;" href="/' . $value[1] . '/" itemprop="url"><span itemprop="name">' . $value[1] . '<em class="conteo"> (' . $value[2] . ') </em></span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
+            echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a style="color: #337ab7;" href="/' 
+            . $value[1] . '/" itemprop="url"><span itemprop="name"><h2>' . $value[1] . '</h2><em class="conteo"> (' . $value[2] . ') </em></span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
         }
         ?>
     </ul>
@@ -17,7 +18,9 @@
             echo '<li><b>Departamentos</b></li>';
             $conDe = 0;
             foreach ($dep as $pos => $value) {
-                echo '<li id="deph_' . $conDe . '" ' . (($conDe > 10) ? 'class="hidden""' : '') . ' itemscope itemtype="http://schema.org/SiteNavigationElement"><a style="color: #337ab7;" href="/' . $value[1] . '/" itemprop="url"><span itemprop="name">' . $value[1] . '<em class="conteo"> (' . $value[2] . ') </em></span></a> </li>';
+                echo '<li id="deph_' . $conDe . '" ' . (($conDe > 10) ? 'class="hidden""' : '') 
+                        . ' itemscope itemtype="http://schema.org/SiteNavigationElement"><a style="color: #337ab7;" href="/' 
+                        . $value[1] . '/" itemprop="url"><span itemprop="name">' . $value[1] . '<em class="conteo"> (' . $value[2] . ') </em></span></a> </li>';
                 $conDe = $conDe + 1;
             }
             echo '<li><a style="color: #666;" href="#" onclick="mostrar_dep()" ><span id="txt_dep">Ver mas... <span class= " conteo glyphicon glyphicon-triangle-bottom"></span></span></a> </li>';

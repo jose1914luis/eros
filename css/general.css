@@ -1,3 +1,22 @@
+h1{
+    display: inline;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+h2, h3 {
+    display: inline;
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -94,7 +113,7 @@ body {
 }
 
 #top_anuncio2{
-    background-color: #ebccd1;;
+    background-color: #ebccd1;
     color: #d9534f;
     margin-bottom: 8px;
     border-radius: 4px;

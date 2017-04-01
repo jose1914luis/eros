@@ -4,22 +4,23 @@
     <script src="/js/wellcome.js" type="text/javascript"></script>
     <script src="/js/contenido.js" type="text/javascript"></script>
 
+
     <b>
         <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
             <?php
             if (isset($parm1)) {
-                echo '<li><a href="http://www.paginaerotica.com/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Top Anuncios</a></li>';
-                echo '<li><a href="/' . $parm1 . '/">' . $parm1 . '</a></li>';
+                echo '<li><a href="http://www.paginaerotica.com/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
+                echo '<li><a href="/' . $parm1 . '/"><h1>' . $parm1 . '</h1></a></li>';
                 if (isset($parm2)) {
                     echo '<li><a href="/' . $parm1 . '/' . $parm2 . '/">' . $parm2 . '</a></li>';
                 }
             } else {
-                echo '<li><a href="http://www.paginaerotica.com/">Top Anuncios Colombia</a></li>';
+                echo '<li><a href="http://www.paginaerotica.com/"><h1>Anuncios Eroticos Colombia</h1></a></li>';
             }
             ?>
 
         </ol>
-    </b>
+    </b>   
 
 
 </div>
@@ -29,8 +30,7 @@
     <div class="panel_movil col-xs-12 col-lg-12">
 
         <div itemprop="mainContentOfPage">            
-            <?php            
-            
+            <?php
             //if (validar_bienvenida($email)) {
             if (false) {
                 ?>
