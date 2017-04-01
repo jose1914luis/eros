@@ -53,9 +53,9 @@
         </div>
 
         <?php
-        ob_start();
+//        ob_flush();
+        flush();
         include './plantillas/footer.php';
-        echo ob_get_clean();
         ?>
 
     </body>

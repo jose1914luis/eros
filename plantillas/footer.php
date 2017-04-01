@@ -1,4 +1,4 @@
-<!--<div id="fb-root"></div>
+<div id="fb-root"></div>
 <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id))
@@ -17,4 +17,4 @@
     </div>    
     <div class="fb-follow" data-href="https://www.facebook.com/paginaerotica/" data-width="305" data-layout="standard" data-size="small" data-show-faces="true"></div>             
 
-</div>-->
+</div>
