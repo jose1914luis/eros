@@ -123,22 +123,26 @@ if ($total > 0) {
                                             <div class="helper"></div>
 
                                             <?php
+                                            $con = 0;
                                             foreach ($img as $pos2 => $url) {
 
-                                                $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
+                                                if ($con < 3) {
+                                                    $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
-                                                $img2 = resize_image(substr($url['url'], 1), 200, 220, $ext) or die('Cannot Initialize new GD image stream');
+                                                    $img2 = resize_image(substr($url['url'], 1), 200, 220, $ext) or die('Cannot Initialize new GD image stream');
 
-                                                ob_start();
-                                                imagepng($img2);
-                                                $output = base64_encode(ob_get_contents());
-                                                ob_end_clean();
-                                                if ($ext == 'png') {
-                                                    echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
-                                                } else if ($ext == 'jpg') {
+                                                    ob_start();
+                                                    imagepng($img2);
+                                                    $output = base64_encode(ob_get_contents());
+                                                    ob_end_clean();
+                                                    if ($ext == 'png') {
+                                                        echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                    } else if ($ext == 'jpg') {
 
-                                                    echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                        echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                    }
                                                 }
+                                                $con = $con + 1;
                                             }
                                             if (count($img) > 1) {
                                                 ?>
