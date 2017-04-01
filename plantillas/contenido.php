@@ -126,7 +126,7 @@ if ($total > 0) {
                                             $con = 0;
                                             foreach ($img as $pos2 => $url) {
 
-                                                if ($con < 3) {
+                                                if ($con < 2) {
                                                     $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
                                                     $img2 = resize_image(substr($url['url'], 1), 200, 220, $ext) or die('Cannot Initialize new GD image stream');
