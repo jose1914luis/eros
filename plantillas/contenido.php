@@ -76,7 +76,7 @@ if ($total > 0) {
 
                 </div>
 
-                <div>                    
+<div class="row">                    
 
 
 
