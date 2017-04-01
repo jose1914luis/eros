@@ -28,3 +28,8 @@
 </script>
 <meta name="google-site-verification" content="GkBCozOdpdPyUm917o40bIirSD8nv32Bb0cVqYMIZ7Q" />
 <link rel="shortcut icon" href="/pag_ima/fire.ico">  
+<meta name="geo.region" content="CO">
+<meta name="DC.Language" content="es_co">
+<meta name="DC.Creator" content="https://www.paginaerotica.com">
+<meta http-equiv="Content-Language" content="es_co">
+<meta name="language" content="es_co">
