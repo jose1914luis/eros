@@ -53,7 +53,9 @@
         </div>
 
         <?php
+        ob_start();
         include './plantillas/footer.php';
+        echo ob_get_clean();
         ?>
 
     </body>
