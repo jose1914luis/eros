@@ -10,9 +10,9 @@
         }
         include './plantillas/head.php';
         ?>        
-        <script src="js/funciones.min.js" type="text/javascript"></script>        
+        <script src="js/funciones.min.js?v=<?= VERSION ?>" type="text/javascript"></script>        
 <!--        <script src="js/register.js?v=<?= time() ?>" type="text/javascript"></script>-->
-        <script src="js/register.js" type="text/javascript"></script>
+        <script src="js/register.js?v=<?= VERSION ?>" type="text/javascript"></script>
 
         <title>
             Crear cuenta  - Paginaerotica.com

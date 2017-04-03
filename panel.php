@@ -10,7 +10,7 @@
         include './plantillas/head.php';
         ?>
 
-        <script src="/js/panel.min.js" type="text/javascript"></script>
+        <script src="/js/panel.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
         <title>Panel</title>
     </head>
 

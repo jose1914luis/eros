@@ -10,7 +10,7 @@
         ?>
         <!--<script src="/js/index.js?v = <? = time()
             ?>" type="text/javascript"></script>-->
-        <script src="/js/index.min.js" type="text/javascript"></script>
+        <script src="/js/index.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
         <title><?= $title ?></title>
         <meta name="description" content="<?= $description ?>">
         <meta name="keywords" content="<?= $keywords ?>">

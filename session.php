@@ -11,7 +11,7 @@
         include './plantillas/head.php';
         ?>
 
-        <script src="/js/session.min.js" type="text/javascript"></script>
+        <script src="/js/session.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
         <title>Iniciar Sesión - Paginaerotica.com</title>
     </head>
 

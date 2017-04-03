@@ -10,8 +10,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!--<link href="/css/general.css?v=<?= time() ?>" rel="stylesheet" type="text/css"/>-->
-<link href="/css/general.min.css" rel="stylesheet" type="text/css"/>
-<link href="/css/w3.css" rel="stylesheet" type="text/css"/>
+<link href="/css/general.min.css?v=<?= VERSION ?>" rel="stylesheet" type="text/css"/>
+<link href="/css/w3.css?v=<?= VERSION ?>" rel="stylesheet" type="text/css"/>
 
 
 <link href="/css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
