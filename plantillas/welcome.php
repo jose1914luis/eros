@@ -56,7 +56,7 @@
 
             <div class="panel panel-danger">
                 <div class="panel-heading">        
-                    <a><h5 style="color: #333;display: initial;"><b><?= $titulo ?></b></h5></a><br>   
+                    <a><h4 style="color: #333;display: initial;"><b><?= $titulo ?></b></h4></a><br>   
                     <a style="font-size: 12px;"><?= $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] ?></a>
                 </div>
                 <div style="padding: 5px 15px;" class="panel-body">
