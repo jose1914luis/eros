@@ -31,8 +31,8 @@ if (isset($_GET)) {
 
     $idanuncio = filter_input(INPUT_GET, 'idanuncio');
 
-    echo $parm1;
-    echo $parm2;
+//    echo $parm1;
+//    echo $parm2;
 //    echo $parm3;
 //    echo $parm4;
     if (isset($idanuncio)) {
