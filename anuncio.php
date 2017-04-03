@@ -8,10 +8,10 @@
         <script src="/js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
         
-        <!--<script src="/js/funciones.min.js" type="text/javascript"></script>-->       
-        <script src="/js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>
-        <!--<script src="/js/anuncio.min.js" type="text/javascript"></script>-->
-        <script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
+        <script src="/js/funciones.min.js" type="text/javascript"></script>       
+        <!--<script src="/js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->
+        <script src="/js/anuncio.min.js" type="text/javascript"></script>
+        <!--<script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>-->
 
         <title>Publica tu anuncio gratis - Paginaerotica.com</title>
         <meta name="description" content="publica gratis tu anuncio erotico en todo colombia">
@@ -146,7 +146,7 @@
                                 <span id='btn_close_1' class="close" >&#10006</span>
                                 <img id="image_1" name="image_1" class="image" src="" alt="pagina erotica">
                                 <span id="btn_mas_1" class="btn_mas fa fa-camera-retro fa-3x" ></span>
-                                <input id="file_1" class="file" type="file" >
+                                <input id="file_1" class="file" type="file" multiple>
                             </div>
                             <div class="div_img">
                                 <span id='btn_close_2' class="close" >&#10006</span>
