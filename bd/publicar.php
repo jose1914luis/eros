@@ -32,7 +32,18 @@ $anuncio = new Anuncio();
 /**
  * Se inserta el anuncio
  */
-$idanuncio = $anuncio->insertAnuncio($tipo_anuncio, $titulo, $texto, null, $email, $tel, $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa);
+$idanuncio = $anuncio->insertAnuncio($tipo_anuncio, 
+        $titulo, 
+        $texto, null, 
+        strtolower($email), 
+        preg_replace('/\s+/', '', $tel),
+        $web, 
+        $mun_idmun, 
+        $mun_iddep, 
+        $barrio, 
+        $edad, 
+        $altura, 
+        $tarifa);
 
 //echo 'idanuncio' .$idanuncio;
 if ($idanuncio < 1) {

@@ -7,6 +7,11 @@ $(function () {
     $('#public_label').hide();
     var validar = function () {
 
+        if ($('#mun').val() == 0) {
+            $('#mun').focus();
+            alert('Selecciona una Ciudad');
+            return false;
+        }
         if (CKEDITOR.instances.editor.getData().length < 30) {
             alert('Debes ingresar una descripcion mas larga');
             $('#editor').focus();
@@ -21,17 +26,17 @@ $(function () {
 
         if (!validar())
             return;
-        
+
         $('#numfiles').attr('value', addImages.length);
         var datos = new FormData(this);
-        
+
         for (var i = 0; i < addImages.length; i++) {
 
             datos.append('file_' + (i + 1), addImages[i]);
         }
-        
+
         datos.append('texto', CKEDITOR.instances.editor.getData());
-                
+
         $('#public_div').show();
         $('#public_label').show();
 
@@ -44,10 +49,10 @@ $(function () {
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
-                
+
                 if (data > 0) {
 
-                    window.location.href = "/P_AN/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
+                    window.location.href = "/P_AN/" + data + "/" + $("#categoria option:selected").text() + "/" + $("#dep option:selected").text() + "/";
                     $('#div_alerta').hide();
                     $('#public_div').hide();
                 } else {
@@ -71,9 +76,9 @@ $(function () {
     CKEDITOR.replace('editor', {
         toolbar: [
             {name: 'basicstyles', items: ['Bold', 'Italic']},
-            {name: 'styles', items:['Styles', 'Format']},
+            {name: 'styles', items: ['Styles', 'Format']},
             {name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote']},
-            {name: 'links', items:['Link', 'Unlik', 'Anchor']},            
+            {name: 'links', items: ['Link', 'Unlik', 'Anchor']},
             {name: 'document', items: ['-', 'NewPage', 'Preview', '-', 'Templates']}, // Defines toolbar group with name (used to create voice label) and items in 3 subgroups.
             ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] // Defines toolbar group without name.
         ]
@@ -116,9 +121,10 @@ $(function () {
 
     $("#dep").change(function () {
 
-        $.get("/bd/getMun.php", {iddep: $("#dep").val(), id:1})
+        $.get("/bd/getMun.php", {iddep: $("#dep").val(), id: 1})
                 .done(function (data) {
                     $('#mun option[value!="-1"]').remove();
+                    $('#mun').append($("<option></option>").attr("value", 0).text('Selecciona'));
                     $.each(data, function (index, value) {
 
 
@@ -137,7 +143,7 @@ $(function () {
     var mostrar_imagen = function (e, i) {
 
         var file = e.files[0];
-        
+
         var imagefile = file.type;
         var match = ["image/jpeg", "image/png", "image/jpg"];
         if (file.size > 10000000) {
@@ -153,7 +159,7 @@ $(function () {
             var reader = new FileReader();
             reader.onload = function (e) {
 
-                
+
                 $('#image_' + i).attr('style', 'visibility: visible');
                 $('#btn_close_' + i).show();
                 rederizarCanvas($('#image_' + i), e.target.result, 550, 550, 100, 100);
