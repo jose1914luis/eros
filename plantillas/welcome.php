@@ -10,12 +10,12 @@
             <?php
             if (isset($parm1)) {
                 echo '<li><a href="http://www.paginaerotica.com/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
-                echo '<li><a href="/' . $parm1 . '/"><h1>' . $parm1 . '</h1></a></li>';
+                echo '<li><a href="/' . $parm1 . '/"><h1 class="h1_mod">' . $parm1 . '</h1></a></li>';
                 if (isset($parm2)) {
                     echo '<li><a href="/' . $parm1 . '/' . $parm2 . '/">' . $parm2 . '</a></li>';
                 }
             } else {
-                echo '<li><a href="http://www.paginaerotica.com/"><h1>Anuncios Eroticos Colombia</h1></a></li>';
+                echo '<li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod">Anuncios Eroticos Colombia</h1></a></li>';
             }
             ?>
 

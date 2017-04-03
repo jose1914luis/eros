@@ -1,4 +1,4 @@
-h1{
+.h1_mod{
     display: inline;
     font-size: 18px;
     margin-top: 0;
@@ -7,7 +7,7 @@ h1{
     margin-right: 0;
     font-weight: bold;
 }
-h2, h3 {
+.h2_mod, .h3_mod {
     display: inline;
     font-size: 12px;
     margin-top: 0;

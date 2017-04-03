@@ -5,7 +5,7 @@
         <?php
         foreach ($tipo as $pos => $value) {
             echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a style="color: #337ab7;" href="/' 
-            . $value[1] . '/" itemprop="url"><span itemprop="name"><h2>' . $value[1] . '</h2><em class="conteo"> (' . $value[2] . ') </em></span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
+            . $value[1] . '/" itemprop="url"><span itemprop="name"><h2 class="h2_mod">' . $value[1] . '</h2><em class="conteo"> (' . $value[2] . ') </em></span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
         }
         ?>
     </ul>
