@@ -26,7 +26,7 @@
 </div>
 
 
-<div>
+<div class="row" style="margin-right: 0px;margin-left: 0px;">
     <div class="panel_movil col-xs-12 col-lg-12">
 
         <div itemprop="mainContentOfPage">            
