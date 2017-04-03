@@ -1,8 +1,8 @@
       
 <div>                          
-    <script src="/js/funciones.min.js" type="text/javascript"></script>
-    <script src="/js/wellcome.js" type="text/javascript"></script>
-    <script src="/js/contenido.js" type="text/javascript"></script>
+    <script src="/js/funciones.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
+    <script src="/js/wellcome.js?v=<?= VERSION ?>" type="text/javascript"></script>
+    <script src="/js/contenido.js?v=<?= VERSION ?>" type="text/javascript"></script>
 
 
     <b>
