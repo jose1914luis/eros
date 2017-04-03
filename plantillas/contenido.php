@@ -53,7 +53,7 @@ if ($total > 0) {
                 ?>
 
                 <div>                          
-                    <script src="/js/contenido.js" type="text/javascript"></script>
+                    <script src="/js/contenido.js?v=<?= VERSION ?>" type="text/javascript"></script>
 
 
                     <b>

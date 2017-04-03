@@ -3,6 +3,7 @@
     <head>
 
         <?php
+        include './plantillas/init.php';
         include './plantillas/head.php';
         ?>
         <script src="/js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>

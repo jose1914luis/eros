@@ -24,7 +24,12 @@
             $session = true;
             include './plantillas/header.php';
             ?>
-            <br>
+
+            <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
+                <li><a href="http://www.paginaerotica.com/"><h1><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Anuncios Eroticos Colombia</h1></a></li>
+
+            </ol>
+
             <br>
             <br>
             <br>        
