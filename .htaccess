@@ -69,12 +69,12 @@ RewriteRule ^([^\s%20]*)(?:\s|%20)+(.*)$ $1-$2 [L,R]
 
 
 #prametros normales
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([a-zA-Z0-9-_.()ñÑ]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4&parm5=$5 [L]
-RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([a-zA-Z0-9-_.()ñÑ]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4 [L]
-RewriteRule ^([^/]+)/([^/]+)/([a-zA-Z0-9-_.()ñÑ]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3 [L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([^/]+)/([a-zA-Z0-9-_.()ñÑ$,]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4&parm5=$5 [L]
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/([a-zA-Z0-9-_.()ñÑ$,]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3&parm4=$4 [L]
+RewriteRule ^([^/]+)/([^/]+)/([a-zA-Z0-9-_.()ñÑ$,]+)/?$ index.php?&parm1=$1&parm2=$2&parm3=$3 [L]
 
-RewriteRule ^([^/]+)/([a-zA-Z0-9-_.()ñÑ]+)/?$ index.php?&parm1=$1&parm2=$2 [L]
-RewriteRule ^([a-zA-Z0-9-_.()ñÑ]+)/?$ index.php?&parm1=$1 [L]
+RewriteRule ^([^/]+)/([a-zA-Z0-9-_.()ñÑ$,]+)/?$ index.php?&parm1=$1&parm2=$2 [L]
+RewriteRule ^([a-zA-Z0-9-_.()ñÑ$,]+)/?$ index.php?&parm1=$1 [L]
 
 
 # BEGIN Compress text files
