@@ -5,12 +5,12 @@
         <?php
         include './plantillas/head.php';
         ?>
-        <script src="js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
-        <script src="js/funciones.min.js" type="text/javascript"></script>
-        <script src="ckeditor/ckeditor.js" type="text/javascript"></script>
-        <!--<script src="js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->
-        <script src="js/anuncio.min.js" type="text/javascript"></script>
-        <!--<script src="js/anuncio.js?v=//<?= time() ?>" type="text/javascript"></script>-->
+        <script src="/js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
+        <!--<script src="/js/funciones.min.js" type="text/javascript"></script>-->
+        <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script src="/js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>
+        <!--<script src="/js/anuncio.min.js" type="text/javascript"></script>-->
+        <script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
 
         <title>Publica tu anuncio gratis - Paginaerotica.com</title>
         <meta name="description" content="publica gratis tu anuncio erotico en todo colombia">
@@ -40,11 +40,11 @@
                         <label for="categoria" class="col-xs-3 col-lg-3 control-label">Categoria</label>
                         <div class="col-xs-6 col-lg-4">
                             <select id="categoria" required class="form-control" name="tipo_anuncio" >
-<?php
-foreach ($tipo as $pos => $value) {
-    echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
-}
-?>
+                                <?php
+                                foreach ($tipo as $pos => $value) {
+                                    echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                                }
+                                ?>
 
                             </select>
                         </div>
@@ -55,11 +55,11 @@ foreach ($tipo as $pos => $value) {
                         <div class="col-xs-6 col-lg-4">
                             <select id="dep" class="categoria form-control"  name="mun_iddep" required>
                                 <option value = "0">Selecciona</option>
-<?php
-foreach ($dep as $pos => $value) {
-    echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
-}
-?>
+                                <?php
+                                foreach ($dep as $pos => $value) {
+                                    echo '<option value = "' . $value[0] . '">' . $value[1] . '</option>';
+                                }
+                                ?>
 
                             </select>
                         </div>                    
@@ -219,9 +219,9 @@ foreach ($dep as $pos => $value) {
 
             </div>
         </div>
-<?php
-include './plantillas/footer.php';
-?>
+        <?php
+        include './plantillas/footer.php';
+        ?>
 
     </body>
 </html>

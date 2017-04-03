@@ -2,8 +2,6 @@ var addImages = [];
 
 $(function () {
 
-
-
     $('#div_alerta').hide();
     $('#public_div').hide();
     $('#public_label').hide();
@@ -47,18 +45,17 @@ $(function () {
             success: function (data)   // A function to be called if request succeeds
             {
                 
-                console.log(data);
-//                if (data > 0) {
-//
-//                    window.location.href = "/P_AN/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
-//                    $('#div_alerta').hide();
-//                    $('#public_div').hide();
-//                } else {
-//
-//                    $('#div_alerta').attr('class', 'alert alert-danger');
-//                    $('#div_alerta').text('');
-//                    $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');
-//                }
+                if (data > 0) {
+
+                    window.location.href = "/P_AN/" + data+"/"+ $("#categoria option:selected").text() +"/"+ $("#dep option:selected").text() + "/" ;
+                    $('#div_alerta').hide();
+                    $('#public_div').hide();
+                } else {
+
+                    $('#div_alerta').attr('class', 'alert alert-danger');
+                    $('#div_alerta').text('');
+                    $('#div_alerta').html('<b>Ups hubo un Error!!.</b> Por favor vuelve a intentar.');
+                }
             },
             fail: function (e) {
 
@@ -102,6 +99,7 @@ $(function () {
 
         $("#file_" + j).change(function () {
             var id = $(this).attr('id');
+//            console.log(id);
             mostrar_imagen(this, id[id.length - 1]);
         });
     }
@@ -139,7 +137,7 @@ $(function () {
     var mostrar_imagen = function (e, i) {
 
         var file = e.files[0];
-
+        
         var imagefile = file.type;
         var match = ["image/jpeg", "image/png", "image/jpg"];
         if (file.size > 10000000) {
@@ -155,7 +153,7 @@ $(function () {
             var reader = new FileReader();
             reader.onload = function (e) {
 
-
+                
                 $('#image_' + i).attr('style', 'visibility: visible');
                 $('#btn_close_' + i).show();
                 rederizarCanvas($('#image_' + i), e.target.result, 550, 550, 100, 100);

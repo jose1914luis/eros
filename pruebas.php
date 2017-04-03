@@ -1,26 +1,4 @@
-<?php
-//
-//include_once 'bd/Anuncio.php';
-//include_once 'bd/Correo.php';
-//include_once 'bd/Usuario.php';
-
-
-//$email = 'importa2colombia@gmail.com';
-//$anuncio = new Anuncio();
-//$total = $anuncio->total_email($email);
-//echo $total;
-////if ($total == 1) {
-////
-////    /* Primera ves que publica un anuncio */
-//////    try {
-//        $usuario = new Usuario();
-//        $correo = new Correo();
-//////
-//        $datos = $usuario->getUsuariobyEmail($email);
-//        print_r($datos);
-//        $correo->bienvenida($datos['email'], $datos['contra']);        
-//        $correo->enviar();
-////    } catch (Exception $ex) {
-////        echo $ex;
-////    }
-//}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/prueba.js" type="text/javascript"></script>
+<!--<img id="image_3" class="image" src="" alt="pagina erotica">-->
+<img id="image_3" class="image" alt="pagina erotica" src="pag_ima/escorts.png" alt=""/>
