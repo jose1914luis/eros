@@ -57,40 +57,41 @@
             <div class="panel panel-danger">
                 <div class="panel-heading">        
                     <a><h4 style="color: #333;display: initial;"><b><?= $titulo ?></b></h4></a><br>   
-                    <a style="font-size: 12px;"><?= $datos['tipo'] . ' - ' . $datos['d_nombre'] . ' - ' . $datos['m_nombre'] ?></a>
+                    <ul class="list-inline">
+                        <?php
+                        $poner_ = false;
+                        if (!empty($edad)) {
+                            echo '<li style="padding-top: 8px;"><a>Edad: ' . $edad . ' años</li>';
+                            $poner_ = true;
+                        }
+                        if (!empty($altura)) {
+                            echo ($poner_) ? ' | ' : '';
+                            echo '<li style="padding-top: 8px;"><a>Altura: ' . $altura . ' cm</li>';
+                            $poner_ = true;
+                        }
+
+                        if (!empty($tarifa)) {
+                            echo ($poner_) ? ' | ' : '';
+                            echo '<li style="padding-top: 8px;"><a href="' . (isset($parm1) ? '/' . $parm1 : '') . (isset($parm2) ? '/' . $parm2 : '') . '/' . $tarifa . '">Tarifa: ' . $tarifa . '</a></li>';
+                        }
+
+                        if (!empty($fecha_inicio)) {
+                            echo ($poner_) ? ' | ' : '';
+                            echo '<li style="padding-top: 8px;">Fecha de publicación: ' . $fecha_inicio . '</li>';
+                        }
+                        ?>
+                    </ul>
                 </div>
                 <div style="padding: 5px 15px;" class="panel-body">
                     <div style="text-align: center">                   
-                        <ul class="list-inline">
-                            <?php
-                            $poner_ = false;
-                            if (!empty($edad)) {
-                                echo '<li style="padding-top: 8px;"><a>Edad: ' . $edad . ' años</li>';
-                                $poner_ = true;
-                            }
-                            if (!empty($altura)) {
-                                echo ($poner_) ? ' | ' : '';
-                                echo '<li style="padding-top: 8px;"><a>Altura: ' . $altura . ' cm</li>';
-                                $poner_ = true;
-                            }
 
-                            if (!empty($tarifa)) {
-                                echo ($poner_) ? ' | ' : '';
-                                echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $tarifa . '">Tarifa: ' . $tarifa . '</a></li>';
-                            }
 
-                            if (!empty($fecha_inicio)) {
-                                echo ($poner_) ? ' | ' : '';
-                                echo '<li style="padding-top: 8px;"><a href="/0/0/0/' . $fecha_inicio . '"><i class="fa fa-calendar" aria-hidden="true"></i> ' . $fecha_inicio . '</a></li>';
-                            }
-                            ?>
-                        </ul>
-
-                        <h5>
+                        <h4>
                             <span style="padding: 5px 5px;" class="label label-primary">
-                                <a href="/0/0/0/<?= $tel ?>"><i class="fa fa-phone" aria-hidden="true"></i> <?= $tel ?></a>    
+                                <a href="<?= (isset($parm1) ? '/' . $parm1 : '') . (isset($parm2) ? '/' . $parm2 : '') . '/' . $tel ?>"><i class="fa fa-phone" aria-hidden="true"></i>
+                                    <?= $tel ?></a>    
                             </span>
-                        </h5>
+                        </h4>
 
                     </div>
 
