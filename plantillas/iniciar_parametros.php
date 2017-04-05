@@ -13,6 +13,8 @@ $description = "";
 $canonical = "";
 $keywords = "";
 
+//$ayuda_local = "";
+
 if (isset($_GET)) {
 
     $parm1 = filter_input(INPUT_GET, 'parm1');

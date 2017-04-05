@@ -9,13 +9,13 @@
         <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
             <?php
             if (isset($parm1)) {
-                echo '<li><a href="http://www.paginaerotica.com/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
+                echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
                 echo '<li><a href="/' . $parm1 . '/"><h1 class="h1_mod">' . $parm1 . '</h1></a></li>';
                 if (isset($parm2)) {
                     echo '<li><a href="/' . $parm1 . '/' . $parm2 . '/">' . $parm2 . '</a></li>';
                 }
             } else {
-                echo '<li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod">Anuncios Eroticos Colombia</h1></a></li>';
+                echo '<li><a href="/"><h1 class="h1_mod">Anuncios Eroticos Colombia</h1></a></li>';
             }
             ?>
 
@@ -30,20 +30,7 @@
     <div class="panel_movil col-xs-12 col-lg-12">
 
         <div itemprop="mainContentOfPage">            
-            <?php
-            //if (validar_bienvenida($email)) {
-            if (false) {
-                ?>
-
-
-                <div id="div_alerta" role="alert" class="alert alert-success">
-                    <b>Genial!! Tu anuncio fue creado satisfactoriamente. </b> Revisa tu correo. Si eres nuevo, 
-                    debes activar tu cuenta para que administres tus anuncios. También se te envió información
-                    adicional para que puedas promover tu anuncio y obtener mejores resultados.   
-                </div>
-
-                <?php
-            }
+            <?php            
 
             $titulo = $datos['titulo'];
             $texto = $datos['texto'];
@@ -51,6 +38,7 @@
             $edad = $datos['edad'];
             $tarifa = $datos['tarifa'];
             $altura = $datos['altura'];
+            $email = $datos['email'];
             $fecha_inicio = $datos['fecha_inicio'];
             ?>
 
@@ -86,12 +74,20 @@
                     <div style="text-align: center">                   
 
 
-                        <h4>
-                            <span style="padding: 5px 5px;" class="label label-primary">
-                                <a href="<?= (isset($parm1) ? '/' . $parm1 : '') . (isset($parm2) ? '/' . $parm2 : '') . '/' . $tel ?>"><i class="fa fa-phone" aria-hidden="true"></i>
-                                    <?= $tel ?></a>    
-                            </span>
-                        </h4>
+
+                        <a class="btn btn-sm btn-social btn-reddit" href="<?= (isset($parm1) ? '/' . $parm1 : '') . (isset($parm2) ? '/' . $parm2 : '') . '/' . $tel ?>">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <?= $tel ?>
+                        </a>
+                        
+                        <a class="btn btn-sm btn-social btn-reddit" href="mailto:<?= $email ?>?Subject=Hola!" target="_top">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>Email
+                        </a>
+
+                        <a href="whatsapp://send?text=Hola!&phone=<?= '+57' . $tel ?>" class="wpp btn btn-sm btn-social btn-facebook" style="background-color: #128c7e">
+                            <i class="fa fa-whatsapp"></i>WhatsApp
+                        </a>                        
+
 
                     </div>
 

@@ -60,13 +60,13 @@ if ($total > 0) {
                         <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
                             <?php
                             if (isset($parm1)) {
-                                echo '<li><a href="http://www.paginaerotica.com/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
+                                echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
                                 echo '<li><a href="/' . $parm1 . '/">' . $parm1 . '</a></li>';
                                 if (isset($parm2)) {
                                     echo '<li><a href="/' . $parm1 . '/' . $parm2 . '/">' . $parm2 . '</a></li>';
                                 }
                             } else {
-                                echo '<li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod">Anuncios Eroticos Colombia</h1></a></li>';
+                                echo '<li><a href="/"><h1 class="h1_mod">Anuncios Eroticos Colombia</h1></a></li>';
                             }
                             ?>
 
@@ -101,8 +101,15 @@ if ($total > 0) {
                 <div class="panel_movil col-lg-6">
                     <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
-                            <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> ">
-                                <h3 class="h3_mod" style="color: #337ab7;" class="f_15"><?= $titulo ?></h3></a>
+                            <div class="h3_panel">
+                                <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> ">
+                                    <h3 class="h3_mod" style="color: #337ab7;" class="f_15"><?= $titulo ?></h3></a>
+                            </div>
+                            <div style="display: flex">                           
+                                <b style="font-size: 10px;" itemprop="serviceType"><?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?></b>
+                            </div>
+                            
+
                             <?php if ($super) { ?>
 
                                 <div style="float: right">
@@ -182,10 +189,7 @@ if ($total > 0) {
                                         }
                                         ?>
 
-                                        <td class="td_texto">
-                                            <div>
-                                                <b style="font-size: 10px;" itemprop="serviceType"><?= $value['d_nombre'] . ' - ' . $value['m_nombre'] ?></b>
-                                            </div>
+                                        <td class="td_texto">                                           
 
                                             <p class="texto" itemprop="description"><?= $texto ?></p>
 
@@ -195,9 +199,9 @@ if ($total > 0) {
                                             if (!empty($altura))
                                                 echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
                                             if (!empty($tarifa))
-                                                echo '<b class="f_15">Tarifa minima: </b itemprop="price">' . $value['tarifa'] . '<br>';
+                                                echo '<b class="f_15">Tarifa mínima: </b itemprop="price">' . $value['tarifa'] . '<br>';
                                             if (!empty($tel))
-                                                echo '<b class="f_15">Tel: </b>' . $value['tel'] . '<br>';
+                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' .  $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>'.  $value['tel'] .'</a><br>';
                                             ?>
                                         </td>
                             </tr>

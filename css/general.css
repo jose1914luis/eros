@@ -1,3 +1,7 @@
+.wpp{
+    visibility: hidden;
+    display: none;
+}
 .h1_mod{
     display: inline;
     font-size: 18px;
@@ -71,12 +75,13 @@ body {
     font-style: initial;
 }
 
-.btn_opcional{    
+.panel_titulo{    
+    height: 50px;
 }
-.panel_titulo {
 
-    overflow: hidden;
-    height: 43px;
+.h3_panel {
+
+    overflow: hidden;    
     text-overflow: ellipsis;
     white-space: nowrap;    
 }
@@ -192,6 +197,11 @@ body {
 @media screen and (min-width: 0px) and (max-width: 720px){
 
 
+    .wpp{
+        visibility: visible;
+        display: inline-block;
+    }
+
     .wrapper {        
         margin: 0 auto -115px; /* the bottom margin is the negative value of the footer's height */
     }
@@ -299,10 +309,10 @@ body {
 .td_texto{
     word-wrap: break-word; 
     max-width: 200px; 
-    max-height: 250px;
-    text-transform: uppercase;
+    max-height: 250px;    
 }
 .texto{
+    text-transform: uppercase;
     font-size: 12px;
     max-height: 100px;
     overflow: hidden;
