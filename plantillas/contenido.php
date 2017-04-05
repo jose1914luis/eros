@@ -106,7 +106,7 @@ if ($total > 0) {
                                     <h3 class="h3_mod" style="color: #337ab7;" class="f_15"><?= $titulo ?></h3></a>
                             </div>
                             <div style="display: flex">                           
-                                <b style="font-size: 10px;" itemprop="serviceType"><?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?></b>
+                                <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
                             </div>
                             
 
@@ -136,7 +136,7 @@ if ($total > 0) {
                                                 if ($con < LIMIT_IMG) {
                                                     $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
-                                                    $img2 = resize_image(substr($url['url'], 1), 200, 220, $ext) or die('Cannot Initialize new GD image stream');
+                                                    $img2 = resize_image(substr($url['url'], 1), 190, 210, $ext) or die('Cannot Initialize new GD image stream');
 
                                                     ob_start();
                                                     imagepng($img2);
@@ -194,8 +194,9 @@ if ($total > 0) {
                                             <p class="texto" itemprop="description"><?= $texto ?></p>
 
                                             <?php
-                                            if (!empty($edad))
+                                            if (!empty($edad)){
                                                 echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
+                                            }
                                             if (!empty($altura))
                                                 echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
                                             if (!empty($tarifa))
