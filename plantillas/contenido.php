@@ -145,7 +145,7 @@ if ($total > 0) {
 
                                                     if (isset($img2)) {
                                                         ob_start();
-                                                        imagejpeg($img2, null, 80);
+                                                        imagejpeg($img2, null, 100);
                                                         $output = base64_encode(ob_get_contents());
                                                         ob_end_clean();
                                                         echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
