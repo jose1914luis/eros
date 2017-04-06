@@ -58,7 +58,8 @@ if ($total > 0) {
                 ?>
 
                 <div>                          
-                    <script src="/js/contenido.js?v=<?= VERSION ?>" type="text/javascript"></script>
+                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>
+                    <!--<script src="/js/contenido.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
 
 
                     <b>
@@ -156,31 +157,12 @@ if ($total > 0) {
                                             if (count($img) > 1) {
                                                 ?>
 
-                                                <a style="opacity: 0.6;" class="w3-btn-floating w3-display-left" onclick="<?= 'plusDivs_' . $i . '( - 1)' ?>">&#10094;</a>
-                                                <a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="<?= 'plusDivs_' . $i . '(1)' ?>">&#10095;</a>
-
+                                                <a style="opacity: 0.6;" class="w3-btn-floating w3-display-left" onclick="<?= 'plusDivs(slideIndex' . $i . ', -1,' . $i . ')' ?>">&#10094;</a>
+                                                <a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                
+                                                
                                                 <script type="text/javascript">
-                                        var i_ = <?= $i ?>;
-                                        var slide_<?= $i ?> = 1;
-                                        showDivs_<?= $i ?>(slide_<?= $i ?>);
-                                        function plusDivs_<?= $i ?>(n) {
-                                            showDivs_<?= $i ?>(slide_<?= $i ?> += n);
-                                        }
-                                        ;
-                                        function showDivs_<?= $i ?>(n) {
-                                            var i;
-                                            var x = $(".slides_<?= $i ?>");
-                                            if (n > x.length) {
-                                                slide_<?= $i ?> = 1;
-                                            }
-                                            if (n < 1) {
-                                                slide_<?= $i ?> = x.length;
-                                            }
-                                            for (i = 0; i < x.length; i++) {
-                                                x[i].style.display = "none";
-                                            }
-                                            x[slide_<?= $i ?> - 1].style.display = "inline-block";
-                                        }
+                                                    var slideIndex<?= $i ?> = {con: 1};
+                                                    init(slideIndex<?= $i ?>, <?= $i ?>);
                                                 </script>
                                                 <?php
                                             }
