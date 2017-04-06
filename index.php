@@ -3,25 +3,23 @@
     <head>        
         <?php
         include './plantillas/init.php';
-        include './plantillas/head.php';
         include './plantillas/iniciar_parametros.php';
-
-        //$description = "Busca y Publica gratis tu anuncios  de sexuales en Colombia, Si eres prepago, escorts, gay, travesti, gigolo o masajista sexual, anunciate y consigue clientes.";
         ?>
-        <!--<script src="/js/index.js?v = <? = time()
-            ?>" type="text/javascript"></script>-->
-        <script src="/js/index.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
-        <title><?= $title ?></title>
+
+        <title><?= $title ?></title>        
         <meta name="description" content="<?= $description ?>">
         <meta name="keywords" content="<?= $keywords ?>">
         <link rel="canonical" href="<?= $canonical ?>">
-
         <meta property="og:url"           content="<?= $canonical ?>" />
         <meta property="og:type"          content="website" />
         <meta property="og:title"         content="<?= $title ?>" />
         <meta property="og:description"   content="<?= $description ?>" />
         <meta property="og:image"         content="http://www.paginaerotica.com/pag_ima/pagina4.png" />
 
+        <script src="/js/index.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
+        <?php
+        include './plantillas/head.php';
+        ?>
     </head>
 
     <body itemscope itemtype="http://schema.org/WebPage">       
@@ -53,7 +51,6 @@
         </div>
 
         <?php
-//        ob_flush();
         flush();
         include './plantillas/footer.php';
         ?>

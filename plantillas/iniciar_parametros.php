@@ -235,7 +235,7 @@ if (isset($_GET)) {
             }
         } else {
             $title .=" eroticos gratis en Colombia";
-            $description = "Busca y Publica gratis tus anuncios eroticos en Colombia";
+            $description = "Clasificados eróticos profesionales, publica gratis anuncios eroticos en Colombia o busca tu placer preferido";
         }
         $title .=" - Paginaerotica.com";
 
@@ -243,7 +243,7 @@ if (isset($_GET)) {
 
         $canonical = "http://www.paginaerotica.com/";
         $canonical .= ((isset($parm1)) ? "$parm1/" : "") . ((isset($parm2)) ? "$parm2/" : "") . ((isset($parm3)) ? "$parm3/" : "");
-        $keywords  .= "publicaciones,gratis,anuncios,escorts,publicar,gay,travesti,gigolo,masajista sexual,relaciones,ocasionales,encontrar,contactos,sexuales,paginas,publicaciones,quiero,prepago,prepagos,colombia";
+        $keywords  .= "publicaciones,gratis,anuncios,escorts,publicar,gay,travesti,gigolo,masajista sexual,relaciones,ocasionales,encontrar,contactos,sexuales,paginas,publicaciones,quiero,prepago,prepagos,colombia,clasificados";
     }
 }
 
