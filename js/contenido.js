@@ -8,7 +8,7 @@ $(function () {
 
 function init(slideIndex, id) {
 
-    showDivs(slideIndex, slideIndex, id);
+    showDivs(slideIndex, 1, id);
 }
 
 function plusDivs(slideIndex, n, id) {
@@ -29,7 +29,6 @@ function showDivs(slideIndex, n, id) {
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
-    console.log(slideIndex.con);
     x[slideIndex.con - 1].style.display = "inline-block";
 }
 
