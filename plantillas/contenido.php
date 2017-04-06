@@ -108,7 +108,7 @@ if ($total > 0) {
                             <div style="display: flex">                           
                                 <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
                             </div>
-                            
+
 
                             <?php if ($super) { ?>
 
@@ -139,15 +139,10 @@ if ($total > 0) {
                                                     $img2 = resize_image(substr($url['url'], 1), 190, 210, $ext) or die('Cannot Initialize new GD image stream');
 
                                                     ob_start();
-                                                    imagepng($img2);
+                                                    imagejpeg($img2);
                                                     $output = base64_encode(ob_get_contents());
                                                     ob_end_clean();
-                                                    if ($ext == 'png') {
-                                                        echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
-                                                    } else if ($ext == 'jpg') {
-
-                                                        echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
-                                                    }
+                                                    echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
                                                 }
                                                 $con = $con + 1;
                                             }
@@ -194,7 +189,7 @@ if ($total > 0) {
                                             <p class="texto" itemprop="description"><?= $texto ?></p>
 
                                             <?php
-                                            if (!empty($edad)){
+                                            if (!empty($edad)) {
                                                 echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
                                             }
                                             if (!empty($altura))
@@ -202,7 +197,7 @@ if ($total > 0) {
                                             if (!empty($tarifa))
                                                 echo '<b class="f_15">Tarifa mínima: </b itemprop="price">' . $value['tarifa'] . '<br>';
                                             if (!empty($tel))
-                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' .  $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>'.  $value['tel'] .'</a><br>';
+                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
                                             ?>
                                         </td>
                             </tr>
