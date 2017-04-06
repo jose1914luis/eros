@@ -5,35 +5,40 @@ $anuncio = new Anuncio();
 
 //renderizar imagen sin javascrit
 function resize_image($file, $w, $h, $ext) {
-    list($width, $height) = getimagesize($file);
-    $dst = '';
 
-    if ($width > 0) {
+    if (list($width, $height) = @getimagesize($file)) {
 
-        $r = $width / $height;
+        $dst = '';
 
-        if ($w / $h > $r) {
-            $newwidth = $h * $r;
-            $newheight = $h;
-        } else {
-            $newheight = $w / $r;
-            $newwidth = $w;
+        if ($width > 0) {
+
+            $r = $width / $height;
+
+            if ($w / $h > $r) {
+                $newwidth = $h * $r;
+                $newheight = $h;
+            } else {
+                $newheight = $w / $r;
+                $newwidth = $w;
+            }
+
+            $src = '';
+            if ($ext == 'png') {
+                $src = imagecreatefrompng($file);
+            } else if ($ext == 'jpg') {
+
+                $src = imagecreatefromjpeg($file);
+            }
+
+            $dst = imagecreatetruecolor($newwidth, $newheight);
+            imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
         }
 
-        $src = '';
-        if ($ext == 'png') {
-            $src = imagecreatefrompng($file);
-        } else if ($ext == 'jpg') {
 
-            $src = imagecreatefromjpeg($file);
-        }
-
-        $dst = imagecreatetruecolor($newwidth, $newheight);
-        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+        return $dst;
+    } else {
+        return null;
     }
-
-
-    return $dst;
 }
 ?>
 
@@ -136,13 +141,15 @@ if ($total > 0) {
                                                 if ($con < LIMIT_IMG) {
                                                     $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
-                                                    $img2 = resize_image(substr($url['url'], 1), 190, 210, $ext) or die('Cannot Initialize new GD image stream');
+                                                    $img2 = resize_image(substr($url['url'], 1), 190, 210, $ext) or null;
 
-                                                    ob_start();
-                                                    imagejpeg($img2, null, 90);
-                                                    $output = base64_encode(ob_get_contents());
-                                                    ob_end_clean();
-                                                    echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                    if (isset($img2)) {
+                                                        ob_start();
+                                                        imagejpeg($img2, null, 80);
+                                                        $output = base64_encode(ob_get_contents());
+                                                        ob_end_clean();
+                                                        echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                    }
                                                 }
                                                 $con = $con + 1;
                                             }

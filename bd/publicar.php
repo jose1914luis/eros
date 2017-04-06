@@ -60,12 +60,9 @@ for ($i = 1; $i <= strval($numfiles); $i++) {
 
     if ($_FILES['file_' . $i]["size"] != 0) {
 
-
-        $validextensions = array("jpeg", "jpg", "png");
         $temporary = explode(".", $_FILES['file_' . $i]["name"]);
-
         //Approx. 5Mb files can be uploaded 
-        if ($_FILES['file_' . $i]["type"] == "image/png" && ($_FILES['file_' . $i]["size"] < 5000000)) {
+        if ($_FILES['file_' . $i]["type"] == "image/jpeg"  && ($_FILES['file_' . $i]["size"] < 5000000)) {
 
 
             if ($_FILES['file_' . $i]["error"] > 0) {
@@ -95,7 +92,7 @@ for ($i = 1; $i <= strval($numfiles); $i++) {
                     }
                     $ext = pathinfo($_FILES['file_' . $i]["name"], PATHINFO_EXTENSION);
                     $sourcePath = $_FILES['file_' . $i]['tmp_name']; // Storing source path of the file in a variable
-                    $targetPath = $structure . "/imagen" . $i . ".png"; // Target path where file is to be stored
+                    $targetPath = $structure . "/imagen" . $i . ".jpg"; // Target path where file is to be stored
                     move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
                     $anuncio->insertarURLImagen($idanuncio, $targetPath);
                 }

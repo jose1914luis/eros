@@ -36,7 +36,7 @@ var rederizarCanvas = function (imagen, url, maxHeight, maxWidth, alturaDisplay,
         canvas.width = width;
         canvas.height = height;
         ctx.drawImage(c1, 0, 0, width, height);
-        var dataURL = canvas.toDataURL("image/png");
+        var dataURL = canvas.toDataURL("image/jpeg");
 
         //renderizo la imagen al para el display pequeño
 
@@ -48,7 +48,7 @@ var rederizarCanvas = function (imagen, url, maxHeight, maxWidth, alturaDisplay,
         for (var i = 0; i < blobBin.length; i++) {
             array.push(blobBin.charCodeAt(i));
         }
-        addImages.push(new Blob([new Uint8Array(array)], {type: 'image/png'}));
+        addImages.push(new Blob([new Uint8Array(array)], {type: 'image/jpeg'}));
     };
 
     var scaleIt = function (source, scaleFactor) {
