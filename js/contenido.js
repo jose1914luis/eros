@@ -6,8 +6,7 @@ $(function () {
 });
 
 
-function init(slideIndex, id) {
-
+function init(slideIndex, id) {    
     showDivs(slideIndex, 1, id);
 }
 

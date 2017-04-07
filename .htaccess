@@ -156,6 +156,8 @@ RewriteRule ^([a-zA-Z0-9-_.()ñÑ$,]+)/?$ index.php?&parm1=$1 [L]
 
 # BEGIN Cache-Control Headers
 <ifModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"  
+  Header set Content-Security-Policy "img-src 'self' data: stats.g.doubleclick.net www.google.com www.google-analytics.com;"
   <filesMatch "\.(ico|jpe?g|png|gif|swf)$">
     Header set Cache-Control "public"
   </filesMatch>

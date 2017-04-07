@@ -45,7 +45,6 @@ function resize_image($file, $w, $h, $ext) {
 <?php
 //filter_input(INPUT_GET, 'page');
 
-
 if ($total > 0) {
 
     $i = 1;
@@ -58,12 +57,12 @@ if ($total > 0) {
                 ?>
 
                 <div>                          
-                    <!--<script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
-                    <script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
+                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>
+                    <!--<script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
 
 
                     <b>
-                        <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
+                        <ol id="top_anuncio" class="breadcrumb" class="color_a">
                             <?php
                             if (isset($parm1)) {
                                 echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
@@ -82,7 +81,7 @@ if ($total > 0) {
 
                 </div>
 
-                <div class="row" style="margin-right: 0px;margin-left: 0px; ">                    
+                <div class="full_row row">                    
 
 
 
@@ -103,22 +102,24 @@ if ($total > 0) {
                 $edad = $value['edad'];
                 $tarifa = $value['tarifa'];
                 $tel = $value['tel'];
+                              
+                
                 ?>                    
                 <div class="panel_movil col-lg-6">
                     <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
                             <div class="h3_panel">
                                 <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> ">
-                                    <h3 class="h3_mod" style="color: #337ab7;" class="f_15"><?= $titulo ?></h3></a>
+                                    <h3 class="h3_mod f_15 color_a"><?= $titulo ?></h3></a>
                             </div>
-                            <div style="display: flex">                           
+                            <div class="sflex">                           
                                 <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
                             </div>
 
 
                             <?php if ($super) { ?>
 
-                                <div style="float: right">
+                            <div class="sfloat">
                                     <button type="button" onclick="eliminarAnuncio(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                     </button>
@@ -131,9 +132,9 @@ if ($total > 0) {
                                 // se carga la imagen.
                                 if (is_array($img) || is_object($img)) {
                                     ?>
-                                    <td style = "width: 205px;padding: 0;"> 
-                                        <div class="w3-content w3-display-container" style="text-align: center;height: 250px;">
-                                            <div class="helper"></div>
+                                    <td class="tstyle"> 
+                                        <div class="stylediv w3-content w3-display-container">
+                                            <span class="helper"></span>
 
                                             <?php
                                             $con = 0;
@@ -157,8 +158,8 @@ if ($total > 0) {
                                             if (count($img) > 1) {
                                                 ?>
 
-                                                <a style="opacity: 0.6;" class="w3-btn-floating w3-display-left" onclick="<?= 'plusDivs(slideIndex' . $i . ', -1,' . $i . ')' ?>">&#10094;</a>
-                                                <a style="opacity: 0.6;" class="w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                
+                                                <a class="sopacy w3-btn-floating w3-display-left" onclick="<?= 'plusDivs(slideIndex' . $i . ', -1,' . $i . ')' ?>">&#10094;</a>
+                                                <a class="sopacy w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                
                                                 
                                                 <script type="text/javascript">
                                                     var slideIndex<?= $i ?> = {con: 1};
@@ -184,9 +185,9 @@ if ($total > 0) {
                                             if (!empty($altura))
                                                 echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
                                             if (!empty($tarifa))
-                                                echo '<b class="f_15">Tarifa mínima: </b itemprop="price">' . $value['tarifa'] . '<br>';
+                                                echo '<b class="f_15" itemprop="price">Tarifa mínima: </b>' . $value['tarifa'] . '<br>';
                                             if (!empty($tel))
-                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
+                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';                                                                                     
                                             ?>
                                         </td>
                             </tr>
@@ -236,10 +237,10 @@ if ($total > 0) {
             <?php
         }
     } else {
-        $style = "style='position: fixed;width: 100%;'";
+        
         ?>
-        <div class="col-lg-12" style="float: none;margin: 0 auto">
-            <div style="text-align: center">                                    
+        <div class="snohay col-lg-12">
+            <div class="cen_text">                                    
                 <div class="alert alert-danger" role="alert"><b>Ups no hay datos!!.</b> Por favor intenta con otra busqueda.</div>
             </div>
         </div>

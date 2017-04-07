@@ -10,7 +10,7 @@
         </a>
 
 
-        <a href="whatsapp://send?text=www.paginaerotica.com" data-action="share/whatsapp/share" class="wpp btn btn-xs btn-social btn-facebook" style="background-color: #128c7e">
+        <a href="whatsapp://send?text=www.paginaerotica.com" data-action="share/whatsapp/share" class="fcolor wpp btn btn-xs btn-social btn-facebook">
             <span class="fa fa-whatsapp"></span>WhatsApp
         </a>       
 

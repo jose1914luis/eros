@@ -243,7 +243,8 @@ if (isset($_GET)) {
 
         $canonical = "http://www.paginaerotica.com/";
         $canonical .= ((isset($parm1)) ? "$parm1/" : "") . ((isset($parm2)) ? "$parm2/" : "") . ((isset($parm3)) ? "$parm3/" : "");
-        $keywords  .= "publicaciones,gratis,anuncios,escorts,publicar,gay,travesti,gigolo,masajista sexual,relaciones,ocasionales,encontrar,contactos,sexuales,paginas,publicaciones,quiero,prepago,prepagos,colombia,clasificados";
+        $keywords  .= "gratis,anuncios,escorts,publicar,gay,travesti,gigolo,masajes eroticos,relaciones,ocasionales,encontrar,contactos,sexuales,"
+                . "paginas,web cam,prepago,colombia,clasificados";
     }
 }
 

@@ -1,3 +1,45 @@
+.full_row{
+    margin: 0px 0px !important;
+}
+.header_combox{
+    overflow: hidden; max-width: 33%
+}
+.fcolor{
+    background-color: #128c7e !important;
+}
+.ocultar{
+    overflow: hidden; 
+}
+.color_a{
+    color: #337ab7;
+}
+.color_g{
+    color: #666;
+}
+.sflex{
+    display: flex
+}
+.sfloat{
+    float: right
+}
+.sopacy{
+    opacity: 0.6;
+}
+.tstyle{
+    width: 205px;padding: 0;
+}
+.stylediv{
+    height: 220px;
+    text-align: center;
+    display: inline-table;
+    width: 190px;
+}
+.snohay{
+    float: none;margin: 0 auto
+}
+.cen_text{
+    text-align: center
+}
 .wpp{
     visibility: hidden;
     display: none;
@@ -295,10 +337,14 @@ body {
 }
 
 .helper{
-    content: ' ';
+    /*    content: ' ';
+        display: inline-block;
+        vertical-align: middle;  
+        height: 240px;*/
     display: inline-block;
-    vertical-align: middle;  /* vertical alignment of the inline element */
-    height: 240px;
+    height: 100%;
+    vertical-align: middle;
+
 }
 .cont_img{
     float: left;

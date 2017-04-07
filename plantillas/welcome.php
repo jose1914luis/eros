@@ -6,7 +6,7 @@
 
 
     <b>
-        <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
+        <ol id="top_anuncio" class="color_a breadcrumb">
             <?php
             if (isset($parm1)) {
                 echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
@@ -26,7 +26,7 @@
 </div>
 
 
-<div class="row" style="margin-right: 0px;margin-left: 0px;">
+<div class="full_row row">
     <div class="panel_movil col-xs-12 col-lg-12">
 
         <div itemprop="mainContentOfPage">            
@@ -84,7 +84,7 @@
                             <i class="fa fa-envelope" aria-hidden="true"></i>Email
                         </a>
 
-                        <a href="whatsapp://send?text=Hola!&phone=<?= '+57' . $tel ?>" class="wpp btn btn-sm btn-social btn-facebook" style="background-color: #128c7e">
+                        <a href="whatsapp://send?text=Hola!&phone=<?= '+57' . $tel ?>" class="fcolor wpp btn btn-sm btn-social btn-facebook">
                             <i class="fa fa-whatsapp"></i>WhatsApp
                         </a>                        
 

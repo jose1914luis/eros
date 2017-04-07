@@ -72,8 +72,8 @@ if (!empty($parm1) || !empty($parm2)) {
                 <form id="form_buscar" class="navbar-form navbar-left">                    
 
 
-                    <div class="row" style="margin: 0px 0px;">
-                        <select id="categoria2" class="form-control" style="overflow: hidden; max-width: 33%">
+                    <div class="full_row row">
+                        <select id="categoria2" class="header_combox form-control">
                             <option value = "0">Categoría</option>
                             <?php
                             foreach ($tipo as $pos => $value) {
@@ -84,7 +84,7 @@ if (!empty($parm1) || !empty($parm2)) {
                         </select>
 
 
-                        <select id="dep2" class="form-control" style="overflow: hidden; max-width: 33%">
+                        <select id="dep2" class="header_combox form-control">
                             <option value = "0" >Departamento</option>
                             <?php
                             foreach ($dep as $pos => $value) {
@@ -93,7 +93,7 @@ if (!empty($parm1) || !empty($parm2)) {
                             ?>
                         </select>
 
-                        <select id="mun2" class="form-control" style="overflow: hidden; ">   
+                        <select id="mun2" class="ocultar form-control">   
                             <option value = "0">Ciudad</option>
                             <?php
                             foreach ($data_mun as $pos => $value) {
