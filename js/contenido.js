@@ -11,7 +11,7 @@ function init(slideIndex, id) {
 }
 
 function plusDivs(slideIndex, n, id) {
-    
+        
     showDivs(slideIndex, slideIndex.con += n, id);
 };
 

@@ -140,6 +140,7 @@ if ($total > 0) {
                                             $con = 0;
                                             foreach ($img as $pos2 => $url) {
 
+                                                $con = $con + 1;
                                                 if ($con < LIMIT_IMG) {
                                                     $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
@@ -150,17 +151,16 @@ if ($total > 0) {
                                                         imagejpeg($img2, null, 75);
                                                         $output = base64_encode(ob_get_contents());
                                                         ob_end_clean();
-                                                        echo '<img itemprop="logo" class="render slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                        echo '<img itemprop="logo" class="slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
                                                     }
                                                 }
-                                                $con = $con + 1;
+                                                
                                             }
                                             if (count($img) > 1) {
                                                 ?>
 
                                                 <a class="sopacy w3-btn-floating w3-display-left" onclick="<?= 'plusDivs(slideIndex' . $i . ', -1,' . $i . ')' ?>">&#10094;</a>
-                                                <a class="sopacy w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                
-                                                
+                                                <a class="sopacy w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                                                                                                                
                                                 <script type="text/javascript">
                                                     var slideIndex<?= $i ?> = {con: 1};
                                                     init(slideIndex<?= $i ?>, <?= $i ?>);
