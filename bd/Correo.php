@@ -1,6 +1,7 @@
 <?php
 
-include '../PHPMailer/PHPMailerAutoload.php';
+$upOne = realpath(__DIR__ . '/..');
+include $upOne.'/PHPMailer/PHPMailerAutoload.php';
 
 class Correo {
 
