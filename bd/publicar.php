@@ -26,24 +26,14 @@ $edad = filter_input(INPUT_POST, 'edad');
 $altura = filter_input(INPUT_POST, 'altura');
 $tarifa = filter_input(INPUT_POST, 'tarifa');
 $numfiles = filter_input(INPUT_POST, 'numfiles');
+$url = filter_input(INPUT_POST, 'url');
 
 
 $anuncio = new Anuncio();
 /**
  * Se inserta el anuncio
  */
-$idanuncio = $anuncio->insertAnuncio($tipo_anuncio, 
-        $titulo, 
-        $texto, null, 
-        strtolower($email), 
-        preg_replace('/\s+/', '', $tel),
-        $web, 
-        $mun_idmun, 
-        $mun_iddep, 
-        $barrio, 
-        $edad, 
-        $altura, 
-        $tarifa);
+$idanuncio = $anuncio->insertAnuncio($tipo_anuncio, $titulo, $texto, null, strtolower($email), preg_replace('/\s+/', '', $tel), $web, $mun_idmun, $mun_iddep, $barrio, $edad, $altura, $tarifa);
 
 //echo 'idanuncio' .$idanuncio;
 if ($idanuncio < 1) {
@@ -62,7 +52,7 @@ for ($i = 1; $i <= strval($numfiles); $i++) {
 
         $temporary = explode(".", $_FILES['file_' . $i]["name"]);
         //Approx. 5Mb files can be uploaded 
-        if ($_FILES['file_' . $i]["type"] == "image/jpeg"  && ($_FILES['file_' . $i]["size"] < 5000000)) {
+        if ($_FILES['file_' . $i]["type"] == "image/jpeg" && ($_FILES['file_' . $i]["size"] < 5000000)) {
 
 
             if ($_FILES['file_' . $i]["error"] > 0) {
@@ -118,14 +108,13 @@ if ($proceso > 0) {
 
     $total = $anuncio->total_email($email);
 
+    $usuarioEros = new Usuario();
+    $correo = new Correo();
+    $datos = $usuarioEros->getUsuariobyEmail($email);
     if ($total == 1) {
 
         /* Primera ves que publica un anuncio */
         try {
-            $usuarioEros = new Usuario();
-            $correo = new Correo();
-
-            $datos = $usuarioEros->getUsuariobyEmail($email);
             $correo->bienvenida($datos['email'], $datos['contra']);
             $correo->enviar();
         } catch (Exception $ex) {
@@ -133,6 +122,15 @@ if ($proceso > 0) {
             echo $ex;
         }
     }
+
+    try {
+        $correo->pago($datos['email'], $idanuncio, $url);
+        $correo->enviar();
+    } catch (Exception $ex) {
+
+        echo $ex;
+    }
+
     echo $idanuncio;
 } else {
 

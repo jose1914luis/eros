@@ -36,7 +36,9 @@ $(function () {
         }
 
         datos.append('texto', CKEDITOR.instances.editor.getData());
-
+        
+        datos.append('url', '/' +$('#categoria option:selected').text() +'/' +$('#dep option:selected').text() + '/');
+        
         $('#public_div').show();
         $('#public_label').show();
 
