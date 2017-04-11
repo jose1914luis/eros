@@ -115,7 +115,7 @@ if ($proceso > 0) {
 
         /* Primera ves que publica un anuncio */
         try {
-            $correo->bienvenida($datos['email'], $datos['contra']);
+            $correo->bienvenida($email, $datos['contra']);
             $correo->enviar();
         } catch (Exception $ex) {
 
@@ -124,7 +124,7 @@ if ($proceso > 0) {
     }
 
     try {
-        $correo->pago($datos['email'], $idanuncio, $url);
+        $correo->pago($email, $idanuncio, $url);
         $correo->enviar();
     } catch (Exception $ex) {
 
