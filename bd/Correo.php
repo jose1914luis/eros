@@ -15,10 +15,7 @@ class Correo {
         $this->mail->Username = 'no_responder@paginaerotica.com';
         $this->mail->Port = 25;
 
-        $this->mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');
-
-        $this->mail->addBCC('jose1914luis@gmail.com', 'Jose Luis');
-        $this->mail->addBCC('admin@paginaerotica.com', 'Pagina Erotica');
+        $this->mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');                
         $this->mail->isHTML(true);
 
         $this->foot = '
@@ -40,6 +37,7 @@ class Correo {
     public function bienvenida($email, $contra) {
         
         $this->mail->addAddress($email);
+        $this->mail->addBCC('admin@paginaerotica.com,' . $email);
         $this->mail->Subject = 'Cuenta de Usuario';
 
 

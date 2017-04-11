@@ -22,7 +22,7 @@ echo $datos['email'];
 /* Primera ves que publica un anuncio */
 try {
     print_r($correo->bienvenida($datos['email'], $datos['contra']));
-//        $correo->enviar();
+        $correo->enviar();
 } catch (Exception $ex) {
 
     echo $ex;
