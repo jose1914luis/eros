@@ -38,7 +38,8 @@ class Correo {
     }
 
     public function bienvenida($email, $contra) {
-
+        
+        $this->mail->addAddress($email);
         $this->mail->Subject = 'Cuenta de Usuario';
 
 
@@ -52,8 +53,8 @@ class Correo {
 <p>Muchas graciar por usar <a href="http://www.paginaerotica.com/">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio.</p><br>';
 
 
-        $this->mail->Body = $body . $this->foot;
-        $this->mail->addAddress($email, 'Usuario');
+        $this->mail->Body = $body . $this->foot;       
+        
     }
 
     public function pago($email, $idanuncio, $url) {
