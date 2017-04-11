@@ -10,11 +10,11 @@ require 'bd/Anuncio.php';
 
 $anuncio = new Anuncio();
 
-$total = $anuncio->total_email('jose1914luis@gmail.com');
+$total = $anuncio->total_email('admin@paginaerotica.com');
 
 $usuarioEros = new Usuario();
 $correo = new Correo();
-$datos = $usuarioEros->getUsuariobyEmail('jose1914luis@gmail.com');
+$datos = $usuarioEros->getUsuariobyEmail('admin@paginaerotica.com');
 echo $datos['contra'];
 echo $datos['email'];
 
