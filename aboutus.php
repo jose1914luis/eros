@@ -39,7 +39,7 @@ and open the template in the editor.
                                 <img src="pag_ima/escorts.png" alt="Escorts">
                                 <div class="caption">
                                     <p>Acompañantes sexuales y prepagos</p>
-                                    <p><a href="anuncio" class="btn btn-primary" role="button">Publicar</a> <a href="index?cat=1" class="btn btn-default" role="button">Visitar</a></p>
+                                    <p><a href="anuncio" class="btn btn-primary" role="button">Publicar</a> <a href="/Escorts/" class="btn btn-default" role="button">Visitar</a></p>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ and open the template in the editor.
                                 <img src="pag_ima/masajista.png" alt="Escorts">
                                 <div class="caption">
                                     <p>Acompañantes sexuales y prepagos</p>
-                                    <p><a href="anuncio" class="btn btn-primary" role="button">Publicar</a> <a href="index?cat=2" class="btn btn-default" role="button">Visitar</a></p>
+                                    <p><a href="anuncio" class="btn btn-primary" role="button">Publicar</a> <a href="/Web-Cam/" class="btn btn-default" role="button">Visitar</a></p>
                                 </div>
                             </div>
                         </div>
