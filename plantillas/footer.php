@@ -6,9 +6,16 @@
     </div>    
     <div>
         <a href="https://www.facebook.com/paginaerotica/" target="_blank" class="btn btn-xs btn-social btn-facebook">
-            <span class="fa fa-facebook"></span>Siguenos en Facebook
+            <span class="fa fa-facebook"></span>Facebook
         </a>
-
+        
+        <a href="https://plus.google.com/u/0/108391897041123069024" target="_blank" class="btn btn-xs btn-social btn-google">
+            <span class="fa fa-google-plus"></span>Google
+        </a>
+        
+        <a href="https://www.instagram.com/paginaerotica/" target="_blank" class="btn btn-xs btn-social btn-instagram">
+            <span class="fa fa-instagram"></span>Instagram
+        </a>
 
         <a href="whatsapp://send?text=www.paginaerotica.com" data-action="share/whatsapp/share" class="fcolor wpp btn btn-xs btn-social btn-facebook">
             <span class="fa fa-whatsapp"></span>WhatsApp
