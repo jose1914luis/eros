@@ -15,7 +15,7 @@ class Correo {
 
         $this->mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');
 
-        $this->mail->addBCC('admin@paginaerotica.com');
+        $this->mail->addBCC('jose1914luis@gmail.com');
         $this->mail->isHTML(true);
     }
 
