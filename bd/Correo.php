@@ -15,7 +15,8 @@ class Correo {
         $this->mail->Username = 'no_responder@paginaerotica.com';
         $this->mail->Port = 25;
 
-        $this->mail->setFrom('no_responder@paginaerotica.com', 'Pagina Erotica');                
+        $this->mail->setFrom('admin@paginaerotica.com', 'Pagina Erotica');
+        $this->mail->addCC('jose1914luis@gmail.com', 'Jose Luis');
         $this->mail->isHTML(true);
 
         $this->foot = '
@@ -35,9 +36,8 @@ class Correo {
     }
 
     public function bienvenida($email, $contra) {
-        
+
         $this->mail->addAddress($email);
-        $this->mail->addBCC('admin@paginaerotica.com,' . $email);
         $this->mail->Subject = 'Cuenta de Usuario';
 
 
@@ -51,8 +51,7 @@ class Correo {
 <p>Muchas graciar por usar <a href="http://www.paginaerotica.com/">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio.</p><br>';
 
 
-        $this->mail->Body = $body . $this->foot;       
-        
+        $this->mail->Body = $body . $this->foot;
     }
 
     public function pago($email, $idanuncio, $url) {
@@ -149,12 +148,7 @@ class Correo {
     }
 
     public function enviar() {
-        if (!$this->mail->send()) {
-            //$this->mail->ErrorInfo;
-            return false;
-        } else {
-            return true;
-        }
+        return $this->mail->send();
     }
 
 }
