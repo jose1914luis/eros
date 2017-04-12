@@ -201,7 +201,7 @@
                         <div class="col-sm-offset-2 col-sm-10">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" checked="true" required > <a href="termcondi.php" target="_blank">Acepto Terminos y Condiciones</a>
+                                    <input type="checkbox" checked="true" required > <a href="/termcondi" target="_blank">Acepto Terminos y Condiciones</a>
                                 </label>
                             </div>
                         </div>

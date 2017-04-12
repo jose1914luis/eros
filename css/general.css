@@ -1,3 +1,8 @@
+table, th, td {
+
+    padding: 2px !important;       
+    vertical-align:middle !important; 
+}
 .div_about{
     padding-left: 200px;
     padding-right: 200px;
@@ -40,7 +45,8 @@
     opacity: 0.6;
 }
 .tstyle{
-    width: 205px;padding: 0;
+    width: 190px;
+    text-align: center;   
 }
 .stylediv{
     height: 220px;
@@ -261,6 +267,10 @@ body {
 }
 
 @media screen and (min-width: 0px) and (max-width: 720px){
+
+    .stylediv{
+        height: auto;
+    }
 
     .render{
         height: auto;
