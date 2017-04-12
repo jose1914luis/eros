@@ -1,9 +1,10 @@
 .div_about{
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 .div_about p{
     text-align: justify;
+    color: #555f77;
 }
 .rocultar{
     display: none;

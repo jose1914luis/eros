@@ -10,7 +10,7 @@ and open the template in the editor.
         include './plantillas/head.php';
         ?>        
         <title>
-            Acerca de Nosotros - Paginaerotica.com
+            Quienes somos - Paginaerotica.com
         </title>
         <meta name="description" content="es una compañia Colombiana dedicada a la publicación de anuncios en internet. Nace como una alternativa para aquellas personas que desean ofrecer sus servicios a través de internet, utilizando las herramientas tecnológicas para llegar a más clientes.
               Nuestra plataforma permite a los usuarios tener el control sobre sus publicaciones.">
