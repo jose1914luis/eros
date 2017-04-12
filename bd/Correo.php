@@ -59,7 +59,7 @@ class Correo {
         $this->mail->Subject = 'Anuncio Publicado';
 
 
-        $body = '<H1>Hola, Como estas!!</H1>
+        $body = '<h2>Hola, Como estas!!</h2>
 <p><b>Gracias por publicar en <a href="http://www.paginaerotica.com/">www.paginaerotica.com</a>.</b> Para nosotros es un placer prestarte nuestros servicios. Estos son los detalles de tu anuncio:</p>
 <p>    
     <b>ID ANUNCIO:</b>' . $idanuncio . '<br>
