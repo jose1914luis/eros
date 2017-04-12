@@ -1,3 +1,10 @@
+.div_about{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.div_about p{
+    text-align: justify;
+}
 .rocultar{
     display: none;
 }
@@ -254,6 +261,15 @@ body {
 
 @media screen and (min-width: 0px) and (max-width: 720px){
 
+    .render{
+        height: auto;
+        width: 100%;
+    }
+
+    .div_about{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 
     .wpp{
         visibility: visible;

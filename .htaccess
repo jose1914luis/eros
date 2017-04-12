@@ -24,6 +24,18 @@ RewriteRule ^ - [L]
 RewriteBase "/"
 
 
+RewriteCond %{REQUEST_URI} ^/aboutus$
+RewriteRule (.*) aboutus.php [L]
+
+RewriteBase "/"
+
+
+RewriteCond %{REQUEST_URI} ^/termcondi$
+RewriteRule (.*) termcondi.php [L]
+
+RewriteBase "/"
+
+
 RewriteCond %{REQUEST_URI} ^/anuncio$
 RewriteRule (.*) anuncio.php [L]
 

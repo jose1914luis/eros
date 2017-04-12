@@ -101,7 +101,7 @@
                     if (is_array($img) || is_object($img)) {
                         foreach ($img as $pos2 => $url) {
 
-                            echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 2) . '" alt="' . $tel . '" style=" height: auto;width: 100%;"></div>';
+                            echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 2) . '" alt="' . $tel . '"></div>';
                         }
                     }
                     ?>

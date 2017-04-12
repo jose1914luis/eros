@@ -25,58 +25,34 @@ and open the template in the editor.
             include './plantillas/header.php';
             ?>
             <div>
-                <div style="width:100%; text-align: center">
-                    <a href="index.php" target="_blank"><h1>¿Que es www.paginaerotica.com?</h1></a>
-                </div>            
-
-                <p class="lead"><a href="index.php" target="_blank">www.paginaerotica.com</a> es una compañia Colombiana dedicada a la publicación de anuncios en internet. Nace como una alternativa para aquellas personas que desean ofrecer sus servicios a través de internet, utilizando las herramientas tecnológicas para llegar a más clientes.
-                    Nuestra plataforma permite a los usuarios tener el control sobre sus publicaciones, así como del tipo de clientes que desean contactar.</p>            
-
-                <div class="container-fluid" style="margin: auto; text-align: center">
-                    <div class="center-block">
-                        <div class="col-lg-2">                    
-                            <div class="thumbnail">
-                                <img src="pag_ima/escorts.png" alt="Escorts">
-                                <div class="caption">
-                                    <p>Acompañantes sexuales y prepagos</p>
-                                    <p><a href="anuncio" class="btn btn-primary" role="button">Publicar</a> <a href="/Escorts/" class="btn btn-default" role="button">Visitar</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2">                    
-                            <div class="thumbnail">
-                                <img src="pag_ima/masajista.png" alt="Escorts">
-                                <div class="caption">
-                                    <p>Acompañantes sexuales y prepagos</p>
-                                    <p><a href="anuncio" class="btn btn-primary" role="button">Publicar</a> <a href="/Web-Cam/" class="btn btn-default" role="button">Visitar</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2">                    
-                            <div class="thumbnail">
-                                <img src="pag_ima/webcam.png" alt="Escorts">
-                                <div class="caption">
-                                    <p>Acompañantes sexuales y prepagos</p>
-                                    <p><a href="anuncio" class="btn btn-primary" role="button">Publicar</a> <a href="index?cat=3" class="btn btn-default" role="button">Visitar</a></p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
+                <b>
+                    <ol id="top_anuncio" class="color_a breadcrumb">
+                        <li><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span><a href="/"><h1 class="h1_mod">Anuncios Eroticos Colombia</h1></a></li>
+                    </ol>
+                </b>
+                <div class="cen_text">
+                    <img class="render" src="pag_ima/logoportadaface.jpg" alt="pagina erotica"/>
                 </div>
-                <h2>Mision</h2>
-                <p class="lead">Brindar una plataforma en la que los usuarios puedan ofrecer sus servicios de una manera confiable y segura a todos sus clientes.</p>
+                <div class="div_about">
+                    <h1>Quienes somos?</h1>	 	 	
+                    <p>                
+                        Paginaerotica.com es una empresa Colombiana dedicada a la publicidad de contenido erótico en internet. Actualmente ofrecemos una alternativa para aquellas personas que desean ofrecer sus servicios eroticos a través de la web. Nuestra plataforma permite a los usuarios promocionar sus servicios atendiendo las necesidades de su categoría y teniendo control sobre sus publicaciones. En paginaerotica.com contamos con una adecuada infraestructura en instalaciones, equipamiento, así como también cobertura a nivel nacional. Somos una empresa joven con gran proyección que busca ampliar sus servicios con el objetivo de responder oportunamente a nuestros clientes.
+                    </p>
+                    <h2>Misión</h2>
+                    <p>
+                        Nuestra misión es ofrecer a nuestros clientes soluciones integrales con tecnología de avanzada que les permitan una gestión eficiente de sus servicios.
+                    </p>
+                    <h2>Visión</h2>
+                    <p>
+                        El sector que atendemos requiere proveedores con una organización sólida y solvencia profesional que esté atenta a los cambios en las tecnologías y las necesidades del consumidor final; Por tal motivo estamos comprometidos a generar un crecimiento sostenible dentro de nuestra organización que permita mejorar nuestra infraestructura, procesos administrativos y técnicos con el propósito de satisfacer las expectativas de nuestros clientes.    
+                    </p>
+                </div>
 
-                <h2>Vision</h2>
-
-                <p class="lead">Para el año 2017 ser la página de publicidad erotica mas reconocida en Colombia.</p>
             </div>
             <div class="wrapper_div"></div> <!-- wrapper-->
         </div>
-<?php
-include './plantillas/footer.php';
-?>
+        <?php
+        include './plantillas/footer.php';
+        ?>
     </body>
 </html>

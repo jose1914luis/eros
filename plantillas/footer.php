@@ -1,8 +1,8 @@
 <div class="site-footer">
     <div class="foot_div">
-        <em>Copyright© 2017 <a href=".">www.paginaerotica.com</a></em>. Todos los derechos reservados | 
-        <a  href="/termcondi.php" target="_blank">Terminos y Condiciones.</a>
-        <a  href="/aboutus.php" target="_blank">Acerca de nosotros.</a>                          
+        <em>Copyright© 2017 <a href="/">www.paginaerotica.com</a></em>. Todos los derechos reservados | 
+        <a  href="/termcondi" target="_blank">Terminos y Condiciones.</a>
+        <a  href="/aboutus" target="_blank">Acerca de nosotros.</a>                          
     </div>    
     <div>
         <a href="https://www.facebook.com/paginaerotica/" target="_blank" class="btn btn-xs btn-social btn-facebook">
