@@ -16,7 +16,6 @@ function init(slideIndex, id) {
         $("#panelId" + id).bind('touchstart', function () {
             interval = setInterval(function () {
 
-
                 if (slideIndex.con < slideIndex.total) {
                     slideIndex.con = slideIndex.con + 1;
                 } else {
@@ -24,13 +23,14 @@ function init(slideIndex, id) {
                 }
                 showDivs(slideIndex, slideIndex.con, id);
             }, 800);
-        }).bind('touchend', function () {
-            clearInterval(interval);
+            setTimeout(function () {
+                clearInterval(interval);
+            }, 3000);
         });
+        
     } else {
         $("#panelId" + id).on("mouseenter", function () {
             interval = setInterval(function () {
-
 
                 if (slideIndex.con < slideIndex.total) {
                     slideIndex.con = slideIndex.con + 1;
