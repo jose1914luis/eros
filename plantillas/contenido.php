@@ -57,8 +57,8 @@ if ($total > 0) {
                 ?>
 
                 <div>                          
-                    <!--<script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
-                    <script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
+                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>
+                    <!--<script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
 
 
                     <b>
@@ -102,10 +102,8 @@ if ($total > 0) {
                 $edad = $value['edad'];
                 $tarifa = $value['tarifa'];
                 $tel = $value['tel'];
-                              
-                
                 ?>                    
-                <div class="panel_movil col-lg-6">
+                <div id="panelId<?= $i ?>" class="panel_movil col-lg-12">
                     <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
                             <div class="h3_panel">
@@ -119,7 +117,7 @@ if ($total > 0) {
 
                             <?php if ($super) { ?>
 
-                            <div class="sfloat">
+                                <div class="sfloat">
                                     <button type="button" onclick="eliminarAnuncio(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-default" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                                     </button>
@@ -144,7 +142,7 @@ if ($total > 0) {
                                                 if ($con < LIMIT_IMG) {
                                                     $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
-                                                    $img2 = resize_image(substr($url['url'], 1), 190, 210, $ext) or null;
+                                                    $img2 = resize_image(substr($url['url'], 1), 160, 190, $ext) or null;
 
                                                     if (isset($img2)) {
                                                         ob_start();
@@ -154,16 +152,14 @@ if ($total > 0) {
                                                         echo '<img itemprop="logo" class="slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
                                                     }
                                                 }
-                                                
                                             }
                                             if (count($img) > 1) {
-                                                ?>
-
+                                                ?>                                                
                                                 <a class="sopacy w3-btn-floating w3-display-left" onclick="<?= 'plusDivs(slideIndex' . $i . ', -1,' . $i . ')' ?>">&#10094;</a>
                                                 <a class="sopacy w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                                                                                                                
                                                 <script type="text/javascript">
-                                                    var slideIndex<?= $i ?> = {con: 1};
-                                                    init(slideIndex<?= $i ?>, <?= $i ?>);
+                                            var slideIndex<?= $i ?> = {con: 1, total: <?= count($img) ?>};
+                                            init(slideIndex<?= $i ?>, <?= $i ?>);
                                                 </script>
                                                 <?php
                                             }
@@ -187,7 +183,7 @@ if ($total > 0) {
                                             if (!empty($tarifa))
                                                 echo '<b class="f_15" itemprop="price">Tarifa mínima: </b>' . $value['tarifa'] . '<br>';
                                             if (!empty($tel))
-                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';                                                                                     
+                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
                                             ?>
                                         </td>
                             </tr>
@@ -237,7 +233,6 @@ if ($total > 0) {
             <?php
         }
     } else {
-        
         ?>
         <div class="snohay col-lg-12">
             <div class="cen_text">                                    

@@ -1,3 +1,19 @@
+.header_div{
+    width: 100%;
+    margin-bottom: 5px; 
+}
+.cuerpo{
+    max-width: 1300px;
+    /*display: table;*/
+    margin: 0 auto;    
+}
+.panel{
+    margin-bottom: 5px;
+}
+.panel-heading{
+    padding: 5px 5px !important;
+}
+
 table, th, td {
 
     padding: 2px !important;       
@@ -49,10 +65,10 @@ table, th, td {
     text-align: center;   
 }
 .stylediv{
-    height: 220px;
+    height: 190px;
     text-align: center;
     display: inline-table;
-    width: 190px;
+    width: 160px;
 }
 .snohay{
     float: none;margin: 0 auto
@@ -94,7 +110,8 @@ table, th, td {
 }
 
 .panel_interno{
-    height: 292px;
+    height: auto;
+    min-height: 130px;
 }
 
 .wrapper {
@@ -103,7 +120,6 @@ table, th, td {
     height: 100%;
     margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
 }
-
 
 .wrapper .wrapper_div{
 
@@ -137,8 +153,9 @@ body {
     height: 100%;
 }
 
-.navbar {        
-    margin-bottom: 5px;         
+.navbar {             
+    max-width: 1300px;
+    margin: 0 auto;  
 }
 
 .conteo{
@@ -210,8 +227,8 @@ body {
     border: 1px solid #e1e1e8;
     border-radius: 4px;
     left: 5px;
-    position: absolute;
-    width: 160px;
+    /*position: absolute;*/
+    width: 250px;
 }
 
 #izq_panel ul li a {
@@ -229,11 +246,8 @@ body {
 #contenido_1 {    
 
     left: 190px;
-    /*position: absolute;*/
     padding-left: 190px;
     width: 100%;
-    /*overflow: hidden;*/
-    margin-left: -5px;
 }
 
 #pagi{
@@ -267,10 +281,6 @@ body {
 }
 
 @media screen and (min-width: 0px) and (max-width: 720px){
-
-    .stylediv{
-        height: auto;
-    }
 
     .render{
         height: auto;
@@ -364,7 +374,7 @@ body {
     }       
 
     .panel_interno{
-        height: auto;
+
         max-height: 292px;
     }
 }
@@ -403,7 +413,7 @@ body {
 .texto{
     text-transform: uppercase;
     font-size: 12px;
-    max-height: 120px;
+    /*max-height: 120px;*/
     overflow: hidden;
 }
 .f_15{

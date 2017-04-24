@@ -21,7 +21,7 @@
 
 
     </head>
-    <body style="background-color: #f2dede;">
+    <body>
 
         <?php
         include './plantillas/header.php';
@@ -85,40 +85,19 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="titulo" class="col-lg-3 control-label" >Titulo</label>
-                        <div class="col-lg-8">
+                        <label for="titulo" class="col-sm-3 col-lg-3 control-label" >Titulo</label>
+                        <div class="col-sm-8 col-lg-8">
                             <input type="text" class="form-control" id="titulo" required maxlength="100" placeholder="Titulo"  name="titulo">
                         </div>
                     </div>
 
 
                     <div class="form-group">
-                        <label for="editor" class="col-lg-3 control-label">Descripcion</label>
-                        <div class="col-lg-8">
+                        <label for="editor" class="col-sm-3 col-lg-3 control-label">Descripcion</label>
+                        <div class="col-sm-8 col-lg-8">
                             <textarea id="editor" style="" placeholder="Descripcion de tu anuncio" ></textarea>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="barrio" class="col-lg-3 control-label">Datos (Opcionales):</label>
-                        <div class="col-lg-8">
-                            <label for="edad" class="col-xs-4 col-lg-2 control-label" id="lbl_edad">Edad</label>
-                            <div class="col-xs-4 col-lg-2">
-                                <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="btn_opcional form-control" id="edad" maxlength="3" placeholder="años" name="edad">
-                            </div>
-
-                            <label for="altura" class="col-xs-4 col-lg-2 control-label" id="lbl_altura">Altura</label>
-                            <div class="col-xs-4 col-lg-2">
-                                <input type="text" class="btn_opcional form-control" id="altura" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="4" placeholder="altura cm." name="altura">
-                            </div>
-
-                            <label for="tarifa" class="col-xs-4 col-lg-3 control-label" id="lbl_tarifa">Tarifa Minima</label>
-                            <div class="col-xs-4 col-lg-2">
-                                <input type="text" class="btn_opcional form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace: 0}).val()" id="tarifa" placeholder="tarifa COP" name="tarifa">
-                            </div>
-
-                        </div>
-                    </div>
+                    </div>                    
 
                     <div class="form-group">
                         <label for="web" class="col-xs-3 col-lg-3 control-label">Pagina Web</label>
@@ -142,7 +121,7 @@
                     </div> 
 
                     <div class="form-group">
-                        <label for="fotos" class="col-lg-3 control-label">Fotos</label>
+                        <label for="fotos" class="col-sm-3 col-lg-3 control-label">Fotos</label>
                         <div id="con_img">
                             <div class="div_img">
                                 <span id='btn_close_1' class="close" >&#10006</span>
@@ -195,7 +174,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="barrio" class="col-xs-3  col-lg-3 control-label">Datos (Opcionales):</label>
+                        <div class="col-xs-8 col-lg-8">
+                            <label for="edad" class="col-xs-4 col-lg-2 control-label" id="lbl_edad">Edad</label>
+                            <div class="col-xs-4 col-lg-2">
+                                <input type="text" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" class="btn_opcional form-control" id="edad" maxlength="3" placeholder="años" name="edad">
+                            </div>
 
+                            <label for="altura" class="col-xs-4 col-lg-2 control-label" id="lbl_altura">Altura</label>
+                            <div class="col-xs-4 col-lg-2">
+                                <input type="text" class="btn_opcional form-control" id="altura" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="4" placeholder="altura cm." name="altura">
+                            </div>
+
+                            <label for="tarifa" class="col-xs-4 col-lg-3 control-label" id="lbl_tarifa">Tarifa Minima</label>
+                            <div class="col-xs-4 col-lg-2">
+                                <input type="text" class="btn_opcional form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" maxlength="12" onkeyup="$('#tarifa').formatCurrency({roundToDecimalPlace: 0}).val()" id="tarifa" placeholder="tarifa COP" name="tarifa">
+                            </div>
+
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
@@ -209,7 +207,7 @@
 
                     <div class="form-group" style="text-align: center;">
                         <div class="col-lg-12">
-                            <button type="submit" class="btn btn-primary">Publicar</button>
+                            <button type="submit" class="btn btn-primary">Publicar Anuncio</button>
                         </div>
                     </div>
 

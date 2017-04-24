@@ -31,22 +31,24 @@
             include './plantillas/header.php';
             ?>
 
-
-            <?php
-            include './plantillas/panel_izquierdo.php';
-            ?>
-            <div id="contenido_1" itemprop="mainContentOfPage">            
+            <div  class="cuerpo">
                 <?php
-                if (isset($idanuncio)) {
-
-                    include './plantillas/welcome.php';
-                } else {
-
-                    include './plantillas/contenido.php';
-                }
+                include './plantillas/panel_izquierdo.php';
                 ?>
+                <div id="contenido_1" itemprop="mainContentOfPage">            
+                    <?php
+                    if (isset($idanuncio)) {
 
-            </div>  
+                        include './plantillas/welcome.php';
+                    } else {
+
+                        include './plantillas/contenido.php';
+                    }
+                    ?>
+
+                </div>  
+
+            </div>
             <div class="wrapper_div"></div> <!-- wrapper-->
         </div>
 
