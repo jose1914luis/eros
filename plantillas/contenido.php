@@ -57,8 +57,8 @@ if ($total > 0) {
                 ?>
 
                 <div>                          
-                    <!--<script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
-                    <script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
+                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>
+                    <!--<script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
 
 
                     <b>
