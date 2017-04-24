@@ -57,9 +57,8 @@ if ($total > 0) {
                 ?>
 
                 <div>                          
-                    <!--<script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
+<!--                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
                     <script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
-
 
                     <b>
                         <ol id="top_anuncio" class="breadcrumb" class="color_a">
@@ -80,7 +79,9 @@ if ($total > 0) {
 
 
                 </div>
-
+                <div id="upper" class="subir">
+                    <i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i>
+                </div>
                 <div class="full_row row">                    
 
 

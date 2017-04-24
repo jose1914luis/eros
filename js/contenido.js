@@ -4,6 +4,19 @@ $(function () {
         $('#top_anuncio li').last().attr('class', 'active');
     }
 
+    $('#upper').fadeOut();
+    $(window).scroll(function () {
+        if ($(this).scrollTop()) {
+            $('#upper').fadeIn();
+        } else {
+            $('#upper').fadeOut();
+        }
+    });
+
+    $('#upper').on('click', function () {
+        window.scrollTo(0, 0);
+    });
+
 });
 
 

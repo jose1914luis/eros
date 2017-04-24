@@ -8,8 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=0.8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link href="/css/general.min.css?v=<?= VERSION ?>" rel="stylesheet" type="text/css"/>
-<!--<link href="/css/general.css?v=<?= time() ?>" rel="stylesheet" type="text/css"/>-->
+<!--<link href="/css/general.min.css?v=<?= VERSION ?>" rel="stylesheet" type="text/css"/>-->
+<link href="/css/general.css?v=<?= time() ?>" rel="stylesheet" type="text/css"/>
 <link href="/css/w3.css?v=<?= VERSION ?>" rel="stylesheet" type="text/css"/>
 <link href="/css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
