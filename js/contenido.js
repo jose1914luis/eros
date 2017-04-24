@@ -11,25 +11,7 @@ function init(slideIndex, id) {
 
     showDivs(slideIndex, 1, id);
     var interval = null;
-    var tap = ("ontouchstart" in document.documentElement);
-
-    if (!tap) {
-        $("#panelId" + id).on("mouseenter", function () {
-            interval = setInterval(function () {
-
-
-                if (slideIndex.con < slideIndex.total) {
-                    slideIndex.con = slideIndex.con + 1;
-                } else {
-                    slideIndex.con = 1;
-                }
-                showDivs(slideIndex, slideIndex.con, id);
-            }, 800);
-        });
-        $("#panelId" + id).on("mouseleave", function () {
-            clearInterval(interval);
-        });
-    } else {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
         $("#panelId" + id).bind('touchstart', function () {
             interval = setInterval(function () {
@@ -45,7 +27,22 @@ function init(slideIndex, id) {
         }).bind('touchend', function () {
             clearInterval(interval);
         });
+    } else {
+        $("#panelId" + id).on("mouseenter", function () {
+            interval = setInterval(function () {
 
+
+                if (slideIndex.con < slideIndex.total) {
+                    slideIndex.con = slideIndex.con + 1;
+                } else {
+                    slideIndex.con = 1;
+                }
+                showDivs(slideIndex, slideIndex.con, id);
+            }, 800);
+        });
+        $("#panelId" + id).on("mouseleave", function () {
+            clearInterval(interval);
+        });
     }
 
     $("#panelId" + id).click(function () {
