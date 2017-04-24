@@ -25,16 +25,22 @@
             include './plantillas/header.php';
             ?>
 
-            <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
-                <li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Anuncios Eroticos Colombia</h1></a></li>
 
-            </ol>
-
-            <br>
-            <br>
-            <br>        
             <div class="container-fluid">
-                <div class="col-lg-4" style="float: none;margin: 0 auto">
+
+                <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
+                    <li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Anuncios Eroticos Colombia</h1></a></li>
+
+                </ol>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="col-md-4 col-lg-4" style="float: none;margin: 0 auto">
+
+
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h3 class="panel-title"><b>Iniciar Sesión</b></h3>                       

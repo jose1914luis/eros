@@ -8,12 +8,12 @@
         ?>
         <script src="/js/jquery.formatCurrency-1.4.0.js" type="text/javascript"></script>
         <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
-        
+
         <script src="/js/funciones.min.js?v=<?= VERSION ?>" type="text/javascript"></script>       
         <script src="/js/anuncio.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
-        
-        <!--<script src="/js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->        
-        <!--<script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>-->
+
+<!--<script src="/js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->        
+<!--<script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>-->
 
         <title>Publica tu anuncio gratis - Paginaerotica.com</title>
         <meta name="description" content="publica gratis tu anuncio erotico en todo colombia">
@@ -21,7 +21,7 @@
 
 
     </head>
-    <body>
+    <body style="background-color: #f2dede;">
 
         <?php
         include './plantillas/header.php';
@@ -30,7 +30,12 @@
         <div class="">  
 
             <div class="col-lg-8" style="float: none;margin: 0 auto">
+                <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
+                    <li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Anuncios Eroticos Colombia</h1></a></li>
 
+                </ol>
+
+                <br>
 
                 <div style="text-align: center">
                     <h3>Publicar Anuncio Gratis</h3>
