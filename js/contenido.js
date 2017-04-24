@@ -12,10 +12,9 @@ function init(slideIndex, id) {
     showDivs(slideIndex, 1, id);
     var interval = null;
     $("#panelId" + id).click(function () {
-         clearInterval(interval);
+        clearInterval(interval);
     });
-    $("#panelId" + id).hover(function () {
-//        console.log('hola');
+    $("#panelId" + id).on("mouseenter", function () {
         interval = setInterval(function () {
 
 
@@ -26,10 +25,11 @@ function init(slideIndex, id) {
             }
             showDivs(slideIndex, slideIndex.con, id);
         }, 800);
-    }, function () {
-//        console.log('salio');
+    });
+    $("#panelId" + id).on("mouseleave", function () {
         clearInterval(interval);
     });
+
 }
 
 function plusDivs(slideIndex, n, id) {
