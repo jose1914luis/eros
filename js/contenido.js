@@ -14,39 +14,48 @@ function init(slideIndex, id) {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 
         $("#panelId" + id).bind('touchstart', function () {
-            interval = setInterval(function () {
+            if (interval == null) {
+                interval = setInterval(function () {
 
-                if (slideIndex.con < slideIndex.total) {
-                    slideIndex.con = slideIndex.con + 1;
-                } else {
-                    slideIndex.con = 1;
-                }
-                showDivs(slideIndex, slideIndex.con, id);
-            }, 800);
+                    if (slideIndex.con < slideIndex.total) {
+                        slideIndex.con = slideIndex.con + 1;
+                    } else {
+                        slideIndex.con = 1;
+                    }
+                    showDivs(slideIndex, slideIndex.con, id);
+                }, 800);
+            }
+
             setTimeout(function () {
                 clearInterval(interval);
+                interval = null;
             }, 3000);
         });
-        
+
     } else {
         $("#panelId" + id).on("mouseenter", function () {
-            interval = setInterval(function () {
+            if (interval == null) {
+                interval = setInterval(function () {
 
-                if (slideIndex.con < slideIndex.total) {
-                    slideIndex.con = slideIndex.con + 1;
-                } else {
-                    slideIndex.con = 1;
-                }
-                showDivs(slideIndex, slideIndex.con, id);
-            }, 800);
+                    if (slideIndex.con < slideIndex.total) {
+                        slideIndex.con = slideIndex.con + 1;
+                    } else {
+                        slideIndex.con = 1;
+                    }
+                    showDivs(slideIndex, slideIndex.con, id);
+                }, 800);
+            }
+
         });
         $("#panelId" + id).on("mouseleave", function () {
             clearInterval(interval);
+            interval = null;
         });
     }
 
     $("#panelId" + id).click(function () {
         clearInterval(interval);
+        interval = null;
     });
 
 }
