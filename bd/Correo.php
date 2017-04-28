@@ -6,7 +6,8 @@ include $upOne . '/sendgrid-php/sendgrid-php.php';
 class Correo {
 
     private $foot = '';
-    private $apiKey = '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';
+//    private $apiKey = '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';
+    private $apiKey;
     private $from;
     private $subject;
     private $to;
