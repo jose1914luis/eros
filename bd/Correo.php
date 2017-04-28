@@ -1,23 +1,18 @@
 <?php
 
 $upOne = realpath(__DIR__ . '/..');
-include $upOne . '/PHPMailer/PHPMailerAutoload.php';
+include $upOne . '/sendgrid-php/sendgrid-php.php';
 
 class Correo {
 
-    public $mail;
     private $foot = '';
+    private $apiKey = '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';
+    private $from;
+    private $subject;
+    private $to;
+    private $content;
 
-    public function __construct() {
-
-        $this->mail = new PHPMailer();
-        $this->mail->Host = 'paginaerotica.com';
-        $this->mail->Username = 'no_responder@paginaerotica.com';
-        $this->mail->Port = 25;
-
-        $this->mail->setFrom('admin@paginaerotica.com', 'Pagina Erotica');
-        $this->mail->addCC('jose1914luis@gmail.com', 'Jose Luis');
-        $this->mail->isHTML(true);
+    public function __construct() {        
 
         $this->foot = '
 <p>Si tienes algún inconveniente, ponte en contacto con nosotros al correo:  <a href="mailto:admin@paginaerotica.com?Subject=Hola">admin@paginaerotica.com</a></p>
@@ -37,9 +32,9 @@ class Correo {
 
     public function bienvenida($email, $contra) {
 
-        $this->mail->addAddress($email);
-        $this->mail->Subject = 'Cuenta de Usuario';
-
+        $this->from = new SendGrid\Email(null, "no_responder@paginaerotica.com");
+        $this->to = new SendGrid\Email(null, $email);
+        $this->subject = 'Cuenta de Usuario';
 
         $body = '<h2>Bienvenido,</h2>
 <p>Gracias por publicar en <a href="http://www.paginaerotica.com/">www.paginaerotica.com.</a></p>
@@ -50,13 +45,14 @@ class Correo {
 <p><b>link:</b> <a href=http://www.paginaerotica.com/session">www.paginaerotica.com/session</a></p><br>
 <p>Muchas graciar por usar <a href="http://www.paginaerotica.com/">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio.</p><br>';
 
-
-        $this->mail->Body = $body . $this->foot;
+        $this->content = new SendGrid\Content("text/html", $body . $this->foot);
     }
 
     public function pago($email, $idanuncio, $url) {
 
-        $this->mail->Subject = 'Anuncio Publicado';
+        $this->from = new SendGrid\Email(null, "admin@paginaerotica.com");
+        $this->to = new SendGrid\Email(null, $email);
+        $this->subject = 'Anuncio Publicado';
 
 
         $body = '<h2>Hola, Como estas!!</h2>
@@ -143,12 +139,17 @@ class Correo {
 <p><b style="color: red">Muy importante!</b> <b>una vez haya hecho el pago responda a este email (<a href="mailto:admin@paginaerotica.com?Subject=Hola">admin@paginaerotica.com</a>)  o via WhatsApp 3197614377 con el recibo de consignación escaneado y el ID del anuncio. </b></p>
 <p>Muchas graciar por usar <a href="http://www.paginaerotica.com/">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio</p>
 ';
-        $this->mail->Body = $body . $this->foot;
-        $this->mail->addAddress($email, 'Usuario');
+        $this->content = new SendGrid\Content("text/html", $body . $this->foot);
     }
 
     public function enviar() {
-        return $this->mail->send();
+
+        $mail = new SendGrid\Mail($this->from, $this->subject, $this->to, $this->content);        
+
+        $sg = new \SendGrid($this->apiKey);
+
+        $response = $sg->client->mail()->send()->post($mail);
+        return $response;
     }
 
 }
