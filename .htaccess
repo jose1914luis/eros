@@ -7,10 +7,10 @@ DirectoryIndex index.php
 RewriteEngine on
 
 # This allows you to redirect your entire website to any other domain
-Redirect 301 / http://35.185.185.156/
+#Redirect 301 / http://35.185.185.156/
 
-#RewriteCond %{HTTP_HOST} !^www\. [NC]
-#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^([^\.]+)$ $1.php [NC,L]
