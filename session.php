@@ -10,12 +10,12 @@
         }
         include './plantillas/head.php';
         ?>
-
-        <script src="/js/session.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
+        <script src="/js/session.js?v=<?= time() ?>" type="text/javascript"></script>
+        <!--<script src="/js/session.min.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
         <title>Iniciar Sesión - Paginaerotica.com</title>
     </head>
 
-    <body style="background-color: #f2dede;">       
+    <body class="color_b">       
 
         <div class="wrapper">
 
@@ -28,14 +28,17 @@
 
             <div class="container-fluid">
 
-                <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
-                    <li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Anuncios Eroticos Colombia</h1></a></li>
+                <div class="col-lg-8" style="float: none;margin: 0 auto">
+                    <ol id="top_anuncio" class="breadcrumb" style="color: #337ab7;">
+                        <li><a href="http://www.paginaerotica.com/"><h1 class="h1_mod"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>Anuncios Eroticos Colombia</h1></a></li>
 
-                </ol>
+                    </ol>
 
-                <br>
-                <br>
-                <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
 
                 <div class="col-md-4 col-lg-4" style="float: none;margin: 0 auto">
 
