@@ -1,13 +1,18 @@
 $(function () {
 
     $('#alt_correo').hide();
+    $('#contra').keypress(function (e) {
+        if (e.which == 13) {
+            iniciarSession();
+        }
+    });
 
 });
 
-var mostrar = function(){
-    if($('#contra').attr('type') == 'password'){
+var mostrar = function () {
+    if ($('#contra').attr('type') == 'password') {
         $('#contra').attr('type', 'text');
-    }else{
+    } else {
         $('#contra').attr('type', 'password');
     }
 };
@@ -21,7 +26,7 @@ var iniciarSession = function () {
                     usuario: $('#usuario').val(),
                     contra: $('#contra').val()
                 }).done(function (data) {
-                    console.log(data);
+            console.log(data);
             if (data == 1) {
                 window.location.href = "panel";
             } else {

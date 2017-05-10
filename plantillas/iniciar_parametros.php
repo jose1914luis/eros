@@ -211,7 +211,7 @@ if (isset($_GET)) {
         }
 
         $title = "Anuncios gratis de";
-        $description = "Busca y Publica gratis tus anuncios de";
+        $description = "Busca y Publica gratis tus anuncios ";
         if ($paginador->categoria != "") {
             $title .= " $paginador->categoria";
             $description .= " $paginador->categoria";

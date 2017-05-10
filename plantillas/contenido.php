@@ -59,8 +59,12 @@ if ($total > 0) {
                 <div>                          
 <!--                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
                     <script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
-
+                    <div style="text-align: center">
+                    <h1 class="h1_modt"><?= $title ?></h1>    
+                    </div>
+                    
                     <b>
+                        
                         <ol id="top_anuncio" class="breadcrumb" class="color_a">
                             <?php
                             if (isset($parm1)) {
@@ -70,7 +74,7 @@ if ($total > 0) {
                                     echo '<li><a href="/' . $parm1 . '/' . $parm2 . '/">' . $parm2 . '</a></li>';
                                 }
                             } else {
-                                echo '<li><a href="/"><h1 class="h1_mod">Anuncios Eroticos Colombia</h1></a></li>';
+                                echo '<li><a href="/">Top Anuncios Eroticos Colombia</a></li>';
                             }
                             ?>
 

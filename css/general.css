@@ -99,6 +99,15 @@ table, th, td {
     margin-right: 0;
     font-weight: bold;
 }
+.h1_modt{
+    display: inline;
+    font-size: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
 .h2_mod {
     display: inline;
     font-size: 12px;

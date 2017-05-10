@@ -18,11 +18,11 @@
 
 
         <div class="wrapper">
-        <?php
-        include './plantillas/header.php';
-        ?>
+            <?php
+            include './plantillas/header.php';
+            ?>
 
-        
+
 
             <?php
             include_once './bd/Anuncio.php';
@@ -31,44 +31,48 @@
 
 //renderizar imagen sin javascrit
             function resize_image($file, $w, $h, $ext) {
-                list($width, $height) = getimagesize($file);
-                $dst = '';
+                if (list($width, $height) = @getimagesize($file)) {
 
-                if ($width > 0) {
+                    $dst = '';
 
-                    $r = $width / $height;
+                    if ($width > 0) {
 
-                    if ($w / $h > $r) {
-                        $newwidth = $h * $r;
-                        $newheight = $h;
-                    } else {
-                        $newheight = $w / $r;
-                        $newwidth = $w;
+                        $r = $width / $height;
+
+                        if ($w / $h > $r) {
+                            $newwidth = $h * $r;
+                            $newheight = $h;
+                        } else {
+                            $newheight = $w / $r;
+                            $newwidth = $w;
+                        }
+
+                        $src = '';
+                        if ($ext == 'png') {
+                            $src = imagecreatefrompng($file);
+                        } else if ($ext == 'jpg') {
+
+                            $src = imagecreatefromjpeg($file);
+                        }
+
+                        $dst = imagecreatetruecolor($newwidth, $newheight);
+                        imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
                     }
 
-                    $src = '';
-                    if ($ext == 'png') {
-                        $src = imagecreatefrompng($file);
-                    } else if ($ext == 'jpg') {
 
-                        $src = imagecreatefromjpeg($file);
-                    }
-
-                    $dst = imagecreatetruecolor($newwidth, $newheight);
-                    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+                    return $dst;
+                } else {
+                    return null;
                 }
-
-
-                return $dst;
             }
             ?>
-            <div class="container-fluid">
-                <div class="row">
-                    <div id="top_anuncio" class="col-lg-12">        
-                        <h1 style="font-size: 18px; padding-left: 10px;text-align: center;"><b>Tus Anuncios</b></h1>
-                    </div>
-                </div>
+            <div class="cuerpo">
+                <div class="col-lg-12" style="float: none;margin: 0 auto; text-align: center">
+                    <ol id="top_anuncio" class="breadcrumb">
+                        <li><h1 class="h1_mod">Tus Anuncios</h1></li>
 
+                    </ol>
+                </div>
                 <?php
 //filter_input(INPUT_GET, 'page');
 
@@ -127,14 +131,7 @@
                                     <div class="panel-heading" style="    overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                                         <a class="hand" href="index.php?idanuncio=<?= $value['idanuncio'] ?>"><h2  style="color: #03b;display: initial;" class="f_15"><b><?= $titulo ?></b></h2></a>
 
-                                        <div style="float: right">
-                                            <!--                                        <button type="button" onclick="eliminarAnuncio()" class="btn btn-xs btn-success" aria-label="Left Align">
-                                                                                        <span class="glyphicon glyphicon-king" aria-hidden="true"></span> Promocionar
-                                                                                    </button>                            -->
-
-<!--                                            <button type="button" onclick="promocionar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-warning" aria-label="Left Align">
-                                                <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> Promocionar
-                                            </button>-->
+                                        <div style="float: right">                                  
 
                                             <button type="button" onclick="republicar(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-primary" aria-label="Left Align">
                                                 <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Republicar
@@ -161,16 +158,17 @@
                                                     $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
                                                     $img2 = resize_image(substr($url['url'], 1), 200, 220, $ext) or die('Cannot Initialize new GD image stream');
+                                                    if (isset($img2)) {
+                                                        ob_start();
+                                                        imagepng($img2);
+                                                        $output = base64_encode(ob_get_contents());
+                                                        ob_end_clean();
+                                                        if ($ext == 'png') {
+                                                            echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                        } else if ($ext == 'jpg') {
 
-                                                    ob_start();
-                                                    imagepng($img2);
-                                                    $output = base64_encode(ob_get_contents());
-                                                    ob_end_clean();
-                                                    if ($ext == 'png') {
-                                                        echo '<img class="render slides_' . $i . '" src="data:image/png;base64,' . $output . '" alt="' . $tel . '"/>';
-                                                    } else if ($ext == 'jpg') {
-
-                                                        echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                            echo '<img class="render slides_' . $i . '" src="data:jpeg/png;base64,' . $output . '" alt="' . $tel . '"/>';
+                                                        }
                                                     }
                                                 }
                                                 if (count($img) > 1) {
