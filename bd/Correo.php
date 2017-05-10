@@ -42,7 +42,7 @@ class Correo {
 <p><b>Email:</b> ' . $email . '</p>
 <p><b>Contraseña:</b> ' . $contra . '</p>
 <p><b>Ingresa estos datos en el siguiente link: </b><p>
-<p><b>link:</b> <a href=http://www.paginaerotica.com/session">www.paginaerotica.com/session</a></p><br>
+<p><b>link:</b> <a href="http://www.paginaerotica.com/session">www.paginaerotica.com/session</a></p><br>
 <p>Muchas graciar por usar <a href="http://www.paginaerotica.com/">paginaerotica.com</a> para nosotros en un placer brindarte nuestro servicio.</p><br>';
 
         $this->content = new SendGrid\Content("text/html", $body . $this->foot);
