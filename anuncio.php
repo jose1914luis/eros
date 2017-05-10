@@ -10,10 +10,10 @@
         <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
 
         <script src="/js/funciones.min.js?v=<?= VERSION ?>" type="text/javascript"></script>       
-        <script src="/js/anuncio.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
+        <!--<script src="/js/anuncio.min.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
 
 <!--<script src="/js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->        
-<!--<script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>-->
+<script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
 
         <title>Publica tu anuncio gratis - Paginaerotica.com</title>
         <meta name="description" content="publica gratis tu anuncio erotico en todo colombia">
@@ -212,9 +212,9 @@
 
                     <div class="form-group" style="text-align: center;">
                         <div class="col-lg-12">
-                            <button type="submit" class="btn btn-primary g-recaptcha"
+                            <button class="btn btn-primary g-recaptcha"
                                 data-sitekey="6LeItiAUAAAAAP80sFDKYBD8_hN674Jj_OG9s4nQ"
-                                data-callback="YourOnSubmitFn">
+                                data-callback="onSubmit">
                                 Publicar Anuncio</button>
                         </div>
                     </div>

@@ -1,5 +1,9 @@
 var addImages = [];
 
+function onSubmit(token) {
+    document.getElementById("publicar").submit();
+}
+
 $(function () {
 
     $('#div_alerta').hide();
@@ -36,9 +40,9 @@ $(function () {
         }
 
         datos.append('texto', CKEDITOR.instances.editor.getData());
-        
-        datos.append('url', '/' +$('#categoria option:selected').text() +'/' +$('#dep option:selected').text() + '/');
-        
+
+        datos.append('url', '/' + $('#categoria option:selected').text() + '/' + $('#dep option:selected').text() + '/');
+
         $('#public_div').show();
         $('#public_label').show();
 
