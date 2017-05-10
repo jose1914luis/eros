@@ -20,10 +20,9 @@ $(function () {
         return true;
     };
 
-    var onSubmit = function (token) {
+    function onSubmit(token) {
         $("#publicar").submit();
     };
-
 
     $("#publicar").on('submit', (function (e) {
 
