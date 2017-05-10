@@ -1,28 +1,28 @@
 var addImages = [];
 
-function validar() {
+$(function () {
 
-    console.log('funciona2');
-    if ($('#mun').val() == 0) {
-        $('#mun').focus();
-        alert('Selecciona una Ciudad');
-        return false;
-    }
-    if (CKEDITOR.instances.editor.getData().length < 30) {
-        alert('Debes ingresar una descripcion mas larga');
-        $('#editor').focus();
-        return false;
-    }
-    return true;
-};
+    $('#div_alerta').hide();
+    $('#public_div').hide();
+    $('#public_label').hide();
+    var validar = function () {
 
-function onSubmit(token) {
-    console.log('funciona');
-    console.log($("#publicar"));
-    $("#publicar").submit(function (event) {
+        if ($('#mun').val() == 0) {
+            $('#mun').focus();
+            alert('Selecciona una Ciudad');
+            return false;
+        }
+        if (CKEDITOR.instances.editor.getData().length < 30) {
+            alert('Debes ingresar una descripcion mas larga');
+            $('#editor').focus();
+            return false;
+        }
+        return true;
+    };
 
-        console.log('submit');
-        event.preventDefault();
+    $("#publicar").on('submit', (function (e) {
+
+        e.preventDefault();                
 
         if (!validar())
             return;
@@ -36,9 +36,9 @@ function onSubmit(token) {
         }
 
         datos.append('texto', CKEDITOR.instances.editor.getData());
-
-        datos.append('url', '/' + $('#categoria option:selected').text() + '/' + $('#dep option:selected').text() + '/');
-
+        
+        datos.append('url', '/' +$('#categoria option:selected').text() +'/' +$('#dep option:selected').text() + '/');
+        
         $('#public_div').show();
         $('#public_label').show();
 
@@ -73,16 +73,7 @@ function onSubmit(token) {
                 $('#public_label').hide();
             }
         });
-
-    });
-}
-
-
-$(function () {
-
-    $('#div_alerta').hide();
-    $('#public_div').hide();
-    $('#public_label').hide();
+    }));
 
     CKEDITOR.replace('editor', {
         toolbar: [

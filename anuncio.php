@@ -10,10 +10,10 @@
         <script src="/ckeditor/ckeditor.js" type="text/javascript"></script>
 
         <script src="/js/funciones.min.js?v=<?= VERSION ?>" type="text/javascript"></script>       
-        <!--<script src="/js/anuncio.min.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
+        <script src="/js/anuncio.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
 
 <!--<script src="/js/funciones.js?v=<?= time() ?>" type="text/javascript"></script>-->        
-<script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>
+        <!--<script src="/js/anuncio.js?v=<?= time() ?>" type="text/javascript"></script>-->
 
         <title>Publica tu anuncio gratis - Paginaerotica.com</title>
         <meta name="description" content="publica gratis tu anuncio erotico en todo colombia">
@@ -208,18 +208,21 @@
                                 </label>
                             </div>
                         </div>
-                    </div>                  
+                    </div>
 
+<!--                    <div class="g-recaptcha"
+                         data-sitekey="6LeItiAUAAAAAP80sFDKYBD8_hN674Jj_OG9s4nQ"
+                         data-callback="onSubmit"
+                         data-size="invisible">
+                    </div>-->
+                    
                     <div class="form-group" style="text-align: center;">
                         <div class="col-lg-12">
-                            <button class="btn btn-primary g-recaptcha"
-                                data-sitekey="6LeItiAUAAAAAP80sFDKYBD8_hN674Jj_OG9s4nQ"
-                                data-callback="onSubmit">
-                                Publicar Anuncio</button>
+                            <button type="submit" class="btn btn-primary">Publicar Anuncio</button>
                         </div>
                     </div>
 
-                    <div id="public_label" class="loader"><b>Publicando...</b><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
+                    <div id="public_label"  class="loader"><b>Publicando...</b><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
                 </form>            
 
             </div>
