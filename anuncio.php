@@ -208,21 +208,14 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button
-                                class="g-recaptcha"
-                                data-sitekey="6LeItiAUAAAAAP80sFDKYBD8_hN674Jj_OG9s4nQ"
-                                data-callback="YourOnSubmitFn">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
+                    </div>                  
 
                     <div class="form-group" style="text-align: center;">
                         <div class="col-lg-12">
-                            <button type="submit" class="btn btn-primary">Publicar Anuncio</button>
+                            <button type="submit" class="btn btn-primary g-recaptcha"
+                                data-sitekey="6LeItiAUAAAAAP80sFDKYBD8_hN674Jj_OG9s4nQ"
+                                data-callback="YourOnSubmitFn">
+                                Publicar Anuncio</button>
                         </div>
                     </div>
 
