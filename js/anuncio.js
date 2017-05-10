@@ -1,9 +1,5 @@
 var addImages = [];
 
-function onSubmit(token) {
-    document.getElementById("publicar").submit();
-}
-
 $(function () {
 
     $('#div_alerta').hide();
@@ -23,6 +19,11 @@ $(function () {
         }
         return true;
     };
+
+    onSubmit = function (token) {
+        $("#publicar").submit();
+    };
+
 
     $("#publicar").on('submit', (function (e) {
 
