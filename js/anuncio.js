@@ -2,9 +2,10 @@ var addImages = [];
 
 function onSubmit(token) {
     console.log('funciona');
-    $("#publicar").submit(function (e) {
+    console.log($("#publicar"));
+    $("#publicar").submit(function (event) {
 
-        e.preventDefault();
+        event.preventDefault();
 
         if (!validar())
             return;
@@ -54,13 +55,14 @@ function onSubmit(token) {
                 $('#public_div').hide();
                 $('#public_label').hide();
             }
-        })
+        });
 
     });
 }
 
-var validar = function () {
+function validar() {
 
+    console.log('funciona2');
     if ($('#mun').val() == 0) {
         $('#mun').focus();
         alert('Selecciona una Ciudad');
