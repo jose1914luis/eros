@@ -1,10 +1,27 @@
 var addImages = [];
 
+function validar() {
+
+    console.log('funciona2');
+    if ($('#mun').val() == 0) {
+        $('#mun').focus();
+        alert('Selecciona una Ciudad');
+        return false;
+    }
+    if (CKEDITOR.instances.editor.getData().length < 30) {
+        alert('Debes ingresar una descripcion mas larga');
+        $('#editor').focus();
+        return false;
+    }
+    return true;
+};
+
 function onSubmit(token) {
     console.log('funciona');
     console.log($("#publicar"));
     $("#publicar").submit(function (event) {
 
+        console.log('submit');
         event.preventDefault();
 
         if (!validar())
@@ -59,22 +76,6 @@ function onSubmit(token) {
 
     });
 }
-
-function validar() {
-
-    console.log('funciona2');
-    if ($('#mun').val() == 0) {
-        $('#mun').focus();
-        alert('Selecciona una Ciudad');
-        return false;
-    }
-    if (CKEDITOR.instances.editor.getData().length < 30) {
-        alert('Debes ingresar una descripcion mas larga');
-        $('#editor').focus();
-        return false;
-    }
-    return true;
-};
 
 
 $(function () {

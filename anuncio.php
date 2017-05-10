@@ -219,7 +219,7 @@
                         </div>
                     </div>
 
-                    <div id="public_label"  class="loader"><b>Publicando...</b><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
+                    <div id="public_label" class="loader"><b>Publicando...</b><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></div>
                 </form>            
 
             </div>
