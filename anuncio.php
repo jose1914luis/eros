@@ -21,7 +21,7 @@
 
 
     </head>
-    <body style="background-color: #f2dede;">
+    <body class="color_b">
 
         <?php
         include './plantillas/header.php';
@@ -207,6 +207,16 @@
                                     <input type="checkbox" checked="true" required > <a href="/termcondi" target="_blank">Acepto Terminos y Condiciones</a>
                                 </label>
                             </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button
+                                class="g-recaptcha"
+                                data-sitekey="6LeItiAUAAAAAP80sFDKYBD8_hN674Jj_OG9s4nQ"
+                                data-callback="YourOnSubmitFn">
+                                Submit
+                            </button>
                         </div>
                     </div>
 

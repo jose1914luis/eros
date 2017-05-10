@@ -24,4 +24,4 @@ if (isset($_SESSION['user_session'])) {
 //variables globales.
 define("LIMIT", 50);
 define("LIMIT_IMG", 4);
-define("VERSION", 13);
+define("VERSION", 14);

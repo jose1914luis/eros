@@ -80,7 +80,7 @@ if ($total > 0) {
 
                 </div>
                 <div id="upper" class="subir">
-                    <i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-circle-up fa-4x" aria-hidden="true"></i>
                 </div>
                 <div class="full_row row">                    
 
