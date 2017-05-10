@@ -1,30 +1,8 @@
 var addImages = [];
 
-$(function () {
-
-    $('#div_alerta').hide();
-    $('#public_div').hide();
-    $('#public_label').hide();
-    var validar = function () {
-
-        if ($('#mun').val() == 0) {
-            $('#mun').focus();
-            alert('Selecciona una Ciudad');
-            return false;
-        }
-        if (CKEDITOR.instances.editor.getData().length < 30) {
-            alert('Debes ingresar una descripcion mas larga');
-            $('#editor').focus();
-            return false;
-        }
-        return true;
-    };
-
-    function onSubmit(token) {
-        $("#publicar").submit();
-    };
-
-    $("#publicar").on('submit', (function (e) {
+function onSubmit(token) {
+    console.log('funciona');
+    $("#publicar").submit(function (e) {
 
         e.preventDefault();
 
@@ -76,8 +54,32 @@ $(function () {
                 $('#public_div').hide();
                 $('#public_label').hide();
             }
-        });
-    }));
+        })
+
+    });
+}
+
+var validar = function () {
+
+    if ($('#mun').val() == 0) {
+        $('#mun').focus();
+        alert('Selecciona una Ciudad');
+        return false;
+    }
+    if (CKEDITOR.instances.editor.getData().length < 30) {
+        alert('Debes ingresar una descripcion mas larga');
+        $('#editor').focus();
+        return false;
+    }
+    return true;
+};
+
+
+$(function () {
+
+    $('#div_alerta').hide();
+    $('#public_div').hide();
+    $('#public_label').hide();
 
     CKEDITOR.replace('editor', {
         toolbar: [
