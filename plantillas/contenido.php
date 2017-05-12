@@ -120,7 +120,7 @@ if ($total > 0) {
                     <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
                             <div class="h3_panel">
-                                <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . $value['tipo'] . "/" . $value['d_nombre'] . "/" ?> ">
+                                <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . str_replace(' ', '-', $value['tipo']) . "/" . str_replace(' ', '-', $value['d_nombre']) . "/" ?> ">
                                     <h3 class="h3_mod f_15 color_a"><?= $titulo ?></h3></a>
                             </div>
                             <div class="sflex">                           
