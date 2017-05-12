@@ -57,14 +57,14 @@ if ($total > 0) {
                 ?>
 
                 <div>                          
-<!--                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
+                <!--                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
                     <script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
                     <div style="text-align: center">
-                    <h1 class="h1_modt"><?= $title ?></h1>    
+                        <h1 class="h1_modt"><?= $title ?></h1>    
                     </div>
-                    
+
                     <b>
-                        
+
                         <ol id="top_anuncio" class="breadcrumb" class="color_a">
                             <?php
                             if (isset($parm1)) {
@@ -83,6 +83,14 @@ if ($total > 0) {
 
 
                 </div>
+                <div class="adsr">
+                    <!-- JuicyAds v3.0 -->
+                    <script async src="//adserver.juicyads.com/js/jads.js"></script>
+                    <ins id="585806" data-width="160" data-height="612"></ins>
+                    <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 585806});</script>
+                    <!--JuicyAds END-->
+                </div>
+
                 <div id="upper" class="subir">
                     <i class="fa fa-chevron-circle-up fa-4x" aria-hidden="true"></i>
                 </div>
@@ -108,7 +116,7 @@ if ($total > 0) {
                 $tarifa = $value['tarifa'];
                 $tel = $value['tel'];
                 ?>                    
-                <div id="panelId<?= $i ?>" class="panel_movil col-lg-12">
+                <div id="panelId<?= $i ?>" class="panel_movil col-lg-10">
                     <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
                         <div class="panel-heading panel_titulo">
                             <div class="h3_panel">
@@ -163,8 +171,8 @@ if ($total > 0) {
                                                 <a class="sopacy w3-btn-floating w3-display-left" onclick="<?= 'plusDivs(slideIndex' . $i . ', -1,' . $i . ')' ?>">&#10094;</a>
                                                 <a class="sopacy w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                                                                                                                
                                                 <script type="text/javascript">
-                                            var slideIndex<?= $i ?> = {con: 1, total: <?= count($img) ?>};
-                                            init(slideIndex<?= $i ?>, <?= $i ?>);
+                                        var slideIndex<?= $i ?> = {con: 1, total: <?= count($img) ?>};
+                                        init(slideIndex<?= $i ?>, <?= $i ?>);
                                                 </script>
                                                 <?php
                                             }

@@ -1,3 +1,8 @@
+.adsr{
+    width: 160px;
+    height: 612px;
+    float: right;
+}
 .color_b{
     background-color: #f2dede;
 }
@@ -299,9 +304,14 @@ body {
     padding-right: 2px; 
     padding-left: 2px; 
 }
+    
+@media screen and (min-width: 0px) and (max-width: 720px){    
 
-@media screen and (min-width: 0px) and (max-width: 720px){
-
+    .adsr{
+        visibility: hidden;
+        display: none;
+    }
+    
     .render{
         height: auto;
         width: 100%;

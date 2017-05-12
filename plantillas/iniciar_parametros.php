@@ -234,7 +234,7 @@ if (isset($_GET)) {
                 $description .= ", $paginador->municipio";
             }
         } else {
-            $title .=" eroticos gratis en Colombia";
+            $title .=" eroticos en Colombia";
             $description = "Clasificados eróticos profesionales, publica gratis anuncios eroticos en Colombia o busca tu placer preferido";
         }
         $title .=" - Paginaerotica.com";
