@@ -1,3 +1,10 @@
+.adsl{
+    width: 150px;
+    height: 150px;
+    float: left;
+    text-align: center;
+    margin: 5px;
+}
 .adsr{
     width: 160px;
     height: 612px;
@@ -304,14 +311,14 @@ body {
     padding-right: 2px; 
     padding-left: 2px; 
 }
-    
+
 @media screen and (min-width: 0px) and (max-width: 720px){    
 
     .adsr{
         visibility: hidden;
         display: none;
     }
-    
+
     .render{
         height: auto;
         width: 100%;
