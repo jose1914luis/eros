@@ -196,7 +196,7 @@ if ($total > 0) {
                                             if (!empty($tarifa))
                                                 echo '<b class="f_15" itemprop="price">Tarifa mínima: </b>' . $value['tarifa'] . '<br>';
                                             if (!empty($tel))
-                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . $value['tipo'] . '/' . $value['d_nombre'] . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
+                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . str_replace(' ', '-', $value['tipo']) . '/' . str_replace(' ', '-', $value['d_nombre'])  . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
                                             ?>
                                         </td>
                             </tr>
