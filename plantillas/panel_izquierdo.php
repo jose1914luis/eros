@@ -7,7 +7,7 @@
             <?php
             foreach ($tipo as $pos => $value) {
                 echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a class="color_a" href="/'
-                . $value[1] . '/" itemprop="url"><span itemprop="name"><h2 class="h2_mod">' . $value[1] . '</h2><em class="conteo"> (' . $value[2] . ') </em></span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
+                . str_replace(' ', '-', $value[1]) . '/" itemprop="url"><span itemprop="name"><h2 class="h2_mod">' . $value[1] . '</h2><em class="conteo"> (' . $value[2] . ') </em></span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
             }
             ?>
         </ul>
