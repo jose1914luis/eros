@@ -113,13 +113,13 @@
                         </div>
                     </div>  
 
-                    <b>Actualiza tu anuncio y obtener multiples beneficios:</b>
+<!--                    <b>Actualiza tu anuncio y obtener multiples beneficios:</b>
                     <ol>
                         <li>Aumenta la visión de tu publicidad.</li>    
                         <li>Aumenta el número de clientes potenciales.</li>    
                         <li>Tu anuncio permanecerá con nosotros 3 meses.</li>    
                         <li>Re-publicaciones automaticas diarias.</li>    
-                    </ol>                    
+                    </ol>                    -->
 
 
                 </div>
