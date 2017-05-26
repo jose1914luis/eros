@@ -211,19 +211,19 @@ if ($total > 0) {
         }
 
         $prevlink = ($page > 1) ? '<li><a href="' .
-                (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
-                (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
-                (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
-                (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') . '/pag_1/" aria-label="Previous">&laquo;</a> </li> <li><a href="pag_' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
+                (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm1)) : '') .
+                (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm2)) : '') .
+                (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm3)) : '') .
+                (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm4)) : '') . '/pag_1/" aria-label="Previous">&laquo;</a> </li> <li><a href="pag_' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
-        $nextlink = ($page < $pages) ? '<li><a href="' . (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
-                            (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
-                            (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
-                            (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') .'/pag_' .($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' .
-                (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
-                (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
-                (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
-                (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') . '/pag_' . $pages . '/" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
+        $nextlink = ($page < $pages) ? '<li><a href="' . (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm1)) : '') .
+                            (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm2)) : '') .
+                            (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm3)) : '') .
+                            (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm4)) : '') .'/pag_' .($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' .
+                (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm1)) : '') .
+                (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm2)) : '') .
+                (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm3)) : '') .
+                (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm4)) : '') . '/pag_' . $pages . '/" title="Last page">&raquo;</a></li>' : '<li class="disabled"><span class="disabled">&rsaquo;</span> </li> <li class="disabled"><span aria-label="Next">&raquo;</span></li>';
         if ($total > $limit) {
             ?>
             <div id="pagi" class="text-center">
@@ -236,10 +236,10 @@ if ($total > 0) {
                         for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
 
                             echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' .
-                            (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
-                            (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
-                            (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
-                            (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') . '/pag_' . $j . '/">' . $j . '</a></li>';
+                            (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm1)) : '') .
+                            (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm2)) : '') .
+                            (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm3)) : '') .
+                            (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm4)) : '') . '/pag_' . $j . '/">' . $j . '</a></li>';
                         }
                         echo $nextlink;
                         ?>
