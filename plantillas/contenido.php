@@ -216,7 +216,10 @@ if ($total > 0) {
                 (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
                 (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') . '/pag_1/" aria-label="Previous">&laquo;</a> </li> <li><a href="pag_' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
-        $nextlink = ($page < $pages) ? '<li><a href="' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' .
+        $nextlink = ($page < $pages) ? '<li><a href="' . (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
+                            (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
+                            (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .
+                            (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . $parm4) : '') .'/pag_' .($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' .
                 (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . $parm1) : '') .
                 (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . $parm2) : '') .
                 (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . $parm3) : '') .

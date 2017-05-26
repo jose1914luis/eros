@@ -1,13 +1,13 @@
 .adsl{
     width: 150px;
-    height: 150px;
+    height: auto;
     float: left;
     text-align: center;
     margin: 5px;
 }
 .adsr{
     width: 160px;
-    height: 612px;
+    height: auto;
     float: right;
 }
 .color_b{

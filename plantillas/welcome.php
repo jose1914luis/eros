@@ -30,8 +30,7 @@
     <div class="panel_movil col-xs-12 col-lg-12">
 
         <div itemprop="mainContentOfPage">            
-            <?php            
-
+            <?php
             $titulo = $datos['titulo'];
             $texto = $datos['texto'];
             $tel = $datos['tel'];
@@ -79,7 +78,7 @@
                             <i class="fa fa-phone" aria-hidden="true"></i>
                             <?= $tel ?>
                         </a>
-                        
+
                         <a class="btn btn-sm btn-social btn-reddit" href="mailto:<?= $email ?>?Subject=Hola!" target="_top">
                             <i class="fa fa-envelope" aria-hidden="true"></i>Email
                         </a>
@@ -113,6 +112,14 @@
                             <button id="btn_ini" type="button" class="btn btn-xs btn-danger" onclick="window.location = '/denunciar/<?= $idanuncio ?>'" >Denunciar</button>
                         </div>
                     </div>  
+
+                    <b>Actualiza tu anuncio y obtener multiples beneficios:</b>
+                    <ol>
+                        <li>Aumenta la visión de tu publicidad.</li>    
+                        <li>Aumenta el número de clientes potenciales.</li>    
+                        <li>Tu anuncio permanecerá con nosotros 3 meses.</li>    
+                        <li>Re-publicaciones automaticas diarias.</li>    
+                    </ol>                    
 
 
                 </div>

@@ -32,7 +32,7 @@
                 $conMun = 0;
                 foreach ($data_mun as $pos => $value) {
 
-                    echo '<li id="munh_' . $conMun . '" ' . (($conMun > 10) ? 'class="hidden""' : '') . 'itemscope itemtype="http://schema.org/SiteNavigationElement"><a style="color: #337ab7;" href="/' . $parm1 . '/' . str_replace(' ', '-', $value[0]) . '/" itemprop="url"><span itemprop="name">' . $value[0] . '<em class="conteo"> (' . $value[4] . ') </em></span></a> </li>';
+                    echo '<li id="munh_' . $conMun . '" ' . (($conMun > 10) ? 'class="hidden""' : '') . 'itemscope itemtype="http://schema.org/SiteNavigationElement"><a style="color: #337ab7;" href="/' . str_replace(' ', '-', $parm1) . '/' . str_replace(' ', '-', $value[0]) . '/" itemprop="url"><span itemprop="name">' . $value[0] . '<em class="conteo"> (' . $value[4] . ') </em></span></a> </li>';
                     $conMun = $conMun + 1;
                 }
                 if ($conMun > 11) {
