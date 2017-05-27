@@ -188,5 +188,13 @@ class Anuncio {
         $where = ['idanuncio' => ['=', $idanuncio]];
         return $eros->update('anuncio', $values, $where, 0);
     }
+    
+    public function promocion($idanuncio, $promo) {
+
+        $eros = new SQL_EROS();
+        $values = ['promocion_promocion' => $promo];
+        $where = ['idanuncio' => ['=', $idanuncio]];
+        return $eros->update('anuncio', $values, $where, 0);
+    }
 
 }

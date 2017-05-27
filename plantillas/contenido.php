@@ -126,16 +126,7 @@ if ($total > 0) {
                             <div class="sflex">                           
                                 <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
                             </div>
-
-
-                            <?php if ($super) { ?>
-
-                                <div class="sfloat">
-                                    <button type="button" onclick="eliminarAnuncio(<?= $value['idanuncio'] ?>)" class="btn btn-xs btn-default" aria-label="Left Align">
-                                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                                    </button>
-                                </div>
-                            <?php } ?>
+                            
                         </div>
                         <table class="table">
                             <tr>

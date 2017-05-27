@@ -39,6 +39,7 @@
             $altura = $datos['altura'];
             $email = $datos['email'];
             $fecha_inicio = $datos['fecha_inicio'];
+//            print_r($datos)
             ?>
 
             <div class="panel panel-danger">
@@ -68,6 +69,25 @@
                         }
                         ?>
                     </ul>
+
+                    <?php if ($super) { ?>
+
+                        <form class="form-inline">
+
+                            <div class="form-group-sm">
+                                <button type="button" onclick="eliminarAnuncio(<?= $idanuncio ?>)" class="btn btn-sm btn-danger" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                </button>
+                                <input type="number" min="1" max="3" class="form-control input-sm" id="promo" value="<?= $datos['promocion'] ?>"/>
+                                <button type="button" onclick="promocion(<?= $idanuncio ?>, $('#promo').val())" class="btn btn-sm btn-primary" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </form>
+
+
+                    <?php } ?>
+
                 </div>
                 <div style="padding: 5px 15px;" class="panel-body">
                     <div style="text-align: center">                   
@@ -113,13 +133,13 @@
                         </div>
                     </div>  
 
-<!--                    <b>Actualiza tu anuncio y obtener multiples beneficios:</b>
-                    <ol>
-                        <li>Aumenta la visión de tu publicidad.</li>    
-                        <li>Aumenta el número de clientes potenciales.</li>    
-                        <li>Tu anuncio permanecerá con nosotros 3 meses.</li>    
-                        <li>Re-publicaciones automaticas diarias.</li>    
-                    </ol>                    -->
+                    <!--                    <b>Actualiza tu anuncio y obtener multiples beneficios:</b>
+                                        <ol>
+                                            <li>Aumenta la visión de tu publicidad.</li>    
+                                            <li>Aumenta el número de clientes potenciales.</li>    
+                                            <li>Tu anuncio permanecerá con nosotros 3 meses.</li>    
+                                            <li>Re-publicaciones automaticas diarias.</li>    
+                                        </ol>                    -->
 
 
                 </div>

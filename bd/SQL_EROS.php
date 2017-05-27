@@ -305,7 +305,6 @@ class SQL_EROS {
             }
         }
         $update .= $question;
-
         $stmt = $pdo->prepare($update);
 
         try {

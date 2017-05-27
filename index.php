@@ -15,7 +15,7 @@
         <meta property="og:title"         content="<?= $title ?>" />
         <meta property="og:description"   content="<?= $description ?>" />
         <meta property="og:image"         content="http://www.paginaerotica.com/pag_ima/pagina4.png" />
-
+        <!--<script src="/js/index.js?v=<?= time() ?>"" type="text/javascript"></script>-->
         <script src="/js/index.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
         <?php
         include './plantillas/head.php';

@@ -4,11 +4,11 @@ function eliminarAnuncio(id) {
 
         $.post("/bd/modificar.php",
                 {
-                    id_anuncio: id
+                    id_anuncio: id, operacion: 'delete'
                 }).done(function (data) {
 
             if (data == 1) {
-                alert('Anuncio borrado. Recarga la pagina.');
+                location.reload();
             } else {
                 alert('El anuncio no fue borrado');
             }
@@ -17,6 +17,21 @@ function eliminarAnuncio(id) {
         });
     }
 }
+function promocion(id, promo) {
+    
+    $.post("/bd/modificar.php",
+            {
+                 id_anuncio: id, 'promo': promo, 'operacion': 'promocion'
+            }).done(function (data) {
+                console.log(data);
+        if (data != 1) {
+            alert('El anuncio no fue promobido');
+        }
+    }).fail(function () {
+        alert('Error de comunicación');
+    });
+}
+
 var mostrar_d = true;
 var mostrar_dep = function () {
     if (mostrar_d) {
