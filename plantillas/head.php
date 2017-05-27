@@ -1,3 +1,4 @@
+<meta name="google-site-verification" content="agJ9BdCLLXPprAqQ2TDo9iP5wPTOlCzGtaS87LyfAaA" />
 <meta name="google-site-verification" content="GkBCozOdpdPyUm917o40bIirSD8nv32Bb0cVqYMIZ7Q" />
 <link rel="shortcut icon" href="/pag_ima/fire.ico">  
 <meta name="geo.region" content="CO">
