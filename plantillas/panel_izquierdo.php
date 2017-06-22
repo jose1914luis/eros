@@ -5,9 +5,13 @@
         <ul>
             <li><b>Categorias</b></li>
             <?php
+            $ruta = false;
             foreach ($tipo as $pos => $value) {
                 echo '<li itemscope itemtype="http://schema.org/SiteNavigationElement"><a class="color_a" href="/'
                 . str_replace(' ', '-', $value[1]) . '/" itemprop="url"><span itemprop="name"><h2 class="h2_mod">' . $value[1] . '</h2><em class="conteo"> (' . $value[2] . ') </em></span><meta itemprop="about" content="' . $value[1] . '"/></a> </li>';
+                if($parm1 == $value[1]){
+                    $ruta = true;
+                }
             }
             ?>
         </ul>
@@ -18,11 +22,12 @@
             if ($mostrar_dep) {
 
                 echo '<li><b>Departamentos</b></li>';
-                $conDe = 0;
+                $conDe = 0;                
+                
                 foreach ($dep as $pos => $value) {
                     echo '<li id="deph_' . $conDe . '" ' . (($conDe > 10) ? 'class="hidden""' : '')
                     . ' itemscope itemtype="http://schema.org/SiteNavigationElement"><a class="color_a" href="/'
-                    . str_replace(' ', '-', $value[1]) . '/" itemprop="url"><span itemprop="name">' . $value[1] . '<em class="conteo"> (' . $value[2] . ') </em></span></a> </li>';
+                    . (($ruta)?str_replace(' ', '-', $parm1).'/':'') .str_replace(' ', '-', $value[1]) . '/" itemprop="url"><span itemprop="name">' . $value[1] . '<em class="conteo"> (' . $value[2] . ') </em></span></a> </li>';
                     $conDe = $conDe + 1;
                 }
                 echo '<li><a class="color_g" href="#" onclick="mostrar_dep()" ><span id="txt_dep">Ver mas... <span class= " conteo glyphicon glyphicon-triangle-bottom"></span></span></a> </li>';
