@@ -1,3 +1,12 @@
+.adsc{
+    width: 100%;
+    height: auto;
+    float: left;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+
 .adsl{
     width: 150px;
     height: auto;
@@ -69,13 +78,14 @@ table, th, td {
     overflow: hidden; 
 }
 .color_a{
-    color: #337ab7;
+    color: #03b;
 }
 .color_g{
     color: #666;
 }
 .sflex{
-    display: flex
+    display: flex;
+    font-size: 13px;
 }
 .sfloat{
     float: right
@@ -442,7 +452,7 @@ body {
 .hand{
     cursor: pointer;
     text-decoration: underline;
-    text-decoration-color:#337ab7;
+    text-decoration-color:#03b;
 }
 .td_texto{
     word-wrap: break-word; 
