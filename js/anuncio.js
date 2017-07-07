@@ -51,7 +51,7 @@ $(function () {
             processData: false, // To send DOMDocument or non processed data file it is set to false
             success: function (data)   // A function to be called if request succeeds
             {
-
+                console.log(data);
                 if (data > 0) {
 
                     window.location.href = "/P_AN/" + data + "/" + $("#categoria option:selected").text() + "/" + $("#dep option:selected").text() + "/";
