@@ -30,7 +30,7 @@ if (!empty($parm1) || !empty($parm2)) {
 
     <!--<script src="/js/header.js?v=<?= time() ?>" type="text/javascript"></script>-->
     <script src="/js/header.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
 
             <div>
@@ -39,7 +39,7 @@ if (!empty($parm1) || !empty($parm2)) {
                 <div class="navbar-header">                
 
                     <a class="navbar-brand" href="/" itemprop="url">
-                        <img itemprop="primaryImageOfPage" alt="pagina erotica" src="/../pag_ima/pagina4.png">
+                        <img itemprop="primaryImageOfPage" alt="pagina erotica" src="/../pag_ima/logonegativoslogan2.png">
                     </a>                
 
                     <button type="button" class="btn btn-danger navbar-btn" onclick="window.location = '/anuncio'">                    
