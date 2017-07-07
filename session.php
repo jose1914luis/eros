@@ -15,7 +15,7 @@
         <title>Iniciar Sesión - Paginaerotica.com</title>
     </head>
 
-    <body class="color_b">       
+    <body>       
 
         <div class="wrapper">
 
