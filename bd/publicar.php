@@ -12,7 +12,7 @@ include_once 'Correo.php';
 include_once 'Usuario.php';
 
 
-$CKEYfile = fopen("CKEY.txt", "r") or die("Unable to open file!");
+$CKEYfile = fopen("../CKEY.txt", "r") or die("Unable to open file!");
 $CKEY = fgets($CKEYfile);
 fclose($CKEYfile);
 
