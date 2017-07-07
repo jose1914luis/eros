@@ -21,7 +21,7 @@
 
 
     </head>
-    <body class="color_b">
+    <body>
 
         <?php
         include './plantillas/header.php';
@@ -210,12 +210,10 @@
                         </div>
                     </div>
 
-<!--                    <div class="g-recaptcha"
-                         data-sitekey="6LeItiAUAAAAAP80sFDKYBD8_hN674Jj_OG9s4nQ"
-                         data-callback="onSubmit"
-                         data-size="invisible">
-                    </div>-->
-                    
+                    <center>
+                        <div class="g-recaptcha" data-sitekey="6LeXUSgUAAAAAJSv1jIhOUGINl2MH9xYsvUwJcBk"></div>
+                    </center>
+                    <br>
                     <div class="form-group" style="text-align: center;">
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-primary">Publicar Anuncio</button>
