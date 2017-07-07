@@ -41,67 +41,58 @@ function resize_image($file, $w, $h, $ext) {
     }
 }
 ?>
+<div>                          
+    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>
+<!--<script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>-->
+    <div style="text-align: center">
+        <h1 class="h1_modt"><?= $title ?></h1>    
+    </div>
 
-<?php
+    <b>
+
+        <ol id="top_anuncio" class="breadcrumb" class="color_a">
+            <?php
+            if (isset($parm1)) {
+                echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
+                echo '<li><a href="/' . str_replace(' ', '-', $parm1) . '/">' . $parm1 . '</a></li>';
+                if (isset($parm2)) {
+                    echo '<li><a href="/' . str_replace(' ', '-', $parm1) . '/' . str_replace(' ', '-', $parm2) . '/">' . $parm2 . '</a></li>';
+                }
+            } else {
+                echo '<li><a href="/">Top Anuncios Eroticos Colombia</a></li>';
+            }
+            ?>
+
+        </ol>
+    </b>
+
+
+</div>
+<div class="adsr">
+    <!-- JuicyAds v3.0 -->
+    <script async src="//adserver.juicyads.com/js/jads.js"></script>
+    <ins id="585806" data-width="160" data-height="612"></ins>
+    <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 585806});</script>
+    <!--JuicyAds END-->
+</div>
+
+<div id="upper" class="subir">
+    <i class="fa fa-chevron-circle-up fa-4x" aria-hidden="true"></i>
+</div>
+<div class="full_row row">
+    <?php
 //filter_input(INPUT_GET, 'page');
 
-if ($total > 0) {
+    if ($total > 0) {
 
-    $i = 1;
-    $datos = $paginador->datos;
-    if (is_array($datos) || is_object($datos)) {
+        $i = 1;
+        $datos = $paginador->datos;
+        if (is_array($datos) || is_object($datos)) {
 
-        $pri = true;
-        foreach ($datos as $pos => $value) {
-            if ($pri) {
-                ?>
+            $pri = true;
+            foreach ($datos as $pos => $value) {
 
-                <div>                          
-                <!--                    <script src="/js/contenido.js?v=<?= time() ?>" type="text/javascript"></script>-->
-                    <script src="/js/contenido.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
-                    <div style="text-align: center">
-                        <h1 class="h1_modt"><?= $title ?></h1>    
-                    </div>
-
-                    <b>
-
-                        <ol id="top_anuncio" class="breadcrumb" class="color_a">
-                            <?php
-                            if (isset($parm1)) {
-                                echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
-                                echo '<li><a href="/' . str_replace(' ', '-', $parm1) . '/">' . $parm1 . '</a></li>';
-                                if (isset($parm2)) {
-                                    echo '<li><a href="/' . str_replace(' ', '-', $parm1) . '/' . str_replace(' ', '-', $parm2)  . '/">' . $parm2 . '</a></li>';
-                                }
-                            } else {
-                                echo '<li><a href="/">Top Anuncios Eroticos Colombia</a></li>';
-                            }
-                            ?>
-
-                        </ol>
-                    </b>
-
-
-                </div>
-                <div class="adsr">
-                    <!-- JuicyAds v3.0 -->
-                    <script async src="//adserver.juicyads.com/js/jads.js"></script>
-                    <ins id="585806" data-width="160" data-height="612"></ins>
-                    <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 585806});</script>
-                    <!--JuicyAds END-->
-                </div>
-
-                <div id="upper" class="subir">
-                    <i class="fa fa-chevron-circle-up fa-4x" aria-hidden="true"></i>
-                </div>
-                <div class="full_row row">                    
-
-
-
-                    <?php
-                    $pri = false;
-                }
-                $text_ini = 220;
+                $text_ini = 150;
 
                 $titulo = $value['titulo'];
 
@@ -115,85 +106,84 @@ if ($total > 0) {
                 $edad = $value['edad'];
                 $tarifa = $value['tarifa'];
                 $tel = $value['tel'];
-                ?>                    
-                <div id="panelId<?= $i ?>" class="panel_movil col-lg-10">
-                    <div class="panel_interno panel panel-danger" itemscope itemtype="http://schema.org/Service">
-                        <div class="panel-heading panel_titulo">
-                            <div class="h3_panel">
-                                <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . str_replace(' ', '-', $value['tipo']) . "/" . str_replace(' ', '-', $value['d_nombre']) . "/" ?> ">
-                                    <h3 class="h3_mod f_15 color_a"><?= $titulo ?></h3></a>
-                            </div>
-                            <div class="sflex">                           
-                                <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
-                            </div>
-                            
-                        </div>
-                        <table class="table">
-                            <tr>
-                                <?php
-                                // se carga la imagen.
-                                if (is_array($img) || is_object($img)) {
-                                    ?>
-                                    <td class="tstyle"> 
-                                        <div class="stylediv w3-content w3-display-container">
-                                            <span class="helper"></span>
+                ?>  
+                <div id="panelId<?= $i ?>" class="col-lg-10"> 
 
-                                            <?php
-                                            $con = 0;
-                                            foreach ($img as $pos2 => $url) {
+                    <table class="table" style="<?= ($pri) ? 'background-color: rgba(199, 225, 247, 0.55)' : '' ?>">
+                        <tr>
+                            <?php
+                            if ($pri) {
+                                $pri = false;
+                            } else {
+                                $pri = true;
+                            }
+                            // se carga la imagen.
+                            if (is_array($img) || is_object($img)) {
+                                ?>
+                                <td class="tstyle"> 
+                                    <div class="stylediv w3-content w3-display-container">
+                                        <span class="helper"></span>
 
-                                                $con = $con + 1;
-                                                if ($con < LIMIT_IMG) {
-                                                    $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
+                                        <?php
+                                        $con = 0;
+                                        foreach ($img as $pos2 => $url) {
 
-                                                    $img2 = resize_image(substr($url['url'], 1), 160, 190, $ext) or null;
+                                            $con = $con + 1;
+                                            if ($con < LIMIT_IMG) {
+                                                $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
-                                                    if (isset($img2)) {
-                                                        ob_start();
-                                                        imagejpeg($img2, null, 75);
-                                                        $output = base64_encode(ob_get_contents());
-                                                        ob_end_clean();
-                                                        echo '<img itemprop="logo" class="slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
-                                                    }
+                                                $img2 = resize_image(substr($url['url'], 1), 160, 190, $ext) or null;
+
+                                                if (isset($img2)) {
+                                                    ob_start();
+                                                    imagejpeg($img2, null, 75);
+                                                    $output = base64_encode(ob_get_contents());
+                                                    ob_end_clean();
+                                                    echo '<img itemprop="logo" class="slides_' . $i . '" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/>';
                                                 }
                                             }
-                                            if (count($img) > 1) {
-                                                ?>                                                
-                                                <a class="sopacy w3-btn-floating w3-display-left" onclick="<?= 'plusDivs(slideIndex' . $i . ', -1,' . $i . ')' ?>">&#10094;</a>
-                                                <a class="sopacy w3-btn-floating w3-display-right" onclick="<?= 'plusDivs(slideIndex' . $i . ',1,' . $i . ')' ?>">&#10095;</a>                                                                                                                                                
-                                                <script type="text/javascript">
-                                        var slideIndex<?= $i ?> = {con: 1, total: <?= count($img) ?>};
-                                        init(slideIndex<?= $i ?>, <?= $i ?>);
-                                                </script>
-                                                <?php
-                                            }
-
-
-                                            echo '</div>';
-                                            echo '</td>';
                                         }
-                                        ?>
-
-                                        <td class="td_texto">                                           
-
-                                            <p class="texto" itemprop="description"><?= $texto ?></p>
-
+                                        if (count($img) > 1) {
+                                            ?>                                                
+                                            <script type="text/javascript">
+                                                var slideIndex<?= $i ?> = {con: 1, total: <?= count($img) ?>};
+                                                init(slideIndex<?= $i ?>, <?= $i ?>);
+                                            </script>
                                             <?php
-                                            if (!empty($edad)) {
-                                                echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
-                                            }
-                                            if (!empty($altura))
-                                                echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
-                                            if (!empty($tarifa))
-                                                echo '<b class="f_15" itemprop="price">Tarifa mínima: </b>' . $value['tarifa'] . '<br>';
-                                            if (!empty($tel))
-                                                echo '<b class="f_15">Tel: </b> <a href="' . '/' . str_replace(' ', '-', $value['tipo']) . '/' . str_replace(' ', '-', $value['d_nombre'])  . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
-                                            ?>
-                                        </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                                        }
+
+
+                                        echo '</div>';
+                                        echo '</td>';
+                                    }
+                                    ?>
+
+                                    <td class="td_texto">             
+                                        <div class="h3_panel">
+                                            <a class="hand" href="<?= "/P_AN/" . $value['idanuncio'] . "/" . str_replace(' ', '-', $value['tipo']) . "/" . str_replace(' ', '-', $value['d_nombre']) . "/" ?> ">
+                                                <h3 class="h3_mod f_15 color_a"><?= $titulo ?></h3></a>
+                                        </div>
+                                        <div class="sflex">                           
+                                            <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
+                                        </div>
+
+                                        <p class="texto" itemprop="description"><?= $texto ?></p>
+
+                                        <?php
+                                        if (!empty($edad)) {
+                                            echo '<b class="f_15">Edad: </b>' . $value['edad'] . '<br>';
+                                        }
+                                        if (!empty($altura))
+                                            echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
+                                        if (!empty($tarifa))
+                                            echo '<b class="f_15" itemprop="price">Tarifa mínima: </b>' . $value['tarifa'] . '<br>';
+                                        if (!empty($tel))
+                                            echo '<b class="f_15">Tel: </b> <a href="' . '/' . str_replace(' ', '-', $value['tipo']) . '/' . str_replace(' ', '-', $value['d_nombre']) . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
+                                        ?>
+                                    </td>
+                        </tr>
+                    </table> 
+                </div>                  
                 <?php
                 $i = $i + 1;
             }
@@ -208,9 +198,9 @@ if ($total > 0) {
                 (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm4)) : '') . '/pag_1/" aria-label="Previous">&laquo;</a> </li> <li><a href="pag_' . ($page - 1) . '" aria-label="Previous">&lsaquo;</a></li>' : '<li class="disabled"><span aria-label="Previous">&laquo;</span> </li> <li class="disabled"><span aria-label="Previous">&lsaquo;</span></li>';
 
         $nextlink = ($page < $pages) ? '<li><a href="' . (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm1)) : '') .
-                            (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm2)) : '') .
-                            (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm3)) : '') .
-                            (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm4)) : '') .'/pag_' .($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' .
+                (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm2)) : '') .
+                (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm3)) : '') .
+                (isset($parm4) ? ((substr($parm4, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm4)) : '') . '/pag_' . ($page + 1) . '" aria-label="Next">&rsaquo;</a> </li> <li><a href="' .
                 (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm1)) : '') .
                 (isset($parm2) ? ((substr($parm2, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm2)) : '') .
                 (isset($parm3) ? ((substr($parm3, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm3)) : '') .
