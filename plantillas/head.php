@@ -4,6 +4,7 @@
 <meta name="geo.region" content="CO">
 <meta name="DC.Language" content="es_co">
 <meta name="DC.Creator" content="https://www.paginaerotica.com">
+<meta name="theme-color" content="#101010" />
 <meta http-equiv="Content-Language" content="es_co">
 <meta name="language" content="es_co">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
