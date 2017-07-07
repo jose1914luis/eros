@@ -1,4 +1,18 @@
-      
+<?php
+
+//renderizar imagen sin javascrit
+function whatermark_image($file1, $file2) {
+
+    $stamp = imagecreatefrompng($file2);
+    $im = imagecreatefromjpeg($file1);
+    $marge_right = 10;
+    $marge_bottom = 10;
+    $sx = imagesx($stamp);
+    $sy = imagesy($stamp);
+    imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+    return $im;
+}
+?> 
 <div>                          
     <script src="/js/funciones.min.js?v=<?= VERSION ?>" type="text/javascript"></script>
     <script src="/js/wellcome.js?v=<?= VERSION ?>" type="text/javascript"></script>
@@ -60,7 +74,7 @@
 
                         if (!empty($tarifa)) {
                             echo ($poner_) ? ' | ' : '';
-                            echo '<li style="padding-top: 8px;"><a href="' . (isset($parm1) ? '/' . $parm1 : '') . (isset($parm2) ? '/' . $parm2 : '') . '/' . $tarifa . '">Tarifa: ' . $tarifa . '</a></li>';
+                            echo '<li style="padding-top: 8px;"><a href="' . (isset($parm1) ? '/' . str_replace(' ', '-', $parm1) : '') . (isset($parm2) ? '/' . str_replace(' ', '-', $parm2) : '') . '/' . $tarifa . '">Tarifa: ' . $tarifa . '</a></li>';
                         }
 
                         if (!empty($fecha_inicio)) {
@@ -120,7 +134,19 @@
                     if (is_array($img) || is_object($img)) {
                         foreach ($img as $pos2 => $url) {
 
-                            echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 2) . '" alt="' . $tel . '"></div>';
+                            $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
+
+//                                echo substr($url['url'], 1);
+                            $img2 = whatermark_image(substr($url['url'], 1), './pag_ima/pagina4.png') or null;
+
+                            if (isset($img2)) {
+                                ob_start();
+                                imagejpeg($img2, null, 75);
+                                $output = base64_encode(ob_get_contents());
+                                ob_end_clean();
+                                echo '<div class="cont_img"><img itemprop="logo" class="render" src="data:image/jpeg;base64,' . $output . '" alt="' . $tel . '"/></div>';
+                            }
+                            //echo '<div class="cont_img"><img class="render" src="' . substr($url['url'], 2) . '" alt="' . $tel . '"></div>';
                         }
                     }
                     ?>
