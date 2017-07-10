@@ -38,7 +38,7 @@ class Correo {
 
     public function bienvenida($email, $contra) {
 
-        $this->from = new SendGrid\Email(null, "no_responder@paginaerotica.com");
+        $this->from = new SendGrid\Email('Pagina Erotica', "no_responder@paginaerotica.com");
         $this->to = new SendGrid\Email(null, $email);
         $this->subject = 'Cuenta de Usuario';
 
@@ -56,7 +56,7 @@ class Correo {
 
     public function pago($email, $idanuncio, $url) {
 
-        $this->from = new SendGrid\Email(null, "admin@paginaerotica.com");
+        $this->from = new SendGrid\Email('Pagina Erotica', "admin@paginaerotica.com");
         $this->to = new SendGrid\Email(null, $email);
         $this->subject = 'Anuncio Publicado';
 
@@ -150,7 +150,7 @@ class Correo {
     
      public function pagoinfo($email) {
 
-        $this->from = new SendGrid\Email(null, "admin@paginaerotica.com");
+        $this->from = new SendGrid\Email('Pagina Erotica', "admin@paginaerotica.com");
         $this->to = new SendGrid\Email(null, $email);
         $this->subject = 'Actualiza tu Anuncio';
 
