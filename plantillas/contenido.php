@@ -74,12 +74,49 @@ function resize_image($file, $w, $h, $ext) {
     <ins id="585806" data-width="160" data-height="612"></ins>
     <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 585806});</script>
     <!--JuicyAds END-->
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a href=".">TU ANUNCIO AQUI</a>
+        </div>
+        <div class="panel-body">
+            <img src="../pag_ima/masajista.png" alt="masajista"/>
+        </div>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a href=".">TU ANUNCIO AQUI</a>
+        </div>
+        <div class="panel-body">
+            <img src="../pag_ima/escorts.png" alt="escorts"/>
+        </div>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a href=".">TU ANUNCIO AQUI</a>
+        </div>
+        <div class="panel-body">
+            <img src="../pag_ima/webcam.png" alt="webcam"/>
+        </div>
+    </div>
+
 </div>
 
 <div id="upper" class="subir">
     <i class="fa fa-chevron-circle-up fa-4x" aria-hidden="true"></i>
 </div>
+
+<div id="panelId<?= $i ?>" class="col-lg-10"> 
+    <div class="adsc">
+        <!-- JuicyAds v3.0 -->
+        <script async src="//adserver.juicyads.com/js/jads.js"></script>
+        <ins id="599486" data-width="300" data-height="62"></ins>
+        <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 599486});</script>
+        <!--JuicyAds END-->
+
+    </div>
+</div>
 <div class="full_row row">
+
     <?php
 //filter_input(INPUT_GET, 'page');
 
