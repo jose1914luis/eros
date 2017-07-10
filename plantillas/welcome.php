@@ -1,4 +1,13 @@
 <?php
+if (isset($_POST)) {
+    $enviar = filter_input(INPUT_POST, 'correo');
+    if (isset($enviar)) {
+        include_once 'bd/Correo.php';
+        $correo = new Correo();
+        $correo->pagoinfo($enviar);
+        $correo->enviar();
+    }
+}
 
 //renderizar imagen sin javascrit
 function whatermark_image($file1, $file2) {
@@ -39,16 +48,50 @@ function whatermark_image($file1, $file2) {
 
 </div>
 
-
-<div class="full_row row">
-    <div class="adsc">
-        <!-- JuicyAds v3.0 -->
-        <script async src="//adserver.juicyads.com/js/jads.js"></script>
-        <ins id="598758" data-width="728" data-height="102"></ins>
-        <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 598758});</script>
-        <!--JuicyAds END-->
+<div class="adsr">
+    <!-- JuicyAds v3.0 -->
+    <script async src="//adserver.juicyads.com/js/jads.js"></script>
+    <ins id="585806" data-width="160" data-height="612"></ins>
+    <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 585806});</script>
+    <!--JuicyAds END-->
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a>TU ANUNCIO AQUI</a>
+        </div>
+        <div class="panel-body">
+            <img src="/pag_ima/masajista.png" alt="masajista"/>
+        </div>
     </div>
-    <div class="panel_movil col-xs-12 col-lg-12">
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a>TU ANUNCIO AQUI</a>
+        </div>
+        <div class="panel-body">
+            <img src="/pag_ima/escorts.png" alt="escorts"/>
+        </div>
+    </div>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <a>TU ANUNCIO AQUI</a>
+        </div>
+        <div class="panel-body">
+            <img src="/pag_ima/webcam.png" alt="webcam"/>
+        </div>
+    </div>
+
+</div>
+<div class="full_row row">
+    <div class="col-lg-10">
+        <div class="adsc">
+            <!-- JuicyAds v3.0 -->
+            <script async src="//adserver.juicyads.com/js/jads.js"></script>
+            <ins id="598758" data-width="728" data-height="102"></ins>
+            <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 598758});</script>
+            <!--JuicyAds END-->
+        </div>
+    </div>
+
+    <div class="panel_movil col-lg-10">
 
         <div itemprop="mainContentOfPage">            
             <?php
@@ -64,33 +107,34 @@ function whatermark_image($file1, $file2) {
             ?>
 
             <div class="panel panel-danger">
-                <div class="panel-heading">        
-                    <a><h4 style="color: #333;display: initial;"><b><?= $titulo ?></b></h4></a><br>   
-                    <ul class="list-inline">
-                        <?php
-                        $poner_ = false;
-                        if (!empty($edad)) {
-                            echo '<li style="padding-top: 8px;"><a>Edad: ' . $edad . ' años</li>';
-                            $poner_ = true;
-                        }
-                        if (!empty($altura)) {
-                            echo ($poner_) ? ' | ' : '';
-                            echo '<li style="padding-top: 8px;"><a>Altura: ' . $altura . ' cm</li>';
-                            $poner_ = true;
-                        }
+                <div class="panel-heading">  
+                    <center>
+                        <a><h4 style="color: #333;display: initial;"><b><?= $titulo ?></b></h4></a><br>   
+                        <ul class="list-inline">
+                            <?php
+                            $poner_ = false;
+                            if (!empty($edad)) {
+                                echo '<li style="padding-top: 8px;"><a>Edad: ' . $edad . ' años</li>';
+                                $poner_ = true;
+                            }
+                            if (!empty($altura)) {
+                                echo ($poner_) ? ' | ' : '';
+                                echo '<li style="padding-top: 8px;"><a>Altura: ' . $altura . ' cm</li>';
+                                $poner_ = true;
+                            }
 
-                        if (!empty($tarifa)) {
-                            echo ($poner_) ? ' | ' : '';
-                            echo '<li style="padding-top: 8px;"><a href="' . (isset($parm1) ? '/' . str_replace(' ', '-', $parm1) : '') . (isset($parm2) ? '/' . str_replace(' ', '-', $parm2) : '') . '/' . $tarifa . '">Tarifa: ' . $tarifa . '</a></li>';
-                        }
+                            if (!empty($tarifa)) {
+                                echo ($poner_) ? ' | ' : '';
+                                echo '<li style="padding-top: 8px;"><a href="' . (isset($parm1) ? '/' . str_replace(' ', '-', $parm1) : '') . (isset($parm2) ? '/' . str_replace(' ', '-', $parm2) : '') . '/' . $tarifa . '">Tarifa: ' . $tarifa . '</a></li>';
+                            }
 
-                        if (!empty($fecha_inicio)) {
-                            echo ($poner_) ? ' | ' : '';
-                            echo '<li style="padding-top: 8px;">Fecha de publicación: ' . $fecha_inicio . '</li>';
-                        }
-                        ?>
-                    </ul>
-
+                            if (!empty($fecha_inicio)) {
+                                echo ($poner_) ? ' | ' : '';
+                                echo '<li style="padding-top: 8px;">Fecha de publicación: ' . $fecha_inicio . '</li>';
+                            }
+                            ?>
+                        </ul>
+                    </center>
                     <?php if ($super) { ?>
 
                         <form class="form-inline">
@@ -164,16 +208,34 @@ function whatermark_image($file1, $file2) {
                             <!--<button type="button" class="btn btn-xs btn-primary">Compartir anuncio</button>-->                          
                             <button id="btn_ini" type="button" class="btn btn-xs btn-danger" onclick="window.location = '/denunciar/<?= $idanuncio ?>'" >Denunciar</button>
                         </div>
-                    </div>  
-
-                    <!--                    <b>Actualiza tu anuncio y obtener multiples beneficios:</b>
-                                        <ol>
-                                            <li>Aumenta la visión de tu publicidad.</li>    
-                                            <li>Aumenta el número de clientes potenciales.</li>    
-                                            <li>Tu anuncio permanecerá con nosotros 3 meses.</li>    
-                                            <li>Re-publicaciones automaticas diarias.</li>    
-                                        </ol>                    -->
-
+                    </div>                      
+                </div>
+            </div>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h5><b>ACTUALIZA TU ANUNCIO POR SOLO 10.000$ COP</b></h5>
+                </div>
+                <div class="panel-body">     
+                    <div class="alert alert-success" style="text-align: center">
+                        <p>En paginaerotica.com puedes hacer que tu anuncio sea más visible y obtener múltiples beneficios:<br><br>
+                        <h4><b>Gana mas clientes:</b> Aumenta la visión de tu publicidad.</h4><i class="fa fa-2x fa-eye" aria-hidden="true"></i><br>
+                        <h4><b>Subscricion para clientes:</b> Aumenta el número de clientes potenciales.</h4><i class="fa fa-2x fa-usd" aria-hidden="true"></i><br>
+                        <h4><b>Permanencia en la página:</b> Tu anuncio permanecerá con nosotros 3 meses. </h4><i class="fa fa-2x fa-clock-o" aria-hidden="true"></i><br>
+                        <h4><b>Ahorra tiempo:</b> Re-publicaciones automaticas diarias.</h4><i class="fa fa-2x fa-reply-all" aria-hidden="true"></i><br>
+                        </p>
+                    </div>
+                    <form action="." method="post">
+                        <div class="form-group">
+                            <div class="col-lg-8">
+                                <input type="email" required name="correo" class="form-control" placeholder="Ingresa tu email"/>
+                            </div>
+                            <div class="col-lg-2">
+                                <button type="submit" class="btn btn-primary" >
+                                    Enviar información <i class="fa fa-external-link" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
             </div>
