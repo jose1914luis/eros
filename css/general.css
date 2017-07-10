@@ -4,7 +4,7 @@
     float: left;
     text-align: center;
     margin: 0 auto;
-    
+
 }
 
 .adsl{
@@ -45,11 +45,15 @@
 .panel-heading{
     padding: 5px 5px !important;
 }
-
+.col-lg-10{
+    padding-right: 0px; 
+    padding-left: 0px; 
+}
 table, th, td {
 
     padding: 2px !important;       
     vertical-align:middle !important; 
+    margin-bottom: 10px !important; ;
 }
 .div_about{
     padding-left: 200px;
