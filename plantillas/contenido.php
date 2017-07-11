@@ -53,8 +53,12 @@ function resize_image($file, $w, $h, $ext) {
         <ol id="top_anuncio" class="breadcrumb" class="color_a">
             <?php
             if (isset($parm1)) {
+                $pag = $parm1;
+                if(substr($parm1, 0 , 3) == "pag"){
+                    $pag = "Página " . substr($parm1, 4);
+                }
                 echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
-                echo '<li><a href="/' . str_replace(' ', '-', $parm1) . '/">' . $parm1 . '</a></li>';
+                echo '<li><a href="/' . str_replace(' ', '-', $parm1) . '/">' . $pag . '</a></li>';
                 if (isset($parm2)) {
                     echo '<li><a href="/' . str_replace(' ', '-', $parm1) . '/' . str_replace(' ', '-', $parm2) . '/">' . $parm2 . '</a></li>';
                 }
