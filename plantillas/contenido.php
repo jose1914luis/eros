@@ -105,18 +105,18 @@ function resize_image($file, $w, $h, $ext) {
     <i class="fa fa-chevron-circle-up fa-4x" aria-hidden="true"></i>
 </div>
 
-<div id="panelId<?= $i ?>" class="col-lg-10"> 
-    <div class="adsc">
-        <!-- JuicyAds v3.0 -->
-        <script async src="//adserver.juicyads.com/js/jads.js"></script>
-        <ins id="599486" data-width="300" data-height="62"></ins>
-        <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 599486});</script>
-        <!--JuicyAds END-->
 
-    </div>
-</div>
 <div class="full_row row">
+    <div class="col-lg-10"> 
+        <div class="adsc">
+            <!-- JuicyAds v3.0 -->
+            <script async src="//adserver.juicyads.com/js/jads.js"></script>
+            <ins id="599486" data-width="300" data-height="62"></ins>
+            <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 599486});</script>
+            <!--JuicyAds END-->
 
+        </div>
+    </div>
     <?php
 //filter_input(INPUT_GET, 'page');
 
@@ -129,20 +129,37 @@ function resize_image($file, $w, $h, $ext) {
             $pri = true;
             foreach ($datos as $pos => $value) {
 
-                $text_ini = 150;
+                $text_ini = 250;
 
                 $titulo = $value['titulo'];
 
+                if(strlen($titulo) > 50){
+                    $text_ini = 100;                    
+                }
+               
+
+                $img = $anuncio->getUrlImage($value['idanuncio'], 2);
+                $altura = $value['altura'];
+                if(isset($altura)){
+                    $text_ini = $text_ini - 50;
+                }
+                $edad = $value['edad'];
+                if(isset($edad)){
+                    $text_ini = $text_ini - 50;
+                }
+                $tarifa = $value['tarifa'];
+                if(isset($tarifa)){
+                    $text_ini = $text_ini - 50;
+                }
+                $tel = $value['tel'];
+                if(isset($tel)){
+                    $text_ini = $text_ini - 50;
+                }
+                
                 $texto = strip_tags($value['texto']);
                 if (strlen($texto) >= $text_ini) {
                     $texto = substr($texto, 0, $text_ini) . '...';
                 }
-
-                $img = $anuncio->getUrlImage($value['idanuncio'], 2);
-                $altura = $value['altura'];
-                $edad = $value['edad'];
-                $tarifa = $value['tarifa'];
-                $tel = $value['tel'];
                 ?>  
                 <div id="panelId<?= $i ?>" class="col-lg-10"> 
 
@@ -213,7 +230,7 @@ function resize_image($file, $w, $h, $ext) {
                                         if (!empty($altura))
                                             echo '<b class="f_15">Altura: </b>' . $altura . '<br>';
                                         if (!empty($tarifa))
-                                            echo '<b class="f_15" itemprop="price">Tarifa mínima: </b>' . $value['tarifa'] . '<br>';
+                                            echo '<b class="f_15" itemprop="price">Tarifa: </b>' . $value['tarifa'] . '<br>';
                                         if (!empty($tel))
                                             echo '<b class="f_15">Tel: </b> <a href="' . '/' . str_replace(' ', '-', $value['tipo']) . '/' . str_replace(' ', '-', $value['d_nombre']) . '/' . $value['tel'] . '"><i class="fa fa-phone" aria-hidden="true"></i>' . $value['tel'] . '</a><br>';
                                         ?>
