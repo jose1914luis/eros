@@ -54,7 +54,7 @@ function resize_image($file, $w, $h, $ext) {
             <?php
             if (isset($parm1)) {
                 $pag = $parm1;
-                if(substr($parm1, 0 , 3) == "pag"){
+                if(substr($parm1, 0 , 4) == "pag_"){
                     $pag = "Página " . substr($parm1, 4);
                 }
                 echo '<li><a href="/"><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span> Anuncios</a></li>';
