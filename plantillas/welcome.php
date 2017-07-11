@@ -10,7 +10,7 @@ if (isset($_POST)) {
 }
 
 //renderizar imagen sin javascrit
-function whatermark_image($file1, $file2) {
+function whatermark_image($file1, $file2, $tel) {
 
     $stamp = imagecreatefrompng($file2);
     $im = imagecreatefromjpeg($file1);
@@ -19,6 +19,19 @@ function whatermark_image($file1, $file2) {
     $sx = imagesx($stamp);
     $sy = imagesy($stamp);
     imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+    //imagecopy($im, $stamp, (imagesx($im)- $sx)/2, imagesy($im)/2 - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
+    imagecopy($im, $stamp, 10, 10, 0, 0, imagesx($stamp), imagesy($stamp));
+    if (isset($tel)) {
+
+// Replace path by your own font path
+        $font = '/var/www/eros/font-awesome-4.7.0/fonts/ComicRelief.ttf';
+//        $imagetobewatermark = imagecreatefrompng("images/muggu.png");
+        $watermarktext = $tel;
+        $fontsize = "25";
+        $white = imagecolorallocate($im, 230, 33, 23);
+        imagettftext($im, $fontsize, 0, (imagesx($im)- $sx)/2, (imagesy($im)/2), $white, $font, $watermarktext);
+       
+    }
     return $im;
 }
 ?> 
@@ -189,7 +202,7 @@ function whatermark_image($file1, $file2) {
                             $ext = pathinfo($url['url'], PATHINFO_EXTENSION);
 
 //                                echo substr($url['url'], 1);
-                            $img2 = whatermark_image(substr($url['url'], 1), './pag_ima/pagina4.png') or null;
+                            $img2 = whatermark_image(substr($url['url'], 1), './pag_ima/pagina4.png', $tel) or null;
 
                             if (isset($img2)) {
                                 ob_start();
