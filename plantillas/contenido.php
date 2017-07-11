@@ -277,7 +277,7 @@ function resize_image($file, $w, $h, $ext) {
 
                         <?php
                         echo $prevlink;
-                        for ($j = max(1, $page - 5); $j <= min($page + 5, $pages); $j++) {
+                        for ($j = max(1, $page - 15); $j <= min($page + 15, $pages); $j++) {
 
                             echo '<li ' . (($j == $page) ? 'class="active"' : '' ) . '><a href="' .
                             (isset($parm1) ? ((substr($parm1, 0, 4) == 'pag_') ? '' : '/' . str_replace(' ', '-', $parm1)) : '') .
