@@ -85,9 +85,10 @@ function whatermark_image($file1, $file2) {
         <div class="adsc">
             <!-- JuicyAds v3.0 -->
             <script async src="//adserver.juicyads.com/js/jads.js"></script>
-            <ins id="598758" data-width="728" data-height="102"></ins>
-            <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 598758});</script>
+            <ins id="599486" data-width="300" data-height="62"></ins>
+            <script>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone': 599486});</script>
             <!--JuicyAds END-->
+
         </div>
     </div>
 
