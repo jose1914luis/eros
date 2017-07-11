@@ -16,7 +16,7 @@
 <link href="/css/w3.css?v=<?= VERSION ?>" rel="stylesheet" type="text/css"/>
 <link href="/css/bootstrap-social-gh-pages/bootstrap-social.css" rel="stylesheet" type="text/css"/>
 <link href="/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-<script src="../js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script src="/bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript"></script>
 
 <script src="/js/google.js" type="text/javascript"></script>
