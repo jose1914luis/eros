@@ -160,6 +160,11 @@ function resize_image($file, $w, $h, $ext) {
                     $text_ini = $text_ini - 50;
                 }
                 
+                if($text_ini < 0){
+                    
+                    $text_ini = 50;
+                }
+                
                 $texto = strip_tags($value['texto']);
                 if (strlen($texto) >= $text_ini) {
                     $texto = substr($texto, 0, $text_ini) . '...';
@@ -225,7 +230,7 @@ function resize_image($file, $w, $h, $ext) {
                                             <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
                                         </div>
 
-                                        <p class="texto" itemprop="description"><?= strlen($texto) .' -' .$text_ini .$texto ?></p>
+                                        <p class="texto" itemprop="description"><?= $texto ?></p>
 
                                         <?php
                                         if (!empty($edad)) {
