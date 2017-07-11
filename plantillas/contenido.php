@@ -83,7 +83,7 @@ function resize_image($file, $w, $h, $ext) {
             <a href=".">TU ANUNCIO AQUI</a>
         </div>
         <div class="panel-body">
-            <img src="../pag_ima/masajista.png" alt="masajista"/>
+            <img src="/pag_ima/masajista.png" alt="masajista"/>
         </div>
     </div>
     <div class="panel panel-danger">
@@ -91,7 +91,7 @@ function resize_image($file, $w, $h, $ext) {
             <a href=".">TU ANUNCIO AQUI</a>
         </div>
         <div class="panel-body">
-            <img src="../pag_ima/escorts.png" alt="escorts"/>
+            <img src="/pag_ima/escorts.png" alt="escorts"/>
         </div>
     </div>
     <div class="panel panel-danger">
@@ -99,7 +99,7 @@ function resize_image($file, $w, $h, $ext) {
             <a href=".">TU ANUNCIO AQUI</a>
         </div>
         <div class="panel-body">
-            <img src="../pag_ima/webcam.png" alt="webcam"/>
+            <img src="/pag_ima/webcam.png" alt="webcam"/>
         </div>
     </div>
 
