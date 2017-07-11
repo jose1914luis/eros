@@ -22,6 +22,6 @@ if (isset($_SESSION['user_session'])) {
 //***************************************
 
 //variables globales.
-define("LIMIT", 50);
+define("LIMIT", 40);
 define("LIMIT_IMG", 3);
 define("VERSION", 20);
