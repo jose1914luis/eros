@@ -225,7 +225,7 @@ function resize_image($file, $w, $h, $ext) {
                                             <?= $value['tipo'] . ' - ' . $value['d_nombre'] . ' - ' . $value['m_nombre'] ?>
                                         </div>
 
-                                        <p class="texto" itemprop="description"><?= strlen($texto) .$texto ?></p>
+                                        <p class="texto" itemprop="description"><?= strlen($texto) .' -' .$text_ini .$texto ?></p>
 
                                         <?php
                                         if (!empty($edad)) {
