@@ -19,18 +19,18 @@
 
 """
 
-import os.path
-import sys
-import string
+from HTMLParser import HTMLParseError
+from HTMLParser import HTMLParser
 import getopt
+import httplib
+import os.path
+import re
+import robotparser
+import string
+import sys
 import urllib2
 import urlparse
-from HTMLParser import HTMLParser
-from HTMLParser import HTMLParseError
 import xml.sax.saxutils
-import robotparser
-import re
-import httplib
 
 
 helpText = """sitemap_gen.py version 1.1.0 (2009-09-05)
@@ -90,18 +90,18 @@ def getPage(url):
         page = ""
 #        if url ==  chek:
 #            print 'file---->' , f
-    for i in f.readlines():
-        page += i
-    date = f.info().getdate('Last-Modified')
-    if date == None:
-        date = (0, 0, 0)
-    else:
-        date = date[:3]
-    f.close()
-    return (page, date, f.url)
-except urllib2.URLError, detail:
-    print "%s. Skipping..." % (detail)
-    return (None, (0, 0, 0), "")
+        for i in f.readlines():
+            page += i
+        date = f.info().getdate('Last-Modified')
+        if date == None:
+            date = (0, 0, 0)
+        else:
+            date = date[:3]
+        f.close()
+        return (page, date, f.url)
+    except urllib2.URLError, detail:
+        print "%s. Skipping..." % (detail)
+        return (None, (0, 0, 0), "")
 #end def
 
 
@@ -187,7 +187,7 @@ class MyHTMLParser(HTMLParser):
             #if url.encode('utf8') ==  chek: generar error .encode('utf8')
             #    print 'url utf8->>>', url
             if self.baseUrl == chek:
-                print 'salida ->>>',self.hasBlockedExtension(url.encode('utf8')), self.serverself.redirects.count(url.encode('utf8'))
+                print 'salida ->>>', self.hasBlockedExtension(url.encode('utf8')), self.serverself.redirects.count(url.encode('utf8'))
             if self.hasBlockedExtension(url.encode('utf8')) or self.redirects.count(url.encode('utf8')) > 0:            
                 return
             if (self.robotParser <> None) and not(self.robotParser.can_fetch("*", url.encode('utf8'))):
