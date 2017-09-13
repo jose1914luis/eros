@@ -173,18 +173,15 @@ class MyHTMLParser(HTMLParser):
             if url == "": return
             
             # Check if we want to follow the link
-            if urlparse.urlsplit(url.encode('utf8'))[1] <> self.server:
-                print 'entro1'
+            if urlparse.urlsplit(url.encode('utf8'))[1] <> self.server:                
                 return
-            if self.hasBlockedExtension(url.encode('utf8')) or self.redirects.count(url.encode('utf8')) > 0:
-                print 'entro2'
+            if self.hasBlockedExtension(url.encode('utf8')) or self.redirects.count(url.encode('utf8')) > 0:            
                 return
             if (self.robotParser <> None) and not(self.robotParser.can_fetch("*", url.encode('utf8'))):
                 print "URL restricted by ROBOTS.TXT: ", url
                 return
             # It's OK to add url to the map and fetch it later
-            if not(self.pageMap.has_key(url)):
-                print 'entro3'
+            if not(self.pageMap.has_key(url)):                
                 self.pageMap[url] = ()
         #end if
 	    
@@ -207,11 +204,11 @@ def parsePages(startUrl, maxUrls, blockExtensions):
     while True:
         url = getUrlToProcess(pageMap).encode('utf8')
         if url == None:
-            break
-        print " ", url
+            break            
+        print " ", 'url' + url
         page, date, newUrl = getPage(url)
         if page == None:
-            del pageMap[url.decode('utf8')]
+            del pageMap[url.encode('utf8')]
 	elif url != newUrl:
 	    print "Redirect -> " + newUrl
             del pageMap[url]
