@@ -208,7 +208,7 @@ def parsePages(startUrl, maxUrls, blockExtensions):
             break            
         print " ", 'url: ' + url
         page, date, newUrl = getPage(url.encode('utf8'))
-        if url ==  "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS.":
+        if url ==  "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS.".encode('utf8'):
             print newUrl, date
         if page == None:
             print 'elimina url'
