@@ -186,16 +186,16 @@ class MyHTMLParser(HTMLParser):
             
             #if url.encode('utf8') ==  chek: generar error .encode('utf8')
             #    print 'url utf8->>>', url
-            if self.baseUrl == chek:
-                print 'salida ->>>', self.hasBlockedExtension(url.encode('utf8')), self.serverself.redirects.count(url.encode('utf8'))
+#            if self.baseUrl == chek:
+#                print 'salida ->>>', self.hasBlockedExtension(url.encode('utf8')), self.serverself.redirects.count(url.encode('utf8'))
             if self.hasBlockedExtension(url.encode('utf8')) or self.redirects.count(url.encode('utf8')) > 0:            
                 return
             if (self.robotParser <> None) and not(self.robotParser.can_fetch("*", url.encode('utf8'))):
                 print "URL restricted by ROBOTS.TXT: ", url
                 return
             # It's OK to add url to the map and fetch it later
-            if not(self.pageMap.has_key(url)):                
-                self.pageMap[url] = ()
+            if not(self.pageMap.has_key(url.encode('utf8'))):                
+                self.pageMap[url.encode('utf8')] = ()
         #end if
 	    
     #end def
