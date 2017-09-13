@@ -181,7 +181,7 @@ class MyHTMLParser(HTMLParser):
             
             # Check if we want to follow the link
             if urlparse.urlsplit(url.encode('utf8'))[1] <> self.server:    
-                print 'salio'
+#                print 'salio'
                 return
             
             #if url.encode('utf8') ==  chek: generar error .encode('utf8')
@@ -215,7 +215,7 @@ def parsePages(startUrl, maxUrls, blockExtensions):
     robotParser = getRobotParser(startUrl.encode('utf8'))
 
     while True:
-        url = getUrlToProcess(pageMap).encode('utf8')
+        url = getUrlToProcess(pageMap)#.encode('utf8')
         if url == None:
             break            
         print " ", url
