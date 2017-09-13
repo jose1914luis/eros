@@ -1,3 +1,4 @@
+# coding: utf-8
 #! /usr/bin/env python
 """ 
     Copyright (C) 2007-2009 Vladimir Toncar
@@ -208,7 +209,7 @@ def parsePages(startUrl, maxUrls, blockExtensions):
             break            
         print " ", 'url: ' + url
         page, date, newUrl = getPage(url.encode('utf8'))
-        if url ==  "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS.".encode('utf8'):
+        if url ==  "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS.":
             print newUrl, date
         if page == None:
             print 'elimina url'
