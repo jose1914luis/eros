@@ -81,54 +81,50 @@ For more information, visit http://toncar.cz/opensource/sitemap_gen.html
 """
 
 allowedChangefreq = ["always", "hourly", "daily", "weekly", \
-                     "monthly", "yearly", "never"]
+    "monthly", "yearly", "never"]
 
 def getPage(url):
-    chek = "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS."
-    #if url.encode('utf8') ==  chek: generar error .encode('utf8')
-    #    print 'url utf8->>>', url
-    if url ==  chek:
-        print 'url->>>', url
+   
     try:
         f = urllib2.urlopen(url)
         page = ""
-        if url ==  chek:
-            print 'file---->' , f
-        for i in f.readlines():
-            page += i
-        date = f.info().getdate('Last-Modified')
-        if date == None:
-            date = (0, 0, 0)
-        else:
-            date = date[:3]
-        f.close()
-        return (page, date, f.url)
-    except urllib2.URLError, detail:
-        print "%s. Skipping..." % (detail)
-        return (None, (0,0,0), "")
+#        if url ==  chek:
+#            print 'file---->' , f
+    for i in f.readlines():
+        page += i
+    date = f.info().getdate('Last-Modified')
+    if date == None:
+        date = (0, 0, 0)
+    else:
+        date = date[:3]
+    f.close()
+    return (page, date, f.url)
+except urllib2.URLError, detail:
+    print "%s. Skipping..." % (detail)
+    return (None, (0, 0, 0), "")
 #end def
 
 
 def joinUrls(baseUrl, newUrl):
-	helpUrl, fragment = urlparse.urldefrag(newUrl)
-        return urlparse.urljoin(baseUrl, helpUrl)
+    helpUrl, fragment = urlparse.urldefrag(newUrl)
+    return urlparse.urljoin(baseUrl, helpUrl)
 #end def
 
 
 def getRobotParser(startUrl):
-	rp = robotparser.RobotFileParser()
+    rp = robotparser.RobotFileParser()
 	
-	robotUrl = urlparse.urljoin(startUrl, "/robots.txt")
-	page, date, url = getPage(robotUrl)
+    robotUrl = urlparse.urljoin(startUrl, "/robots.txt")
+    page, date, url = getPage(robotUrl)
 
-	if page == None:
-	    print "Could not read ROBOTS.TXT at:", robotUrl
-	    return None
-	#end if
+    if page == None:
+        print "Could not read ROBOTS.TXT at:", robotUrl
+        return None
+    #end if
 
-	rp.parse(page)
-	print "Found ROBOTS.TXT at:", robotUrl
-	return rp
+    rp.parse(page)
+    print "Found ROBOTS.TXT at:", robotUrl
+    return rp
 #end def
 
 
@@ -143,7 +139,8 @@ class MyHTMLParser(HTMLParser):
         self.maxUrls = maxUrls
         self.blockExtensions = blockExtensions
 	self.robotParser = robotParser
-    #end def
+       
+        #end def
 
     def hasBlockedExtension(self, url):
         p = urlparse.urlparse(url)
@@ -166,6 +163,7 @@ class MyHTMLParser(HTMLParser):
 		print "BASE URL set to", self.baseUrl
 
         if (tag.upper() == "A"):
+            chek = "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS."
 	    #print "Attrs:", attrs
             url = ""
             # Let's scan the list of tag's attributes
@@ -182,8 +180,14 @@ class MyHTMLParser(HTMLParser):
             if url == "": return
             
             # Check if we want to follow the link
-            if urlparse.urlsplit(url.encode('utf8'))[1] <> self.server:                
+            if urlparse.urlsplit(url.encode('utf8'))[1] <> self.server:    
+                print 'salio'
                 return
+            
+            #if url.encode('utf8') ==  chek: generar error .encode('utf8')
+            #    print 'url utf8->>>', url
+            if self.baseUrl == chek:
+                print 'salida ->>>',self.hasBlockedExtension(url.encode('utf8')), self.serverself.redirects.count(url.encode('utf8'))
             if self.hasBlockedExtension(url.encode('utf8')) or self.redirects.count(url.encode('utf8')) > 0:            
                 return
             if (self.robotParser <> None) and not(self.robotParser.can_fetch("*", url.encode('utf8'))):
@@ -247,12 +251,12 @@ def generateSitemapFile(pageMap, fileName, changefreq="", priority=0.0):
     for i in pageMap.keys():
         fw.write('<url>\n  <loc>%s</loc>\n' % (xml.sax.saxutils.escape(i)))
         uri = xml.sax.saxutils.escape(i)             
-        if pageMap[i] not in [(), (0,0,0)]:
+        if pageMap[i] not in [(), (0, 0, 0)]:
             fw.write('  <lastmod>%4d-%02d-%02d</lastmod>\n' % pageMap[i])
         if changefreq <> "":
-             if uri.count('/') == 7:
+            if uri.count('/') == 7:
                 fw.write('  <changefreq>%s</changefreq>\n' % ('monthly'))
-             else:
+            else:
                 fw.write('  <changefreq>%s</changefreq>\n' % (changefreq))
                 #fw.write('  <changefreq>%s</changefreq>\n' % ('weekly'))
         if priority > 0.0:
@@ -277,10 +281,10 @@ def generateSitemapFile(pageMap, fileName, changefreq="", priority=0.0):
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:],\
-                "hb:c:m:p:o:", \
-                ["help", "block=", "changefreq=", \
-                 "max-urls=", "priority=", "output-file="])
+        opts, args = getopt.getopt(sys.argv[1:], \
+                                   "hb:c:m:p:o:", \
+                                   ["help", "block=", "changefreq=", \
+                                   "max-urls=", "priority=", "output-file="])
     except getopt.GetoptError:
         print helpText
         return
@@ -292,7 +296,7 @@ def main():
     maxUrls = 1000
     pageMap = {}
 
-    for opt,arg in opts:
+    for opt, arg in opts:
         if opt in ("-h", "--help"):
             print helpText
             return
