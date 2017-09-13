@@ -205,9 +205,10 @@ def parsePages(startUrl, maxUrls, blockExtensions):
         url = getUrlToProcess(pageMap).encode('utf8')
         if url == None:
             break            
-        print " ", 'url' + url
+        print " ", 'url: ' + url
         page, date, newUrl = getPage(url)
         if page == None:
+            print 'elimina url'
             del pageMap[url.encode('utf8')]
 	elif url != newUrl:
 	    print "Redirect -> " + newUrl
