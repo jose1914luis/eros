@@ -173,9 +173,9 @@ class MyHTMLParser(HTMLParser):
             if url == "": return
             
             # Check if we want to follow the link
-            if urlparse.urlsplit(url)[1] <> self.server:
+            if urlparse.urlsplit(url.encode('utf8'))[1] <> self.server:
                 return
-            if self.hasBlockedExtension(url) or self.redirects.count(url.encode('utf8')) > 0:
+            if self.hasBlockedExtension(url.encode('utf8')) or self.redirects.count(url.encode('utf8')) > 0:
                 return
             if (self.robotParser <> None) and not(self.robotParser.can_fetch("*", url.encode('utf8'))):
                 print "URL restricted by ROBOTS.TXT: ", url
