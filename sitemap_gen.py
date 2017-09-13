@@ -85,8 +85,8 @@ allowedChangefreq = ["always", "hourly", "daily", "weekly", \
 
 def getPage(url):
     chek = "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS."
-    if url.encode('utf8') ==  chek:
-        print 'url utf8->>>', url
+    #if url.encode('utf8') ==  chek: generar error .encode('utf8')
+    #    print 'url utf8->>>', url
     if url ==  chek:
         print 'url->>>', url
     try:
