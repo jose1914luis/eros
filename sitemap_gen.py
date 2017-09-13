@@ -85,12 +85,14 @@ allowedChangefreq = ["always", "hourly", "daily", "weekly", \
 
 def getPage(url):
     chek = "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS."
-    if url ==  check:
+    if url.encode('utf8') ==  chek:
+        print 'url utf8->>>', url
+    if url ==  chek:
         print 'url->>>', url
     try:
         f = urllib2.urlopen(url)
         page = ""
-        if url ==  check:
+        if url ==  chek:
             print 'file---->' , f
         for i in f.readlines():
             page += i
@@ -211,12 +213,10 @@ def parsePages(startUrl, maxUrls, blockExtensions):
     while True:
         url = getUrlToProcess(pageMap).encode('utf8')
         if url == None:
-            print 'break'
             break            
-        print " ", 'url: ' + url
+        print " ", url
         page, date, newUrl = getPage(url)#genera error al mandar url con signos de puntuacion       
         if page == None:
-            print 'elimina url'
             del pageMap[url.encode('utf8')]
 	elif url != newUrl:
 	    print "Redirect -> " + newUrl
