@@ -209,7 +209,7 @@ def parsePages(startUrl, maxUrls, blockExtensions):
             print 'break'
             break            
         print " ", 'url: ' + url
-        page, date, newUrl = getPage(url.encode('utf8'))
+        page, date, newUrl = getPage(url)#genera error al mandar url con signos de puntuacion
         if url ==  "http://www.sigmin.co/mineral/ARENAS-Y-GRAVAS-SILÍCEAS-ELABORADAS-(TRITURADAS,-MOLIDAS-O-PULVERIZADAS).-MINERALES-DE-METALES-PRECIOSOS-Y-SUS-CONCENTRADOS.":
             print newUrl, date
         if page == None:
@@ -221,7 +221,7 @@ def parsePages(startUrl, maxUrls, blockExtensions):
 	    pageMap[newUrl] = ()
 	    redirects.append(url)
         else:
-            print 'son iguales'
+            #aca siempre entra para trer la pagina
             pageMap[url] = date
             parser = MyHTMLParser(pageMap, redirects, url, maxUrls, blockExtensions, robotParser)
             try:
